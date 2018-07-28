@@ -2,7 +2,7 @@ import React from 'react';
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
 
 import './ui/App';
-import './ui/Update';
+import Update from './ui/Update';
 
 export default (
     <BrowserRouter>
