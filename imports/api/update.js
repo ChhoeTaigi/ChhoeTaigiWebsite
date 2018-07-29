@@ -3,7 +3,7 @@ const TaibunHoabunSoanntengSutianUri = baseUri + 'ChhoeTaigi_TaibunHoabunSoannte
 
 import request from 'request';
 import csv from 'csvtojson';
-import knex from 'knex';
+import pg from './pg';
 
 function fetch() {
     let jsonArray = [];
@@ -20,15 +20,7 @@ function fetch() {
 }
 
 function save(jsonArray) {
-    const pg = knex({
-        client: 'postgresql',
-        connection: {
-          host:     '127.0.0.1',
-          database: 'dictionary',
-          user:     'postgres',
-          password: '12345678',
-        }
-    });
+    
     pg.batchInsert('TaibunHoabunSoanntengSutian', jsonArray)
     .catch((err) => {
         console.log("err: ", err);
