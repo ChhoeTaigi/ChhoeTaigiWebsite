@@ -16,7 +16,7 @@ exports.up = function(knex, Promise) {
             table.string('word_other_property').nullable();
             table.string('taigi_hanji').nullable();
             table.string('hoagi').nullable();
-            table.string('descriptions').nullable();
+            table.string('descriptions', 1023).nullable();
         }),
     ]);
 };

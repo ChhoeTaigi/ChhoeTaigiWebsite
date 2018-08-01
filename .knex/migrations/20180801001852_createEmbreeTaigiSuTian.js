@@ -11,8 +11,8 @@ exports.up = function(knex, Promise) {
             table.string('abbreviations').nullable();
             table.string('noun_classifiers').nullable();
             table.string('reduplication').nullable();
-            table.string('english_descriptions').nullable();
-            table.integer('page_number').nullable();
+            table.string('english_descriptions', 511).nullable();
+            table.string('page_number').nullable();
         }),
     ]);
 };

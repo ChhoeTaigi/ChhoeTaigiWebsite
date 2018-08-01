@@ -8,7 +8,7 @@ exports.up = function(knex, Promise) {
             table.string('tailo_input').nullable();
             table.string('tailo_unicode').nullable();
             table.string('taigi_hanji').nullable();
-            table.integer('page_number').nullable();
+            table.string('page_number').nullable();
         }),
     ]);
 };

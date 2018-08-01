@@ -12,7 +12,7 @@ exports.up = function(knex, Promise) {
             table.string('taigi_kaisoeh_poj').nullable();
             table.string('taigi_kaisoeh_tailo').nullable();
             table.string('taigi_kaisoeh_hanlo_poj').nullable();
-            table.integer('page_number').nullable();
+            table.string('page_number').nullable();
         }),
     ]);
 };

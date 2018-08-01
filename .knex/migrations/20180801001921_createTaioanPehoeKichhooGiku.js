@@ -12,7 +12,7 @@ exports.up = function(knex, Promise) {
             table.string('tailo_unicode').nullable();
             table.string('tailo_other_unicode').nullable();
             table.string('hoagi').nullable();
-            table.integer('page_number').nullable();
+            table.string('page_number').nullable();
         }),
     ]);
 };

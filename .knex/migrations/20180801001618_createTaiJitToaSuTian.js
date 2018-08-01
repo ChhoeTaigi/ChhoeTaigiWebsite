@@ -13,11 +13,11 @@ exports.up = function(knex, Promise) {
             table.string('tailo_other_unicode').nullable();
             table.string('hanlo_poj').nullable();
             table.string('hanlo_tailo').nullable();
-            table.string('taigi_kaisoeh_hanlo_poj').nullable();
-            table.string('taigi_kaisoeh_hanlo_tailo').nullable();
-            table.string('taigi_leku_hanlo_poj').nullable();
-            table.string('taigi_leku_hanlo_tailo').nullable();
-            table.integer('page_number').nullable();
+            table.string('taigi_kaisoeh_hanlo_poj', 1023).nullable();
+            table.string('taigi_kaisoeh_hanlo_tailo', 1023).nullable();
+            table.string('taigi_leku_hanlo_poj', 1023).nullable();
+            table.string('taigi_leku_hanlo_tailo', 1023).nullable();
+            table.string('page_number').nullable();
         }),
     ]);
 };
