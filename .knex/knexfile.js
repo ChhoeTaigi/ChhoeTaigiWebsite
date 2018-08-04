@@ -1,6 +1,6 @@
 // Update with your config settings.
 
-import { host } from '../imports/api/pg';
+const host = require('../imports/api/host.js');
 
 module.exports = {
 

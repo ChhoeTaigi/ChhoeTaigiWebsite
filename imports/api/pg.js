@@ -1,6 +1,6 @@
 import knex from 'knex';
 
-export const host = '127.0.0.1';
+const host = require('./host');
 
 let pg;
 if (Meteor.isServer) {

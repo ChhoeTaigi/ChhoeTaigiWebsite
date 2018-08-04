@@ -1,5 +1,5 @@
 const baseUri = 'http://raw.githubusercontent.com/ChhoeTaigi/ChhoeTaigiDatabase/master/ChhoeTaigiDatabase';
-const dateUri = '20180731-152831'
+const dateUri = '20180803-024253'
 const TaibunHoabunSoanntengSutianUri = baseUri + '/' +dateUri + '/' + 'ChhoeTaigi_TaibunHoabunSoanntengSutian.csv';
 
 import request from 'request';
