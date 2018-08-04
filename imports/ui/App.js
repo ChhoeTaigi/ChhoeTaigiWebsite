@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 
-import ResultRow from './ResultRow';
-import DicStruct from '../api/dictionary_struct';
+import DictionaryBrief from './DictionaryBrief';
 
 export default class App extends Component {
     constructor(props) {
@@ -13,103 +12,61 @@ export default class App extends Component {
     }
 
     handleSubmit(event) {
-        let input = this.state.input;
-        for (let key in input) {
-            if (!input[key].trim()) {
-                delete input[key];
-            }
+        let searchMethod = Array.from(document.getElementsByName('searchMethod')).filter(e => e.checked)[0].value;
+        let spellingMethod = Array.from(document.getElementsByName('spellingMethod')).filter(e => e.checked)[0].value;
+        let spelling = document.getElementById('spelling').value;
+        let hanlo_taibun_poj = document.getElementById('hanlo_taibun_poj').value;
+        let hoabun = document.getElementById('hoabun').value;
+        let english_descriptions = document.getElementById('english_descriptions').value;
+        let params = {
+            searchMethod: searchMethod,
+            spellingMethod: spellingMethod,
+            spelling: spelling,
+            hanlo_taibun_poj: hanlo_taibun_poj,
+            hoabun: hoabun,
+            english_descriptions: english_descriptions,
         }
-        Meteor.call('search', input, (error, result) => {
+        Meteor.call('search.all', params, (error, results) => {
+            if (error) throw new Meteor.Error(error);
+            for (let idx in results) {
+                if (results[idx].lists.length === 0)
+                    delete results[idx];
+            }
             this.setState({
-                results: result
-            })
+                results: results,
+            });
         });
         event.preventDefault();
-    }
-
-    handleChange(event) {
-        let input = this.state.input;
-        input[event.target.id] = event.target.value; 
-        this.setState({
-            input: input
-        });
     }
 
     render() {
         return (
             <div>
-                <div><b>wildcard 字元:</b><br />
-                    %: 任意字數<br />
-                    _: 一個字<br /><br />
-                </div>
                 <form onSubmit={this.handleSubmit.bind(this)}>
-                    <label>
-                        白話字輸入
-                        <input id="poj_input" type="text" onChange={this.handleChange.bind(this)} />
-                    </label>
+                    <label><input type="radio" name="searchMethod" value="equals" defaultChecked />精確搜尋</label>
+                    <label><input type="radio" name="searchMethod" value="contains" />模糊搜尋</label>
                     <br />
-                    <label>
-                        其他講法ê白話字輸入
-                        <input id="poj_other_input" type="text" onChange={this.handleChange.bind(this)} />
-                    </label>
+                    <label><input type="radio" name="spellingMethod" value="poj_unicode" defaultChecked />白話字</label>
+                    <label><input type="radio" name="spellingMethod" value="poj_input" />白話字輸入</label>
+                    <label><input type="radio" name="spellingMethod" value="kiplmj_unicode" />教育部羅馬字</label>
+                    <label><input type="radio" name="spellingMethod" value="kiplmj_input" />教育部羅馬字輸入</label>
                     <br />
-                    <label>
-                        白話字萬國碼
-                        <input id="poj_unicode" type="text" onChange={this.handleChange.bind(this)} />
-                    </label>
+                    <input type="text" id="spelling" placeholder="輸入關鍵字"/>
                     <br />
-                    <label>
-                        其他講法ê白話字萬國碼
-                        <input id="poj_other_unicode" type="text" onChange={this.handleChange.bind(this)} />
-                    </label>
+                    <label htmlFor="hanlo_taibun_poj">漢羅台文</label>
+                    <input type="text" id="hanlo_taibun_poj" placeholder="輸入關鍵字"/>
                     <br />
-                    <label>
-                        台羅輸入
-                        <input id="tailo_input" type="text" onChange={this.handleChange.bind(this)} />
-                    </label>
+                    <label htmlFor="hoabun">對應華文</label>
+                    <input type="text" id="hoabun" placeholder="輸入關鍵字"/>
                     <br />
-                    <label>
-                        其他講法ê台羅輸入
-                        <input id="tailo_other_input" type="text" onChange={this.handleChange.bind(this)} />
-                    </label>
-                    <br />
-                    <label>
-                        台羅萬國碼
-                        <input id="tailo_unicode" type="text" onChange={this.handleChange.bind(this)} />
-                    </label>
-                    <br />
-                    <label>
-                        其他講法ê台羅萬國碼
-                        <input id="tailo_other_unicode" type="text" onChange={this.handleChange.bind(this)} />
-                    </label>
-                    <br />
-                    <label>
-                        漢羅（白話字）
-                        <input id="hanlo_poj" type="text" onChange={this.handleChange.bind(this)} />
-                    </label>
-                    <br />
-                    <label>
-                        漢羅（台羅）
-                        <input id="hanlo_tailo" type="text" onChange={this.handleChange.bind(this)} />
-                    </label>
-                    <br />
-                    <label>
-                        華語漢字
-                        <input id="hoagi" type="text" onChange={this.handleChange.bind(this)} />
-                    </label>
+                    <label htmlFor="english_descriptions">對應英文</label>
+                    <input type="text" id="english_descriptions" placeholder="輸入關鍵字"/>
                     <br />
                     <input type="submit" value="查詢" />
                 </form>
                 <div>
                     {this.state.results.map((result) => {
-                        let columns
-                        for (let idx in DicStruct) {
-                            if (DicStruct[idx].name === 'TaibunHoabunSoanntengSutian') {
-                                columns = DicStruct[idx].columns;
-                                break;
-                            }
-                        }
-                        return <ResultRow key={result.id} result={result} columns={columns} />
+                        return <DictionaryBrief key={result.dic} list={result} />
                     })}
                 </div>
             </div>
