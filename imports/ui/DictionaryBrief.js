@@ -4,7 +4,7 @@ import DicStruct from '../api/dictionary_struct';
 export default class DictionaryBrief extends Component {
     render() {
         let dic = this.props.list.dic;
-        let chineseName = DicStruct.filter(struct => dic)[0].chineseName;
+        let chineseName = DicStruct.filter(struct => struct.name===dic)[0].chineseName;
         return (
             <div>
                 <h2>{chineseName}</h2>
