@@ -4,9 +4,10 @@ import DicStruct from '../api/dictionary_struct';
 export default class DictionaryBrief extends Component {
     render() {
         let dic = this.props.list.dic;
+        let chineseName = DicStruct.filter(struct => dic)[0].chineseName;
         return (
             <div>
-                <h2>{dic}</h2>
+                <h2>{chineseName}</h2>
                 <ol>
                     {this.props.list.lists.map((list) => {
                         return <WordBiref key={list.id} dic={dic} columns={list} />
