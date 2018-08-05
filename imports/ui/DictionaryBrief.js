@@ -1,7 +1,12 @@
 import React, { Component } from 'react';
+
 import DicStruct from '../api/dictionary_struct';
 
 export default class DictionaryBrief extends Component {
+    showMore() {
+        this.props.showMore();
+    }
+
     render() {
         let dic = this.props.list.dic;
         let chineseName = DicStruct.filter(struct => struct.name===dic)[0].chineseName;
@@ -13,6 +18,7 @@ export default class DictionaryBrief extends Component {
                         return <WordBiref key={list.id} dic={dic} columns={list} />
                     })}
                 </ol>
+                {this.props.showMoreButton ? <button onClick={this.showMore.bind(this)}>更多</button> : ''}
             </div>
         );
     }

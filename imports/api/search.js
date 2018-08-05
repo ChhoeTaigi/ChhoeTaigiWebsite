@@ -5,26 +5,9 @@ Meteor.methods({
     'search.all'(params) {
         if (Meteor.isServer) {
             const searchLimit = 3;
-
-            let searchMethod = params.searchMethod;
-            delete params.searchMethod;
-            params[params.spellingMethod] = params.spelling;
-            delete params.spellingMethod;
-            delete params.spelling;
-
-            for (let key in params) {
-                if (!params[key].trim())
-                    delete params[key];
-            }
-
-            if (searchMethod === 'contains') {
-                for (let key in params) {
-                    params[key] = '%' + params[key] + '%';
-                }
-            }
+            params = cleanParams(params);
 
             querys = [];
-
             for (let idx in dicStruct) {
                 let dic = dicStruct[idx].name
                 query = search(params, dic, searchLimit);
@@ -44,9 +27,51 @@ Meteor.methods({
             });
         }
     },
+
+    'search.single'(params, dic) {
+        if (Meteor.isServer) {
+            return new Promise((resolve, reject) => {
+                params = cleanParams(params);
+
+                let query = search(params, dic);
+                if (query === []) {
+                    resolve(query);
+                } else {
+                    query.catch(error => reject(error))
+                    .then(result => {
+                        rtnArray = [{
+                            dic: dic,
+                            lists: result,
+                        }];
+                        resolve(rtnArray);
+                    });
+                }
+            });
+        }
+    }
 });
 
-function search(params, dic, limit=5) {
+function cleanParams(params) {
+    let searchMethod = params.searchMethod;
+    delete params.searchMethod;
+    params[params.spellingMethod] = params.spelling;
+    delete params.spellingMethod;
+    delete params.spelling;
+
+    for (let key in params) {
+        if (!params[key].trim())
+            delete params[key];
+    }
+
+    if (searchMethod === 'contains') {
+        for (let key in params) {
+            params[key] = '%' + params[key] + '%';
+        }
+    }
+    return params;
+}
+
+function search(params, dic, limit=-1) {
     let columns = dicStruct.filter(e => e.name===dic)[0].columns;
     for (key in params) {
         if (!(key in columns))
@@ -56,6 +81,8 @@ function search(params, dic, limit=5) {
     for (key in params) {
         cmd.andWhere(key, 'like', params[key])
     }
-    cmd.from(dic).limit(limit);
+    cmd.from(dic)
+    if (limit >= 0)
+        cmd.limit(limit);
     return cmd;
 }

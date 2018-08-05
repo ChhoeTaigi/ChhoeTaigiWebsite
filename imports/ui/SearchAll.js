@@ -1,11 +1,16 @@
 import React, { Component } from 'react';
+import { withRouter } from 'react-router-dom';
+
 import DictionaryBrief from './DictionaryBrief';
 
-export default class SearchAll extends Component {
+class SearchAll extends Component {
     constructor(props) {
         super(props);
+        this.props.history.listen((location, action) => {
+            console.log(location);
+            this.setState(location.state);
+        });
         this.state = {
-            input: {},
             results: [],
         };
     }
@@ -17,7 +22,7 @@ export default class SearchAll extends Component {
         let hanlo_taibun_poj = document.getElementById('hanlo_taibun_poj').value;
         let hoabun = document.getElementById('hoabun').value;
         let english_descriptions = document.getElementById('english_descriptions').value;
-        let params = {
+        this.params = {
             searchMethod: searchMethod,
             spellingMethod: spellingMethod,
             spelling: spelling,
@@ -25,7 +30,7 @@ export default class SearchAll extends Component {
             hoabun: hoabun,
             english_descriptions: english_descriptions,
         }
-        Meteor.call('search.all', params, (error, results) => {
+        Meteor.call('search.all', this.params, (error, results) => {
             if (error) throw new Meteor.Error(error);
             for (let idx in results) {
                 if (results[idx].lists.length === 0)
@@ -65,10 +70,21 @@ export default class SearchAll extends Component {
                 </form>
                 <div>
                     {this.state.results.map((result) => {
-                        return <DictionaryBrief key={result.dic} list={result} />
+                        return <DictionaryBrief key={result.dic} list={result} showMore={this.showMore.bind(this, result.dic)} showMoreButton={this.state.results.length > 1} />
                     })}
                 </div>
             </div>
         )
     }
+    showMore(dic) {
+        this.props.history.push('/');
+        Meteor.call('search.single', this.params, dic, (error, results) => {
+            if (error) throw new Meteor.Error(error);
+            this.setState({
+                results: results,
+            });
+        });
+    }
 }
+
+export default withRouter(SearchAll);
