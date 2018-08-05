@@ -1,6 +1,5 @@
 import pg from './pg';
-import dic_struct from './dictionary_struct';
-import { resolve } from 'url';
+import dicStruct from './dictionary_struct';
 
 Meteor.methods({
     'search.all'(params) {
@@ -24,36 +23,39 @@ Meteor.methods({
                 }
             }
 
-            return new Promise((resolve, reject) => {
-                results = [];
-                for (let idx in dic_struct) {
-                    let dic = dic_struct[idx].name
-                    const cmd = pg.select('*');
-                    for (key in params) {
-                        cmd.andWhere(key, 'like', params[key])
-                    }
-                    cmd.from(dic).limit(searchLimit).then((result) => {
-                        results.push({
-                            dic: dic,
-                            lists: result,
-                        });
-                        if (results.length === dic_struct.length)
-                            resolve(results);
-                    }).catch((error) => {
-                        reject(error);
-                    });
-                }
-            })
+            querys = [];
 
-            /*
-            const cmd = pg.select('*');
-            for (key in params) {
-                cmd.andWhere(key, 'like', params[key])
+            for (let idx in dicStruct) {
+                let dic = dicStruct[idx].name
+                query = search(params, dic, searchLimit);
+                querys.push(query);
             }
-            cmd.from('TaibunHoabunSoanntengSutian');
-            //return cmd;
-            return cmd.limit(100);
-            */
+
+            return new Promise((resolve, reject) => {
+                Promise.all(querys)
+                .catch(error => reject(error))
+                .then(results => {
+                    rtnArray = dicStruct.map((e, i) => ({
+                        dic: e.name,
+                        lists: results[i],
+                    }));
+                    resolve(rtnArray)
+                });
+            });
         }
-    }
+    },
 });
+
+function search(params, dic, limit=5) {
+    let columns = dicStruct.filter(e => e.name===dic)[0].columns;
+    for (key in params) {
+        if (!(key in columns))
+            return [];
+    }
+    const cmd = pg.select('*');
+    for (key in params) {
+        cmd.andWhere(key, 'like', params[key])
+    }
+    cmd.from(dic).limit(limit);
+    return cmd;
+}

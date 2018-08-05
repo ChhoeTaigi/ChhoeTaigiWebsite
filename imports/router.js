@@ -7,8 +7,8 @@ import Update from './ui/Update';
 export default (
     <BrowserRouter>
         <Switch>
-            <Route path='/update' component={Update} />
-            <Route path='/' component={App} />
+            <Route exact path='/' component={App} />
+            <Route exact path='/update' component={Update} />
         </Switch>
     </BrowserRouter>
 )
