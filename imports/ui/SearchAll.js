@@ -6,13 +6,17 @@ import DictionaryBrief from './DictionaryBrief';
 class SearchAll extends Component {
     constructor(props) {
         super(props);
-        this.props.history.listen((location, action) => {
-            console.log(location);
-            this.setState(location.state);
-        });
+        
         this.state = {
             results: [],
         };
+
+        this.props.history.listen((location, action) => {
+            if (this.lastState) {
+                this.setState(location.state);
+            }
+            this.lastState = location.state;
+        });
     }
 
     handleSubmit(event) {
@@ -77,9 +81,11 @@ class SearchAll extends Component {
         )
     }
     showMore(dic) {
-        this.props.history.push('/');
         Meteor.call('search.single', this.params, dic, (error, results) => {
             if (error) throw new Meteor.Error(error);
+
+            this.props.history.push('/', this.state);
+            
             this.setState({
                 results: results,
             });
