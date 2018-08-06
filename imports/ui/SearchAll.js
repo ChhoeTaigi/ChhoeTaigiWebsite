@@ -13,7 +13,7 @@ class SearchAll extends Component {
 
         this.props.history.listen((location, action) => {
             if (this.lastState) {
-                this.setState(location.state);
+                this.setState(this.lastState);
             }
             this.lastState = location.state;
         });
