@@ -81,7 +81,7 @@ class SearchAll extends Component {
         )
     }
     showMore(dic) {
-        Meteor.call('search.single', this.params, dic, (error, results) => {
+        Meteor.call('search.single.all', this.params, dic, (error, results) => {
             if (error) throw new Meteor.Error(error);
 
             this.props.history.push('/', this.state);

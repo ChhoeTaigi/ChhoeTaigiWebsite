@@ -28,7 +28,7 @@ Meteor.methods({
         }
     },
 
-    'search.single'(params, dic) {
+    'search.single.all'(params, dic) {
         if (Meteor.isServer) {
             return new Promise((resolve, reject) => {
                 params = cleanParams(params);
@@ -48,7 +48,13 @@ Meteor.methods({
                 }
             });
         }
-    }
+    },
+
+    'search.single.single'(dic, id) {
+        if (Meteor.isServer) {
+            return pg(dic).select('*').where({id: id});
+        }
+    },
 });
 
 function cleanParams(params) {
