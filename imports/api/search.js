@@ -34,7 +34,7 @@ Meteor.methods({
                 params = cleanParams(params);
 
                 let query = search(params, dic);
-                if (query === []) {
+                if (query.length === 0) {
                     resolve(query);
                 } else {
                     query.catch(error => reject(error))
@@ -59,33 +59,41 @@ Meteor.methods({
 
 function cleanParams(params) {
     let searchMethod = params.searchMethod;
-    delete params.searchMethod;
-    params[params.spellingMethod] = params.spelling;
-    delete params.spellingMethod;
-    delete params.spelling;
+    if (searchMethod)
+        delete params.searchMethod;
+    
+    let spelling = params.spelling;
+    if (spelling) {
+        params[params.spellingMethod] = spelling;
+        delete params.spellingMethod;
+        delete params.spelling;
+    }
 
     for (let key in params) {
         if (!params[key].trim())
             delete params[key];
     }
 
-    if (searchMethod === 'contains') {
-        for (let key in params) {
-            params[key] = '%' + params[key] + '%';
+    
+    if (searchMethod) {
+        if (searchMethod === 'contains') {
+            for (let key in params) {
+                params[key] = '%' + params[key] + '%';
+            }
         }
     }
+        
     return params;
 }
 
 function search(params, dic, limit=-1) {
     let columns = dicStruct.filter(e => e.name===dic)[0].columns;
-    for (key in params) {
-        if (!(key in columns))
-            return [];
-    }
     const cmd = pg.select('*');
     for (key in params) {
-        cmd.andWhere(key, 'like', params[key])
+        if (key === 'id')
+            cmd.andWhere(key, params[key]);
+        else if (key in columns)
+            cmd.andWhere(key, 'like', params[key]);
     }
     cmd.from(dic)
     if (limit >= 0)

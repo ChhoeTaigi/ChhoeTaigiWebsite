@@ -44,9 +44,9 @@ class WordBiref extends Component {
         return (
             <li>
                 <Link to={linkUri}>
-                <ul>
-                    {content}
-                </ul>
+                    <ul>
+                        {content}
+                    </ul>
                 </Link>
             </li>
         );
