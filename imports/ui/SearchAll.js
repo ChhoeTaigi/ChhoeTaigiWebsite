@@ -10,12 +10,15 @@ class SearchAll extends Component {
         this.state = {
             results: [],
         };
-        this.props.history.listen((location, action) => {
+        this.props.history.unlisten = this.props.history.listen((location, action) => {
             if (this.lastState) {
                 this.setState(this.lastState);
             }
             this.lastState = location.state;
         });
+    }
+    componentWillUnmount() {
+        this.props.history.unlisten();
     }
 
     handleSubmit(event) {
