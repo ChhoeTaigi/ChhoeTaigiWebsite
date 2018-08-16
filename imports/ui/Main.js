@@ -19,7 +19,7 @@ export default class Main extends Component {
                     <Route exact path='/advanced' component={SearchSingle} />
                     <Route exact path='/about' component={About} />
                     <Route exact path='/update' component={Update} />
-                    
+                    <Redirect to='/' />
                 </Switch>
             </main>
         );

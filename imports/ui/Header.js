@@ -20,12 +20,12 @@ export const Header = () => (
 
 export const Header = () => (
     <header>
-		<div className="fix-width-center">
-			<img id="logo" src="images/logo@2x.png" width="194" height="32" />
-			<div id="header-right">
-				<a id="FB-link" className="menu-item" href="https://www.facebook.com/ChhoeTaigi/"></a>
-				<Link className="menu-text menu-item menu-item-select" to='/about'>關於找台語</Link>
-				<Link className="menu-text menu-item" to='/'>首頁</Link>
+		<div className='fix-width-center'>
+			<img id='logo' src='images/logo@2x.png' width='194' height='32' />
+			<div id='header-right'>
+				<a id='FB-link' className='menu-item' href='https://www.facebook.com/ChhoeTaigi/'></a>
+				<Link className='menu-text menu-item menu-item-select' to='/about'>關於找台語</Link>
+				<Link className='menu-text menu-item' to='/'>首頁</Link>
 			</div>
 		</div>
 	</header>
