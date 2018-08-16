@@ -11,7 +11,7 @@ html, body {
 }
 
 body {
-	overflow: scroll;
+	overflow-y: scroll;
 	font-family: 'Noto Sans', taigiwebfont, 'Microsoft Yahei', 'PingFang SC';
 	letter-spacing: 0.1em;
 }
