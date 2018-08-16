@@ -1,0 +1,29 @@
+@font-face {
+	font-family: taigiwebfont;
+	src: url(others/tshiuthau-oo-taigi.woff);
+}
+
+html, body {
+	position: relative;
+	margin: 0;
+	padding: 0;
+	min-width: 1024px;
+}
+
+body {
+	overflow: scroll;
+	font-family: 'Noto Sans', taigiwebfont, 'Microsoft Yahei', 'PingFang SC';
+	letter-spacing: 0.1em;
+}
+
+main {
+	margin-top: 56px;
+}
+
+.fix-width-center {
+	position: relative;
+	width: 1024px;
+	height: 100%;
+	margin-left: auto;
+	margin-right: auto;
+}

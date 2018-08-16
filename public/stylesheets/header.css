@@ -1,0 +1,80 @@
+header {
+	position: fixed !important;
+	height: 56px;
+	width: 100%;
+	top: 0;
+	background-color: white;
+	border-bottom: 1px solid #BEC2BC;
+	z-index: 999;
+	opacity: 0.9;
+}
+
+#logo {
+	position: absolute;
+	left: 23px;
+	top: 15px;
+}
+
+#header-right {
+	display: inline-block;
+	position: absolute;
+	right: 23px;
+	height: 100%;
+}
+
+#FB-link {
+	background-image: url(images/fb@2x.png);
+	background-size: 22px 22px;
+	height: 22px;
+	width: 22px;
+}
+
+.menu-item {
+	display: inline-block;
+	position: relative;
+	float: right;
+	height: 22px;
+	top: 50%;
+	margin-top: -11px;
+}
+
+.menu-text {
+	font-size: 15px;
+	text-decoration: none;
+	color: #657160;
+	margin-right: 53px;
+}
+
+.menu-item-select {
+	color: #23672e;
+}
+
+.menu-item-select::after {
+	content: "";
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+	position: relative;
+	bottom: -15px;
+	width: 30px;
+	height: 4px;
+	background-color: #23672e;
+}
+
+footer {
+	width: 100%;
+	height: 40px;
+	background-color: #3f4d38;
+}
+
+#footer-img {
+	background-image: url(images/poweredby-long-i@2x.png);
+	background-size: 208px 26px;
+	position: relative;
+	display: block;
+	width: 208px;
+	height: 26px;
+	margin-left: auto;
+	margin-right: auto;
+	top: 7px;
+}
