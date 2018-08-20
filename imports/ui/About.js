@@ -83,8 +83,5 @@ export const About = () => (
 			<div id='feedback-text'>意見回饋與贊助請來信</div>
 			<a id='feedback-email' href='mailto:ngoohebo+chhoetaigi@gmail.com'>ngoohebo+chhoetaigi@gmail.com</a>
 		</div>
-		<footer>
-			<a id='footer-img' href='https://grants.g0v.tw/power/'></a>
-		</footer>
 	</div>
 );

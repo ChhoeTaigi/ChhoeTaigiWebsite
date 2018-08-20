@@ -3,21 +3,27 @@
 	src: url(others/tshiuthau-oo-taigi.woff);
 }
 
+html {
+	height: 100%;
+}
+
 html, body {
-	position: relative;
 	margin: 0;
 	padding: 0;
 	min-width: 1024px;
 }
 
 body {
+	position: relative;
+	min-height: 100%;
 	overflow-y: scroll;
 	font-family: 'Noto Sans', taigiwebfont, 'Microsoft Yahei', 'PingFang SC';
 	letter-spacing: 0.1em;
+	padding-bottom: 40px;
 }
 
 main {
-	margin-top: 56px;
+	padding-top: 56px;
 }
 
 .fix-width-center {
