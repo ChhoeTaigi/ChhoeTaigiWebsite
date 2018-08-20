@@ -144,7 +144,7 @@ class Word extends Component {
         }
         return (
             <li>
-                <Link to={linkUri}>
+                <Link to={linkUri} target='_blank'>
                     <ul>
                         {content}
                     </ul>
