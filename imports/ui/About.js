@@ -70,11 +70,11 @@ export const About = () => (
 				<div id='authorization-content'>
 					<div className='authorization-block' style={{left: '100px'}}>
 						<div className='authorization-title'>字詞資料</div>
-						<a className='authorization-link' href='#'>ChhoeTaigi 找台語：台語字詞資料庫</a>
+						<a className='authorization-link' href='https://github.com/ChhoeTaigi/ChhoeTaigiDatabase' target='_blank'>ChhoeTaigi 找台語：台語字詞資料庫</a>
 					</div>
 					<div className='authorization-block' style={{right: '50px'}}>
 						<div className='authorization-title'>原書掃描圖片</div>
-						<a className='authorization-link' href='#'>台語文記憶</a>
+						<a className='authorization-link' href='http://ip194097.ntcu.edu.tw/memory/tgb/MoWT.asp' target='_blank'>台語文記憶</a>
 					</div>
 				</div>
 			</div>
