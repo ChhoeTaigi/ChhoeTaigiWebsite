@@ -3,7 +3,12 @@
 	src: url(others/tshiuthau-oo-taigi.woff);
 }
 
+html {
+	height: 100%;
+}
+
 html, body {
+	min-height: 100%;
 	margin: 0;
 	padding: 0;
 	min-width: 1024px;
