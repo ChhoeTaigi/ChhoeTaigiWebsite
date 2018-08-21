@@ -56,7 +56,7 @@ export const About = () => (
 					<img className='profile' src='images/leo.png' width='120' height='120'></img>
 					<div className='name'>Leo Wu</div>
 					<div className='title'>網頁前後端</div>
-					<div className='description'></div>
+					<div className='description'>台語用羅馬字拼音更有趣</div>
 				</div>
 			</div>
 		</div>
@@ -81,7 +81,7 @@ export const About = () => (
 		</div>
 		<div id='feedback'>
 			<div id='feedback-text'>意見回饋與贊助請來信</div>
-			<a id='feedback-email' href='mailto:ngoohebo+chhoetaigi@gmail.com'>ngoohebo+chhoetaigi@gmail.com</a>
+			<a id='feedback-email' href='mailto:ngoohebi+chhoetaigi@gmail.com'>ngoohebi+chhoetaigi@gmail.com</a>
 		</div>
 	</div>
 );

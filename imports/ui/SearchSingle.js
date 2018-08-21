@@ -6,8 +6,16 @@ class SearchSingle extends Component {
     constructor(props) {
         super(props);
         this.state = {
+            method: 'allFields',
             selectedDic: undefined,
         };
+    }
+
+    handleMethodButton(method) {
+        this.setState({
+            method: method,
+            selectedDic: undefined,
+        });
     }
 
     handleDicButton(dic) {
@@ -18,19 +26,35 @@ class SearchSingle extends Component {
     }
 
     render() {
+        // method buttons
+        let methodButtons = [
+            <button key='allField' onClick={this.handleMethodButton.bind(this, 'allField')}>全文搜尋</button>,
+            <button key='singleDic' onClick={this.handleMethodButton.bind(this, 'singleDic')}>依辭典搜尋</button>
+        ];
+
+        // dictionary buttons
         let dicButtons = [];
-        for (let idx in DicStruct) {
-            let dic = DicStruct[idx].name;
-            dicButtons.push(
-                <button key={dic} onClick={this.handleDicButton.bind(this, dic)}>{DicStruct[idx].chineseName}</button>
-            );
+        if (this.state.method === 'singleDic') {
+            for (let idx in DicStruct) {
+                let dic = DicStruct[idx].name;
+                dicButtons.push(
+                    <button key={dic} onClick={this.handleDicButton.bind(this, dic)}>{DicStruct[idx].chineseName}</button>
+                );
+            }
         }
 
+        // search options
         let searchOptions;
-        let selectedDic = this.state.selectedDic;
-        if (selectedDic) {
-            searchOptions = <SearchOptions key='selectedDic' dic={selectedDic} updateResults={this.updateResults.bind(this)} />;
+        if (this.state.method === 'singleDic') {
+            let selectedDic = this.state.selectedDic;
+            if (selectedDic) {
+                searchOptions = <SingleDicOptions key='singleDicOptions' dic={selectedDic} updateResults={this.updateResults.bind(this)} />;
+            }
+        } else {
+            searchOptions = <AllFieldOptions key='allFieldOptions' />;
         }
+
+        // result
         let resultView = undefined;
         let results = this.state.results;
         if (results) {
@@ -42,12 +66,13 @@ class SearchSingle extends Component {
                 </div>
             );
         }
+
+        // view
         return (
             <div>
-                {dicButtons}
-                <br />
-                {searchOptions}
-                <br />
+                <div>{methodButtons}</div>
+                <div>{dicButtons}</div>
+                <div>{searchOptions}</div>
                 {resultView}
             </div>
         );
@@ -62,7 +87,7 @@ class SearchSingle extends Component {
 
 export default withRouter(SearchSingle);
 
-class SearchOptions extends Component {
+class SingleDicOptions extends Component {
     constructor(props) {
         super(props);
         this.state = {
@@ -111,7 +136,7 @@ class SearchOptions extends Component {
                 <div key={key}>
                     <label>
                         {columns[key]}
-                        <input type='text' placeholder='請輸入' onChange={this.handleInput.bind(this, key)} value={this.state.options[key]}></input>
+                        <input type='text' placeholder='輸入關鍵字' onChange={this.handleInput.bind(this, key)} value={this.state.options[key]}></input>
                     </label>
                     <br />
                 </div>
@@ -120,7 +145,36 @@ class SearchOptions extends Component {
         return (
             <form onSubmit={this.handleSubmit.bind(this)}>
                 {inputs}
-                <input type="submit" value="查詢" />
+                <input type="submit" value="開始找" />
+            </form>
+        );
+    }
+}
+
+class AllFieldOptions extends Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            value: '',
+        }
+    }
+
+    handleSubmit() {
+        
+    }
+
+    handleInput(event) {
+        this.setState({
+            value: event.target.value,
+        });
+    }
+
+    render() {
+        return (
+            <form onSubmit={this.handleSubmit.bind(this)}>
+                <input type='text' placeholder='輸入關鍵字' onChange={this.handleInput.bind(this)} value={this.state.value}></input>
+                <br />
+                <input type="submit" value="開始找" />
             </form>
         );
     }
