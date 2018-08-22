@@ -50,7 +50,7 @@ export const About = () => (
 					<img className='profile' src='images/eyes.png' width='120' height='120'></img>
 					<div className='name'>Eyes</div>
 					<div className='title'>網頁設計</div>
-					<div className='description'>小時候講台語大人還聽得懂，長大後卻被念聽嘸(Thiaⁿ bô)...</div>
+					<div className='description'>小時候講台語大人還聽得懂，長大後卻被唸聽無(Thiaⁿ bô)...</div>
 				</div>
 				<div className='person-card'>
 					<img className='profile' src='images/leo.png' width='120' height='120'></img>
