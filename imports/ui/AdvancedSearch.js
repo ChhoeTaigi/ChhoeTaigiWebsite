@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { withRouter, Link } from 'react-router-dom';
 import DicStruct from '../api/dictionary_struct';
 
-class SearchSingle extends Component {
+class AdvancedSearch extends Component {
     constructor(props) {
         super(props);
         this.state = {
@@ -85,7 +85,7 @@ class SearchSingle extends Component {
     }
 }
 
-export default withRouter(SearchSingle);
+export default withRouter(AdvancedSearch);
 
 class SingleDicOptions extends Component {
     constructor(props) {

@@ -3,7 +3,7 @@ import { withRouter } from 'react-router-dom';
 
 import DictionaryBrief from './DictionaryBrief';
 
-class SearchAll extends Component {
+class BasicSearch extends Component {
     constructor(props) {
         super(props);
         
@@ -95,4 +95,4 @@ class SearchAll extends Component {
     }
 }
 
-export default withRouter(SearchAll);
+export default withRouter(BasicSearch);

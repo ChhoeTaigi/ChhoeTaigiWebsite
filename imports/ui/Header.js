@@ -5,6 +5,7 @@ import '../../public/stylesheets/global.css'
 import '../../public/stylesheets/header.css'
 
 // Landing
+/*
 class Header extends Component {
     render() {
         var currentLocation = this.props.location.pathname
@@ -23,9 +24,9 @@ class Header extends Component {
         );
     }
 }
+*/
 
 // Formal
-/*
 class Header extends Component {
     render() {
         var currentLocation = this.props.location.pathname
@@ -45,6 +46,5 @@ class Header extends Component {
         );
     }
 }
-*/
 
 export default withRouter(Header);
