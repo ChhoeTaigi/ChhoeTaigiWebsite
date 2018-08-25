@@ -8,7 +8,7 @@
 }
 
 #brief-container {
-	height: 475px;
+	height: 691px;
 	background-color: #43944f;
 }
 
@@ -59,8 +59,8 @@
 	top: 24px;
 	width: 820px;
 	height: 204px;
-	background-color: #EAF2E8;
 	border-radius: 5px;
+	border: solid 1px white;
 }
 
 #seeking-for-sponsor-title {
@@ -89,12 +89,15 @@
 }
 
 .seeking-li {
-	color: #a56862;
+	color: white;
 	font-size: 18px;
 	line-height: 43px;
+}
+
+.seeking-li-dash {
 	border-width: 1px;
 	border-style: none none dashed none;
-	border-color: #43944f;
+	border-color: white;
 }
 
 #members {

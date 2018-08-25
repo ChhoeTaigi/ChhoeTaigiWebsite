@@ -10,14 +10,15 @@ export const About = () => (
 			<div className='fix-width-center'>
 				<div id='brief-title'>ChhoeTaigi 簡介</div>
 				<ul id='brief-ul'>
-					<li className='brief-li'>「ChhoeTaigi 找台語」計畫的目標是為了整理和數位化台語的字詞資料，不只提供公開授權的台語字詞資料庫，也有辭典網站和手機辭典app，方便大家應用和查詢台語的字詞。</li>
-					<li className='brief-li'>計畫初期是拿到g0v半年的計畫獎助金，接下來需要靠大家支持和相挺，才能繼續走下去。</li>
+					<li className='brief-li'>「ChhoeTaigi 找台語」計畫的目標是為了整理和數位化台語的字詞資料，不只提供公開授權的台語字詞資料庫，也有辭典網站和手機辭典app，希望吸引更多人投入相關研究或開發應用，更幫助一般使用者更便利的查詢台語的字詞資料。</li>
+					<li className='brief-li'>目前已經整理10份的字詞文獻資料，總計超過30萬筆的台語字詞，全部標準化成現在流通使用的白話字、教育部羅馬字的文字系統。除了文字採Unicode格式外，也提供沒有台語輸入法的替代格式方案，方便大家使用和查詢。</li>
+					<li className='brief-li'>此計畫是獲得g0v在2018年上半年所提供的獎助金計畫，才得以開始進行，完成階段性目標，接下來需要靠更多官方和民間的實際支持和相挺，才能繼續長遠的走下去。</li>
 				</ul>
 				<div id='seeking-for-sponsor'>
 					<div id='seeking-for-sponsor-title'>公開徵求贊助</div>
 					<ol id='seeking-ol'>
-						<li className='seeking-li'>產品營運資金（伺服器成本、維護成本等）</li>
-						<li className='seeking-li'>軟體工程師、設計師（維護既有產品或開發相關應用）</li>
+						<li className='seeking-li seeking-li-dash'>產品營運資金（伺服器成本、維護成本等）</li>
+						<li className='seeking-li seeking-li-dash'>軟體工程師、設計師（維護既有產品或開發相關應用）</li>
 						<li className='seeking-li'>台語辭典或字詞資料授權（Creative Commons開放授權）</li>
 					</ol>
 				</div>
