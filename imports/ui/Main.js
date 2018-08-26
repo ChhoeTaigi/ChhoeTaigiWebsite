@@ -11,7 +11,6 @@ import Detail from './Detail';
 import { About } from './About';
 
 // Landing page
-/*
 export default class Main extends Component {
     render() {
         return (
@@ -25,10 +24,9 @@ export default class Main extends Component {
         );
     }
 }
-*/
 
 // formal
-export default class Main extends Component {
+/* export default class Main extends Component {
     render() {
         const detailPath = getDetailPath();
         return (
@@ -45,7 +43,7 @@ export default class Main extends Component {
             </main>
         );
     }
-}
+} */
 
 function getDetailPath() {
     let dic = DicStruct.map((e) => e.name);

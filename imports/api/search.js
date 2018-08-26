@@ -28,7 +28,7 @@ Meteor.methods({
         }
     },
 
-    'search.single.all'(params, dic) {
+    'search.singleDic'(params, dic) {
         if (Meteor.isServer) {
             return new Promise((resolve, reject) => {
                 params = cleanParams(params);

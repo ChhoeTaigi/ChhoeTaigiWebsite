@@ -14,7 +14,7 @@
 
 #brief-title {
 	position: relative;
-	width: 209px;
+	width: 220px;
 	height: 40px;
 	margin-left: auto;
 	margin-right: auto;
@@ -105,11 +105,12 @@
 }
 
 #members-title {
-	width: 160px;
+	width: 200px;
 	height: 115px;
 	line-height: 115px;
 	margin-left: auto;
 	margin-right: auto;
+	text-align: center;
 	font-size: 22px;
 	color: #23672e;
 }
