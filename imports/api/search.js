@@ -2,7 +2,7 @@ import pg from './pg';
 import dicStruct from './dictionary_struct';
 
 Meteor.methods({
-    'search.all'(params) {
+    'search.basic'(params) {
         if (Meteor.isServer) {
             const searchLimit = 3;
             params = cleanParams(params);
@@ -20,7 +20,7 @@ Meteor.methods({
                 .then(results => {
                     rtnArray = dicStruct.map((e, i) => ({
                         dic: e.name,
-                        lists: results[i],
+                        words: results[i],
                     }));
                     resolve(rtnArray)
                 });
@@ -41,7 +41,7 @@ Meteor.methods({
                     .then(result => {
                         rtnArray = [{
                             dic: dic,
-                            lists: result,
+                            results: result,
                         }];
                         resolve(rtnArray);
                     });
@@ -73,7 +73,6 @@ function cleanParams(params) {
         if (!params[key].trim())
             delete params[key];
     }
-
     
     if (searchMethod) {
         if (searchMethod === 'contains') {

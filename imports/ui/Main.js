@@ -5,6 +5,7 @@ import DicStruct from '../api/dictionary_struct';
 import Landing from './Landing';
 import BasicSearch from './BasicSearch';
 import AdvancedSearch from './AdvancedSearch';
+import AllDics from './AllDics';
 import Update from './Update';
 import Detail from './Detail';
 import { About } from './About';
@@ -35,6 +36,7 @@ export default class Main extends Component {
                 <Switch>
                     <Route exact path='/' component={BasicSearch} />
                     <Route exact path='/advanced' component={AdvancedSearch} />
+                    <Route exact path='/all' component={AllDics} />
                     <Route exact path={detailPath} component={Detail} />
                     <Route exact path='/about' component={About} />
                     <Route exact path='/update' component={Update} />

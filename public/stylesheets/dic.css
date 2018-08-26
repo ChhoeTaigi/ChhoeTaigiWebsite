@@ -1,0 +1,12 @@
+:target {
+    display: block;
+    position: relative;
+    top: -99px; 
+    visibility: hidden;
+}
+
+#dicButtonsContainer {
+    position: sticky;
+    top: 56px;
+    background-color: white;
+}
