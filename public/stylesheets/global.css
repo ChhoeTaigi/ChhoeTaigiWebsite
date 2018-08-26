@@ -17,7 +17,7 @@ html, body {
 body {
 	position: relative;
 	overflow-y: scroll;
-	font-family: 'Noto Sans', taigiwebfont, 'Microsoft Yahei', 'PingFang SC';
+	font-family: 'Noto Sans CJK', taigiwebfont, 'Microsoft Yahei', 'PingFang TC';
 	letter-spacing: 0.1em;
 	padding-bottom: 40px;
 }
@@ -32,4 +32,8 @@ main {
 	height: 100%;
 	margin-left: auto;
 	margin-right: auto;
+}
+
+.lighter {
+	font-weight: lighter;
 }
