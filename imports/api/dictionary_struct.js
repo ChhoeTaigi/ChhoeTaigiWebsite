@@ -4,6 +4,14 @@ module.exports = [
     {
         name: 'TaibunHoabunSoanntengSutian',
         chineseName: '台文華文線頂辭典',
+        brief: {
+            id: '編號',
+            poj_unicode: '白話字',
+            hanlo_taibun_poj: '漢羅台文（白話字）',
+            kiplmj_unicode: '教育部羅馬字',
+            hanlo_taibun_kiplmj: '漢羅台文（教育部羅馬字）',
+            hoabun: '華文',
+        },
         columns: {
             id: '編號',
             poj_unicode: '白話字',
@@ -22,6 +30,14 @@ module.exports = [
     {
         name: 'TaiJitToaSuTian',
         chineseName: '台日大辭典（台文譯本）',
+        brief: {
+            id: '編號',
+            poj_unicode: '白話字',
+            hanlo_taibun_poj: '漢羅台文（白話字）',
+            hanlo_taibun_kaisoeh_poj: '漢羅台文解說（白話字）',
+            hanlo_taibun_leku_poj: '漢羅台文例句（白話字）',
+            page_number: '原冊頁數',
+        },
         columns: {
             id: '編號',
             poj_unicode: '白話字',
@@ -44,6 +60,13 @@ module.exports = [
     {
         name: 'MaryknollTaiEngSuTian',
         chineseName: 'Maryknoll台英辭典',
+        brief: {
+            id: '編號',
+            poj_unicode: '白話字',
+            kiplmj_unicode: '教育部羅馬字',
+            hoabun: '華文',
+            english_descriptions: '英文解說',
+        },
         columns: {
             id: '編號',
             poj_unicode: '白話字',
@@ -58,6 +81,13 @@ module.exports = [
     {
         name: 'EmbreeTaigiSuTian',
         chineseName: 'Embree台語辭典',
+        brief: {
+            id: '編號',
+            poj_unicode: '白話字',
+            kiplmj_unicode: '教育部羅馬字',
+            hoabun: '華文',
+            english_descriptions: '英文解說',
+        },
         columns: {
             id: '編號',
             poj_unicode: '白話字',
@@ -75,6 +105,14 @@ module.exports = [
     {
         name: 'KauiokpooTaigiSutian',
         chineseName: '教育部台語辭典',
+        brief: {
+            id: '編號',
+            poj_unicode: '白話字',
+            kiplmj_unicode: '教育部羅馬字',
+            hanji_taibun: '漢字台文',
+            hoabun: '華文',
+            descriptions: '華文解說、詞性，台文例詞kap例句',
+        },
         columns: {
             id: '編號',
             poj_unicode: '白話字',
@@ -96,6 +134,13 @@ module.exports = [
     {
         name: 'KamJitian',
         chineseName: '甘字典',
+        brief: {
+            id: '編號',
+            poj_unicode: '白話字',
+            hanlo_taibun_poj: '漢羅台文（白話字）',
+            poj_kaisoeh: '台文解說（白話字）',
+            hanlo_taibun_kaisoeh_poj: '漢羅台文解說（白話字）',
+        },
         columns: {
             id: '編號',
             poj_unicode: '白話字',
@@ -113,6 +158,13 @@ module.exports = [
     {
         name: 'iTaigiHoaTaiSutian',
         chineseName: 'iTaigi華台辭典',
+        brief: {
+            id: '編號',
+            poj_unicode: '白話字',
+            kiplmj_unicode: '教育部羅馬字',
+            hanlo_taibun_kiplmj: '漢羅台文（教育部羅馬字）',
+            hoabun: '華文',
+        },
         columns: {
             id: '編號',
             poj_unicode: '白話字',
@@ -127,6 +179,12 @@ module.exports = [
     {
         name: 'TaioanPehoeKichhooGiku',
         chineseName: '台灣白話基礎語句',
+        brief: {
+            id: '編號',
+            poj_unicode: '白話字',
+            kiplmj_unicode: '教育部羅馬字',
+            hoabun: '華文',
+        },
         columns: {
             id: '編號',
             poj_unicode: '白話字',
@@ -144,6 +202,12 @@ module.exports = [
     {
         name: 'TaioanSitbutMialui',
         chineseName: '台灣植物名彙',
+        brief: {
+            id: '編號',
+            poj_unicode: '白話字',
+            kiplmj_unicode: '教育部羅馬字',
+            hanji_taibun: '漢字台文',
+        },
         columns: {
             id: '編號',
             poj_unicode: '白話字',

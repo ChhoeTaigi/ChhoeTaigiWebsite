@@ -1,5 +1,5 @@
 import pg from './pg';
-import dicStruct from './dictionary_struct';
+import dicsStruct from './dictionary_struct';
 
 Meteor.methods({
     'search.basic'(options) {
@@ -8,9 +8,9 @@ Meteor.methods({
             options = cleanOptions(options);
 
             querys = [];
-            for (let idx in dicStruct) {
-                let dic = dicStruct[idx].name
-                query = search(dic, options, searchLimit);
+            for (let idx in dicsStruct) {
+                let dic = dicsStruct[idx].name
+                query = searchBrief(dic, options, searchLimit);
                 querys.push(query);
             }
 
@@ -18,7 +18,7 @@ Meteor.methods({
                 Promise.all(querys)
                 .catch(error => reject(error))
                 .then(results => {
-                    rtnArray = dicStruct.map((e, i) => ({
+                    rtnArray = dicsStruct.map((e, i) => ({
                         dic: e.name,
                         words: results[i],
                     }));
@@ -33,7 +33,7 @@ Meteor.methods({
             return new Promise((resolve, reject) => {
                 options = cleanOptions(options);
 
-                let query = search(dic, options);
+                let query = searchBrief(dic, options);
                 if (query.length === 0) {
                     resolve([]);
                 } else {
@@ -85,9 +85,15 @@ function cleanOptions(options) {
     return options;
 }
 
-function search(dic, options, limit=-1) {
-    let columns = dicStruct.filter(e => e.name===dic)[0].columns;
-    const cmd = pg.select('*');
+function searchBrief(dic, options, limit=-1) {
+    let dicStruct = dicsStruct.filter(e => e.name===dic)[0];
+    let columns = dicStruct.columns;
+    let brief = dicStruct.brief;
+    let briefArray = [];
+    for (let key in brief) {
+        briefArray.push(key);
+    }
+    const cmd = pg.select(briefArray);
     for (key in options) {
         if (key === 'id')
             cmd.andWhere(key, options[key]);
