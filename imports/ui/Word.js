@@ -23,7 +23,7 @@ export default class Word extends Component {
             <li>
                 <ul>
                     {content}
-                    <li><Link to={linkUri} target='_blank'>更多</Link></li>
+                    <li><Link to={linkUri}>更多</Link></li>
                 </ul>
             </li>
         );

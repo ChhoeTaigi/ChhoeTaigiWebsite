@@ -50,7 +50,7 @@ Meteor.methods({
         }
     },
 
-    'search.single.single'(dic, id) {
+    'search.dicAndId'(dic, id) {
         if (Meteor.isServer) {
             return pg(dic).select('*').where({id: id});
         }
