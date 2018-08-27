@@ -13,15 +13,21 @@ class AllDics extends Component {
         if (!state) {
             props.history.replace('/');
         }
+
+        for (let idx in state.allResults) {
+            if (state.allResults[idx].words.length === 0)
+                delete state.allResults[idx];
+        }
         
         this.state = state;
     }
 
     showMore(dic) {
-        Meteor.call('search.singleDic', dic, this.state.options, (error, results) => {
+        let options = this.state.options;
+        options.dic = dic;
+        Meteor.call('search', options, (error, results) => {
             if (error) throw new Meteor.Error(error);
-            let state = results[0];
-            this.props.history.push('single', state);
+            this.props.history.push('single', results);
         });
     }
 

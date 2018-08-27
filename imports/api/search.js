@@ -1,7 +1,41 @@
 import pg from './pg';
 import dicsStruct from './dictionary_struct';
 
+// Input:
+// options: {
+//     method: 'singleDic',
+//     dic: 'TaiJitToaSuTian',
+//     poj_unicode: 'a',
+// }
+
+// Output:
+// allResults: {
+//     [
+//         dic: 'TaiJitToaSuTian',
+//         words: [],
+//     ],
+// }
+
 Meteor.methods({
+    'search'(options) {
+        if (options.method === 'allField') {
+            if (options.dic)
+                return new Promise((resolve, reject) => {
+                    searchSingleAllField(options.dic, options.value)
+                    .catch(error => reject(error))
+                    .then(result => {
+                        rtn = {
+                            dic: options.dic,
+                            words: result,
+                        };
+                        resolve(rtn);
+                    });
+                });
+            else
+                return searchAllField(options.value);
+        }
+    },
+
     'search.basic'(options) {
         if (Meteor.isServer) {
             const searchLimit = 3;
@@ -50,12 +84,58 @@ Meteor.methods({
         }
     },
 
+    'search.allField'(option) {
+        if (Meteor.isServer) {
+            querys = [];
+            for (let idx in dicsStruct) {
+                let dic = dicsStruct[idx].name
+                query = searchAllFieldBrief(dic, option);
+                querys.push(query);
+            }
+
+            return new Promise((resolve, reject) => {
+                Promise.all(querys)
+                .catch(error => reject(error))
+                .then(results => {
+                    rtnArray = dicsStruct.map((e, i) => ({
+                        dic: e.name,
+                        words: results[i],
+                    }));
+                    resolve(rtnArray)
+                });
+            });
+        }
+    },
+
     'search.dicAndId'(dic, id) {
         if (Meteor.isServer) {
             return pg(dic).select('*').where({id: id});
         }
     },
 });
+
+function searchAllField(value) {
+    if (Meteor.isServer) {
+        querys = [];
+        for (let idx in dicsStruct) {
+            let dic = dicsStruct[idx].name
+            query = searchSingleAllField(dic, value);
+            querys.push(query);
+        }
+
+        return new Promise((resolve, reject) => {
+            Promise.all(querys)
+            .catch(error => reject(error))
+            .then(results => {
+                rtnArray = dicsStruct.map((e, i) => ({
+                    dic: e.name,
+                    words: results[i],
+                }));
+                resolve(rtnArray)
+            });
+        });
+    }
+}
 
 function cleanOptions(options) {
     let searchMethod = options.searchMethod;
@@ -103,5 +183,22 @@ function searchBrief(dic, options, limit=-1) {
     cmd.from(dic)
     if (limit >= 0)
         cmd.limit(limit);
+    return cmd;
+}
+
+function searchSingleAllField(dic, option) {
+    let dicStruct = dicsStruct.filter(e => e.name===dic)[0];
+    let columns = dicStruct.columns;
+    let brief = dicStruct.brief;
+    let briefArray = [];
+    for (let key in brief) {
+        briefArray.push(key);
+    }
+    const cmd = pg.select(briefArray);
+    for (key in columns) {
+        if (key !== 'id')
+            cmd.orWhere(key, 'like', option);
+    }
+    cmd.from(dic)
     return cmd;
 }

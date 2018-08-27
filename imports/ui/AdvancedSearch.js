@@ -51,7 +51,7 @@ class AdvancedSearch extends Component {
                 searchOptions = <SingleDicOptions key='singleDicOptions' dic={selectedDic} updateResults={this.updateResults.bind(this)} />;
             }
         } else {
-            searchOptions = <AllFieldOptions key='allFieldOptions' />;
+            searchOptions = <AllFieldOptions key='allFieldOptions' updateResults={this.updateResults.bind(this)} />;
         }
 
         // result
@@ -78,10 +78,8 @@ class AdvancedSearch extends Component {
         );
     }
 
-    updateResults(results) {
-        this.setState({
-            results: results,
-        });
+    updateResults(state) {
+        this.props.history.push('all', state);
     }
 }
 
@@ -159,8 +157,20 @@ class AllFieldOptions extends Component {
         }
     }
 
-    handleSubmit() {
-        
+    handleSubmit(event) {
+        let options = {
+            method: 'allField',
+            value: this.state.value,
+        };
+        Meteor.call('search', options, (error, results) => {
+            if (error) throw new Meteor.Error(error);
+            let state = {
+                options: options,
+                allResults: results,
+            }
+            this.props.updateResults(state);
+        });
+        event.preventDefault();
     }
 
     handleInput(event) {
