@@ -31,7 +31,10 @@ class BasicSearch extends Component {
                     delete allResults[idx];
             }
 
-            let state = {allResults: allResults};
+            let state = {
+                allResults: allResults,
+                options: this.state,
+            };
             this.props.history.push('all', state);
         });
         event.preventDefault();

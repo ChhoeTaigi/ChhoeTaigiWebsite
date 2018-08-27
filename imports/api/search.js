@@ -2,15 +2,15 @@ import pg from './pg';
 import dicStruct from './dictionary_struct';
 
 Meteor.methods({
-    'search.basic'(params) {
+    'search.basic'(options) {
         if (Meteor.isServer) {
             const searchLimit = 3;
-            params = cleanParams(params);
+            options = cleanOptions(options);
 
             querys = [];
             for (let idx in dicStruct) {
                 let dic = dicStruct[idx].name
-                query = search(params, dic, searchLimit);
+                query = search(dic, options, searchLimit);
                 querys.push(query);
             }
 
@@ -28,20 +28,20 @@ Meteor.methods({
         }
     },
 
-    'search.singleDic'(params, dic) {
+    'search.singleDic'(dic, options) {
         if (Meteor.isServer) {
             return new Promise((resolve, reject) => {
-                params = cleanParams(params);
+                options = cleanOptions(options);
 
-                let query = search(params, dic);
+                let query = search(dic, options);
                 if (query.length === 0) {
-                    resolve(query);
+                    resolve([]);
                 } else {
                     query.catch(error => reject(error))
                     .then(result => {
                         rtnArray = [{
                             dic: dic,
-                            results: result,
+                            words: result,
                         }];
                         resolve(rtnArray);
                     });
@@ -57,42 +57,42 @@ Meteor.methods({
     },
 });
 
-function cleanParams(params) {
-    let searchMethod = params.searchMethod;
+function cleanOptions(options) {
+    let searchMethod = options.searchMethod;
     if (searchMethod)
-        delete params.searchMethod;
+        delete options.searchMethod;
     
-    let spelling = params.spelling;
+    let spelling = options.spelling;
     if (spelling) {
-        params[params.spellingMethod] = spelling;
-        delete params.spellingMethod;
-        delete params.spelling;
+        options[options.spellingMethod] = spelling;
+        delete options.spellingMethod;
+        delete options.spelling;
     }
 
-    for (let key in params) {
-        if (!params[key].trim())
-            delete params[key];
+    for (let key in options) {
+        if (!options[key].trim())
+            delete options[key];
     }
     
     if (searchMethod) {
         if (searchMethod === 'contains') {
-            for (let key in params) {
-                params[key] = '%' + params[key] + '%';
+            for (let key in options) {
+                options[key] = '%' + options[key] + '%';
             }
         }
     }
         
-    return params;
+    return options;
 }
 
-function search(params, dic, limit=-1) {
+function search(dic, options, limit=-1) {
     let columns = dicStruct.filter(e => e.name===dic)[0].columns;
     const cmd = pg.select('*');
-    for (key in params) {
+    for (key in options) {
         if (key === 'id')
-            cmd.andWhere(key, params[key]);
+            cmd.andWhere(key, options[key]);
         else if (key in columns)
-            cmd.andWhere(key, 'like', params[key]);
+            cmd.andWhere(key, 'like', options[key]);
     }
     cmd.from(dic)
     if (limit >= 0)

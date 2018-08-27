@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { withRouter } from 'react-router-dom';
+import { HashLink } from 'react-router-hash-link';
 
 import DicStruct from '../api/dictionary_struct';
 import Word from "./Word";
@@ -8,7 +9,6 @@ import '../../public/stylesheets/dic.css';
 class AllDics extends Component {
     constructor(props) {
         super(props);
-
         let state = props.location.state;
         if (!state) {
             props.history.replace('/');
@@ -18,14 +18,10 @@ class AllDics extends Component {
     }
 
     showMore(dic) {
-        Meteor.call('search.singleDic', this.params, dic, (error, results) => {
+        Meteor.call('search.singleDic', dic, this.state.options, (error, results) => {
             if (error) throw new Meteor.Error(error);
-
-            this.props.history.push('/', this.state);
-            
-            this.setState({
-                results: results,
-            });
+            let state = results[0];
+            this.props.history.push('single', state);
         });
     }
 
@@ -36,7 +32,7 @@ class AllDics extends Component {
             let dic = allResults[idx].dic;
             let chineseName = DicStruct.filter((e) => e.name === dic)[0].chineseName;
             dicButtons.push(
-                <a key={dic} href={'#' + dic}>{chineseName}</a>
+                <HashLink key={dic} to={{pathname: 'all', hash: '#' + dic, state:this.state}}>{chineseName}</HashLink>
             )
         }
 
@@ -47,7 +43,9 @@ class AllDics extends Component {
                 </div>
                 <div>
                     {allResults.map((dicResults) => {
-                        return <DictionaryBrief key={dicResults.dic} dicResults={dicResults} showMore={this.showMore.bind(this, dicResults.dic)} showMoreButton={allResults.length > 1} />
+                        return (
+                            <DictionaryBrief key={dicResults.dic} dicResults={dicResults} showMore={this.showMore.bind(this, dicResults.dic)} showMoreButton={allResults.length > 1} />
+                        );
                     })}
                 </div>
             </div>
