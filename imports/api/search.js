@@ -18,7 +18,8 @@ import dicsStruct from './dictionary_struct';
 
 Meteor.methods({
     'search'(options) {
-        if (options.method === 'allField') {
+        let method = options.method;
+        if (method === 'allField') {
             if (options.dic)
                 return new Promise((resolve, reject) => {
                     searchSingleAllField(options.dic, options.value)
@@ -33,32 +34,25 @@ Meteor.methods({
                 });
             else
                 return searchAllField(options.value);
-        }
-    },
+        } else if (method === 'basic') {
+            let params = options.params;
+            if (options.dic) {
+                params = cleanParams(params);
+                query = searchBrief(options.dic, params);
 
-    'search.basic'(options) {
-        if (Meteor.isServer) {
-            const searchLimit = 3;
-            options = cleanOptions(options);
-
-            querys = [];
-            for (let idx in dicsStruct) {
-                let dic = dicsStruct[idx].name
-                query = searchBrief(dic, options, searchLimit);
-                querys.push(query);
-            }
-
-            return new Promise((resolve, reject) => {
-                Promise.all(querys)
-                .catch(error => reject(error))
-                .then(results => {
-                    rtnArray = dicsStruct.map((e, i) => ({
-                        dic: e.name,
-                        words: results[i],
-                    }));
-                    resolve(rtnArray)
+                return new Promise((resolve, reject) => {
+                    query
+                    .catch(error => reject(error))
+                    .then(result => {
+                        rtn = {
+                            dic: options.dic,
+                            words: result,
+                        };
+                        resolve(rtn);
+                    });
                 });
-            });
+            } else
+                return basicSearch(params);
         }
     },
 
@@ -84,35 +78,38 @@ Meteor.methods({
         }
     },
 
-    'search.allField'(option) {
-        if (Meteor.isServer) {
-            querys = [];
-            for (let idx in dicsStruct) {
-                let dic = dicsStruct[idx].name
-                query = searchAllFieldBrief(dic, option);
-                querys.push(query);
-            }
-
-            return new Promise((resolve, reject) => {
-                Promise.all(querys)
-                .catch(error => reject(error))
-                .then(results => {
-                    rtnArray = dicsStruct.map((e, i) => ({
-                        dic: e.name,
-                        words: results[i],
-                    }));
-                    resolve(rtnArray)
-                });
-            });
-        }
-    },
-
     'search.dicAndId'(dic, id) {
         if (Meteor.isServer) {
             return pg(dic).select('*').where({id: id});
         }
     },
 });
+
+function basicSearch(params) {
+    if (Meteor.isServer) {
+        const searchLimit = 3;
+        params = cleanParams(params);
+
+        querys = [];
+        for (let idx in dicsStruct) {
+            let dic = dicsStruct[idx].name
+            query = searchBrief(dic, params, searchLimit);
+            querys.push(query);
+        }
+
+        return new Promise((resolve, reject) => {
+            Promise.all(querys)
+            .catch(error => reject(error))
+            .then(results => {
+                rtnArray = dicsStruct.map((e, i) => ({
+                    dic: e.name,
+                    words: results[i],
+                }));
+                resolve(rtnArray);
+            });
+        });
+    }
+}
 
 function searchAllField(value) {
     if (Meteor.isServer) {
@@ -131,13 +128,13 @@ function searchAllField(value) {
                     dic: e.name,
                     words: results[i],
                 }));
-                resolve(rtnArray)
+                resolve(rtnArray);
             });
         });
     }
 }
 
-function cleanOptions(options) {
+function cleanParams(options) {
     let searchMethod = options.searchMethod;
     if (searchMethod)
         delete options.searchMethod;

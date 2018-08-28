@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import { withRouter, Link } from 'react-router-dom';
-import DicStruct from '../api/dictionary_struct';
+import { withRouter } from 'react-router-dom';
+import dicStruct from '../api/dictionary_struct';
 
 class AdvancedSearch extends Component {
     constructor(props) {
@@ -14,7 +14,7 @@ class AdvancedSearch extends Component {
     handleMethodButton(method) {
         this.setState({
             method: method,
-            selectedDic: undefined,
+            selectedDic: dicStruct[0].name,
         });
     }
 
@@ -35,10 +35,10 @@ class AdvancedSearch extends Component {
         // dictionary buttons
         let dicButtons = [];
         if (this.state.method === 'singleDic') {
-            for (let idx in DicStruct) {
-                let dic = DicStruct[idx].name;
+            for (let idx in dicStruct) {
+                let dic = dicStruct[idx].name;
                 dicButtons.push(
-                    <button key={dic} onClick={this.handleDicButton.bind(this, dic)}>{DicStruct[idx].chineseName}</button>
+                    <button key={dic} onClick={this.handleDicButton.bind(this, dic)}>{dicStruct[idx].chineseName}</button>
                 );
             }
         }
@@ -58,7 +58,7 @@ class AdvancedSearch extends Component {
         let resultView = undefined;
         let results = this.state.results;
         if (results) {
-            let chineseName = DicStruct.filter(e => e.name === results.dic)[0].chineseName;
+            let chineseName = dicStruct.filter(e => e.name === results.dic)[0].chineseName;
             resultView = (
                 <div>
                     <h2>{chineseName}</h2>
@@ -99,7 +99,7 @@ class SingleDicOptions extends Component {
     }
 
     clearInput(dic) {
-        let columns = DicStruct.filter((e) => e.name === dic)[0].columns;
+        let columns = dicStruct.filter((e) => e.name === dic)[0].columns;
         let options = {};
         for (let key in columns) {
             options[key] = '';
@@ -126,7 +126,7 @@ class SingleDicOptions extends Component {
 
     render() {
         let dic = this.props.dic;
-        let columns = DicStruct.filter((e) => e.name === dic)[0].columns;
+        let columns = dicStruct.filter((e) => e.name === dic)[0].columns;
         let inputs = [];
         
         for (let key in columns) {
@@ -186,34 +186,6 @@ class AllFieldOptions extends Component {
                 <br />
                 <input type="submit" value="開始找" />
             </form>
-        );
-    }
-}
-
-class Word extends Component {
-    render() {
-        // dictionary url
-        let id = this.props.columns.id;
-        let dic = this.props.dic;
-        const linkUri = '/' + dic + '/' + id;
-
-        // dictionary details
-        let dic_struct = DicStruct.filter(struct => struct.name===dic)[0].columns;
-        let columns = this.props.columns;
-        let content = [];
-        for (let key in columns) {
-            content.push((
-                <li key={key}>{dic_struct[key]} - {columns[key]}</li>
-            ));
-        }
-        return (
-            <li>
-                <Link to={linkUri} target='_blank'>
-                    <ul>
-                        {content}
-                    </ul>
-                </Link>
-            </li>
         );
     }
 }

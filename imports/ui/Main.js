@@ -13,7 +13,7 @@ import { About } from './About';
 import Account from './Account';
 
 // Landing page
-export default class Main extends Component {
+/* export default class Main extends Component {
     render() {
         let additionalRoute = [];
         if (Meteor.userId()) {
@@ -32,29 +32,36 @@ export default class Main extends Component {
             </main>
         );
     }
-}
+} */
 
 // formal
-/* export default class Main extends Component {
+export default class Main extends Component {
     render() {
         const detailPath = getDetailPath();
+        let additionalRoute = [];
+        if (Meteor.userId()) {
+            additionalRoute = [
+                <Route key='basic' exact path='/' component={BasicSearch} />,
+                <Route key='landing' exact path='/landing' component={Landing} />,
+                <Route key='advanced' exact path='/advanced' component={AdvancedSearch} />,
+                <Route key='all' exact path='/all' component={AllDics} />,
+                <Route key='single' exact path='/single' component={SingleDic} />,
+                <Route key='detail' exact path={detailPath} component={Detail} />,
+                <Route key='about' exact path='/about' component={About} />,
+                <Route key='update' exact path='/update' component={Update} />,
+            ];
+        }
         return (
             <main>
                 <Switch>
-                    <Route exact path='/' component={BasicSearch} />
-                    <Route exact path='/advanced' component={AdvancedSearch} />
-                    <Route exact path='/all' component={AllDics} />
-                    <Route exact path='/single' component={SingleDic} />
-                    <Route exact path={detailPath} component={Detail} />
-                    <Route exact path='/about' component={About} />
+                    {additionalRoute}
                     <Route exact path='/account' component={Account} />
-                    <Route exact path='/update' component={Update} />
                     <Redirect to='/' />
                 </Switch>
             </main>
         );
     }
-} */
+}
 
 function getDetailPath() {
     let dic = DicStruct.map((e) => e.name);

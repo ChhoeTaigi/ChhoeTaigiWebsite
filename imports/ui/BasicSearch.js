@@ -16,7 +16,7 @@ class BasicSearch extends Component {
     }
 
     handleSubmit(event) {
-        this.params = {
+        let params = {
             searchMethod: this.state.searchMethod,
             spellingMethod: this.state.spellingMethod,
             spelling: this.state.spelling,
@@ -24,7 +24,11 @@ class BasicSearch extends Component {
             hoabun: this.state.hoabun,
             english_descriptions: this.state.english_descriptions,
         }
-        Meteor.call('search.basic', this.params, (error, allResults) => {
+        let options = {
+            method: 'basic',
+            params: params,
+        };
+        Meteor.call('search', options, (error, allResults) => {
             if (error) throw new Meteor.Error(error);
             for (let idx in allResults) {
                 if (allResults[idx].words.length === 0)
@@ -33,7 +37,7 @@ class BasicSearch extends Component {
 
             let state = {
                 allResults: allResults,
-                options: this.state,
+                options: options,
             };
             this.props.history.push('all', state);
         });

@@ -5,7 +5,7 @@ import '../../public/stylesheets/global.css'
 import '../../public/stylesheets/header.css'
 
 // Landing
-class Header extends Component {
+/* class Header extends Component {
     render() {
         var currentLocation = this.props.location.pathname
 
@@ -22,10 +22,10 @@ class Header extends Component {
             </header>
         );
     }
-}
+} */
 
 // Formal
-/* class Header extends Component {
+class Header extends Component {
     render() {
         var currentLocation = this.props.location.pathname
 
@@ -38,11 +38,12 @@ class Header extends Component {
                         <Link className={'menu-text menu-item ' + (currentLocation == '/about' ? 'menu-item-select' : '')} to='/about'>關於找台語</Link>
                         <Link className={'menu-text menu-item ' + (currentLocation == '/advanced' ? 'menu-item-select' : '')} to='/advanced'>進階搜尋</Link>
                         <Link className={'menu-text menu-item ' + (currentLocation == '/' ? 'menu-item-select' : '')} to='/'>基礎搜尋</Link>
+                        <Link className={'menu-text menu-item ' + (currentLocation == '/landing' ? 'menu-item-select' : '')} to='/landing'>首頁</Link>
                     </div>
                 </div>
             </header>
         );
     }
-} */
+}
 
 export default withRouter(Header);
