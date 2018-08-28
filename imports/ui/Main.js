@@ -10,24 +10,32 @@ import SingleDic from './SingleDic';
 import Update from './Update';
 import Detail from './Detail';
 import { About } from './About';
+import Account from './Account';
 
 // Landing page
-/* export default class Main extends Component {
+export default class Main extends Component {
     render() {
+        let additionalRoute = [];
+        if (Meteor.userId()) {
+            additionalRoute = [
+                <Route exact path='/' component={Landing} />,
+                <Route exact path='/about' component={About} />,
+            ];
+        }
         return (
             <main>
                 <Switch>
-                    <Route exact path='/' component={Landing} />
-                    <Route exact path='/about' component={About} />
+                    {additionalRoute}
+                    <Route exact path='/account' component={Account} />
                     <Redirect to='/' />
                 </Switch>
             </main>
         );
     }
-} */
+}
 
 // formal
-export default class Main extends Component {
+/* export default class Main extends Component {
     render() {
         const detailPath = getDetailPath();
         return (
@@ -39,13 +47,14 @@ export default class Main extends Component {
                     <Route exact path='/single' component={SingleDic} />
                     <Route exact path={detailPath} component={Detail} />
                     <Route exact path='/about' component={About} />
+                    <Route exact path='/account' component={Account} />
                     <Route exact path='/update' component={Update} />
                     <Redirect to='/' />
                 </Switch>
             </main>
         );
     }
-}
+} */
 
 function getDetailPath() {
     let dic = DicStruct.map((e) => e.name);

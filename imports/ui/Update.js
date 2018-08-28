@@ -1,11 +1,17 @@
 import React, { Component } from 'react';
+import { withRouter } from 'react-router-dom';
 
 import dic_struct from '../api/dictionary_struct';
 import '../api/update';
 
-export default class Update extends Component {
+class Update extends Component {
     constructor(props) {
         super(props);
+
+        if(!Meteor.userId()) {
+            this.props.history.push('/');
+            return;
+        }
 
         let rowNum = [];
         this.dics = [];
@@ -60,6 +66,8 @@ export default class Update extends Component {
         this.setState(rowNum);
     }
 }
+
+export default withRouter(Update);
 
 class DicRow extends Component {
     delete(name) {
