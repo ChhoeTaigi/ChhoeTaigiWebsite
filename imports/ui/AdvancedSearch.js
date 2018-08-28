@@ -54,32 +54,21 @@ class AdvancedSearch extends Component {
             searchOptions = <AllFieldOptions key='allFieldOptions' updateResults={this.updateResults.bind(this)} />;
         }
 
-        // result
-        let resultView = undefined;
-        let results = this.state.results;
-        if (results) {
-            let chineseName = dicStruct.filter(e => e.name === results.dic)[0].chineseName;
-            resultView = (
-                <div>
-                    <h2>{chineseName}</h2>
-                    <ol>{results.lists.map(e => <Word key={e.id} dic={results.dic} columns={e} />)}</ol>
-                </div>
-            );
-        }
-
         // view
         return (
             <div>
                 <div>{methodButtons}</div>
                 <div>{dicButtons}</div>
                 <div>{searchOptions}</div>
-                {resultView}
             </div>
         );
     }
 
     updateResults(state) {
-        this.props.history.push('all', state);
+        if (Array.isArray(state))
+            this.props.history.push('all', state);
+        else
+            this.props.history.push('single', state);
     }
 }
 
@@ -89,38 +78,43 @@ class SingleDicOptions extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            options: this.clearInput(this.props.dic),
+            params: this.clearInput(this.props.dic),
         }
     }
 
     componentWillUpdate(nextProps, nextState) {
         if (this.props.dic !== nextProps.dic)
-            nextState.options = this.clearInput(nextProps.dic);
+            nextState.params = this.clearInput(nextProps.dic);
     }
 
     clearInput(dic) {
         let columns = dicStruct.filter((e) => e.name === dic)[0].columns;
-        let options = {};
+        let params = {};
         for (let key in columns) {
-            options[key] = '';
+            params[key] = '';
         }
-        return options;
+        return params;
     }
 
     handleSubmit(event) {
-        let options = this.state.options;
-        Meteor.call('search.single.all', options, this.props.dic, (error, results) => {
+        let params = this.state.params;
+        let options = {
+            method: 'singleDic',
+            dic: this.props.dic,
+            params: params,
+        };
+        Meteor.call('search', options, (error, result) => {
             if (error) throw new Meteor.Error(error);
-            this.props.updateResults(results[0]);
+            this.props.updateResults(result);
         });
         event.preventDefault();
     }
 
     handleInput(key, event) {
-        let options = this.state.options;
-        options[key] = event.target.value;
+        let params = this.state.params;
+        params[key] = event.target.value;
         this.setState({
-            options: options,
+            params: params,
         });
     }
 
@@ -134,7 +128,7 @@ class SingleDicOptions extends Component {
                 <div key={key}>
                     <label>
                         {columns[key]}
-                        <input type='text' placeholder='輸入關鍵字' onChange={this.handleInput.bind(this, key)} value={this.state.options[key]}></input>
+                        <input type='text' placeholder='輸入關鍵字' onChange={this.handleInput.bind(this, key)} value={this.state.params[key]}></input>
                     </label>
                     <br />
                 </div>

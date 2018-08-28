@@ -53,28 +53,8 @@ Meteor.methods({
                 });
             } else
                 return basicSearch(params);
-        }
-    },
-
-    'search.singleDic'(dic, options) {
-        if (Meteor.isServer) {
-            return new Promise((resolve, reject) => {
-                options = cleanOptions(options);
-
-                let query = searchBrief(dic, options);
-                if (query.length === 0) {
-                    resolve([]);
-                } else {
-                    query.catch(error => reject(error))
-                    .then(result => {
-                        rtnArray = [{
-                            dic: dic,
-                            words: result,
-                        }];
-                        resolve(rtnArray);
-                    });
-                }
-            });
+        } else if (method === 'singleDic') {
+            return searchSingleDic(options.dic, options.params);
         }
     },
 
@@ -134,35 +114,54 @@ function searchAllField(value) {
     }
 }
 
-function cleanParams(options) {
-    let searchMethod = options.searchMethod;
+function searchSingleDic(dic, params) {
+    if (Meteor.isServer) {
+        return new Promise((resolve, reject) => {
+            params = cleanParams(params);
+
+            let query = searchBrief(dic, params);
+            query
+            .catch(error => reject(error))
+            .then(result => {
+                rtn = {
+                    dic: dic,
+                    words: result,
+                };
+                resolve(rtn);
+             });
+        });
+    }
+}
+
+function cleanParams(params) {
+    let searchMethod = params.searchMethod;
     if (searchMethod)
-        delete options.searchMethod;
+        delete params.searchMethod;
     
-    let spelling = options.spelling;
+    let spelling = params.spelling;
     if (spelling) {
-        options[options.spellingMethod] = spelling;
-        delete options.spellingMethod;
-        delete options.spelling;
+        params[params.spellingMethod] = spelling;
+        delete params.spellingMethod;
+        delete params.spelling;
     }
 
-    for (let key in options) {
-        if (!options[key].trim())
-            delete options[key];
+    for (let key in params) {
+        if (!params[key].trim())
+            delete params[key];
     }
     
     if (searchMethod) {
         if (searchMethod === 'contains') {
-            for (let key in options) {
-                options[key] = '%' + options[key] + '%';
+            for (let key in params) {
+                params[key] = '%' + params[key] + '%';
             }
         }
     }
         
-    return options;
+    return params;
 }
 
-function searchBrief(dic, options, limit=-1) {
+function searchBrief(dic, params, limit=-1) {
     let dicStruct = dicsStruct.filter(e => e.name===dic)[0];
     let columns = dicStruct.columns;
     let brief = dicStruct.brief;
@@ -171,11 +170,11 @@ function searchBrief(dic, options, limit=-1) {
         briefArray.push(key);
     }
     const cmd = pg.select(briefArray);
-    for (key in options) {
+    for (key in params) {
         if (key === 'id')
-            cmd.andWhere(key, options[key]);
+            cmd.andWhere(key, params[key]);
         else if (key in columns)
-            cmd.andWhere(key, 'like', options[key]);
+            cmd.andWhere(key, 'like', params[key]);
     }
     cmd.from(dic)
     if (limit >= 0)
@@ -183,7 +182,7 @@ function searchBrief(dic, options, limit=-1) {
     return cmd;
 }
 
-function searchSingleAllField(dic, option) {
+function searchSingleAllField(dic, params) {
     let dicStruct = dicsStruct.filter(e => e.name===dic)[0];
     let columns = dicStruct.columns;
     let brief = dicStruct.brief;
@@ -194,7 +193,7 @@ function searchSingleAllField(dic, option) {
     const cmd = pg.select(briefArray);
     for (key in columns) {
         if (key !== 'id')
-            cmd.orWhere(key, 'like', option);
+            cmd.orWhere(key, 'like', params);
     }
     cmd.from(dic)
     return cmd;
