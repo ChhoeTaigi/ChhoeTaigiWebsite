@@ -18,8 +18,8 @@ export default class Main extends Component {
         let additionalRoute = [];
         if (Meteor.userId()) {
             additionalRoute = [
-                <Route exact path='/' component={Landing} />,
-                <Route exact path='/about' component={About} />,
+                <Route key='landing' exact path='/' component={Landing} />,
+                <Route key='about' exact path='/about' component={About} />,
             ];
         }
         return (
