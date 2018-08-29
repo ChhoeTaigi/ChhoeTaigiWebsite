@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import { withRouter } from 'react-router-dom';
 
+import '../../public/stylesheets/basic.css';
+
 class BasicSearch extends Component {
     constructor(props) {
         super(props);
@@ -54,28 +56,55 @@ class BasicSearch extends Component {
 
     render() {
         return (
-            <form onSubmit={this.handleSubmit.bind(this)}>
-                <label><input type="radio" name="searchMethod" value="equals" defaultChecked={this.state.searchMethod === 'equals'} onChange={this.handleInput.bind(this)} />精確搜尋</label>
-                <label><input type="radio" name="searchMethod" value="contains" defaultChecked={this.state.searchMethod === 'contains'} onChange={this.handleInput.bind(this)} />模糊搜尋</label>
-                <br />
-                <label><input type="radio" name="spellingMethod" value="poj_unicode" defaultChecked={this.state.spellingMethod === 'poj_unicode'} onChange={this.handleInput.bind(this)} />白話字</label>
-                <label><input type="radio" name="spellingMethod" value="poj_input" defaultChecked={this.state.spellingMethod === 'poj_input'} onChange={this.handleInput.bind(this)} />白話字輸入</label>
-                <label><input type="radio" name="spellingMethod" value="kiplmj_unicode" defaultChecked={this.state.spellingMethod === 'kiplmj_unicode'} onChange={this.handleInput.bind(this)} />教育部羅馬字</label>
-                <label><input type="radio" name="spellingMethod" value="kiplmj_input" defaultChecked={this.state.spellingMethod === 'kiplmj_input'} onChange={this.handleInput.bind(this)} />教育部羅馬字輸入</label>
-                <br />
-                <input type="text" name="spelling" placeholder="輸入關鍵字" value={this.state.spelling} onChange={this.handleInput.bind(this)} />
-                <br />
-                <label htmlFor="hanlo_taibun_poj">漢羅台文</label>
-                <input type="text" name="hanlo_taibun_poj" placeholder="輸入關鍵字" value={this.state.hanlo_taibun_poj} onChange={this.handleInput.bind(this)} />
-                <br />
-                <label htmlFor="hoabun">對應華文</label>
-                <input type="text" name="hoabun" placeholder="輸入關鍵字" value={this.state.hoabun} onChange={this.handleInput.bind(this)} />
-                <br />
-                <label htmlFor="english_descriptions">對應英文</label>
-                <input type="text" name="english_descriptions" placeholder="輸入關鍵字" value={this.state.english_descriptions} onChange={this.handleInput.bind(this)} />
-                <br />
-                <input type="submit" value="查詢" />
-            </form>
+            <div>
+                <img id='banner' src='images/kv@2x.png' width='802' height='280'></img>
+                <div id='form-background'>
+                    <form id='basic-form' onSubmit={this.handleSubmit.bind(this)}>
+                        <div id='search-title'>基礎搜尋</div>
+                        <div id='form-container'>
+                            <div id='search-method-container'>
+                                <span>1-請選擇</span>
+                                <label id='radio-1'><input type="radio" name="searchMethod" value="equals" defaultChecked={this.state.searchMethod === 'equals'} onChange={this.handleInput.bind(this)} />精確搜尋</label>
+                                <label id='radio-2'><input type="radio" name="searchMethod" value="contains" defaultChecked={this.state.searchMethod === 'contains'} onChange={this.handleInput.bind(this)} />模糊搜尋</label>
+                                <div id='wildcard-note-container'>
+                                    <a id='wildcard-note' href='#'>萬用字元搜尋說明</a>
+                                </div>
+                            </div>
+                            <div id='seperator'></div>
+                            <div id='input-container'>
+                                <div id='large-input'>
+                                    <label className='input-title' htmlFor='spelling'>2-輸入方式 羅馬字台文</label>
+                                    <div id='large-input-container'>
+                                        <div id='large-input-top'>
+                                            <label><input id='radio-3' type="radio" name="spellingMethod" value="poj_unicode" defaultChecked={this.state.spellingMethod === 'poj_unicode'} onChange={this.handleInput.bind(this)} />白話字</label>
+                                            <label><input id='radio-4' type="radio" name="spellingMethod" value="poj_input" defaultChecked={this.state.spellingMethod === 'poj_input'} onChange={this.handleInput.bind(this)} />白話字輸入</label>
+                                            <label><input id='radio-5' type="radio" name="spellingMethod" value="kiplmj_unicode" defaultChecked={this.state.spellingMethod === 'kiplmj_unicode'} onChange={this.handleInput.bind(this)} />教育部羅馬字</label>
+                                            <label><input id='radio-6' type="radio" name="spellingMethod" value="kiplmj_input" defaultChecked={this.state.spellingMethod === 'kiplmj_input'} onChange={this.handleInput.bind(this)} />教育部羅馬字輸入</label>
+                                            <div id='text-input-seperator'></div>
+                                        </div>
+                                        <input className='text-input' type="text" name="spelling" placeholder="輸入關鍵字" value={this.state.spelling} onChange={this.handleInput.bind(this)} />
+                                    </div>
+                                </div>
+                                
+                                <div className='small-input'>
+                                    <label className='input-title' htmlFor="hanlo_taibun_poj">對應台文</label>
+                                    <input className='text-input' type="text" name="hanlo_taibun_poj" placeholder="輸入關鍵字" value={this.state.hanlo_taibun_poj} onChange={this.handleInput.bind(this)} />
+                                </div>
+                                <div className='small-input'>
+                                    <label className='input-title' htmlFor="hoabun">對應華文</label>
+                                    <input className='text-input' type="text" name="hoabun" placeholder="輸入關鍵字" value={this.state.hoabun} onChange={this.handleInput.bind(this)} />
+                                </div>
+                                <div className='small-input'>
+                                    <label className='input-title' htmlFor="english_descriptions">對應英文</label>
+                                    <input className='text-input' type="text" name="english_descriptions" placeholder="輸入關鍵字" value={this.state.english_descriptions} onChange={this.handleInput.bind(this)} />
+                                </div>
+                            </div>
+                            <input id='find-button' type="submit" value="開始找" />
+                        </div>
+                        
+                    </form>
+                </div>
+            </div>
         );
     }
 }

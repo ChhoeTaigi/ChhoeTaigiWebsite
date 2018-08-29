@@ -18,7 +18,7 @@ body {
 	position: relative;
 	overflow-y: scroll;
 	font-family: 'Noto Sans CJK', taigiwebfont, 'Microsoft Yahei', 'PingFang TC';
-	letter-spacing: 0.1em;
+	letter-spacing: 1px;
 	padding-bottom: 40px;
 }
 

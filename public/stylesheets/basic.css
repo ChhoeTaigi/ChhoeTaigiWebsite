@@ -1,0 +1,170 @@
+#banner {
+    display: block;
+    position: relative;
+    margin-left: auto;
+    margin-right: auto;
+    padding-top: 20px;
+    top: 20px;
+}
+
+#form-background {
+    background-color: #5b9564;
+    min-height: 420px;
+}
+
+#basic-form {
+    margin-left: auto;
+    margin-right: auto;
+    width: 960px;
+    font-size: 16px;
+    font-weight: 500;
+    color: #3f4d38;
+}
+
+#search-title {
+    height: 42px;
+    background-color: #eef5ef;
+    font-size: 20px;
+    font-weight: 500;
+    line-height: 42px;
+    color: #23672e;
+    padding-left: 43px;
+}
+
+#form-container {
+    background-color: #d0e3d0;
+    height: 370px;
+    border-radius: 0 0 5px 5px;
+}
+
+#search-method-container {
+    height: 54px;
+    padding-left: 43px;
+    padding-right: 43px;
+    line-height: 54px;
+}
+
+#radio-1 {
+    margin-left: 10px;
+}
+
+#radio-2 {
+    margin-left: 28px;
+}
+
+#wildcard-note-container {
+    float: right;
+}
+
+#wildcard-note {
+    color: #2f893d;
+    text-decoration: none;
+    border-bottom: 1px solid;
+    font-weight: normal;
+}
+
+#seperator {
+    height: 2px;
+    margin-left: 43px;
+    margin-right: 26px;
+    opacity: 0.3;
+    background-color: #43944f;
+}
+
+#input-container {
+    padding-left: 43px;
+}
+
+#large-input {
+    height: 68px;
+    margin-top: 16px;
+}
+
+#large-input-container {
+    display: inline-block;
+    background-color: #eef5ef;
+}
+
+#large-input-top {
+    height: 34px;
+    line-height: 34px;
+    position: relative;
+}
+
+#radio-3 {
+    margin-left: 14px;
+}
+
+#radio-4 {
+    margin-left: 26px;
+}
+
+#radio-5 {
+    margin-left: 26px;
+}
+
+#radio-6 {
+    margin-left: 26px;
+}
+
+#text-input-seperator {
+    position: absolute;
+    bottom: 0;
+    width: 538px;
+    height: 1px;
+    left: 12px;
+    opacity: 0.5;
+    background-color: #657160;
+}
+
+.input-title {
+    display: inline-block;
+    height: 34px;
+    width: 200px;
+    line-height: 34px;
+    text-align: right;
+    padding-right: 6px;
+    vertical-align: top;
+}
+
+.text-input {
+    height: 34px;
+    width: 557px;
+    border: none;
+    padding: 0;
+    background-color: #eef5ef;
+    padding-left: 14px;
+    font-size: 16px;
+}
+
+.text-input::placeholder {
+    font-size: 16px;
+    color: #8a9b83;
+}
+
+.small-input {
+    margin-top: 13px;
+}
+
+#find-button {
+    display: block;
+    width: 176px;
+    height: 48px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 22px;
+    padding: 0;
+    border-radius: 2px;
+    box-shadow: 0 4px 2px 0 rgba(0, 0, 0, 0.16);
+    background-color: #ffffff;
+    background-image: url(images/magnifier@2x.png);
+    background-repeat: no-repeat;
+    background-size: 22px 18px;
+    background-position: 114px center; 
+    border: solid 1px #43944f;
+    font-size: 18px;
+    font-weight: 500;
+    line-height: 48px;
+    color: #43944f;
+    padding-right: 14px;
+}
