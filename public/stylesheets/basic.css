@@ -44,6 +44,31 @@
     line-height: 54px;
 }
 
+.radio > div {
+    display: inline-block;
+    position: relative;
+    top: 2px;
+    width: 16px;
+    height: 16px;
+    background-size: 16px 16px;
+}
+
+.radio > input {
+    display: none;
+}
+
+.radio > div[class='checked'] {
+    background-image: url(images/checkbox_select@2x.png);
+}
+
+.radio > div[class='unchecked'] {
+    background-image: url(images/checkbox@2x.png);
+}
+
+.radio > span {
+    margin-left: 4px;
+}
+
 #radio-1 {
     margin-left: 10px;
 }
@@ -61,6 +86,7 @@
     text-decoration: none;
     border-bottom: 1px solid;
     font-weight: normal;
+    font-size: 15px;
 }
 
 #seperator {
@@ -93,18 +119,22 @@
 
 #radio-3 {
     margin-left: 14px;
+    font-weight: normal;
 }
 
 #radio-4 {
     margin-left: 26px;
+    font-weight: normal;
 }
 
 #radio-5 {
     margin-left: 26px;
+    font-weight: normal;
 }
 
 #radio-6 {
     margin-left: 26px;
+    font-weight: normal;
 }
 
 #text-input-seperator {
@@ -120,7 +150,7 @@
 .input-title {
     display: inline-block;
     height: 34px;
-    width: 200px;
+    width: 185px;
     line-height: 34px;
     text-align: right;
     padding-right: 6px;
@@ -140,6 +170,7 @@
 .text-input::placeholder {
     font-size: 16px;
     color: #8a9b83;
+    font-weight: normal;
 }
 
 .small-input {

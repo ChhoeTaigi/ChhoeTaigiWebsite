@@ -64,8 +64,16 @@ class BasicSearch extends Component {
                         <div id='form-container'>
                             <div id='search-method-container'>
                                 <span>1-請選擇</span>
-                                <label id='radio-1'><input type="radio" name="searchMethod" value="equals" defaultChecked={this.state.searchMethod === 'equals'} onChange={this.handleInput.bind(this)} />精確搜尋</label>
-                                <label id='radio-2'><input type="radio" name="searchMethod" value="contains" defaultChecked={this.state.searchMethod === 'contains'} onChange={this.handleInput.bind(this)} />模糊搜尋</label>
+                                <label id='radio-1' class='radio'>
+                                    <div className={this.state.searchMethod === 'equals' ? 'checked' : 'unchecked'}></div>
+                                    <input type="radio" name="searchMethod" value="equals" defaultChecked={this.state.searchMethod === 'equals'} onChange={this.handleInput.bind(this)} />
+                                    <span>精確搜尋</span>
+                                </label>
+                                <label id='radio-2' class='radio'>
+                                    <div className={this.state.searchMethod === 'contains' ? 'checked' : 'unchecked'}></div>
+                                    <input type="radio" name="searchMethod" value="contains" defaultChecked={this.state.searchMethod === 'contains'} onChange={this.handleInput.bind(this)} />
+                                    <span>模糊搜尋</span>
+                                </label>
                                 <div id='wildcard-note-container'>
                                     <a id='wildcard-note' href='#'>萬用字元搜尋說明</a>
                                 </div>
@@ -76,10 +84,26 @@ class BasicSearch extends Component {
                                     <label className='input-title' htmlFor='spelling'>2-輸入方式 羅馬字台文</label>
                                     <div id='large-input-container'>
                                         <div id='large-input-top'>
-                                            <label><input id='radio-3' type="radio" name="spellingMethod" value="poj_unicode" defaultChecked={this.state.spellingMethod === 'poj_unicode'} onChange={this.handleInput.bind(this)} />白話字</label>
-                                            <label><input id='radio-4' type="radio" name="spellingMethod" value="poj_input" defaultChecked={this.state.spellingMethod === 'poj_input'} onChange={this.handleInput.bind(this)} />白話字輸入</label>
-                                            <label><input id='radio-5' type="radio" name="spellingMethod" value="kiplmj_unicode" defaultChecked={this.state.spellingMethod === 'kiplmj_unicode'} onChange={this.handleInput.bind(this)} />教育部羅馬字</label>
-                                            <label><input id='radio-6' type="radio" name="spellingMethod" value="kiplmj_input" defaultChecked={this.state.spellingMethod === 'kiplmj_input'} onChange={this.handleInput.bind(this)} />教育部羅馬字輸入</label>
+                                            <label id='radio-3' class='radio'>
+                                                <div className={this.state.spellingMethod === 'poj_unicode' ? 'checked' : 'unchecked'}></div>
+                                                <input type="radio" name="spellingMethod" value="poj_unicode" defaultChecked={this.state.spellingMethod === 'poj_unicode'} onChange={this.handleInput.bind(this)} />
+                                                <span>白話字</span>
+                                            </label>
+                                            <label id='radio-4' class='radio'>
+                                                <div className={this.state.spellingMethod === 'poj_input' ? 'checked' : 'unchecked'}></div>
+                                                <input type="radio" name="spellingMethod" value="poj_input" defaultChecked={this.state.spellingMethod === 'poj_input'} onChange={this.handleInput.bind(this)} />
+                                                <span>白話字輸入</span>
+                                            </label>
+                                            <label id='radio-5' class='radio'>
+                                                <div className={this.state.spellingMethod === 'kiplmj_unicode' ? 'checked' : 'unchecked'}></div>
+                                                <input type="radio" name="spellingMethod" value="kiplmj_unicode" defaultChecked={this.state.spellingMethod === 'kiplmj_unicode'} onChange={this.handleInput.bind(this)} />
+                                                <span>教育部羅馬字</span>
+                                            </label>
+                                            <label id='radio-6' class='radio'>
+                                                <div className={this.state.spellingMethod === 'kiplmj_input' ? 'checked' : 'unchecked'}></div>
+                                                <input type="radio" name="spellingMethod" value="kiplmj_input" defaultChecked={this.state.spellingMethod === 'kiplmj_input'} onChange={this.handleInput.bind(this)} />
+                                                <span>教育部羅馬字輸入</span>
+                                            </label>
                                             <div id='text-input-seperator'></div>
                                         </div>
                                         <input className='text-input' type="text" name="spelling" placeholder="輸入關鍵字" value={this.state.spelling} onChange={this.handleInput.bind(this)} />
