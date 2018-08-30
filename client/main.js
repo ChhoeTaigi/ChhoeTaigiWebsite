@@ -3,7 +3,8 @@ import { render } from 'react-dom';
 import { BrowserRouter } from 'react-router-dom';
 import { Meteor } from 'meteor/meteor';
 
-import '../imports/startup/accounts-config.js';
+import '../imports/startup/both';
+import '../imports/startup/client';
 
 import './main.html';
 import App from '../imports/ui/App';
