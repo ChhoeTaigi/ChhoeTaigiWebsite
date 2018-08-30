@@ -62,9 +62,16 @@ header {
 footer {
 	width: 100%;
 	height: 40px;
-	background-color: rgba(63, 77, 56, 0.1);
 	position: absolute;
 	bottom: 0;
+}
+
+.footer-bg1 {
+	background-color: rgba(63, 77, 56, 0.1);
+}
+
+.footer-bg2 {
+	background-color: #5b9564;
 }
 
 #footer-img {

@@ -14,16 +14,24 @@ class BasicSearch extends Component {
             hanlo_taibun_poj: '',
             hoabun: '',
             english_descriptions: '',
-            background_height: window.innerHeight - 397,
+            background_height: window.innerHeight - 396,
         };
+
+        this.handleResize = this.handleResize.bind(this);
+    }
+
+    handleResize() {
+        this.setState({
+            background_height: window.innerHeight - 396,
+        });
     }
 
     componentDidMount() {
-        window.addEventListener('resize', () => {
-            this.setState({
-                background_height: window.innerHeight - 397,
-            });
-        });
+        window.addEventListener('resize', this.handleResize);
+    }
+
+    componentWillUnmount() {
+        window.removeEventListener('resize', this.handleResize);
     }
 
     handleSubmit(event) {

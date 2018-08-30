@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Switch, Route, Redirect } from 'react-router-dom';
+import { Switch, Route, Redirect, withRouter } from 'react-router-dom';
 import DicStruct from '../api/dictionary_struct';
 
 import Landing from './Landing';
@@ -13,7 +13,7 @@ import { About } from './About';
 import Account from './Account';
 
 // Landing page
-/* export default class Main extends Component {
+/* class Main extends Component {
     render() {
         let additionalRoute = [];
         if (Meteor.userId()) {
@@ -35,7 +35,31 @@ import Account from './Account';
 } */
 
 // formal
-export default class Main extends Component {
+class Main extends Component {
+    componentWillMount() {
+        this.setFooterBackground(this.props.location.pathname);
+    }
+    constructor(props) {
+        super(props);
+        this.unlisten = this.props.history.listen((location, action) => {
+            this.setFooterBackground(location.pathname);
+        });
+    }
+
+    setFooterBackground(pathname) {
+        if (Meteor.userId()) {
+            if (pathname === '/') {
+                this.props.setFooterBackground('footer-bg2');
+            } else {
+                this.props.setFooterBackground('footer-bg1');
+            }
+        }
+    }
+
+    componentWillUnmount() {
+        this.unlisten();
+    }
+
     render() {
         const detailPath = getDetailPath();
         let additionalRoute = [];
@@ -62,6 +86,8 @@ export default class Main extends Component {
         );
     }
 }
+
+export default withRouter(Main);
 
 function getDetailPath() {
     let dic = DicStruct.map((e) => e.name);
