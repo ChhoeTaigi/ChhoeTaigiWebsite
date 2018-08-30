@@ -182,7 +182,8 @@
 .text-input::placeholder {
     font-size: 16px;
     color: #8a9b83;
-    font-weight: normal;
+    font-weight: lighter;
+    letter-spacing: 1px;
 }
 
 #find-button {
@@ -202,7 +203,7 @@
     background-position: 114px center; 
     border: solid 1px #43944f;
     font-size: 18px;
-    font-weight: 500;
+    font-weight: normal;
     line-height: 48px;
     color: #43944f;
     padding-right: 14px;
