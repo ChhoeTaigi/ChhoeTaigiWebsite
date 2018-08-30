@@ -80,47 +80,41 @@ class BasicSearch extends Component {
                             </div>
                             <div id='seperator'></div>
                             <div id='input-container'>
-                                <div id='large-input'>
+                                <div id='input-container-left'>
                                     <label className='input-title' htmlFor='spelling'>2-輸入方式 羅馬字台文</label>
-                                    <div id='large-input-container'>
-                                        <div id='large-input-top'>
-                                            <label id='radio-3' class='radio'>
-                                                <div className={this.state.spellingMethod === 'poj_unicode' ? 'checked' : 'unchecked'}></div>
-                                                <input type="radio" name="spellingMethod" value="poj_unicode" defaultChecked={this.state.spellingMethod === 'poj_unicode'} onChange={this.handleInput.bind(this)} />
-                                                <span>白話字</span>
-                                            </label>
-                                            <label id='radio-4' class='radio'>
-                                                <div className={this.state.spellingMethod === 'poj_input' ? 'checked' : 'unchecked'}></div>
-                                                <input type="radio" name="spellingMethod" value="poj_input" defaultChecked={this.state.spellingMethod === 'poj_input'} onChange={this.handleInput.bind(this)} />
-                                                <span>白話字輸入</span>
-                                            </label>
-                                            <label id='radio-5' class='radio'>
-                                                <div className={this.state.spellingMethod === 'kiplmj_unicode' ? 'checked' : 'unchecked'}></div>
-                                                <input type="radio" name="spellingMethod" value="kiplmj_unicode" defaultChecked={this.state.spellingMethod === 'kiplmj_unicode'} onChange={this.handleInput.bind(this)} />
-                                                <span>教育部羅馬字</span>
-                                            </label>
-                                            <label id='radio-6' class='radio'>
-                                                <div className={this.state.spellingMethod === 'kiplmj_input' ? 'checked' : 'unchecked'}></div>
-                                                <input type="radio" name="spellingMethod" value="kiplmj_input" defaultChecked={this.state.spellingMethod === 'kiplmj_input'} onChange={this.handleInput.bind(this)} />
-                                                <span>教育部羅馬字輸入</span>
-                                            </label>
-                                            <div id='text-input-seperator'></div>
-                                        </div>
-                                        <input className='text-input' type="text" name="spelling" placeholder="輸入關鍵字" value={this.state.spelling} onChange={this.handleInput.bind(this)} />
+                                    <span className='text-height'></span>
+                                    <label className='input-title top-space' htmlFor="hanlo_taibun_poj">對應台文</label>
+                                    <label className='input-title top-space' htmlFor="hoabun">對應華文</label>
+                                    <label className='input-title top-space' htmlFor="english_descriptions">對應英文</label>
+                                </div>
+                                <div id='input-container-right'>
+                                    <div id='large-input-top'>
+                                        <label id='radio-3' class='radio'>
+                                            <div className={this.state.spellingMethod === 'poj_unicode' ? 'checked' : 'unchecked'}></div>
+                                            <input type="radio" name="spellingMethod" value="poj_unicode" defaultChecked={this.state.spellingMethod === 'poj_unicode'} onChange={this.handleInput.bind(this)} />
+                                            <span>白話字</span>
+                                        </label>
+                                        <label id='radio-4' class='radio'>
+                                            <div className={this.state.spellingMethod === 'poj_input' ? 'checked' : 'unchecked'}></div>
+                                            <input type="radio" name="spellingMethod" value="poj_input" defaultChecked={this.state.spellingMethod === 'poj_input'} onChange={this.handleInput.bind(this)} />
+                                            <span>白話字輸入</span>
+                                        </label>
+                                        <label id='radio-5' class='radio'>
+                                            <div className={this.state.spellingMethod === 'kiplmj_unicode' ? 'checked' : 'unchecked'}></div>
+                                            <input type="radio" name="spellingMethod" value="kiplmj_unicode" defaultChecked={this.state.spellingMethod === 'kiplmj_unicode'} onChange={this.handleInput.bind(this)} />
+                                            <span>教育部羅馬字</span>
+                                        </label>
+                                        <label id='radio-6' class='radio'>
+                                            <div className={this.state.spellingMethod === 'kiplmj_input' ? 'checked' : 'unchecked'}></div>
+                                            <input type="radio" name="spellingMethod" value="kiplmj_input" defaultChecked={this.state.spellingMethod === 'kiplmj_input'} onChange={this.handleInput.bind(this)} />
+                                            <span>教育部羅馬字輸入</span>
+                                        </label>
+                                        <div id='text-input-seperator'></div>
                                     </div>
-                                </div>
-                                
-                                <div className='small-input'>
-                                    <label className='input-title' htmlFor="hanlo_taibun_poj">對應台文</label>
-                                    <input className='text-input' type="text" name="hanlo_taibun_poj" placeholder="輸入關鍵字" value={this.state.hanlo_taibun_poj} onChange={this.handleInput.bind(this)} />
-                                </div>
-                                <div className='small-input'>
-                                    <label className='input-title' htmlFor="hoabun">對應華文</label>
-                                    <input className='text-input' type="text" name="hoabun" placeholder="輸入關鍵字" value={this.state.hoabun} onChange={this.handleInput.bind(this)} />
-                                </div>
-                                <div className='small-input'>
-                                    <label className='input-title' htmlFor="english_descriptions">對應英文</label>
-                                    <input className='text-input' type="text" name="english_descriptions" placeholder="輸入關鍵字" value={this.state.english_descriptions} onChange={this.handleInput.bind(this)} />
+                                    <input className='text-input' type="text" name="spelling" placeholder="輸入關鍵字" value={this.state.spelling} onChange={this.handleInput.bind(this)} />
+                                    <input className='text-input top-space' type="text" name="hanlo_taibun_poj" placeholder="輸入關鍵字" value={this.state.hanlo_taibun_poj} onChange={this.handleInput.bind(this)} />
+                                    <input className='text-input top-space' type="text" name="hoabun" placeholder="輸入關鍵字" value={this.state.hoabun} onChange={this.handleInput.bind(this)} />
+                                    <input className='text-input top-space' type="text" name="english_descriptions" placeholder="輸入關鍵字" value={this.state.english_descriptions} onChange={this.handleInput.bind(this)} />
                                 </div>
                             </div>
                             <input id='find-button' type="submit" value="開始找" />

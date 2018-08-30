@@ -98,23 +98,38 @@
 }
 
 #input-container {
+    margin-top: 16px;
     padding-left: 43px;
 }
 
-#large-input {
-    height: 68px;
-    margin-top: 16px;
+#input-container {
+    display: inline-block;
 }
 
-#large-input-container {
+.text-height {
+    display: block;
+    height: 34px;
+}
+
+.top-space {
+    margin-top: 13px;
+}
+
+#input-container-left {
     display: inline-block;
-    background-color: #eef5ef;
+}
+
+#input-container-right {
+    display: inline-block;
+    width: 571px;
+    margin-left: 6px;
 }
 
 #large-input-top {
     height: 34px;
     line-height: 34px;
     position: relative;
+    background-color: #eef5ef;
 }
 
 #radio-3 {
@@ -148,13 +163,10 @@
 }
 
 .input-title {
-    display: inline-block;
+    display: block;
     height: 34px;
-    width: 185px;
     line-height: 34px;
     text-align: right;
-    padding-right: 6px;
-    vertical-align: top;
 }
 
 .text-input {
@@ -171,10 +183,6 @@
     font-size: 16px;
     color: #8a9b83;
     font-weight: normal;
-}
-
-.small-input {
-    margin-top: 13px;
 }
 
 #find-button {
