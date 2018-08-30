@@ -14,7 +14,16 @@ class BasicSearch extends Component {
             hanlo_taibun_poj: '',
             hoabun: '',
             english_descriptions: '',
+            background_height: window.innerHeight - 397,
         };
+    }
+
+    componentDidMount() {
+        window.addEventListener('resize', () => {
+            this.setState({
+                background_height: window.innerHeight - 397,
+            });
+        });
     }
 
     handleSubmit(event) {
@@ -58,18 +67,18 @@ class BasicSearch extends Component {
         return (
             <div>
                 <img id='banner' src='images/kv@2x.png' width='802' height='280'></img>
-                <div id='form-background'>
+                <div id='form-background' style={{height: this.state.background_height + 'px'}}>
                     <form id='basic-form' onSubmit={this.handleSubmit.bind(this)}>
                         <div id='search-title'>基礎搜尋</div>
                         <div id='form-container'>
                             <div id='search-method-container'>
                                 <span>1-請選擇</span>
-                                <label id='radio-1' class='radio'>
+                                <label id='radio-1' className='radio'>
                                     <div className={this.state.searchMethod === 'equals' ? 'checked' : 'unchecked'}></div>
                                     <input type="radio" name="searchMethod" value="equals" defaultChecked={this.state.searchMethod === 'equals'} onChange={this.handleInput.bind(this)} />
                                     <span>精確搜尋</span>
                                 </label>
-                                <label id='radio-2' class='radio'>
+                                <label id='radio-2' className='radio'>
                                     <div className={this.state.searchMethod === 'contains' ? 'checked' : 'unchecked'}></div>
                                     <input type="radio" name="searchMethod" value="contains" defaultChecked={this.state.searchMethod === 'contains'} onChange={this.handleInput.bind(this)} />
                                     <span>模糊搜尋</span>
@@ -89,22 +98,22 @@ class BasicSearch extends Component {
                                 </div>
                                 <div id='input-container-right'>
                                     <div id='large-input-top'>
-                                        <label id='radio-3' class='radio'>
+                                        <label id='radio-3' className='radio'>
                                             <div className={this.state.spellingMethod === 'poj_unicode' ? 'checked' : 'unchecked'}></div>
                                             <input type="radio" name="spellingMethod" value="poj_unicode" defaultChecked={this.state.spellingMethod === 'poj_unicode'} onChange={this.handleInput.bind(this)} />
                                             <span>白話字</span>
                                         </label>
-                                        <label id='radio-4' class='radio'>
+                                        <label id='radio-4' className='radio'>
                                             <div className={this.state.spellingMethod === 'poj_input' ? 'checked' : 'unchecked'}></div>
                                             <input type="radio" name="spellingMethod" value="poj_input" defaultChecked={this.state.spellingMethod === 'poj_input'} onChange={this.handleInput.bind(this)} />
                                             <span>白話字輸入</span>
                                         </label>
-                                        <label id='radio-5' class='radio'>
+                                        <label id='radio-5' className='radio'>
                                             <div className={this.state.spellingMethod === 'kiplmj_unicode' ? 'checked' : 'unchecked'}></div>
                                             <input type="radio" name="spellingMethod" value="kiplmj_unicode" defaultChecked={this.state.spellingMethod === 'kiplmj_unicode'} onChange={this.handleInput.bind(this)} />
                                             <span>教育部羅馬字</span>
                                         </label>
-                                        <label id='radio-6' class='radio'>
+                                        <label id='radio-6' className='radio'>
                                             <div className={this.state.spellingMethod === 'kiplmj_input' ? 'checked' : 'unchecked'}></div>
                                             <input type="radio" name="spellingMethod" value="kiplmj_input" defaultChecked={this.state.spellingMethod === 'kiplmj_input'} onChange={this.handleInput.bind(this)} />
                                             <span>教育部羅馬字輸入</span>
