@@ -67,11 +67,15 @@ footer {
 }
 
 .footer-bg1 {
-	background-color: rgba(63, 77, 56, 0.1);
+	background-color: white;
 }
 
 .footer-bg2 {
 	background-color: #5b9564;
+}
+
+.footer-bg3 {
+	background-color: #d0e3d0;
 }
 
 #footer-img {
