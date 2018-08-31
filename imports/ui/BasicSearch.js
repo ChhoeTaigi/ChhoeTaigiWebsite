@@ -73,7 +73,7 @@ class BasicSearch extends Component {
         return (
             <div>
                 <img id='banner' src='images/kv@2x.png' width='802' height='280'></img>
-                <div id='form-background' style={{height: this.state.background_height + 'px'}}>
+                <div id='form-background' style={{minHeight: this.state.background_height + 'px'}}>
                     <form id='basic-form' onSubmit={this.handleSubmit.bind(this)}>
                         <div id='search-title'>基礎搜尋</div>
                         <div id='form-container'>
