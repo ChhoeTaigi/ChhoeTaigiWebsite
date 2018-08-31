@@ -1,9 +1,6 @@
 import React, { Component } from 'react';
 import { Link, withRouter } from 'react-router-dom'
 
-import '../../public/stylesheets/global.css'
-import '../../public/stylesheets/header.css'
-
 // Landing
 /* class Header extends Component {
     render() {

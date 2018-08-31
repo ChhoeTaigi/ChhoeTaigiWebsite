@@ -4,7 +4,6 @@ import { HashLink } from 'react-router-hash-link';
 
 import DicStruct from '../api/dictionary_struct';
 import Word from "./Word";
-import '../../public/stylesheets/dic.css';
 
 class AllDics extends Component {
     constructor(props) {

@@ -1,8 +1,5 @@
 import React from 'react';
 
-import '../../public/stylesheets/global.css'
-import '../../public/stylesheets/about.css'
-
 export const About = () => (
     <div>
 		<div id='about-ctg'>關於 ChhoeTaigi</div>
