@@ -132,7 +132,7 @@ class BasicSearch extends Component {
                                     <input className='text-input top-space' type="text" name="english_descriptions" placeholder="輸入關鍵字" value={this.state.english_descriptions} onChange={this.handleInput.bind(this)} />
                                 </div>
                             </div>
-                            <input id='find-button' type="submit" value="開始找" />
+                            <input className='find-button' style={{marginTop: '22px'}} type="submit" value="開始找" />
                         </div>
                         
                     </form>

@@ -50,6 +50,8 @@ class Main extends Component {
         if (Meteor.userId()) {
             if (pathname === '/') {
                 this.props.setFooterBackground('footer-bg2');
+            } else if (pathname === '/advanced') {
+                this.props.setFooterBackground('footer-bg3');
             } else {
                 this.props.setFooterBackground('footer-bg1');
             }

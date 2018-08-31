@@ -6,7 +6,7 @@ class AdvancedSearch extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            method: 'allFields',
+            method: 'allField',
             selectedDic: undefined,
         };
     }
@@ -28,8 +28,8 @@ class AdvancedSearch extends Component {
     render() {
         // method buttons
         let methodButtons = [
-            <button key='allField' onClick={this.handleMethodButton.bind(this, 'allField')}>全文搜尋</button>,
-            <button key='singleDic' onClick={this.handleMethodButton.bind(this, 'singleDic')}>依辭典搜尋</button>
+            <button className={'method-button ' + (this.state.method === 'allField' ? 'method-button-selected' : 'method-button-unselected')} key='allField' onClick={this.handleMethodButton.bind(this, 'allField')}>全文搜尋</button>,
+            <button className={'method-button ' + (this.state.method === 'singleDic' ? 'method-button-selected' : 'method-button-unselected')} key='singleDic' onClick={this.handleMethodButton.bind(this, 'singleDic')}>依辭典搜尋</button>
         ];
 
         // dictionary buttons
@@ -56,10 +56,12 @@ class AdvancedSearch extends Component {
 
         // view
         return (
-            <div>
-                <div>{methodButtons}</div>
-                <div>{dicButtons}</div>
-                <div>{searchOptions}</div>
+            <div className='green-background'>
+                <div id='advanced-container'>
+                    <div id='method-buttons-container'>{methodButtons}</div>
+                    <div>{dicButtons}</div>
+                    <div>{searchOptions}</div>
+                </div>
             </div>
         );
     }
@@ -175,10 +177,10 @@ class AllFieldOptions extends Component {
 
     render() {
         return (
-            <form onSubmit={this.handleSubmit.bind(this)}>
-                <input type='text' placeholder='輸入關鍵字' onChange={this.handleInput.bind(this)} value={this.state.value}></input>
-                <br />
-                <input type="submit" value="開始找" />
+            <form id='all-field-form' onSubmit={this.handleSubmit.bind(this)}>
+                <input className='all-field-text-input' type='text' placeholder='輸入關鍵字' onChange={this.handleInput.bind(this)} value={this.state.value}></input>
+                <input className='find-button' style={{marginTop: '30px'}} type="submit" value="開始找" />
+                <div id='bg-img'></div>
             </form>
         );
     }
