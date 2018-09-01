@@ -8,7 +8,22 @@ class AdvancedSearch extends Component {
         this.state = {
             method: 'allField',
             selectedDic: undefined,
+            background_height: window.innerHeight - 96,
         };
+    }
+
+    handleResize() {
+        this.setState({
+            background_height: window.innerHeight - 96,
+        });
+    }
+
+    componentDidMount() {
+        window.addEventListener('resize', this.handleResize);
+    }
+
+    componentWillUnmount() {
+        window.removeEventListener('resize', this.handleResize);
     }
 
     handleMethodButton(method) {
@@ -38,7 +53,7 @@ class AdvancedSearch extends Component {
             for (let idx in dicStruct) {
                 let dic = dicStruct[idx].name;
                 dicButtons.push(
-                    <button key={dic} onClick={this.handleDicButton.bind(this, dic)}>{dicStruct[idx].chineseName}</button>
+                    <button className={'dic-button ' + (this.state.selectedDic === dic ? 'dic-button-selected' : 'dic-button-unselected')} key={dic} onClick={this.handleDicButton.bind(this, dic)}>{dicStruct[idx].chineseName}</button>
                 );
             }
         }
@@ -56,11 +71,13 @@ class AdvancedSearch extends Component {
 
         // view
         return (
-            <div className='green-background'>
+            <div className='green-background' style={{minHeight: this.state.background_height + 'px'}}>
                 <div id='advanced-container'>
                     <div id='method-buttons-container'>{methodButtons}</div>
-                    <div>{dicButtons}</div>
-                    <div>{searchOptions}</div>
+                    <div id='option-container'>
+                        <div id='dic-buttons-container'>{dicButtons}</div>
+                        {searchOptions}
+                    </div>
                 </div>
             </div>
         );
@@ -123,24 +140,32 @@ class SingleDicOptions extends Component {
     render() {
         let dic = this.props.dic;
         let columns = dicStruct.filter((e) => e.name === dic)[0].columns;
+        let labels = [];
+        for (let key in columns) {
+            labels.push(
+                <label className='single-dic-label' key={key + '-label'} htmlFor={key}>{columns[key]}</label>
+            );
+        }
+
         let inputs = [];
-        
         for (let key in columns) {
             inputs.push(
-                <div key={key}>
-                    <label>
-                        {columns[key]}
-                        <input type='text' placeholder='輸入關鍵字' onChange={this.handleInput.bind(this, key)} value={this.state.params[key]}></input>
-                    </label>
-                    <br />
-                </div>
+                <input className='singl-dic-text-input' key={key + '-input'} type='text' placeholder='輸入關鍵字' name={key} onChange={this.handleInput.bind(this, key)} value={this.state.params[key]}></input>
             )
         }
         return (
-            <form onSubmit={this.handleSubmit.bind(this)}>
-                {inputs}
-                <input type="submit" value="開始找" />
-            </form>
+            <div id='single-dic-form-container'>
+                <form id='single-dic-form' onSubmit={this.handleSubmit.bind(this)}>
+                    <div id='labels-container'>
+                        {labels}
+                    </div>
+                    <div id='inputs-container'>
+                    {inputs}
+                    </div>
+                    <input className='find-button' type="submit" value="開始找" style={{marginTop: '15px'}} />
+                </form>
+            </div>
+            
         );
     }
 }
