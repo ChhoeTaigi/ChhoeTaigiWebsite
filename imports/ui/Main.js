@@ -13,10 +13,10 @@ import { About } from './About';
 import Account from './Account';
 
 // Landing page
-/* class Main extends Component {
+class Main extends Component {
     render() {
         let additionalRoute = [];
-        if (Meteor.userId()) {
+        if (true) {
             additionalRoute = [
                 <Route key='landing' exact path='/' component={Landing} />,
                 <Route key='about' exact path='/about' component={About} />,
@@ -32,10 +32,10 @@ import Account from './Account';
             </main>
         );
     }
-} */
+}
 
 // formal
-class Main extends Component {
+/* class Main extends Component {
     componentWillMount() {
         this.setFooterBackground(this.props.location.pathname);
     }
@@ -87,7 +87,7 @@ class Main extends Component {
             </main>
         );
     }
-}
+} */
 
 export default withRouter(Main);
 

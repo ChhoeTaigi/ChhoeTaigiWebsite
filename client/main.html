@@ -15,5 +15,24 @@
 </head>
 
 <body>
+  <!-- Load Facebook SDK for JavaScript -->
+  <div id="fb-root"></div>
+  <script>(function(d, s, id) {
+    var js, fjs = d.getElementsByTagName(s)[0];
+    if (d.getElementById(id)) return;
+    js = d.createElement(s); js.id = id;
+    js.src = 'https://connect.facebook.net/zh_TW/sdk/xfbml.customerchat.js#xfbml=1&version=v2.12&autoLogAppEvents=1';
+    fjs.parentNode.insertBefore(js, fjs);
+  }(document, 'script', 'facebook-jssdk'));</script>
+
+  <!-- Your customer chat code -->
+  <div class="fb-customerchat"
+    attribution=install_email
+    page_id="198185797612542"
+    theme_color="#67b868"
+    logged_in_greeting="食飽--bē？有siáⁿ-mi̍h問題a̍h是建議？"
+    logged_out_greeting="食飽--bē？有siáⁿ-mi̍h問題a̍h是建議？">
+  </div>
+
   <div id="render-target"></div>
 </body>

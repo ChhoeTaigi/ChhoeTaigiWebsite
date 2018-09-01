@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { Link, withRouter } from 'react-router-dom'
 
 // Landing
-/* class Header extends Component {
+class Header extends Component {
     render() {
         var currentLocation = this.props.location.pathname
 
@@ -19,10 +19,10 @@ import { Link, withRouter } from 'react-router-dom'
             </header>
         );
     }
-} */
+}
 
 // Formal
-class Header extends Component {
+/* class Header extends Component {
     render() {
         var currentLocation = this.props.location.pathname
 
@@ -41,6 +41,6 @@ class Header extends Component {
             </header>
         );
     }
-}
+} */
 
 export default withRouter(Header);
