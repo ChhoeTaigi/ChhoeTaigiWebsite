@@ -13,7 +13,7 @@ import { About } from './About';
 import Account from './Account';
 
 // Landing page
-class Main extends Component {
+/* class Main extends Component {
     render() {
         let additionalRoute = [];
         if (true) {
@@ -32,10 +32,10 @@ class Main extends Component {
             </main>
         );
     }
-}
+} */
 
 // formal
-/* class Main extends Component {
+class Main extends Component {
     componentWillMount() {
         this.setFooterBackground(this.props.location.pathname);
     }
@@ -87,7 +87,7 @@ class Main extends Component {
             </main>
         );
     }
-} */
+}
 
 export default withRouter(Main);
 
