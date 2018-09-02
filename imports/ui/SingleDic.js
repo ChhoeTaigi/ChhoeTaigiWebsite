@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-import DicStruct from '../api/dictionary_struct';
+import dicStruct from '../api/dictionary_struct';
 import Word from "./Word";
 
 export default class SingleDic extends Component {
@@ -17,7 +17,7 @@ export default class SingleDic extends Component {
 
     render() {
         let dic = this.state.dic;
-        let chineseName = DicStruct.filter(struct => struct.name===dic)[0].chineseName;
+        let chineseName = dicStruct.filter(struct => struct.name===dic)[0].chineseName;
         return (
             <div>
                 <a id={dic}></a>

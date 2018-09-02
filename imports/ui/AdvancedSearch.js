@@ -84,7 +84,7 @@ class AdvancedSearch extends Component {
     }
 
     updateResults(state) {
-        if (Array.isArray(state))
+        if (state.options)
             this.props.history.push('all', state);
         else
             this.props.history.push('single', state);
