@@ -60,7 +60,7 @@ Meteor.methods({
 
     'search.dicAndId'(dic, id) {
         if (Meteor.isServer) {
-            return pg(dic).select('*').where({id: id});
+            return pg(dic).select('*').where({id: id}).limit(1);
         }
     },
 });

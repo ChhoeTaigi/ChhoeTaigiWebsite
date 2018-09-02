@@ -1,0 +1,30 @@
+#word-container {
+    margin-top: 52px;
+}
+
+#resource-container {
+    width: 980px;
+    height: 50px;
+    padding-top: 15px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#resource {
+    float: right;
+    text-decoration: none;
+    height: 20px;
+    font-size: 14px;
+    font-weight: normal;
+    line-height: 20px;
+    color: #2f893d;
+    border-bottom: solid 1px #2f893d;
+    margin-right: 17px;
+}
+
+#fb-comments {
+    display: block;
+    width: 980px;
+    margin-left: auto;
+    margin-right: auto;
+}

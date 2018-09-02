@@ -1,7 +1,9 @@
 import React, { Component } from 'react';
-import { withRouter } from 'react-router-dom';
+import { withRouter, Link } from 'react-router-dom';
+import FacebookProvider, { Comments } from 'react-facebook';
 
-import DicStruct from '../api/dictionary_struct';
+import dicStruct from '../api/dictionary_struct';
+import Word from "./Word";
 
 class Detail extends Component {
     constructor (props) {
@@ -14,13 +16,18 @@ class Detail extends Component {
                 columns: result[0],
             })
         });
+
+        let struct = dicStruct.filter(struct => struct.name===dic)[0];
+        let chineseName = struct.chineseName;
         this.state = {
             dic: dic,
+            chineseName: chineseName,
             columns: [],
         };
     }
 
     componentDidMount () {
+        /*
         const script = document.createElement("script");
 
         script.src = `var js, fjs = d.getElementsByTagName(s)[0];
@@ -30,34 +37,28 @@ class Detail extends Component {
         fjs.parentNode.insertBefore(js, fjs);
         }(document, 'script', 'facebook-jssdk'));`;
         script.async = true;
-
         document.getElementById('script').appendChild(script);
+
+        */
     }
 
     render() {
-        let dic = this.state.dic
-        let dicStruct = DicStruct.filter(struct => struct.name===dic)[0]
-        let columnStruct = dicStruct.columns;
-        let columns = this.state.columns;
-        let content = [];
-        for (let key in columns) {
-            content.push((
-                <li key={key}>{columnStruct[key]} - {columns[key]}</li>
-            ));
-        }
-
-        let chineseName = dicStruct.chineseName;
         const path = 'https://' + window.location.hostname + this.props.location.pathname;
-        console.log(path);
         return (
             <div>
-                <div id="fb-root"></div>
+                <div id='fb-root'></div>
                 <div id='script'></div>
-                <h2>{chineseName}</h2>
-                <ul>
-                    {content}
-                </ul>
-                <div className="fb-comments" data-href={path} data-numposts="5"></div>
+                <div id='word-container'>
+                    <Word columns={this.state.columns}></Word>
+                </div>
+                <div id='resource-container'>
+                    <a id='resource' href='#'>來源出處：{this.state.chineseName}</a>
+                </div>
+                <div id='fb-comments'>
+                    <FacebookProvider appId='306448440105903'>
+                        <Comments href={path} width='100%' />
+                    </FacebookProvider>
+                </div>
             </div>
         );
     }

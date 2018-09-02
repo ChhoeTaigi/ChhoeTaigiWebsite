@@ -75,7 +75,7 @@ class DictionaryBrief extends Component {
                 <h2>{chineseName}</h2>
                 <ol>
                     {dicResults.words.map((word) => {
-                        return <Word key={word.id} dic={dic} columns={word} />
+                        return <Word key={word.id} dic={dic} columns={word} more={true} />
                     })}
                 </ol>
                 {this.props.showMoreButton ? <button onClick={this.showMore.bind(this)}>更多</button> : ''}

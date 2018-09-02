@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 import DicStruct from '../api/dictionary_struct';
 import Word from "./Word";
 
-export default class AllDics extends Component {
+export default class SingleDic extends Component {
     constructor(props) {
         super(props);
 
@@ -24,7 +24,7 @@ export default class AllDics extends Component {
                 <h2>{chineseName}</h2>
                 <ol>
                     {this.state.words.map((word) => {
-                        return <Word key={word.id} dic={dic} columns={word} />
+                        return <Word key={word.id} dic={dic} columns={word} more={true} />
                     })}
                 </ol>
             </div>
