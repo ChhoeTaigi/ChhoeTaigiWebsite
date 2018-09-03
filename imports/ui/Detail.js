@@ -41,11 +41,9 @@ class Detail extends Component {
             <div style={{minHeight: this.state.background_height}}>
                 <div id='fb-root'></div>
                 <div id='script'></div>
+                <div id='poj-container'>{this.state.chineseName}：{this.state.columns.poj_unicode}</div>
                 <div id='word-container'>
                     <Word columns={this.state.columns}></Word>
-                </div>
-                <div id='resource-container'>
-                    <a id='resource' href='#'>來源出處：{this.state.chineseName}</a>
                 </div>
                 <div id='fb-comments'>
                     <FacebookProvider appId='306448440105903'>

@@ -1,13 +1,19 @@
-#word-container {
-    margin-top: 52px;
-}
-
-#resource-container {
-    width: 980px;
-    height: 50px;
-    padding-top: 15px;
+#poj-container {
     margin-left: auto;
     margin-right: auto;
+    margin-top: 52px;
+    width: 956px;
+    height: 60px;
+    padding-left: 24px;
+    background-color: #ededed;
+    font-size: 22px;
+    font-weight: 500;
+    line-height: 60px;
+    color: #3f4d38;
+}
+
+#word-container {
+    margin-top: 10px;
 }
 
 #resource {
