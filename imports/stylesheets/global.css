@@ -3,6 +3,8 @@
 	src: url(others/tshiuthau-oo-taigi.woff);
 }
 
+@import url(https://fonts.googleapis.com/earlyaccess/notosanstc.css);
+
 html {
 	height: 100%;
 }
@@ -16,7 +18,7 @@ html, body {
 body {
 	position: relative;
 	overflow-y: scroll;
-	font-family: 'Noto Sans CJK', taigiwebfont, 'Microsoft Yahei', 'PingFang TC';
+	font-family: 'Noto Sans TC', taigiwebfont, 'Microsoft JhengHei', 'PingFang TC';
 	letter-spacing: 1px;
 	padding-bottom: 40px;
 }
