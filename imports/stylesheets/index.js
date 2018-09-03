@@ -6,4 +6,5 @@ import './dic.css';
 import './global.css';
 import './header.css';
 import './landing.css';
+import './single.css';
 import './word.css'

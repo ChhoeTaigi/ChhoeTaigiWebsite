@@ -84,10 +84,10 @@ class AdvancedSearch extends Component {
     }
 
     updateResults(state) {
-        if (state.options)
-            this.props.history.push('all', state);
-        else
+        if (state.options.method === 'singleDic')
             this.props.history.push('single', state);
+        else if (state.options.method === 'allField')
+            this.props.history.push('all', state);
     }
 }
 
@@ -122,9 +122,13 @@ class SingleDicOptions extends Component {
             dic: this.props.dic,
             params: params,
         };
-        Meteor.call('search', options, (error, result) => {
+        Meteor.call('search', options, (error, results) => {
             if (error) throw new Meteor.Error(error);
-            this.props.updateResults(result);
+            let state = {
+                options: options,
+                allResults: results,
+            }
+            this.props.updateResults(state);
         });
         event.preventDefault();
     }

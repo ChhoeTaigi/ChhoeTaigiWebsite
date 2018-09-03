@@ -23,29 +23,22 @@ class Detail extends Component {
             dic: dic,
             chineseName: chineseName,
             columns: [],
+            background_height: window.innerHeight - 148,
         };
     }
 
-    componentDidMount () {
-        /*
-        const script = document.createElement("script");
-
-        script.src = `var js, fjs = d.getElementsByTagName(s)[0];
-        if (d.getElementById(id)) return;
-        js = d.createElement(s); js.id = id;
-        js.src = 'https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v3.1&appId=306448440105903&autoLogAppEvents=1';
-        fjs.parentNode.insertBefore(js, fjs);
-        }(document, 'script', 'facebook-jssdk'));`;
-        script.async = true;
-        document.getElementById('script').appendChild(script);
-
-        */
+    componentDidMount() {
+        window.addEventListener('resize', () => {
+            this.setState({
+                background_height: window.innerHeight - 148,
+            });
+        });
     }
 
     render() {
         const path = 'https://' + window.location.hostname + this.props.location.pathname;
         return (
-            <div>
+            <div style={{minHeight: this.state.background_height}}>
                 <div id='fb-root'></div>
                 <div id='script'></div>
                 <div id='word-container'>

@@ -32,3 +32,17 @@ td {
     text-align: left;
     padding-left: 15px;
 }
+
+.detail {
+    background-color: #f0f0f0;
+    font-size: 17px;
+    font-weight: 500;
+    line-height: 37px;
+    padding: 0;
+    text-align: center;
+}
+
+.detail > a {
+    color: #43944f;
+    text-decoration: none;
+}

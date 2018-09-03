@@ -25,7 +25,7 @@ export default class Word extends Component {
         }
         let link;
         if (this.props.more)
-            link = <tr><td><Link to={linkUri}>更多</Link></td></tr>;
+            link = <tr><td className='detail' colSpan='2'><Link to={linkUri}>詳細…</Link></td></tr>;
         return (
             <table>
                 <tbody>
