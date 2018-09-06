@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
+import ReactDOM from 'react-dom';
 import { withRouter } from 'react-router-dom';
-import { HashLink } from 'react-router-hash-link';
 
-import DicStruct from '../api/dictionary_struct';
+import dicStruct from '../api/dictionary_struct';
 import Word from "./Word";
 
 class AllDics extends Component {
@@ -17,15 +17,11 @@ class AllDics extends Component {
             if (state.allResults[idx].words.length === 0)
                 delete state.allResults[idx];
         }
+        this.refs = {};
 
-        if(props.location.hash !== '') {
-            state.selectedDic = props.location.hash.substr(1);
-        }
-        else {
-            let firstDic = state.allResults.find(e => e).dic;
-            if (firstDic)
-                state.selectedDic = firstDic;
-        }
+        let firstDic = state.allResults.find(e => e).dic;
+        if (firstDic)
+            state.selectedDic = firstDic;
         this.state = state;
     }
 
@@ -40,6 +36,17 @@ class AllDics extends Component {
             }
             this.props.history.push('single', state);
         });
+    }
+
+    handleButtonClicked(dic, event) {
+        const domNode = ReactDOM.findDOMNode(this.refs[dic].current);
+        window.scrollTo(0, domNode.offsetTop - 130);
+
+        this.setState({
+            selectedDic: dic,
+        });
+
+        event.preventDefault();
     }
 
     render() {
@@ -57,23 +64,32 @@ class AllDics extends Component {
 
         let allResults = this.state.allResults;
         let dicButtons = [];
+        let dicBriefs = [];
+        let refs = {};
         for (let idx in allResults) {
-            let dic = allResults[idx].dic;
-            let chineseName = DicStruct.filter((e) => e.name === dic)[0].chineseName;
-            let state = this.state;
+            let dicResults = allResults[idx];
+            let dic = dicResults.dic;
+            let chineseName = dicStruct.filter((e) => e.name === dic)[0].chineseName;
             dicButtons.push(
-                <HashLink className={'all-dic-button ' + (this.state.selectedDic === dic ? 'all-dic-button-selected' : 'all-dic-button-unselected')} key={dic} to={{pathname: 'all', hash: '#' + dic, state:state}}>
+                <a className={'all-dic-button ' + (this.state.selectedDic === dic ? 'all-dic-button-selected' : 'all-dic-button-unselected')} key={dic} onClick={this.handleButtonClicked.bind(this, dic)}>
                     <div><span>{(parseInt(idx) + 1) + '. ' + chineseName}</span></div>
-                </HashLink>
+                </a>
             )
+
+            let thisRef = React.createRef();
+            refs[dic] = thisRef;
+            dicBriefs.push(
+                <DictionaryBrief ref={thisRef} key={dic} dicResults={dicResults} showMore={this.showMore.bind(this, dic)} showMoreButton={dicResults.words.length > 1} />
+            );
         }
+        this.refs = refs;
         let remainingButtonNum = 9 - (allResults.filter(e => e).length % 9);
         for (let i = 0; i < remainingButtonNum; ++i) {
             dicButtons.push(
                 <span className='all-dic-empty' key={'empty' + i}></span>
             );
         }
-
+        
         return (
             <div>
                 <div id='all-dic-keywords'>搜尋關鍵字：{keywords}</div>
@@ -85,11 +101,7 @@ class AllDics extends Component {
                 </div>
                 
                 <div>
-                    {allResults.map((dicResults) => {
-                        return (
-                            <DictionaryBrief key={dicResults.dic} dicResults={dicResults} showMore={this.showMore.bind(this, dicResults.dic)} showMoreButton={allResults.length > 1} />
-                        );
-                    })}
+                    {dicBriefs}
                 </div>
             </div>
         );
@@ -106,7 +118,7 @@ class DictionaryBrief extends Component {
     render() {
         let dicResults = this.props.dicResults;
         let dic = dicResults.dic;
-        let chineseName = DicStruct.filter(struct => struct.name===dic)[0].chineseName;
+        let chineseName = dicStruct.filter(struct => struct.name===dic)[0].chineseName;
         return (
             <div>
                 <a id={dic}></a>

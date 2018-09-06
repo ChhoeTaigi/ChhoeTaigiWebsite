@@ -6,14 +6,14 @@ export default class Landing extends Component {
         super(props);
 
         this.state = {
-            background_height: window.innerHeight - 96,
+            background_height: window.innerHeight - 204,
         };
     }
 
     componentDidMount() {
         window.addEventListener('resize', () => {
             this.setState({
-                background_height: window.innerHeight - 96,
+                background_height: window.innerHeight - 204,
             });
         });
     }

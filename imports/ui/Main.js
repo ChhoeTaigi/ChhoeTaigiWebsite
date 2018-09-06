@@ -36,33 +36,8 @@ import Account from './Account';
 
 // formal
 class Main extends Component {
-    componentWillMount() {
-        this.setFooterBackground(this.props.location.pathname);
-    }
-    constructor(props) {
-        super(props);
-        this.unlisten = this.props.history.listen((location, action) => {
-            this.setFooterBackground(location.pathname);
-        });
-    }
-
-    setFooterBackground(pathname) {
-        if (Meteor.userId()) {
-            if (pathname === '/') {
-                this.props.setFooterBackground('footer-bg2');
-            } else if (pathname === '/advanced') {
-                this.props.setFooterBackground('footer-bg3');
-            } else {
-                this.props.setFooterBackground('footer-bg1');
-            }
-        }
-    }
-
-    componentWillUnmount() {
-        this.unlisten();
-    }
-
     render() {
+
         const detailPath = getDetailPath();
         let additionalRoute = [];
         if (Meteor.userId()) {
