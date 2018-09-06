@@ -1,0 +1,136 @@
+:target {
+    display: block;
+    position: relative;
+    top: -169px; 
+    visibility: hidden;
+}
+
+#all-dic-keywords {
+    width: 974px;
+    height: 38px;
+    margin-top: 24px;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 22px;
+    border-radius: 5px;
+    background-color: #ebebe7;
+    font-size: 18px;
+    font-weight: normal;
+    line-height: 38px;
+    color: #657160;
+}
+
+#all-dic-result-num {
+    width: 974px;
+    height: 22px;
+    margin-top: 5px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 6px;
+    padding-left: 22px;
+    font-size: 15px;
+    font-weight: normal;
+    line-height: 22px;
+    color: #657160;
+}
+
+#all-dic-buttons-background {
+    position: sticky;
+    top: 56px;
+    background-color: white;
+    padding-top: 6px;
+    height: 56px;
+    box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.16);
+}
+
+#all-dic-buttons-container {
+    display: grid;
+    grid-template-areas: 'a a a a a a a a a';
+    margin-left: auto;
+    margin-right: auto;
+    width: 996px;
+    height: 100%;
+    grid-column-gap: 3px;
+}
+
+.all-dic-button {
+    padding-left: 9px;
+    padding-right: 9px;
+    border-radius: 2px;
+    font-size: 13px;
+    font-weight: 500;
+    text-align: center;
+    text-decoration: none;
+    word-break: break-all;
+}
+
+.all-dic-button > div {
+    display: table;
+    height: 100%;
+    width: 100%;
+}
+
+.all-dic-button > div > span {
+    display: table-cell;
+    vertical-align: middle;
+}
+
+.all-dic-button-selected {
+    width: 90px;
+    height: 50px;
+    background-color: #9cb276;
+    color: white;
+}
+
+.all-dic-button-unselected {
+    width: 88px;
+    height: 48px;
+    background-color: white;
+    color: #657160;
+    border: solid 1px #657160;
+}
+
+.all-dic-empty {
+    display: inline-block;
+    width: 108px;
+    height: 50px;
+}
+
+.all-dic-title {
+    width: 996px;
+    height: 36px;
+    margin: 0 auto 6px auto;
+    font-size: 24px;
+    font-weight: 500;
+    line-height: 36px;
+    color: #3f4d38;
+}
+
+.all-dic-results-container {
+    display: grid;
+    width: 996px;
+    margin-left: auto;
+    margin-right: auto;
+    grid-row-gap: 32px;
+}
+
+.show-more-button {
+    display: block;
+    width: 176px;
+    height: 40px;
+    margin: 17px auto 20px auto;
+    padding: 0;
+    border: 0;
+    border-radius: 2px;
+    background-color: #56865e;
+    font-size: 17px;
+    font-weight: 500;
+    line-height: 40px;
+    text-align: center;
+    color: white;
+    box-shadow: 0 4px 2px 0 rgba(0, 0, 0, 0.16);
+}
+
+.show-more-button:active {
+    box-shadow: none;
+}

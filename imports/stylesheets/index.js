@@ -1,8 +1,8 @@
 import './about.css';
 import './advanced.css';
+import './all.css';
 import './basic.css';
 import './detail.css';
-import './dic.css';
 import './global.css';
 import './header.css';
 import './landing.css';

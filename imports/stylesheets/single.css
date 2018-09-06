@@ -43,6 +43,7 @@
 
 #single-dic-result-container {
     display: grid;
+    width: 979px;
     margin-left: auto;
     margin-right: auto;
     grid-row-gap: 32px;

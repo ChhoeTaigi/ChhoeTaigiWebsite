@@ -14,6 +14,9 @@
 
 #word-container {
     margin-top: 10px;
+    width: 980px;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 #resource {

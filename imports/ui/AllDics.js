@@ -17,7 +17,15 @@ class AllDics extends Component {
             if (state.allResults[idx].words.length === 0)
                 delete state.allResults[idx];
         }
-        
+
+        if(props.location.hash !== '') {
+            state.selectedDic = props.location.hash.substr(1);
+        }
+        else {
+            let firstDic = state.allResults.find(e => e).dic;
+            if (firstDic)
+                state.selectedDic = firstDic;
+        }
         this.state = state;
     }
 
@@ -26,26 +34,56 @@ class AllDics extends Component {
         options.dic = dic;
         Meteor.call('search', options, (error, results) => {
             if (error) throw new Meteor.Error(error);
-            this.props.history.push('single', results);
+            let state = {
+                options: options,
+                allResults: results,
+            }
+            this.props.history.push('single', state);
         });
     }
 
     render() {
+        let params = this.state.options.params;
+        let keywords = [];
+        for (let key in params) {
+            let param = params[key].replace(/\s/g, '');
+            if (param !== '') {
+                keywords.push(param)
+            }
+        }
+        keywords = keywords.join('，');
+
+        let dicLen = this.state.allResults.filter(e => e).length;
+
         let allResults = this.state.allResults;
         let dicButtons = [];
         for (let idx in allResults) {
             let dic = allResults[idx].dic;
             let chineseName = DicStruct.filter((e) => e.name === dic)[0].chineseName;
+            let state = this.state;
             dicButtons.push(
-                <HashLink key={dic} to={{pathname: 'all', hash: '#' + dic, state:this.state}}>{chineseName}</HashLink>
+                <HashLink className={'all-dic-button ' + (this.state.selectedDic === dic ? 'all-dic-button-selected' : 'all-dic-button-unselected')} key={dic} to={{pathname: 'all', hash: '#' + dic, state:state}}>
+                    <div><span>{(parseInt(idx) + 1) + '. ' + chineseName}</span></div>
+                </HashLink>
             )
+        }
+        let remainingButtonNum = 9 - (allResults.filter(e => e).length % 9);
+        for (let i = 0; i < remainingButtonNum; ++i) {
+            dicButtons.push(
+                <span className='all-dic-empty' key={'empty' + i}></span>
+            );
         }
 
         return (
             <div>
-                <div id='dicButtonsContainer'>
-                    {dicButtons}
+                <div id='all-dic-keywords'>搜尋關鍵字：{keywords}</div>
+                <div id='all-dic-result-num'>檢索結果：共{dicLen}本</div>
+                <div id='all-dic-buttons-background'>
+                    <div id='all-dic-buttons-container'>
+                        {dicButtons}
+                    </div>
                 </div>
+                
                 <div>
                     {allResults.map((dicResults) => {
                         return (
@@ -72,13 +110,13 @@ class DictionaryBrief extends Component {
         return (
             <div>
                 <a id={dic}></a>
-                <h2>{chineseName}</h2>
-                <ol>
+                <h2 className='all-dic-title'>{chineseName}</h2>
+                <div className='all-dic-results-container'>
                     {dicResults.words.map((word) => {
                         return <Word key={word.id} dic={dic} columns={word} more={true} />
                     })}
-                </ol>
-                {this.props.showMoreButton ? <button onClick={this.showMore.bind(this)}>更多</button> : ''}
+                </div>
+                {this.props.showMoreButton ? <button className='show-more-button' onClick={this.showMore.bind(this)}>更多</button> : ''}
             </div>
         );
     }
