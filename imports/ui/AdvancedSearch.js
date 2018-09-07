@@ -162,7 +162,7 @@ class SingleDicOptions extends Component {
         return (
             <div id='single-dic-form-container'>
                 <form id='single-dic-form' onSubmit={this.handleSubmit.bind(this)}>
-                    <div id='labels-container' style={dic === 'KauiokpooTaigiSutian' ? {width: '269px'} : {}}>
+                    <div id='labels-container'>
                         {labels}
                     </div>
                     <div id='inputs-container'>
