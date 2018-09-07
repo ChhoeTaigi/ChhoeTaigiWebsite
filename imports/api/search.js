@@ -93,10 +93,11 @@ function basicSearch(params) {
 
 function searchAllField(value) {
     if (Meteor.isServer) {
+        const searchLimit = 3;
         querys = [];
         for (let idx in dicsStruct) {
             let dic = dicsStruct[idx].name
-            query = searchSingleAllField(dic, value);
+            query = searchSingleAllField(dic, value, searchLimit);
             querys.push(query);
         }
 
@@ -194,7 +195,7 @@ function searchBrief(dic, params, limit=-1) {
     return cmd;
 }
 
-function searchSingleAllField(dic, params) {
+function searchSingleAllField(dic, params, limit=-1) {
     let dicStruct = dicsStruct.filter(e => e.name===dic)[0];
     let columns = dicStruct.columns;
     let brief = dicStruct.brief;
@@ -204,21 +205,16 @@ function searchSingleAllField(dic, params) {
     }
 
     // check params is in valid columns
-    let valid = false;
-    for (let key in params) {
-        if (key in columns) {
-            valid = true;
-            break;
-        }
-    }
-    if (!valid)
+    if (params.trim() === '')
         return [];
-        
+
     const cmd = pg.select(briefArray);
     for (key in columns) {
         if (key !== 'id')
             cmd.orWhere(key, 'like', params);
     }
     cmd.from(dic)
+    if (limit >= 0)
+        cmd.limit(limit);
     return cmd;
 }
