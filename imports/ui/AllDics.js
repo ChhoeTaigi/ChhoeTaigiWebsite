@@ -153,14 +153,13 @@ class DictionaryBrief extends Component {
         const newWords = [];
         words.map((word) => {
             const id = word.id;
-            let columns = word;
-            for (let key in columns) {
-                columns[columnName[key]] = columns[key];
-                delete columns[key];
+            for (let key in word) {
+                word[columnName[key]] = word[key];
+                delete word[key];
             }
             newWords.push({
                 id: id,
-                columns: columns,
+                columns: word,
             });
         });
 

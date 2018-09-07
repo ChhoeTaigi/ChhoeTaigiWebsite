@@ -12,17 +12,28 @@ class Detail extends Component {
         let id = this.props.match.params.id;
         Meteor.call('search.dicAndId', dic, id, (error, result) => {
             if (error) throw new Meteor.Error(error);
+            const word = result[0];
+            const title = word.poj_unicode;
+            const columnName = this.state.struct.columns;
+            for (let key in word) {
+                word[columnName[key]] = word[key];
+                delete word[key];
+            }
+
             this.setState({
-                word: result[0],
+                word: word,
+                title: title,
             });
         });
 
-        let struct = dicStruct.filter(struct => struct.name===dic)[0];
-        let chineseName = struct.chineseName;
+        const struct = dicStruct.filter(struct => struct.name === dic)[0];
+        const chineseName = struct.chineseName;
+        const path = 'https://' + window.location.hostname + props.location.pathname;
+
         this.state = {
-            dic: dic,
+            struct: struct,
+            path: path,
             chineseName: chineseName,
-            word: [],
             background_height: window.innerHeight - 148,
         };
     }
@@ -36,25 +47,18 @@ class Detail extends Component {
     }
 
     render() {
-        const path = 'https://' + window.location.hostname + this.props.location.pathname;
-        const columnName = dicStruct.filter(struct => struct.name===this.state.dic)[0].columns;
-        const word = this.state.word;
-        const title = word.poj_unicode;
-        for (let key in word) {
-            word[columnName[key]] = word[key];
-            delete word[key];
-        }
+        
         return (
             <div style={{minHeight: this.state.background_height}}>
                 <div id='fb-root'></div>
                 <div id='script'></div>
-                <div id='poj-container'>{this.state.chineseName}：{title}</div>
+                <div id='poj-container'>{this.state.chineseName}：{this.state.title}</div>
                 <div id='word-container'>
-                    <Word columns={word}></Word>
+                    <Word columns={this.state.word}></Word>
                 </div>
                 <div id='fb-comments'>
                     <FacebookProvider appId='306448440105903'>
-                        <Comments href={path} width='100%' />
+                        <Comments href={this.state.path} width='100%' />
                     </FacebookProvider>
                 </div>
             </div>

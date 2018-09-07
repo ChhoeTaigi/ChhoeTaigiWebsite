@@ -11,48 +11,72 @@ export default class SingleDic extends Component {
         if (!state) {
             props.history.replace('/');
         }
-        
-        state.background_height = window.innerHeight - 120;
-        this.state = state;
-    }
 
-    componentDidMount() {
-        window.addEventListener('resize', () => {
-            this.setState({
-                background_height: window.innerHeight - 120,
-            });
-        });
-    }
-
-    render() {
-        let dic = this.state.options.dic;
-        let params = this.state.options.params;
+        const dic = state.options.dic;
+        const params = state.options.params;
         let keywords = [];
         for (let key in params) {
             let param = params[key].replace(/\s/g, '');
-            if (param !== '') {
+            if (param !== '' && key !== 'searchMethod' && key !== 'spellingMethod') {
                 keywords.push(param)
             }
         }
         keywords = keywords.join('，');
-        let dataLen = this.state.allResults.words.length;
+        const dataLen = state.allResults.words.length;
         const struct = dicStruct.filter(struct => struct.name===dic)[0];
         const chineseName = struct.chineseName;
         const columnName = struct.brief;
+
+        const newWords = [];
+        state.allResults.words.map((word) => {
+            const id = word.id;
+            for (let key in word) {
+                word[columnName[key]] = word[key];
+                delete word[key];
+            }
+            newWords.push({
+                id: id,
+                columns: word,
+            })
+        })
+
+        this.state = {
+            dic: dic,
+            keywords: keywords,
+            dataLen: dataLen,
+            chineseName: chineseName,
+            words: newWords,
+            background_height: window.innerHeight - 120,
+        };
+
+        this.handleResize = this.handleResize.bind(this);
+    }
+
+    handleResize() {
+        this.setState({
+            background_height: window.innerHeight - 120,
+        });
+    }
+
+    componentDidMount() {
+        window.addEventListener('resize', this.handleResize);
+    }
+
+    componentWillUnmount() {
+        window.removeEventListener('resize', this.handleResize);
+    }
+
+    render() {
         return (
             <div style={{minHeight: this.state.background_height}}>
-                <div id='keywords'>搜尋關鍵字：{keywords}</div>
-                <div id='result-num'>檢索結果：共{dataLen}筆</div>
-                <a id={dic}></a>
-                <h2 id='dic-name'>{chineseName}</h2>
+                <div id='keywords'>搜尋關鍵字：{this.state.keywords}</div>
+                <div id='result-num'>檢索結果：共{this.state.dataLen}筆</div>
+                <a id={this.state.dic}></a>
+                <h2 id='dic-name'>{this.state.chineseName}</h2>
                 <div id='single-dic-result-container'>
-                    {this.state.allResults.words.map((word) => {
+                    {this.state.words.map((word) => {
                         const id = word.id;
-                        for (let key in word) {
-                            word[columnName[key]] = word[key];
-                            delete word[key];
-                        }
-                        return <Word key={id} dic={dic} id={id} columns={word} more={true} />; 
+                        return <Word key={id} dic={this.state.dic} id={id} columns={word.columns} more={true} />; 
                     })}
                 </div>
             </div>
