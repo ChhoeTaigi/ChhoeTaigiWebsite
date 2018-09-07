@@ -169,8 +169,20 @@ function searchBrief(dic, params, limit=-1) {
     for (let key in brief) {
         briefArray.push(key);
     }
+
+    // check params is in valid columns
+    let valid = false;
+    for (let key in params) {
+        if (key in columns) {
+            valid = true;
+            break;
+        }
+    }
+    if (!valid)
+        return [];
+
     const cmd = pg.select(briefArray);
-    for (key in params) {
+    for (let key in params) {
         if (key === 'id')
             cmd.andWhere(key, params[key]);
         else if (key in columns)

@@ -12,16 +12,16 @@ class AllDics extends Component {
         if (!state) {
             props.history.replace('/');
         }
-
+        console.log(state.allResults);
         for (let idx in state.allResults) {
             if (state.allResults[idx].words.length === 0)
                 delete state.allResults[idx];
         }
         this.refs = {};
 
-        let firstDic = state.allResults.find(e => e).dic;
+        let firstDic = state.allResults.find(e => e);;
         if (firstDic)
-            state.selectedDic = firstDic;
+            state.selectedDic = firstDic.dic;
         this.state = state;
     }
 
