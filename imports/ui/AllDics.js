@@ -54,7 +54,7 @@ class AllDics extends Component {
         let keywords = [];
         for (let key in params) {
             let param = params[key].replace(/\s/g, '');
-            if (param !== '') {
+            if (param !== '' && key !== 'searchMethod' && key !== 'spellingMethod') {
                 keywords.push(param)
             }
         }
