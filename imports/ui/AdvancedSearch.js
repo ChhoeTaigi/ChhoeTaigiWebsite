@@ -10,6 +10,8 @@ class AdvancedSearch extends Component {
             selectedDic: undefined,
             background_height: window.innerHeight - 96,
         };
+
+        this.handleResize = this.handleResize.bind(this);
     }
 
     handleResize() {
