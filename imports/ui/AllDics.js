@@ -24,6 +24,25 @@ class AllDics extends Component {
         this.state = state;
     }
 
+    componentDidMount() {
+        this.unlisten = window.addEventListener('scroll', () => {
+            
+            const sticky = document.getElementById('all-dic-buttons-background');
+            let isSticky;
+            if (sticky.offsetTop > 141)
+                isSticky = true;
+            else
+                isSticky = false;
+            this.setState({
+                isSticky: isSticky,
+            });
+        });
+    }
+
+    componentWillUnmount() {
+        this.unlisten();
+    }
+
     showMore(dic) {
         let options = this.state.options;
         options.dic = dic;
@@ -93,7 +112,7 @@ class AllDics extends Component {
             <div>
                 <div id='all-dic-keywords'>搜尋關鍵字：{keywords}</div>
                 <div id='all-dic-result-num'>檢索結果：共{dicLen}本</div>
-                <div id='all-dic-buttons-background'>
+                <div id='all-dic-buttons-background' style={this.state.isSticky ? {boxShadow: '0 3px 6px 0 rgba(0, 0, 0, 0.16)'} : {}}>
                     <div id='all-dic-buttons-container'>
                         {dicButtons}
                     </div>
