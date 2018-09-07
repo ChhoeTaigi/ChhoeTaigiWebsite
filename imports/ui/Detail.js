@@ -13,8 +13,8 @@ class Detail extends Component {
         Meteor.call('search.dicAndId', dic, id, (error, result) => {
             if (error) throw new Meteor.Error(error);
             this.setState({
-                columns: result[0],
-            })
+                word: result[0],
+            });
         });
 
         let struct = dicStruct.filter(struct => struct.name===dic)[0];
@@ -22,7 +22,7 @@ class Detail extends Component {
         this.state = {
             dic: dic,
             chineseName: chineseName,
-            columns: [],
+            word: [],
             background_height: window.innerHeight - 148,
         };
     }
@@ -37,13 +37,20 @@ class Detail extends Component {
 
     render() {
         const path = 'https://' + window.location.hostname + this.props.location.pathname;
+        const columnName = dicStruct.filter(struct => struct.name===this.state.dic)[0].columns;
+        const word = this.state.word;
+        const title = word.poj_unicode;
+        for (let key in word) {
+            word[columnName[key]] = word[key];
+            delete word[key];
+        }
         return (
             <div style={{minHeight: this.state.background_height}}>
                 <div id='fb-root'></div>
                 <div id='script'></div>
-                <div id='poj-container'>{this.state.chineseName}：{this.state.columns.poj_unicode}</div>
+                <div id='poj-container'>{this.state.chineseName}：{title}</div>
                 <div id='word-container'>
-                    <Word columns={this.state.columns}></Word>
+                    <Word columns={word}></Word>
                 </div>
                 <div id='fb-comments'>
                     <FacebookProvider appId='306448440105903'>

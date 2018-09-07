@@ -36,7 +36,9 @@ export default class SingleDic extends Component {
         }
         keywords = keywords.join('，');
         let dataLen = this.state.allResults.words.length;
-        let chineseName = dicStruct.filter(struct => struct.name===dic)[0].chineseName;
+        const struct = dicStruct.filter(struct => struct.name===dic)[0];
+        const chineseName = struct.chineseName;
+        const columnName = struct.brief;
         return (
             <div style={{minHeight: this.state.background_height}}>
                 <div id='keywords'>搜尋關鍵字：{keywords}</div>
@@ -45,7 +47,12 @@ export default class SingleDic extends Component {
                 <h2 id='dic-name'>{chineseName}</h2>
                 <div id='single-dic-result-container'>
                     {this.state.allResults.words.map((word) => {
-                        return <Word key={word.id} dic={dic} columns={word} more={true} />; 
+                        const id = word.id;
+                        for (let key in word) {
+                            word[columnName[key]] = word[key];
+                            delete word[key];
+                        }
+                        return <Word key={id} dic={dic} id={id} columns={word} more={true} />; 
                     })}
                 </div>
             </div>

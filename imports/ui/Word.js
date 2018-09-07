@@ -8,7 +8,7 @@ export default class Word extends Component {
 
     render() {
         // dictionary url
-        let id = this.props.columns.id;
+        let id = this.props.id;
         let dic = this.props.dic;
         const linkUri = '/' + dic + '/' + id;
 

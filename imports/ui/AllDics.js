@@ -50,7 +50,7 @@ class AllDics extends Component {
     }
 
     render() {
-        let params = this.state.options.params;
+        const params = this.state.options.params;
         let keywords = [];
         for (let key in params) {
             let param = params[key].replace(/\s/g, '');
@@ -60,16 +60,16 @@ class AllDics extends Component {
         }
         keywords = keywords.join('，');
 
-        let dicLen = this.state.allResults.filter(e => e).length;
+        const dicLen = this.state.allResults.filter(e => e).length;
 
-        let allResults = this.state.allResults;
+        const allResults = this.state.allResults;
         let dicButtons = [];
         let dicBriefs = [];
         let refs = {};
         for (let idx in allResults) {
-            let dicResults = allResults[idx];
-            let dic = dicResults.dic;
-            let chineseName = dicStruct.filter((e) => e.name === dic)[0].chineseName;
+            const dicResults = allResults[idx];
+            const dic = dicResults.dic;
+            const chineseName = dicStruct.filter((e) => e.name === dic)[0].chineseName;
             dicButtons.push(
                 <a className={'all-dic-button ' + (this.state.selectedDic === dic ? 'all-dic-button-selected' : 'all-dic-button-unselected')} key={dic} onClick={this.handleButtonClicked.bind(this, dic)}>
                     <div><span>{(parseInt(idx) + 1) + '. ' + chineseName}</span></div>
@@ -111,21 +111,47 @@ class AllDics extends Component {
 export default withRouter(AllDics);
 
 class DictionaryBrief extends Component {
+    constructor(props) {
+        super(props);
+
+        let dic = this.props.dicResults.dic;
+        const struct = dicStruct.filter(struct => struct.name===dic)[0];
+        const chineseName = struct.chineseName;
+        const columnName = struct.brief;
+        const words = this.props.dicResults.words;
+        const newWords = [];
+        words.map((word) => {
+            const id = word.id;
+            let columns = word;
+            for (let key in columns) {
+                columns[columnName[key]] = columns[key];
+                delete columns[key];
+            }
+            newWords.push({
+                id: id,
+                columns: columns,
+            });
+        });
+
+        this.state = {
+            dic: dic,
+            chineseName: chineseName,
+            words: newWords,
+        };
+    }
     showMore() {
         this.props.showMore();
     }
 
     render() {
-        let dicResults = this.props.dicResults;
-        let dic = dicResults.dic;
-        let chineseName = dicStruct.filter(struct => struct.name===dic)[0].chineseName;
+
         return (
             <div>
-                <a id={dic}></a>
-                <h2 className='all-dic-title'>{chineseName}</h2>
+                <h2 className='all-dic-title'>{this.state.chineseName}</h2>
                 <div className='all-dic-results-container'>
-                    {dicResults.words.map((word) => {
-                        return <Word key={word.id} dic={dic} columns={word} more={true} />
+                    {this.state.words.map((word) => {
+                        const id = word.id;
+                        return <Word key={id} dic={this.state.dic} id={id} columns={word.columns} more={true} />
                     })}
                 </div>
                 {this.props.showMoreButton ? <button className='show-more-button' onClick={this.showMore.bind(this)}>更多</button> : ''}
