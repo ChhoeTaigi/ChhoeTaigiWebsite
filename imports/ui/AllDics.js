@@ -12,7 +12,6 @@ class AllDics extends Component {
         if (!state) {
             props.history.replace('/');
         }
-        console.log(state.allResults);
         for (let idx in state.allResults) {
             if (state.allResults[idx].words.length === 0)
                 delete state.allResults[idx];
