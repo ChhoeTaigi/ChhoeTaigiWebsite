@@ -21,9 +21,11 @@ class AllDics extends Component {
         let firstDic = state.allResults.find(e => e);;
         if (firstDic)
             state.selectedDic = firstDic.dic;
+        state.background_height = window.innerHeight - 120;
         this.state = state;
 
         this.handleScroll = this.handleScroll.bind(this);
+        this.handleResize = this.handleResize.bind(this);
     }
 
     handleScroll() {
@@ -38,12 +40,20 @@ class AllDics extends Component {
         });
     }
 
+    handleResize() {
+        this.setState({
+            background_height: window.innerHeight - 120,
+        });
+    }
+
     componentDidMount() {
         window.addEventListener('scroll', this.handleScroll);
+        window.addEventListener('resize', this.handleResize);
     }
 
     componentWillUnmount() {
         window.removeEventListener('scroll', this.handleScroll);
+        window.removeEventListener('resize', this.handleResize);
     }
 
     showMore(dic) {
@@ -112,7 +122,7 @@ class AllDics extends Component {
         }
         
         return (
-            <div>
+            <div style={{minHeight: this.state.background_height + 'px'}}>
                 <div id='all-dic-keywords'>搜尋關鍵字：{keywords}</div>
                 <div id='all-dic-result-num'>檢索結果：共{dicLen}本</div>
                 <div id='all-dic-buttons-background' style={this.state.isSticky ? {boxShadow: '0 3px 6px 0 rgba(0, 0, 0, 0.16)'} : {}}>
@@ -167,7 +177,7 @@ class DictionaryBrief extends Component {
     render() {
 
         return (
-            <div>
+            <div className='dic-brief-container'>
                 <h2 className='all-dic-title'>{this.state.chineseName}</h2>
                 <div className='all-dic-results-container'>
                     {this.state.words.map((word) => {

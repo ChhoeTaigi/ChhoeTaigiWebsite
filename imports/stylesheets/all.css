@@ -95,6 +95,10 @@
     height: 50px;
 }
 
+.dic-brief-container {
+    margin-bottom: 20px;
+}
+
 .all-dic-title {
     width: 996px;
     height: 36px;
@@ -117,7 +121,7 @@
     display: block;
     width: 176px;
     height: 40px;
-    margin: 17px auto 20px auto;
+    margin: 17px auto 0 auto;
     padding: 0;
     border: 0;
     border-radius: 2px;
