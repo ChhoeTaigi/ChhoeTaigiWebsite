@@ -22,25 +22,28 @@ class AllDics extends Component {
         if (firstDic)
             state.selectedDic = firstDic.dic;
         this.state = state;
+
+        this.handleScroll = this.handleScroll.bind(this);
     }
 
-    componentDidMount() {
-        this.unlisten = window.addEventListener('scroll', () => {
-            
-            const sticky = document.getElementById('all-dic-buttons-background');
-            let isSticky;
-            if (sticky.offsetTop > 141)
-                isSticky = true;
-            else
-                isSticky = false;
-            this.setState({
-                isSticky: isSticky,
-            });
+    handleScroll() {
+        const sticky = document.getElementById('all-dic-buttons-background');
+        let isSticky;
+        if (sticky.offsetTop > 141)
+            isSticky = true;
+        else
+            isSticky = false;
+        this.setState({
+            isSticky: isSticky,
         });
     }
 
+    componentDidMount() {
+        window.addEventListener('scroll', this.handleScroll);
+    }
+
     componentWillUnmount() {
-        this.unlisten();
+        window.removeEventListener('scroll', this.handleScroll);
     }
 
     showMore(dic) {
