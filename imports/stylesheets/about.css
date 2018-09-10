@@ -204,6 +204,10 @@
 	color: #43944f;
 }
 
+#join-box-2 > button:active {
+	box-shadow: none;
+}
+
 #join-box-2 > img {
 	position: absolute;
 	right: 127px;

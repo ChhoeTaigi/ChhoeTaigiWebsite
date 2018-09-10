@@ -53,7 +53,7 @@ export const About = () => (
 			</div>
 			<div id='join-box-2' className='join-box'>
 				<div>參與開源專案，協助改進產品</div>
-				<button>GitHub</button>
+				<button onClick={window.open('https://github.com/ChhoeTaigi', '_blank')}>GitHub</button>
 				<img src='images/participate@2x.png' width='256' height='150'></img>
 			</div>
 		</div>
@@ -67,11 +67,11 @@ export const About = () => (
 		<div id='contact-container'>
 			<div id='contact-title' className='about-title'>聯絡方式</div>
 			<div id='contact-buttons-container'>
-				<a id='contact-button-1' className='contact-button'>
+				<a id='contact-button-1' className='contact-button' href='http://chat.taigi.info/' target='_blank'>
 					<span>私訊</span>
 					<div></div>
 				</a>
-				<a id='contact-button-2' className='contact-button'>
+				<a id='contact-button-2' className='contact-button' href='mailto:ngoohebi+chhoetaigi@gmail.com' target='_blank'>
 					<span>來信</span>
 					<div></div>
 				</a>
