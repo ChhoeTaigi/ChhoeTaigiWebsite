@@ -38,7 +38,7 @@
     top: 56px;
     background-color: white;
     padding-top: 16px;
-    height: 56px;
+    height: 66px;
 }
 
 #all-dic-buttons-container {
@@ -93,6 +93,10 @@
     display: inline-block;
     width: 108px;
     height: 50px;
+}
+
+#brief-result-container {
+    margin-top: 20px;
 }
 
 .dic-brief-container {

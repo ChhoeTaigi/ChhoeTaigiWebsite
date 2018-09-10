@@ -71,7 +71,7 @@ class AllDics extends Component {
 
     handleButtonClicked(dic, event) {
         const domNode = ReactDOM.findDOMNode(this.refs[dic].current);
-        window.scrollTo(0, domNode.offsetTop - 130);
+        window.scrollTo(0, domNode.offsetTop - 145);
 
         this.setState({
             selectedDic: dic,
@@ -134,8 +134,7 @@ class AllDics extends Component {
                         {dicButtons}
                     </div>
                 </div>
-                
-                <div>
+                <div id='brief-result-container'>
                     {dicBriefs}
                 </div>
             </div>
