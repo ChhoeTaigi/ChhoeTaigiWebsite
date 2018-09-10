@@ -27,6 +27,20 @@ main {
 	padding-top: 56px;
 }
 
+button {
+    border: 0;
+    padding: 0;
+    cursor: pointer;
+}
+
+ul {
+    margin: 0;
+}
+
+ol {
+    margin: 0;
+}
+
 *:focus {
     outline: none;
 }
@@ -37,10 +51,6 @@ main {
 	height: 100%;
 	margin-left: auto;
 	margin-right: auto;
-}
-
-.lighter {
-	font-weight: lighter;
 }
 
 .find-button {

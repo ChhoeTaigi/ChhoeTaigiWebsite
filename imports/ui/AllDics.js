@@ -21,7 +21,7 @@ class AllDics extends Component {
         let firstDic = state.allResults.find(e => e);;
         if (firstDic)
             state.selectedDic = firstDic.dic;
-        state.background_height = window.innerHeight - 120;
+        state.background_height = window.innerHeight - 12;
         this.state = state;
 
         this.handleScroll = this.handleScroll.bind(this);
@@ -83,14 +83,18 @@ class AllDics extends Component {
     render() {
         const params = this.state.options.params;
         let keywords = [];
-        for (let key in params) {
-            let param = params[key].replace(/\s/g, '');
-            if (param !== '' && key !== 'searchMethod' && key !== 'spellingMethod') {
-                keywords.push(param)
+        if (params) {
+            for (let key in params) {
+                let param = params[key].replace(/\s/g, '');
+                if (param !== '' && key !== 'searchMethod' && key !== 'spellingMethod') {
+                    keywords.push(param)
+                }
             }
+            keywords = keywords.join('，');
+        } else {
+            keywords = this.state.options.value;
         }
-        keywords = keywords.join('，');
-
+        
         const dicLen = this.state.allResults.filter(e => e).length;
 
         const allResults = this.state.allResults;

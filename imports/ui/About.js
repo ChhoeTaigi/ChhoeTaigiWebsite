@@ -2,27 +2,83 @@ import React from 'react';
 
 export const About = () => (
     <div>
-		<div id='about-ctg'>關於 ChhoeTaigi</div>
+		<div id='introduction-title' className='about-title'>簡介</div>
 		<div id='brief-container'>
 			<div className='fix-width-center'>
-				<div id='brief-title'>ChhoeTaigi 簡介</div>
-				<ul id='brief-ul' className='lighter'>
+				<ul id='brief-ul'>
 					<li className='brief-li'>「ChhoeTaigi 找台語」計畫的目標是為了整理和數位化台語的字詞資料，不只提供公開授權的台語字詞資料庫，也有辭典網站和手機辭典app，希望吸引更多人投入相關研究或開發應用，更幫助一般使用者更便利的查詢台語的字詞資料。</li>
-					<li className='brief-li'>目前已經整理10份的字詞文獻資料，總計超過30萬筆的台語字詞，全部標準化成現在流通使用的白話字、教育部羅馬字的文字系統。除了文字採Unicode格式外，也提供沒有台語輸入法的替代格式方案，方便大家使用和查詢。</li>
 					<li className='brief-li'>此計畫是獲得g0v在2018年上半年所提供的獎助金計畫，才得以開始進行，完成階段性目標，接下來需要靠更多官方和民間的實際支持和相挺，才能繼續長遠的走下去。</li>
 				</ul>
-				<div id='seeking-for-sponsor'>
-					<div id='seeking-for-sponsor-title'>公開徵求贊助</div>
-					<ol id='seeking-ol' className='lighter'>
-						<li className='seeking-li seeking-li-dash'>產品營運資金（伺服器成本、維護成本等）</li>
-						<li className='seeking-li seeking-li-dash'>軟體工程師、設計師（維護既有產品或開發相關應用）</li>
-						<li className='seeking-li'>台語辭典或字詞資料授權（Creative Commons開放授權）</li>
-					</ol>
+			</div>
+		</div>
+		<div id='feature-container'>
+			<div id='feature-title' className='about-title'>特色</div>
+			<div className='feature-card-three-columns'>
+				<div className='feature-card'>
+					<img id='feature-1' src='images/data@2x.png' width='136' height='107'></img>
+					<span className='feature-card-title'>資料豐富</span>
+					<span className='feature-card-content'>整合10份文獻資料，超過30萬筆台語字詞</span>
+				</div>
+				<div className='feature-card'>
+					<img id='feature-2' src='images/standard@2x.png' width='178' height='99'></img>
+					<span className='feature-card-title'>標準化</span>
+					<span className='feature-card-content'>格式採歷史最悠久文獻最多的白話字，也提供教育部推行之羅馬字，並同時提供Unicode跟數字輸入格式</span>
+				</div>
+				<div className='feature-card'>
+					<img id='feature-3' src='images/digital@2x.png' width='118' height='94'></img>
+					<span className='feature-card-title'>數位化</span>
+					<span className='feature-card-content'>字詞資料皆提供CSV格式，公開在GitHub</span>
+				</div>
+			</div>
+			<div className='feature-card-two-columns'>
+				<div className='feature-card'>
+					<img id='feature-4' src='images/opencc@2x.png' width='129' height='91'></img>
+					<span className='feature-card-title'>公開授權</span>
+					<span className='feature-card-content'>資料全部採用Creative Commons公開授權</span>
+				</div>
+				<div className='feature-card'>
+					<img id='feature-5' src='images/service@2x.png' width='135' height='93'></img>
+					<span className='feature-card-title'>服務化</span>
+					<span className='feature-card-content'>提供線上辭典網站及可離線辭典app，方便一次查詢全部台語字詞</span>
 				</div>
 			</div>
 		</div>
-		<div id='members' className='fix-width-center'>
-			<div id='members-title'>團隊成員介紹</div>
+		<div id='join-container'>
+			<div id='join-title' className='about-title'>加入協作</div>
+			<div id='join-box-1' className='join-box'>
+				<img src='images/discuss@2x.png' width='180' height='173'></img>
+				<div>字詞資料提供建議修改或討論</div>
+				<button></button>
+				<span>請看下方聯絡方式</span>
+			</div>
+			<div id='join-box-2' className='join-box'>
+				<div>參與開源專案，協助改進產品</div>
+				<button>GitHub</button>
+				<img src='images/participate@2x.png' width='256' height='150'></img>
+			</div>
+		</div>
+		<div id='seeking-container'>
+			<div id='seeking-title' className='about-title'>徵求贊助</div>
+			<ol id='seeking-ol'>
+				<li>產品營運資金（伺服器成本、維護成本等)</li>
+				<li>台語辭典或字詞資料授權（Creative Commons開放授權)</li>
+			</ol>
+		</div>
+		<div id='contact-container'>
+			<div id='contact-title' className='about-title'>聯絡方式</div>
+			<div id='contact-buttons-container'>
+				<a id='contact-button-1' className='contact-button'>
+					<span>私訊</span>
+					<div></div>
+				</a>
+				<a id='contact-button-2' className='contact-button'>
+					<span>來信</span>
+					<div></div>
+				</a>
+			</div>
+		</div>
+		<div id='members-container' className='fix-width-center'>
+			<div id='members-title' className='about-title'>團隊成員介紹</div>
 			<div className='person-card-three-columns'>
 				<div className='person-card'>
 					<img className='profile' src='images/hebi.png' width='120' height='120'></img>
@@ -70,7 +126,7 @@ export const About = () => (
 						<div className='authorization-title'>字詞資料</div>
 						<a className='authorization-link' href='https://github.com/ChhoeTaigi/ChhoeTaigiDatabase' target='_blank'>ChhoeTaigi 找台語：台語字詞資料庫</a>
 					</div>
-					<div className='authorization-block' style={{right: '50px'}}>
+					<div className='authorization-block' style={{right: '62px'}}>
 						<div className='authorization-title'>原書掃描圖片</div>
 						<a className='authorization-link' href='http://ip194097.ntcu.edu.tw/memory/tgb/MoWT.asp' target='_blank'>台語文記憶</a>
 					</div>
