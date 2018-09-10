@@ -9,7 +9,7 @@ import AllDics from './AllDics';
 import SingleDic from './SingleDic';
 import Update from './Update';
 import Detail from './Detail';
-import { About } from './About';
+import About from './About';
 import Account from './Account';
 
 // Landing page
