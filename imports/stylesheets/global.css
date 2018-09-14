@@ -18,9 +18,12 @@ html, body {
 body {
 	position: relative;
 	overflow-y: scroll;
-	font-family: 'Noto Sans TC', taigiwebfont, 'Microsoft JhengHei', 'PingFang TC';
 	letter-spacing: 1px;
 	padding-bottom: 40px;
+}
+
+body, input {
+    font-family: 'Noto Sans TC', taigiwebfont, 'Microsoft JhengHei', 'PingFang TC';
 }
 
 main {
