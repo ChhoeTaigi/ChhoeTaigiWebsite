@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { withRouter } from 'react-router-dom';
-import ReactGA from 'react-ga';
+import { logPageView } from '../api/analytics';
 
 import Header from './Header';
 import Main from './Main';
@@ -12,15 +12,11 @@ class App extends Component {
     }
 
     componentDidMount() {
-        const page = this.props.location.pathname;
-        ReactGA.set({ page });
-        ReactGA.pageview(page);
+        logPageView();
     }
 
     componentDidUpdate() {
-        const page = this.props.location.pathname;
-        ReactGA.set({ page });
-        ReactGA.pageview(page);
+        logPageView();
     }
 
     render() {
