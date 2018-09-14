@@ -1,28 +1,12 @@
 import React, { Component } from 'react';
+import { withRouter } from 'react-router-dom';
 import ReactGA from 'react-ga';
 
 import Header from './Header';
 import Main from './Main';
 import Footer from './Footer';
 
-export default class App extends Component {
-    constructor(props) {
-        super(props);
-
-        ReactGA.initialize([{
-            trackingId: 'UA-124171318-1'
-        }, {
-            trackingId: 'UA-124171318-2'
-        }], { debug: true });
-    }
-
-    componentDidMount() {
-        ReactGA.pageview(window.location.pathname);
-    }
-    componentDidUpdate() {
-        ReactGA.pageview(window.location.pathname);
-    }
-
+class App extends Component {
     render() {
         return (
             <div>
@@ -33,3 +17,5 @@ export default class App extends Component {
         );
     }
 }
+
+export default withRouter(App);
