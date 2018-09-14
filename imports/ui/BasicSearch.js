@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { withRouter } from 'react-router-dom';
+import ReactGA from 'react-ga';
 
 class BasicSearch extends Component {
     constructor(props) {
@@ -33,6 +34,12 @@ class BasicSearch extends Component {
     }
 
     handleSubmit(event) {
+        ReactGA.event({
+            category: 'user',
+            action: 'search',
+            label: 'basic'
+        });
+
         let params = {
             searchMethod: this.state.searchMethod,
             spellingMethod: this.state.spellingMethod,

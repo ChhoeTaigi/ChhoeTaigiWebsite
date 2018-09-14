@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import { withRouter } from 'react-router-dom';
+import ReactGA from 'react-ga';
+
 import dicStruct from '../api/dictionary_struct';
 
 class AdvancedSearch extends Component {
@@ -118,6 +120,12 @@ class SingleDicOptions extends Component {
     }
 
     handleSubmit(event) {
+        ReactGA.event({
+            category: 'user',
+            action: 'search',
+            label: 'single-dic'
+        });
+
         let params = this.state.params;
         let options = {
             method: 'singleDic',
@@ -185,6 +193,12 @@ class AllFieldOptions extends Component {
     }
 
     handleSubmit(event) {
+        ReactGA.event({
+            category: 'user',
+            action: 'search',
+            label: 'all-field'
+        });
+
         let options = {
             method: 'allField',
             value: this.state.value,
