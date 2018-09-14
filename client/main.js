@@ -15,7 +15,7 @@ Meteor.startup(() => {
   ReactGA.initialize([{
     trackingId: 'UA-124171318-1'
   }, {
-      trackingId: 'UA-124171318-2'
+    trackingId: 'UA-124171318-2'
   }], { debug: true });
 
   render((
