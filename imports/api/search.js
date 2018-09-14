@@ -150,6 +150,11 @@ function cleanParams(params) {
         if (!params[key].trim())
             delete params[key];
     }
+
+    // wildcard charactors
+    for (let key in params) {
+        params[key] = cleanWildcard(params[key]);
+    }
     
     if (searchMethod) {
         if (searchMethod === 'contains') {
@@ -160,6 +165,14 @@ function cleanParams(params) {
     }
         
     return params;
+}
+
+function cleanWildcard(value) {
+    const reM = new RegExp('\\*', 'g');
+    const reP = new RegExp('\\+', 'g');
+    value = value.replace(reM, '%');
+    value = value.replace(reP, '_');
+    return value;
 }
 
 function searchBrief(dic, params, limit=-1) {
@@ -195,26 +208,29 @@ function searchBrief(dic, params, limit=-1) {
     return cmd;
 }
 
-function searchSingleAllField(dic, params, limit=-1) {
-    let dicStruct = dicsStruct.filter(e => e.name===dic)[0];
-    let columns = dicStruct.columns;
-    let brief = dicStruct.brief;
-    let briefArray = [];
-    for (let key in brief) {
-        briefArray.push(key);
-    }
+function searchSingleAllField(dic, value, limit=-1) {
+    if (Meteor.isServer) {
+        let dicStruct = dicsStruct.filter(e => e.name===dic)[0];
+        let columns = dicStruct.columns;
+        let brief = dicStruct.brief;
+        let briefArray = [];
+        for (let key in brief) {
+            briefArray.push(key);
+        }
 
-    // check params is in valid columns
-    if (params.trim() === '')
-        return [];
+        // check params is in valid columns
+        if (value.trim() === '')
+            return [];
 
-    const cmd = pg.select(briefArray);
-    for (key in columns) {
-        if (key !== 'id')
-            cmd.orWhere(key, 'like', params);
+        value = cleanWildcard(value);
+        const cmd = pg.select(briefArray);
+        for (key in columns) {
+            if (key !== 'id')
+                cmd.orWhere(key, 'like', value);
+        }
+        cmd.from(dic)
+        if (limit >= 0)
+            cmd.limit(limit);
+        return cmd;
     }
-    cmd.from(dic)
-    if (limit >= 0)
-        cmd.limit(limit);
-    return cmd;
 }
