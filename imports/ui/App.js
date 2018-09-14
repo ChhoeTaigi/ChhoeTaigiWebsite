@@ -6,14 +6,16 @@ import Main from './Main';
 import Footer from './Footer';
 
 export default class App extends Component {
-    render() {
+    componentDidMount() {
         ReactGA.initialize([{
             trackingId: 'UA-124171318-1'
-          }, {
+        }, {
             trackingId: 'UA-124171318-2'
-          }]);
-        //ReactGA.pageview(window.location.pathname + window.location.search);
+        }], { debug: true });
+    }
 
+    render() {
+        ReactGA.pageview(window.location.pathname);
         return (
             <div>
                 <Header />
