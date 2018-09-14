@@ -22,8 +22,9 @@ body {
 	padding-bottom: 40px;
 }
 
-body, input {
+body, input, button {
     font-family: 'Noto Sans TC', taigiwebfont, 'Microsoft JhengHei', 'PingFang TC';
+    background-color: transparent;
 }
 
 main {
