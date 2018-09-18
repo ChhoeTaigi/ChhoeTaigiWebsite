@@ -3,7 +3,6 @@ import { render } from 'react-dom';
 import { BrowserRouter } from 'react-router-dom';
 import { Meteor } from 'meteor/meteor';
 
-import { initGA } from '../imports/api/analytics';
 import '../imports/startup/both';
 import '../imports/startup/client';
 import '../imports/stylesheets';
@@ -16,11 +15,6 @@ Meteor.startup(() => {
 });
 
 class Main extends Component {
-  constructor(props) {
-    super(props);
-    initGA();
-  }
-
   render() {
     return (
       <BrowserRouter>
