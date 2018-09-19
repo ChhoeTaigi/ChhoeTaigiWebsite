@@ -1,3 +1,3 @@
-import { initGA } from '../imports/api/analytics';
+import { initGA } from '../../api/analytics';
 
 initGA();
