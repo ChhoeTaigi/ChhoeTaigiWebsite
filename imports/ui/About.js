@@ -1,12 +1,21 @@
 import React, { Component } from 'react';
+import ReactDOM from 'react-dom';
 
 export default class About extends Component {
 	constructor(props) {
 		super(props);
+		this.state = {
+			contactRef: React.createRef(),
+		};
 	}
 
 	openGithub() {
 		window.open('https://github.com/ChhoeTaigi', '_blank')
+	}
+
+	gotoContact() {
+		const domNode = ReactDOM.findDOMNode(this.state.contactRef.current);
+        window.scrollTo(0, domNode.offsetTop);
 	}
 
 	render() {
@@ -58,8 +67,8 @@ export default class About extends Component {
 					<div id='join-box-1' className='join-box'>
 						<img src='images/discuss@2x.png' width='180' height='173'></img>
 						<div>字詞資料提供建議修改或討論</div>
-						<button></button>
-						<span>請看下方聯絡方式</span>
+						<button onClick={this.gotoContact.bind(this)}></button>
+						<span onClick={this.gotoContact.bind(this)}>請看下方聯絡方式</span>
 					</div>
 					<div id='join-box-2' className='join-box'>
 						<div>參與開源專案，協助改進產品</div>
@@ -75,7 +84,7 @@ export default class About extends Component {
 					</ol>
 				</div>
 				<div id='contact-container'>
-					<div id='contact-title' className='about-title'>聯絡方式</div>
+					<div ref={this.state.contactRef} id='contact-title' className='about-title'>聯絡方式</div>
 					<div id='contact-buttons-container'>
 						<a id='contact-button-1' className='contact-button' href='http://chat.taigi.info/' target='_blank'>
 							<span>私訊</span>

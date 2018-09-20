@@ -95,7 +95,6 @@
 .dic-button {
     width: 190px;
     height: 52px;
-    padding: 0;
     border-radius: 2px;
     box-shadow: 0 4px 2px 0 rgba(0, 0, 0, 0.16);
     font-size: 15px;
@@ -112,6 +111,7 @@
 .dic-button-unselected {
     background-color: white;
     color: #3f4d38;
+    border: solid 1px #b7b7b7;
 }
 
 #single-dic-form-container {
