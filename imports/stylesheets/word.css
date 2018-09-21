@@ -1,12 +1,12 @@
-table {
+table.detail-word {
     border-collapse: collapse;
 }
 
-tr {
+table.detail-word > tbody > tr {
     height: 37px;
 }
 
-th {
+table.detail-word > tbody > tr > th {
     width: 285px;
     background-color: #ebf3e6;
     font-size: 16px;
@@ -18,7 +18,7 @@ th {
     padding-right: 15px;
 }
 
-td {
+table.detail-word > tbody > tr > td {
     width: 685px;
     font-size: 16px;
     font-weight: normal;
@@ -27,21 +27,4 @@ td {
     padding: 0;
     text-align: left;
     padding-left: 15px;
-}
-
-.detail {
-    background-color: #f0f0f0;
-    font-size: 17px;
-    font-weight: 500;
-    line-height: 37px;
-    padding: 0;
-    text-align: center;
-}
-
-.detail > a {
-    display: block;
-    width: 100%;
-    height: 100%;
-    color: #43944f;
-    text-decoration: none;
 }

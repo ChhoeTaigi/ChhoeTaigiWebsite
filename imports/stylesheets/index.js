@@ -2,6 +2,7 @@ import './about.css';
 import './advanced.css';
 import './all.css';
 import './basic.css';
+import './brief-word.css';
 import './detail.css';
 import './global.css';
 import './header.css';
