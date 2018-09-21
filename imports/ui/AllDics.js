@@ -179,15 +179,17 @@ class DictionaryBrief extends Component {
     render() {
 
         return (
-            <div className='dic-brief-container'>
-                <h2 className='all-dic-title'>{this.state.chineseName}</h2>
-                <div className='all-dic-results-container'>
-                    {this.state.words.map((word) => {
-                        const id = word.id;
-                        return <BriefWord key={id} dic={this.state.dic} id={id} columns={word.columns} more={true} />
-                    })}
+            <div className='dic-container'>
+                <h2 className='dic-title'>{this.state.chineseName}</h2>
+                <div className='dic-content-container'>
+                    <div className='dic-results-container'>
+                        {this.state.words.map((word) => {
+                            const id = word.id;
+                            return <BriefWord key={id} dic={this.state.dic} id={id} columns={word.columns}/>
+                        })}
+                    </div>
+                    {this.props.showMoreButton ? <button className='show-more-button' onClick={this.showMore.bind(this)}>顯示更多</button> : ''}
                 </div>
-                {this.props.showMoreButton ? <button className='show-more-button' onClick={this.showMore.bind(this)}>更多</button> : ''}
             </div>
         );
     }

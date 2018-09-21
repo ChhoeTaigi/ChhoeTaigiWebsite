@@ -6,7 +6,7 @@
 }
 
 #all-dic-keywords {
-    width: 974px;
+    width: 957px;
     height: 38px;
     margin-top: 24px;
     margin-left: auto;
@@ -21,7 +21,7 @@
 }
 
 #all-dic-result-num {
-    width: 974px;
+    width: 957px;
     height: 15px;
     margin-top: 8px;
     margin-left: auto;
@@ -39,6 +39,7 @@
     background-color: white;
     padding-top: 6px;
     height: 56px;
+    z-index: 1;
 }
 
 #all-dic-buttons-container {
@@ -46,9 +47,9 @@
     grid-template-areas: 'a a a a a a a a a';
     margin-left: auto;
     margin-right: auto;
-    width: 996px;
+    width: 979px;
     height: 100%;
-    grid-column-gap: 3px;
+    grid-column-gap: 2px;
 }
 
 .all-dic-button {
@@ -75,14 +76,14 @@
 }
 
 .all-dic-button-selected {
-    width: 90px;
+    width: 89px;
     height: 50px;
     background-color: #9cb276;
     color: white;
 }
 
 .all-dic-button-unselected {
-    width: 88px;
+    width: 87px;
     height: 48px;
     background-color: white;
     color: #657160;
@@ -99,26 +100,35 @@
     margin-top: 20px;
 }
 
-.dic-brief-container {
-    margin-bottom: 20px;
+.dic-container {
+    position: relative;
+    width: 980px;
+    margin: 0 auto 50px auto;
 }
 
-.all-dic-title {
-    width: 996px;
+.dic-title {
     height: 36px;
-    margin: 0 auto 6px auto;
+    margin-bottom: 6px;
     font-size: 24px;
     font-weight: 500;
     line-height: 36px;
     color: #3f4d38;
 }
 
-.all-dic-results-container {
+.dic-content-container {
+    width: 980px;
+    border-radius: 5px;
+    background-color: #ebf3e6;
+    padding-top: 15px;
+    padding-bottom: 20px;
+}
+
+.dic-results-container {
     display: grid;
-    width: 996px;
+    width: 936px;
     margin-left: auto;
     margin-right: auto;
-    grid-row-gap: 32px;
+    grid-row-gap: 20px;
 }
 
 .show-more-button {

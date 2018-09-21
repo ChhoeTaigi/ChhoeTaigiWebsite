@@ -23,16 +23,20 @@ export default class Word extends Component {
                 </tr>
             );
         }
-        let link;
-        if (this.props.more)
-            link = <tr><td className='detail' colSpan='2'><Link to={linkUri}>詳細…</Link></td></tr>;
+        let link = <tr><td className='detail' colSpan='2'></td></tr>;
         return (
-            <table>
-                <tbody>
-                    {content}
-                    {link}
-                </tbody>
-            </table>
+            <div className='brief-word-container'>
+                <table className='brief-word'>
+                    <tbody>
+                        {content}
+                        {link}
+                    </tbody>
+                </table>
+                <Link className='breif-show-more' to={linkUri}>
+                    <span>看詳細</span>
+                    <img src='images/detail_arrow@2x.png' width='15' height='15'></img>
+                </Link>
+            </div>
         );
     }
 }

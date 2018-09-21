@@ -1,0 +1,62 @@
+.brief-word-container {
+    position: relative;
+    width: 934px;
+    border: solid 1px #b7b7b7;
+}
+
+.brief-word {
+    border-collapse: collapse;
+}
+
+.brief-word > tbody > tr {
+    min-height: 30px;
+}
+
+.brief-word > tbody > tr > th {
+    width: 215px;
+    font-size: 16px;
+    font-weight: 500;
+    color: #3f4d38;
+    line-height: 30px;
+    background-color: #ebf3e6;
+    text-align: right;
+    padding-right: 12px;
+    border-right: solid 1px #b7b7b7;
+}
+
+.brief-word > tbody > tr > td {
+    width: 696px;
+    font-size: 16px;
+    font-weight: normal;
+    color: #2f3a2a;
+    line-height: 30px;
+    background-color: white;
+    padding-left: 12px;
+}
+
+.breif-show-more {
+    position: absolute;
+    top: 11px;
+    right: 11px;
+    width: 95px;
+    height: 32px;
+    border-radius: 2px;
+    border: solid 1px #43944f;
+    text-decoration: none;
+}
+
+.breif-show-more > span {
+    position: absolute;
+    height: 34px;
+    line-height: 34px;
+    left: 11px;
+    font-size: 16px;
+    font-weight: 500;
+    color: #43944f;
+}
+
+.breif-show-more > img {
+    position: absolute;
+    top: 8px;
+    right: 13px;
+}
