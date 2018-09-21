@@ -8,14 +8,22 @@ export default class Landing extends Component {
         this.state = {
             background_height: window.innerHeight - 204,
         };
+
+        this.handleResize = this.handleResize.bind(this);
+    }
+
+    handleResize() {
+        this.setState({
+            background_height: window.innerHeight - 204,
+        });
     }
 
     componentDidMount() {
-        window.addEventListener('resize', () => {
-            this.setState({
-                background_height: window.innerHeight - 204,
-            });
-        });
+        window.addEventListener('resize', this.handleResize);
+    }
+
+    componentWillUnmount() {
+        window.removeEventListener('resize', this.handleResize);
     }
 
     render() {
