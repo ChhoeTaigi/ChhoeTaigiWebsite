@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom';
 import { withRouter } from 'react-router-dom';
 
 import dicStruct from '../api/dictionary_struct';
-import Word from "./Word";
+import BriefWord from './BriefWord';
 
 class AllDics extends Component {
     constructor(props) {
@@ -184,7 +184,7 @@ class DictionaryBrief extends Component {
                 <div className='all-dic-results-container'>
                     {this.state.words.map((word) => {
                         const id = word.id;
-                        return <Word key={id} dic={this.state.dic} id={id} columns={word.columns} more={true} />
+                        return <BriefWord key={id} dic={this.state.dic} id={id} columns={word.columns} more={true} />
                     })}
                 </div>
                 {this.props.showMoreButton ? <button className='show-more-button' onClick={this.showMore.bind(this)}>更多</button> : ''}
