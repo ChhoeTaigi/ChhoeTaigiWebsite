@@ -25,6 +25,8 @@ import { Link, withRouter } from 'react-router-dom'
 class Header extends Component {
     render() {
         var currentLocation = this.props.location.pathname
+        if (currentLocation === '/all' || currentLocation === '/single')
+            currentLocation = '/';
 
         return (
             <header>

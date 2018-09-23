@@ -41,10 +41,10 @@ module.exports = [
             hanlo_taibun_kaisoeh_poj: '漢羅台文解說(白話字)',
         },
         briefWidth: {
-            poj_unicode: '124px',
-            kiplmj_unicode: '120px',
-            hanlo_taibun_poj: '139px',
-            hanlo_taibun_kaisoeh_poj: '533px',
+            poj_unicode: '121px',
+            kiplmj_unicode: '121px',
+            hanlo_taibun_poj: '140px',
+            hanlo_taibun_kaisoeh_poj: '530px',
         },
         columns: {
             id: '編號',
@@ -75,10 +75,10 @@ module.exports = [
             english_descriptions: '對應英文',
         },
         briefWidth: {
-            poj_unicode: '124px',
-            kiplmj_unicode: '120px',
-            hoabun: '139px',
-            english_descriptions: '533px',
+            poj_unicode: '168px',
+            kiplmj_unicode: '182px',
+            hoabun: '156px',
+            english_descriptions: '406px',
         },
         columns: {
             id: '編號',
@@ -101,10 +101,10 @@ module.exports = [
             english_descriptions: '對應英文',
         },
         briefWidth: {
-            poj_unicode: '124px',
-            kiplmj_unicode: '120px',
-            hoabun: '139px',
-            english_descriptions: '533px',
+            poj_unicode: '175px',
+            kiplmj_unicode: '175px',
+            hoabun: '156px',
+            english_descriptions: '406px',
         },
         columns: {
             id: '編號',
