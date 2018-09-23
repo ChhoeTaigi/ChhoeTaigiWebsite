@@ -118,24 +118,16 @@
 .dic-content-container {
     width: 980px;
     border-radius: 5px;
-    background-color: #ebf3e6;
-    padding-top: 15px;
-    padding-bottom: 20px;
-}
-
-.dic-results-container {
-    display: grid;
-    width: 936px;
-    margin-left: auto;
-    margin-right: auto;
-    grid-row-gap: 20px;
+    background-color: #ededed;
+    padding-top: 10px;
+    padding-bottom: 14px;
 }
 
 .show-more-button {
     display: block;
     width: 176px;
     height: 40px;
-    margin: 17px auto 0 auto;
+    margin: 10px auto 0 auto;
     padding: 0;
     border: 0;
     border-radius: 2px;

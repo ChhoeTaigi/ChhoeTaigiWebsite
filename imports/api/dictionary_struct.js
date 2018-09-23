@@ -13,8 +13,8 @@ module.exports = [
         briefWidth: {
             poj_unicode: '228px',
             hanlo_taibun_poj: '228px',
-            kiplmj_unicode: '227px',
-            hoabun: '227px',
+            kiplmj_unicode: '228px',
+            hoabun: '228px',
         },
         columns: {
             id: '編號',
@@ -39,6 +39,12 @@ module.exports = [
             kiplmj_unicode: '教育部羅馬字',
             hanlo_taibun_poj: '漢羅台文(白話字)',
             hanlo_taibun_kaisoeh_poj: '漢羅台文解說(白話字)',
+        },
+        briefWidth: {
+            poj_unicode: '124px',
+            kiplmj_unicode: '120px',
+            hanlo_taibun_poj: '139px',
+            hanlo_taibun_kaisoeh_poj: '533px',
         },
         columns: {
             id: '編號',
@@ -68,6 +74,12 @@ module.exports = [
             hoabun: '對應華文',
             english_descriptions: '對應英文',
         },
+        briefWidth: {
+            poj_unicode: '124px',
+            kiplmj_unicode: '120px',
+            hoabun: '139px',
+            english_descriptions: '533px',
+        },
         columns: {
             id: '編號',
             poj_unicode: '白話字',
@@ -87,6 +99,12 @@ module.exports = [
             kiplmj_unicode: '教育部羅馬字',
             hoabun: '對應華文',
             english_descriptions: '對應英文',
+        },
+        briefWidth: {
+            poj_unicode: '124px',
+            kiplmj_unicode: '120px',
+            hoabun: '139px',
+            english_descriptions: '533px',
         },
         columns: {
             id: '編號',
@@ -110,6 +128,12 @@ module.exports = [
             kiplmj_unicode: '教育部羅馬字',
             hanji_taibun: '漢字台文',
             hoabun: '對應華文',
+        },
+        briefWidth: {
+            poj_unicode: '124px',
+            kiplmj_unicode: '120px',
+            hanji_taibun: '139px',
+            hoabun: '533px',
         },
         columns: {
             id: '編號',
@@ -138,6 +162,12 @@ module.exports = [
             hanlo_taibun_poj: '漢羅台文(白話字)',
             hanlo_taibun_kaisoeh_poj: '漢羅台文解說(白話字)',
         },
+        briefWidth: {
+            poj_unicode: '124px',
+            kiplmj_unicode: '120px',
+            hanlo_taibun_poj: '139px',
+            hanlo_taibun_kaisoeh_poj: '533px',
+        },
         columns: {
             id: '編號',
             poj_unicode: '白話字',
@@ -161,6 +191,12 @@ module.exports = [
             hanlo_taibun_kiplmj: '漢羅台文(教育部羅馬字)',
             hoabun: '對應華文',
         },
+        briefWidth: {
+            poj_unicode: '124px',
+            kiplmj_unicode: '120px',
+            hanlo_taibun_kiplmj: '139px',
+            hoabun: '533px',
+        },
         columns: {
             id: '編號',
             poj_unicode: '白話字',
@@ -179,6 +215,11 @@ module.exports = [
             poj_unicode: '白話字',
             kiplmj_unicode: '教育部羅馬字',
             hoabun: '對應華文',
+        },
+        briefWidth: {
+            poj_unicode: '124px',
+            kiplmj_unicode: '120px',
+            hoabun: '533px',
         },
         columns: {
             id: '編號',
@@ -201,6 +242,11 @@ module.exports = [
             poj_unicode: '白話字',
             kiplmj_unicode: '教育部羅馬字',
             hanji_taibun: '漢字台文',
+        },
+        briefWidth: {
+            poj_unicode: '124px',
+            kiplmj_unicode: '120px',
+            hanji_taibun: '533px',
         },
         columns: {
             id: '編號',

@@ -1,62 +1,65 @@
-.brief-word-container {
-    position: relative;
-    width: 934px;
-    border: solid 1px #b7b7b7;
-}
-
 .brief-word {
+    display: block;
+    width: 960px;
+    margin-left: auto;
+    margin-right: auto;
     border-collapse: collapse;
+    border-radius: 5px;
+    border: solid 1px #99c799;
+    overflow: hidden;
 }
 
-.brief-word > tbody > tr {
-    min-height: 30px;
+.header-row {
+    min-height: 36px;
 }
 
 .brief-word > tbody > tr > th {
-    width: 215px;
-    font-size: 16px;
+    font-size: 15px;
     font-weight: 500;
     color: #3f4d38;
-    line-height: 30px;
-    background-color: #ebf3e6;
-    text-align: right;
-    padding-right: 12px;
-    border-right: solid 1px #b7b7b7;
-}
-
-.brief-word > tbody > tr > td {
-    width: 696px;
-    font-size: 16px;
-    font-weight: normal;
-    color: #2f3a2a;
-    line-height: 30px;
-    background-color: white;
+    line-height: 36px;
+    background-color: #dbead2;
+    text-align: left;
     padding-left: 12px;
 }
 
-.breif-show-more {
-    position: absolute;
-    top: 11px;
-    right: 11px;
-    width: 95px;
-    height: 32px;
-    border-radius: 2px;
-    border: solid 1px #43944f;
-    text-decoration: none;
+.content-row {
+    min-height: 40px;
 }
 
-.breif-show-more > span {
-    position: absolute;
-    height: 34px;
-    line-height: 34px;
-    left: 11px;
+.brief-word > tbody > tr {
+    border-bottom: 1px solid #99c799;
+}
+
+.brief-word > tbody > tr:first-child {
+    border-bottom: none;
+}
+
+.brief-word > tbody > tr:last-child {
+    border-bottom: none;
+}
+
+.brief-word > tbody > tr > td {
     font-size: 16px;
+    font-weight: normal;
+    color: #2f3a2a;
+    line-height: 40px;
+    background-color: white;
+    padding-left: 12px;
+    border-right: 1px dashed #99c799;
+}
+
+.brief-word > tbody > tr > td:last-child {
+    border-right: none;
+}
+
+.detail-td {
+    width: 44px;
+}
+
+.detail-td > a {
+    text-decoration: none;
+    font-size: 14px;
     font-weight: 500;
     color: #43944f;
-}
-
-.breif-show-more > img {
-    position: absolute;
-    top: 8px;
-    right: 13px;
 }

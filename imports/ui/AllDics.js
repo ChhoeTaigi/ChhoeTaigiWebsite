@@ -151,25 +151,12 @@ class DictionaryBrief extends Component {
         let dic = this.props.dicResults.dic;
         const struct = dicStruct.filter(struct => struct.name===dic)[0];
         const chineseName = struct.chineseName;
-        const columnName = struct.brief;
         const words = this.props.dicResults.words;
-        const newWords = [];
-        words.map((word) => {
-            const id = word.id;
-            for (let key in word) {
-                word[columnName[key]] = word[key];
-                delete word[key];
-            }
-            newWords.push({
-                id: id,
-                columns: word,
-            });
-        });
 
         this.state = {
             dic: dic,
             chineseName: chineseName,
-            words: newWords,
+            words: words,
         };
     }
     showMore() {
@@ -177,17 +164,11 @@ class DictionaryBrief extends Component {
     }
 
     render() {
-
         return (
             <div className='dic-container'>
                 <h2 className='dic-title'>{this.state.chineseName}</h2>
                 <div className='dic-content-container'>
-                    <div className='dic-results-container'>
-                        {this.state.words.map((word) => {
-                            const id = word.id;
-                            return <BriefWord key={id} dic={this.state.dic} id={id} columns={word.columns}/>
-                        })}
-                    </div>
+                    <BriefWord key={this.state.dic} dic={this.state.dic} words={this.state.words}/>
                     {this.props.showMoreButton ? <button className='show-more-button' onClick={this.showMore.bind(this)}>顯示更多</button> : ''}
                 </div>
             </div>

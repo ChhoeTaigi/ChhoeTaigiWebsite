@@ -1,42 +1,55 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 
+import dicStruct from '../api/dictionary_struct';
+
 export default class Word extends Component {
     constructor(props) {
         super(props);
+
+        let dic = props.dic;
+        let struct = dicStruct.filter(e => e.name === dic)[0];
+        let headerTitle = struct.brief;
+        let columnWidth = struct.briefWidth;
+        this.state = {
+            headerTitle: headerTitle,
+            columnWidth: columnWidth,
+        };
     }
 
     render() {
-        // dictionary url
-        let id = this.props.id;
-        let dic = this.props.dic;
-        const linkUri = '/' + dic + '/' + id;
-
-        // dictionary details
-        let columns = this.props.columns;
-        let content = [];
-        for (let key in columns) {
-            content.push(
-                <tr key={key}>
-                    <th>{key}</th>
-                    <td>{columns[key]}</td>
-                </tr>
-            );
+        // header
+        let headerTitle = this.state.headerTitle;
+        let header = [];
+        for (let key in headerTitle) {
+            header.push(<th key={key}>{headerTitle[key]}</th>);
         }
-        let link = <tr><td className='detail' colSpan='2'></td></tr>;
+        header.push(<th key='detail' className='detail-td'></th>);
+
+        // rows
+        let columnWidth = this.state.columnWidth;
+        let dic = this.props.dic;
+        let words = this.props.words;
+        let rows = []
+        for (let idx in words) {
+            let word = words[idx];
+            let row = [];
+            for (let key in word) {
+                if (key in headerTitle)
+                    row.push(<td key={key + idx} style={{width: columnWidth[key]}}>{word[key]}</td>);
+            }
+            const linkUri = '/' + dic + '/' + word.id;
+            row.push(<td key={'detail' + idx} className='detail-td'><Link to={linkUri}>詳細</Link></td>)
+            rows.push(<tr className='content-row' key={idx}>{row}</tr>);
+        }
+
         return (
-            <div className='brief-word-container'>
-                <table className='brief-word'>
-                    <tbody>
-                        {content}
-                        {link}
-                    </tbody>
-                </table>
-                <Link className='breif-show-more' to={linkUri}>
-                    <span>看詳細</span>
-                    <img src='images/detail_arrow@2x.png' width='15' height='15'></img>
-                </Link>
-            </div>
+            <table className='brief-word'>
+                <tbody>
+                    <tr className='header-row'>{header}</tr>
+                    {rows}
+                </tbody>
+            </table>
         );
     }
 }
