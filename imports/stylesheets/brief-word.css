@@ -43,9 +43,9 @@
     font-size: 16px;
     font-weight: normal;
     color: #2f3a2a;
-    line-height: 40px;
+    line-height: 26px;
     background-color: white;
-    padding-left: 12px;
+    padding: 6px 12px 6px 12px;
     border-right: 1px dashed #99c799;
 }
 
@@ -55,6 +55,7 @@
 
 .detail-td {
     width: 44px;
+    text-align: center;
 }
 
 .detail-td > a {
