@@ -130,10 +130,10 @@ module.exports = [
             hoabun: '對應華文',
         },
         briefWidth: {
-            poj_unicode: '124px',
-            kiplmj_unicode: '120px',
-            hanji_taibun: '139px',
-            hoabun: '533px',
+            poj_unicode: '170px',
+            kiplmj_unicode: '204px',
+            hanji_taibun: '88px',
+            hoabun: '450px',
         },
         columns: {
             id: '編號',
@@ -163,10 +163,10 @@ module.exports = [
             hanlo_taibun_kaisoeh_poj: '漢羅台文解說(白話字)',
         },
         briefWidth: {
-            poj_unicode: '124px',
-            kiplmj_unicode: '120px',
-            hanlo_taibun_poj: '139px',
-            hanlo_taibun_kaisoeh_poj: '533px',
+            poj_unicode: '166px',
+            kiplmj_unicode: '158px',
+            hanlo_taibun_poj: '140px',
+            hanlo_taibun_kaisoeh_poj: '448px',
         },
         columns: {
             id: '編號',
@@ -192,10 +192,10 @@ module.exports = [
             hoabun: '對應華文',
         },
         briefWidth: {
-            poj_unicode: '124px',
-            kiplmj_unicode: '120px',
-            hanlo_taibun_kiplmj: '139px',
-            hoabun: '533px',
+            poj_unicode: '256px',
+            kiplmj_unicode: '256px',
+            hanlo_taibun_kiplmj: '200px',
+            hoabun: '200px',
         },
         columns: {
             id: '編號',
@@ -217,9 +217,9 @@ module.exports = [
             hoabun: '對應華文',
         },
         briefWidth: {
-            poj_unicode: '124px',
-            kiplmj_unicode: '120px',
-            hoabun: '533px',
+            poj_unicode: '304px',
+            kiplmj_unicode: '304px',
+            hoabun: '304px',
         },
         columns: {
             id: '編號',
@@ -244,9 +244,9 @@ module.exports = [
             hanji_taibun: '漢字台文',
         },
         briefWidth: {
-            poj_unicode: '124px',
-            kiplmj_unicode: '120px',
-            hanji_taibun: '533px',
+            poj_unicode: '304px',
+            kiplmj_unicode: '304px',
+            hanji_taibun: '304px',
         },
         columns: {
             id: '編號',
