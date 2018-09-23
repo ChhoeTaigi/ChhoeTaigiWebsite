@@ -122,7 +122,7 @@ function searchSingleDic(dic, params) {
         let offset = 0;
         if (offsetM)
             offset = offsetM * limit;
-        
+
         params = cleanParams(params);
         let query = searchBrief(dic, params, limit, offset);
         let queryNo = searchNo(dic, params);
@@ -152,6 +152,9 @@ function cleanParams(params) {
         delete params.spellingMethod;
         delete params.spelling;
     }
+
+    if ('offset' in params)
+        delete params.offset;
 
     for (let key in params) {
         if (!params[key].trim())

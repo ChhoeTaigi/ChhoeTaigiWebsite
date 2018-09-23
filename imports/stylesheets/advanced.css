@@ -88,7 +88,7 @@
     margin-right: auto;
     padding-top: 30px;
     padding-bottom: 20px;
-    grid-template-areas: 'a a a a';
+    grid-template-columns: repeat(4, 1fr);
     grid-gap: 10px 40px;
 }
 

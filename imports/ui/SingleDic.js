@@ -1,10 +1,11 @@
 import React, { Component } from 'react';
+import { withRouter } from 'react-router-dom';
 
 import dicStruct from '../api/dictionary_struct';
 
 import BriefWord from './BriefWord';
 
-export default class SingleDic extends Component {
+class SingleDic extends Component {
     constructor(props) {
         super(props);
 
@@ -13,8 +14,14 @@ export default class SingleDic extends Component {
             props.history.replace('/');
         }
 
+        // dic result
         const dic = state.options.dic;
         const params = state.options.params;
+
+        const offset = params.offset;
+        if (offset !== undefined)
+            delete params.offset;
+
         let keywords = [];
         for (let key in params) {
             let param = params[key].replace(/\s/g, '');
@@ -27,13 +34,35 @@ export default class SingleDic extends Component {
         const chineseName = struct.chineseName;
 
         // num
-        const num = state.allResults.num[0].num;
+        const rowPerPage = 30;
+        const totalNum = state.allResults.num[0].num;
+        const pageNum = Math.ceil(totalNum / rowPerPage);
+
+        // page
+        let thisPage = 1;
+        if (offset)
+            thisPage = offset + 1;
+        let pageFrom = thisPage - 3;
+        if (pageFrom < 1)
+            pageFrom = 1;
+        let pageTo = pageFrom + 6;
+        
+        if (pageTo > pageNum)
+            pageTo = pageNum;
+        pageFrom = pageTo - 6;
+        if (pageFrom < 1)
+            pageFrom = 1;
 
         this.state = {
             dic: dic,
             keywords: keywords,
-            num: num,
+            totalNum: totalNum,
+            pageNum: pageNum,
+            thisPage: thisPage,
+            pageFrom: pageFrom,
+            pageTo: pageTo,
             chineseName: chineseName,
+            options: state.options,
             words: state.allResults.words,
             background_height: window.innerHeight - 120,
         };
@@ -55,17 +84,59 @@ export default class SingleDic extends Component {
         window.removeEventListener('resize', this.handleResize);
     }
 
-    scrollToTop(event) {
+    scrollToTop() {
         window.scrollTo(0, 0);
-        event.preventDefault();
+    }
+
+    handlePageClick(page) {
+        let options = this.state.options;
+        options.params.offset = page - 1;
+        Meteor.call('search', options, (error, results) => {
+            if (error) throw new Meteor.Error(error);
+            this.props.history.push('single');
+
+            const pageNum = this.state.pageNum;
+            let pageFrom = page - 3;
+            if (pageFrom < 1)
+                pageFrom = 1;
+            let pageTo = pageFrom + 6;
+            if (pageTo > pageNum)
+                pageTo = pageNum;
+            pageFrom = pageTo - 6;
+            if (pageFrom < 1)
+                pageFrom = 1;
+
+            this.setState({
+                thisPage: page,
+                pageFrom: pageFrom,
+                pageTo: pageTo,
+                options: options,
+                words: results.words
+            });
+        });
     }
 
     render() {
+        let pageFrom = this.state.pageFrom;
+        let pageTo = this.state.pageTo;
+        let pages = [];
+        let emptyPageNum = 7 - (pageTo - pageFrom + 1);
+        for (let i = 0; i < emptyPageNum; ++i)
+            pages.push(<span key={'empty' + i}></span>);
+        for (let i = pageFrom; i <= pageTo; ++i)
+            pages.push(<button key={i} className={'page-button ' + (this.state.thisPage === i ? 'page-button-selected' : '')} onClick={this.handlePageClick.bind(this, i)}>{i}</button>);
+        
         return (
             <div style={{minHeight: this.state.background_height}}>
                 <div id='keywords'>搜尋關鍵字：{this.state.keywords}</div>
                 <div id='single-dic-container'>
-                    <h2 id='single-dic-title' className='dic-title'>{this.state.chineseName}</h2>
+                    <div id='single-dic-title'>
+                        <h1 className='dic-title'>{this.state.chineseName}</h1>
+                        <h2 className='dic-subtitle'>(共{this.state.totalNum}筆，{this.state.pageNum}頁)</h2>
+                        <div className='dic-pages'>
+                            {pages}
+                        </div>
+                    </div>
                     <BriefWord key={this.state.dic} dic={this.state.dic} words={this.state.words}/>
                 </div>
                 <button id='to-top' onClick={this.scrollToTop.bind(this)}>回頁面頂端</button>
@@ -73,3 +144,5 @@ export default class SingleDic extends Component {
         );
     }
 }
+
+export default withRouter(SingleDic);

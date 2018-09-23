@@ -87,7 +87,7 @@ class BasicSearch extends Component {
                         <div id='search-title'>基礎搜尋</div>
                         <div id='form-container'>
                             <div id='search-method-container'>
-                                <span>1-請選擇</span>
+                                <span>1-搜尋方式</span>
                                 <label id='radio-1' className='radio'>
                                     <div className={this.state.searchMethod === 'equals' ? 'checked' : 'unchecked'}></div>
                                     <input type="radio" name="searchMethod" value="equals" defaultChecked={this.state.searchMethod === 'equals'} onChange={this.handleInput.bind(this)} />

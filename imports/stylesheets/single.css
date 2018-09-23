@@ -12,15 +12,49 @@
     color: #657160;
 }
 
-#single-dic-title {
-    margin-top: 14px;
-    margin-bottom: 17px;
-}
-
 #single-dic-container {
     width: 978px;
     margin-left: auto;
     margin-right: auto;
+}
+
+#single-dic-title {
+    height: 36px;
+    margin-top: 14px;
+    margin-bottom: 17px;
+}
+
+.dic-pages {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    grid-column-gap: 4px;
+    float: right;
+    height: 30px;
+    margin-top: 6px;
+}
+
+.page-button {
+    font-size: 14px;
+    font-weight: 500;
+    color: #657160;
+    padding-left: 6px;
+    padding-right: 6px;
+}
+
+.page-button-selected {
+    position: relative;
+}
+
+.page-button-selected::after {
+    content: "";
+    display: block;
+    position: absolute;
+    width: 16px;
+    height: 2px;
+    bottom: 0;
+    left: 50%;
+    margin-left: -8px;
+    background-color: #657160;
 }
 
 #to-top {
