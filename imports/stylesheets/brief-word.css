@@ -1,12 +1,15 @@
 .brief-word {
     display: block;
-    width: 960px;
     margin-left: auto;
     margin-right: auto;
     border-collapse: collapse;
     border-radius: 5px;
     border: solid 1px #99c799;
     overflow: hidden;
+}
+
+.brief-word-960 {
+    width: 960px;
 }
 
 .header-row {

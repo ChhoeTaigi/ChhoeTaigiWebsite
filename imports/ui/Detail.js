@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { withRouter, Link } from 'react-router-dom';
+import { withRouter } from 'react-router-dom';
 import FacebookProvider, { Comments } from 'react-facebook';
 
 import dicStruct from '../api/dictionary_struct';

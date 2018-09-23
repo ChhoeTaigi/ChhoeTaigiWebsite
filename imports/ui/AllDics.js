@@ -168,7 +168,7 @@ class DictionaryBrief extends Component {
             <div className='dic-container'>
                 <h2 className='dic-title'>{this.state.chineseName}</h2>
                 <div className='dic-content-container'>
-                    <BriefWord key={this.state.dic} dic={this.state.dic} words={this.state.words}/>
+                    <BriefWord key={this.state.dic} dic={this.state.dic} words={this.state.words} width960 />
                     {this.props.showMoreButton ? <button className='show-more-button' onClick={this.showMore.bind(this)}>顯示更多</button> : ''}
                 </div>
             </div>

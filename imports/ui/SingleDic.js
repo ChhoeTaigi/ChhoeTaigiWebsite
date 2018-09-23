@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 
 import dicStruct from '../api/dictionary_struct';
-import Word from "./Word";
+
+import BriefWord from './BriefWord';
 
 export default class SingleDic extends Component {
     constructor(props) {
@@ -22,30 +23,18 @@ export default class SingleDic extends Component {
             }
         }
         keywords = keywords.join('，');
-        const dataLen = state.allResults.words.length;
         const struct = dicStruct.filter(struct => struct.name===dic)[0];
         const chineseName = struct.chineseName;
-        const columnName = struct.brief;
 
-        const newWords = [];
-        state.allResults.words.map((word) => {
-            const id = word.id;
-            for (let key in word) {
-                word[columnName[key]] = word[key];
-                delete word[key];
-            }
-            newWords.push({
-                id: id,
-                columns: word,
-            })
-        })
+        // num
+        const num = state.allResults.num[0].num;
 
         this.state = {
             dic: dic,
             keywords: keywords,
-            dataLen: dataLen,
+            num: num,
             chineseName: chineseName,
-            words: newWords,
+            words: state.allResults.words,
             background_height: window.innerHeight - 120,
         };
 
@@ -66,19 +55,20 @@ export default class SingleDic extends Component {
         window.removeEventListener('resize', this.handleResize);
     }
 
+    scrollToTop(event) {
+        window.scrollTo(0, 0);
+        event.preventDefault();
+    }
+
     render() {
         return (
             <div style={{minHeight: this.state.background_height}}>
                 <div id='keywords'>搜尋關鍵字：{this.state.keywords}</div>
-                <div id='result-num'>檢索結果：共{this.state.dataLen}筆</div>
-                <a id={this.state.dic}></a>
-                <h2 id='dic-name'>{this.state.chineseName}</h2>
-                <div id='single-dic-result-container'>
-                    {this.state.words.map((word) => {
-                        const id = word.id;
-                        return <Word key={id} dic={this.state.dic} id={id} columns={word.columns} more={true} />; 
-                    })}
+                <div id='single-dic-container'>
+                    <h2 id='single-dic-title' className='dic-title'>{this.state.chineseName}</h2>
+                    <BriefWord key={this.state.dic} dic={this.state.dic} words={this.state.words}/>
                 </div>
+                <button id='to-top' onClick={this.scrollToTop.bind(this)}>回頁面頂端</button>
             </div>
         );
     }

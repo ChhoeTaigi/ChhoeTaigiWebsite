@@ -44,7 +44,7 @@ export default class Word extends Component {
         }
 
         return (
-            <table className='brief-word'>
+            <table className={'brief-word ' + (this.props.width960 ? 'brief-word-960' : '')}>
                 <tbody>
                     <tr className='header-row'>{header}</tr>
                     {rows}

@@ -1,6 +1,6 @@
 #keywords {
     width: 957px;
-    height: 38px;
+    height: 36px;
     margin-top: 24px;
     margin-left: auto;
     margin-right: auto;
@@ -8,43 +8,30 @@
     border-radius: 5px;
     background-color: #ebebe7;
     font-size: 18px;
-    font-weight: normal;
-    line-height: 38px;
-    color: #657160;
-}
-
-#result-num {
-    width: 957px;
-    height: 22px;
-    margin-left: auto;
-    margin-right: auto;
-    padding-top: 5px;
-    padding-left: 22px;
-    font-size: 15px;
-    font-weight: normal;
-    line-height: 22px;
-    color: #657160;
-}
-
-#dic-name {
-    width: 978px;
-    height: 36px;
-    margin: 0;
-    margin-left: auto;
-    margin-right: auto;
-    padding-top: 24px;
-    padding-bottom: 6px;
-    padding-left: 1px;
-    font-size: 24px;
-    font-weight: 500;
     line-height: 36px;
-    color: #3f4d38;
+    color: #657160;
 }
 
-#single-dic-result-container {
-    display: grid;
-    width: 979px;
+#single-dic-title {
+    margin-top: 14px;
+    margin-bottom: 17px;
+}
+
+#single-dic-container {
+    width: 978px;
     margin-left: auto;
     margin-right: auto;
-    grid-row-gap: 32px;
+}
+
+#to-top {
+    display: block;
+    width: 102px;
+    height: 26px;
+    margin: 22px auto 46px auto;
+    border-radius: 2px;
+    border: solid 1px #43944f;
+    font-size: 13px;
+    font-weight: 500;
+    color: #43944f;
+    line-height: 26px;
 }

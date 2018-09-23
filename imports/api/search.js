@@ -117,16 +117,23 @@ function searchAllField(value) {
 
 function searchSingleDic(dic, params) {
     if (Meteor.isServer) {
+        const limit = 30;
+        const offsetM = params.offset;
+        let offset = 0;
+        if (offsetM)
+            offset = offsetM * limit;
+        
+        params = cleanParams(params);
+        let query = searchBrief(dic, params, limit, offset);
+        let queryNo = searchNo(dic, params);
         return new Promise((resolve, reject) => {
-            params = cleanParams(params);
-
-            let query = searchBrief(dic, params);
-            query
+            Promise.all([queryNo, query])
             .catch(error => reject(error))
-            .then(result => {
+            .then(results => {
                 rtn = {
                     dic: dic,
-                    words: result,
+                    num: results[0],
+                    words: results[1],
                 };
                 resolve(rtn);
              });
@@ -175,7 +182,7 @@ function cleanWildcard(value) {
     return value;
 }
 
-function searchBrief(dic, params, limit=-1) {
+function searchBrief(dic, params, limit=-1, offset=0) {
     let dicStruct = dicsStruct.filter(e => e.name===dic)[0];
     let columns = dicStruct.columns;
     let brief = dicStruct.brief;
@@ -205,6 +212,7 @@ function searchBrief(dic, params, limit=-1) {
     cmd.from(dic)
     if (limit >= 0)
         cmd.limit(limit);
+    cmd.offset(offset);
     return cmd;
 }
 
@@ -233,4 +241,30 @@ function searchSingleAllField(dic, value, limit=-1) {
             cmd.limit(limit);
         return cmd;
     }
+}
+
+function searchNo(dic, params) {
+    let dicStruct = dicsStruct.filter(e => e.name===dic)[0];
+    let columns = dicStruct.columns;
+
+    // check params is in valid columns
+    let valid = false;
+    for (let key in params) {
+        if (key in columns) {
+            valid = true;
+            break;
+        }
+    }
+    if (!valid)
+        return [];
+
+    const cmd = pg.count('id as num');
+    for (let key in params) {
+        if (key === 'id')
+            cmd.andWhere(key, params[key]);
+        else if (key in columns)
+            cmd.andWhere(key, 'like', params[key]);
+    }
+    cmd.from(dic)
+    return cmd;
 }
