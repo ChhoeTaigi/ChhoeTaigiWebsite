@@ -101,6 +101,7 @@ class AllDics extends Component {
         let dicButtons = [];
         let dicBriefs = [];
         let refs = {};
+        let totalNum = 0;
         for (let idx in allResults) {
             const dicResults = allResults[idx];
             const dic = dicResults.dic;
@@ -116,6 +117,8 @@ class AllDics extends Component {
             dicBriefs.push(
                 <DictionaryBrief ref={thisRef} key={dic} dicResults={dicResults} showMore={this.showMore.bind(this, dic)} showMoreButton={dicResults.words.length > 1} />
             );
+
+            totalNum += parseInt(allResults[idx].num[0].num);
         }
         this.refs = refs;
         let remainingButtonNum = 9 - (allResults.filter(e => e).length % 9);
@@ -128,7 +131,7 @@ class AllDics extends Component {
         return (
             <div style={{minHeight: this.state.background_height + 'px'}}>
                 <div id='all-dic-keywords'>搜尋關鍵字：{keywords}</div>
-                <div id='all-dic-result-num'>檢索結果：共{dicLen}本</div>
+                <div id='all-dic-result-num'>檢索結果：共{dicLen}本/{totalNum}筆</div>
                 <div id='all-dic-buttons-background' style={this.state.isSticky ? {boxShadow: '0 3px 6px 0 rgba(0, 0, 0, 0.16)'} : {}}>
                     <div id='all-dic-buttons-container'>
                         {dicButtons}

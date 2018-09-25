@@ -20,8 +20,13 @@ Meteor.methods({
     'search'(options) {
         let method = options.method;
         if (method === 'allField') {
-            if (options.dic)
-                return searchSingleAllField(options.dic, options.params);
+            if (options.dic) {
+                const limit = 30;
+                let offset = options.params.offset * limit;
+                if (offset === undefined)
+                    offset = 0;
+                return searchSingleAllField(options.dic, options.params, limit, offset);
+            } 
             else
                 return searchAllField(options.params);
         } else if (method === 'basic') {

@@ -115,6 +115,10 @@ class SingleDic extends Component {
     goToPage(event) {
         if (event.key === 'Enter') {
             let page = event.target.value;
+            if (page < 1)
+                page = 1;
+            if (page > this.state.pageNum)
+                page = this.state.pageNum;
             const options = this.state.options;
             options.params.offset = page - 1;
             this.search(page, options);
