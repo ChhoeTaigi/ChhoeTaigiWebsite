@@ -20,32 +20,26 @@ Meteor.methods({
     'search'(options) {
         let method = options.method;
         if (method === 'allField') {
+            let params = options.params;
             if (options.dic) {
                 const limit = 30;
-                let offset = options.params.offset * limit;
+                let offset = params.offset * limit;
                 if (offset === undefined)
                     offset = 0;
-                return searchSingleAllField(options.dic, options.params, limit, offset);
+                return searchSingleAllField(options.dic, params, limit, offset);
             } 
             else
-                return searchAllField(options.params);
+                return searchAllField(params);
         } else if (method === 'basic') {
             let params = options.params;
             if (options.dic) {
-                params = cleanParams(params);
-                query = searchBrief(options.dic, params);
+                const limit = 30;
+                let offset = params.offset * limit;
+                if (offset === undefined)
+                    offset = 0;
 
-                return new Promise((resolve, reject) => {
-                    query
-                    .catch(error => reject(error))
-                    .then(result => {
-                        rtn = {
-                            dic: options.dic,
-                            words: result,
-                        };
-                        resolve(rtn);
-                    });
-                });
+                params = cleanParams(params);
+                return searchBrief(options.dic, params, limit, offset);
             } else
                 return basicSearch(params);
         } else if (method === 'singleDic') {
@@ -76,11 +70,7 @@ function basicSearch(params) {
             Promise.all(querys)
             .catch(error => reject(error))
             .then(results => {
-                rtnArray = dicsStruct.map((e, i) => ({
-                    dic: e.name,
-                    words: results[i],
-                }));
-                resolve(rtnArray);
+                resolve(results);
             });
         });
     }
@@ -196,18 +186,32 @@ function searchBrief(dic, params, limit=-1, offset=0) {
     if (!valid)
         return [];
 
-    const cmd = pg.select(briefArray);
+    const query = pg.select(briefArray);
     for (let key in params) {
         if (key === 'id')
-            cmd.andWhere(key, params[key]);
+        query.andWhere(key, params[key]);
         else if (key in columns)
-            cmd.andWhere(key, 'like', params[key]);
+        query.andWhere(key, 'like', params[key]);
     }
-    cmd.from(dic)
+    query.from(dic)
     if (limit >= 0)
-        cmd.limit(limit);
-    cmd.offset(offset);
-    return cmd;
+    query.limit(limit);
+    query.offset(offset);
+
+    const queryNo = searchNo(dic, params);
+
+    return new Promise((resolve, reject) => {
+        Promise.all([queryNo, query])
+        .catch(error => reject(error))
+        .then(results => {
+            rtn = {
+                dic: dic,
+                num: results[0],
+                words: results[1],
+            };
+            resolve(rtn);
+        });
+    });
 }
 
 function searchSingleAllField(dic, params, limit=-1, offset=0) {
