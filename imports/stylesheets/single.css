@@ -105,5 +105,11 @@
     font-size: 13px;
     font-weight: 500;
     color: #43944f;
-    line-height: 26px;
+    line-height: 24px;
+    text-align: left;
+    padding-left: 8px;
+    background-image: url(images/top@2x.png);
+    background-size: 15px 15px;
+    background-position: 79px 5px;
+    background-repeat: no-repeat;
 }
