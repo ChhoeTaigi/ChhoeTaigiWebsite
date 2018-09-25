@@ -21,19 +21,9 @@ Meteor.methods({
         let method = options.method;
         if (method === 'allField') {
             if (options.dic)
-                return new Promise((resolve, reject) => {
-                    searchSingleAllField(options.dic, options.value)
-                    .catch(error => reject(error))
-                    .then(result => {
-                        rtn = {
-                            dic: options.dic,
-                            words: result,
-                        };
-                        resolve(rtn);
-                    });
-                });
+                return searchSingleAllField(options.dic, options.params);
             else
-                return searchAllField(options.value);
+                return searchAllField(options.params);
         } else if (method === 'basic') {
             let params = options.params;
             if (options.dic) {
@@ -91,13 +81,13 @@ function basicSearch(params) {
     }
 }
 
-function searchAllField(value) {
+function searchAllField(params) {
     if (Meteor.isServer) {
         const searchLimit = 3;
         querys = [];
         for (let idx in dicsStruct) {
             let dic = dicsStruct[idx].name
-            query = searchSingleAllField(dic, value, searchLimit);
+            query = searchSingleAllField(dic, params, searchLimit);
             querys.push(query);
         }
 
@@ -105,11 +95,7 @@ function searchAllField(value) {
             Promise.all(querys)
             .catch(error => reject(error))
             .then(results => {
-                rtnArray = dicsStruct.map((e, i) => ({
-                    dic: e.name,
-                    words: results[i],
-                }));
-                resolve(rtnArray);
+                resolve(results);
             });
         });
     }
@@ -136,7 +122,7 @@ function searchSingleDic(dic, params) {
                     words: results[1],
                 };
                 resolve(rtn);
-             });
+            });
         });
     }
 }
@@ -219,7 +205,7 @@ function searchBrief(dic, params, limit=-1, offset=0) {
     return cmd;
 }
 
-function searchSingleAllField(dic, value, limit=-1) {
+function searchSingleAllField(dic, params, limit=-1, offset=0) {
     if (Meteor.isServer) {
         let dicStruct = dicsStruct.filter(e => e.name===dic)[0];
         let columns = dicStruct.columns;
@@ -230,19 +216,35 @@ function searchSingleAllField(dic, value, limit=-1) {
         }
 
         // check params is in valid columns
+        let value = params.value;
         if (value.trim() === '')
             return [];
 
         value = cleanWildcard(value);
-        const cmd = pg.select(briefArray);
+        params.value = value;
+        const query = pg.select(briefArray);
         for (key in columns) {
             if (key !== 'id')
-                cmd.orWhere(key, 'like', value);
+            query.orWhere(key, 'like', value);
         }
-        cmd.from(dic)
+        query.from(dic)
         if (limit >= 0)
-            cmd.limit(limit);
-        return cmd;
+            query.limit(limit);
+        query.offset(offset);
+
+        const queryNo = searchSingleAllFieldNo(dic, params);
+        return new Promise((resolve, reject) => {
+            Promise.all([queryNo, query])
+            .catch(error => reject(error))
+            .then(results => {
+                rtn = {
+                    dic: dic,
+                    num: results[0],
+                    words: results[1],
+                };
+                resolve(rtn);
+            });
+        });
     }
 }
 
@@ -267,6 +269,19 @@ function searchNo(dic, params) {
             cmd.andWhere(key, params[key]);
         else if (key in columns)
             cmd.andWhere(key, 'like', params[key]);
+    }
+    cmd.from(dic)
+    return cmd;
+}
+
+function searchSingleAllFieldNo(dic, params) {
+    let dicStruct = dicsStruct.filter(e => e.name===dic)[0];
+    let columns = dicStruct.columns;
+    const value = params.value;
+    const cmd = pg.count('id as num');
+    for (key in columns) {
+        if (key !== 'id')
+            cmd.orWhere(key, 'like', value);
     }
     cmd.from(dic)
     return cmd;

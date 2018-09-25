@@ -65,7 +65,7 @@ class AllDics extends Component {
                 options: options,
                 allResults: results,
             }
-            this.props.history.push('single', state);
+            this.props.history.push('single/1', state);
         });
     }
 
@@ -83,7 +83,7 @@ class AllDics extends Component {
     render() {
         const params = this.state.options.params;
         let keywords = [];
-        if (params) {
+        if (params.value === undefined) {
             for (let key in params) {
                 let param = params[key].replace(/\s/g, '');
                 if (param !== '' && key !== 'searchMethod' && key !== 'spellingMethod') {
@@ -92,7 +92,7 @@ class AllDics extends Component {
             }
             keywords = keywords.join('，');
         } else {
-            keywords = this.state.options.value;
+            keywords = params.value;
         }
         
         const dicLen = this.state.allResults.filter(e => e).length;
@@ -148,14 +148,16 @@ class DictionaryBrief extends Component {
     constructor(props) {
         super(props);
 
-        let dic = this.props.dicResults.dic;
+        let dic = props.dicResults.dic;
         const struct = dicStruct.filter(struct => struct.name===dic)[0];
         const chineseName = struct.chineseName;
-        const words = this.props.dicResults.words;
+        const totalNum = props.dicResults.num[0].num;
+        const words = props.dicResults.words;
 
         this.state = {
             dic: dic,
             chineseName: chineseName,
+            totalNum: totalNum,
             words: words,
         };
     }
@@ -167,6 +169,7 @@ class DictionaryBrief extends Component {
         return (
             <div className='dic-container'>
                 <h1 className='dic-title' id='all-dic-title'>{this.state.chineseName}</h1>
+                <h2 className='dic-subtitle'>(共{this.state.totalNum}筆)</h2>
                 <div className='dic-content-container'>
                     <BriefWord key={this.state.dic} dic={this.state.dic} words={this.state.words} width960 />
                     {this.props.showMoreButton ? <button className='show-more-button' onClick={this.showMore.bind(this)}>顯示更多</button> : ''}

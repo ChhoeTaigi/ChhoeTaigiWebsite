@@ -201,7 +201,9 @@ class AllFieldOptions extends Component {
 
         let options = {
             method: 'allField',
-            value: this.state.value,
+            params: {
+                value: this.state.value,
+            }
         };
         Meteor.call('search', options, (error, results) => {
             if (error) throw new Meteor.Error(error);

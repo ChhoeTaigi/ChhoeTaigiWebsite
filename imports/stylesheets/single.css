@@ -18,6 +18,11 @@
     margin-right: auto;
 }
 
+#single-dic-left-container {
+    float: left;
+    height: 36px;
+}
+
 #single-dic-title {
     height: 36px;
     margin-top: 14px;

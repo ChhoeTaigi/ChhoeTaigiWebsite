@@ -145,8 +145,10 @@ class SingleDic extends Component {
                 <div id='keywords'>搜尋關鍵字：{this.state.keywords}</div>
                 <div id='single-dic-container'>
                     <div id='single-dic-title'>
-                        <h1 className='dic-title'>{this.state.chineseName}</h1>
-                        <h2 className='dic-subtitle'>(共{this.state.totalNum}筆，{this.state.pageNum}頁)</h2>
+                        <div id='single-dic-left-container'>
+                            <h1 className='dic-title'>{this.state.chineseName}</h1>
+                            <h2 className='dic-subtitle'>(共{this.state.totalNum}筆，{this.state.pageNum}頁)</h2>
+                        </div>
                         <div id='single-dic-right-container'>
                             <button id='last-page' className='page-arrow' onClick={this.lastPage.bind(this)}></button>
                             <div className='dic-pages' style={{gridTemplateColumns: 'repeat(' + listPageNum + ', 1fr)'}}>{pages}</div>
