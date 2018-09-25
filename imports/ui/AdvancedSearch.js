@@ -89,9 +89,9 @@ class AdvancedSearch extends Component {
 
     updateResults(state) {
         if (state.options.method === 'singleDic')
-            this.props.history.push('single', state);
+            this.props.history.push('/single/1', state);
         else if (state.options.method === 'allField')
-            this.props.history.push('all', state);
+            this.props.history.push('/all', state);
     }
 }
 

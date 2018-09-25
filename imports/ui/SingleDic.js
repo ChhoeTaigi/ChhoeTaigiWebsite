@@ -89,30 +89,15 @@ class SingleDic extends Component {
     }
 
     handlePageClick(page) {
-        let options = this.state.options;
+        const options = this.state.options;
         options.params.offset = page - 1;
         Meteor.call('search', options, (error, results) => {
             if (error) throw new Meteor.Error(error);
-            this.props.history.push('single');
-
-            const pageNum = this.state.pageNum;
-            let pageFrom = page - 3;
-            if (pageFrom < 1)
-                pageFrom = 1;
-            let pageTo = pageFrom + 6;
-            if (pageTo > pageNum)
-                pageTo = pageNum;
-            pageFrom = pageTo - 6;
-            if (pageFrom < 1)
-                pageFrom = 1;
-
-            this.setState({
-                thisPage: page,
-                pageFrom: pageFrom,
-                pageTo: pageTo,
+            let state = {
                 options: options,
-                words: results.words
-            });
+                allResults: results,
+            }
+            this.props.history.push('/single/' + page, state);
         });
     }
 

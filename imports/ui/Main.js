@@ -46,7 +46,9 @@ class Main extends Component {
                 <Route key='landing' exact path='/landing' component={Landing} />,
                 <Route key='advanced' exact path='/advanced' component={AdvancedSearch} />,
                 <Route key='all' exact path='/all' component={AllDics} />,
-                <Route key='single' exact path='/single' component={SingleDic} />,
+                <Route key='single' path="/single/:pageid" render={(props) => {
+                    return <SingleDic key={props.match.params.pageid} />;
+                }} />,
                 <Route key='detail' exact path={detailPath} component={Detail} />,
                 <Route key='about' exact path='/about' component={About} />,
                 <Route key='update' exact path='/update' component={Update} />,
