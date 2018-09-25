@@ -91,6 +91,37 @@ class SingleDic extends Component {
     handlePageClick(page) {
         const options = this.state.options;
         options.params.offset = page - 1;
+        this.search(page, options);
+    }
+
+    lastPage() {
+        let page = this.state.thisPage - 1;
+        if (page < 1)
+            page = 1;
+        const options = this.state.options;
+        options.params.offset = page - 1;
+        this.search(page, options);
+    }
+
+    nextPage() {
+        let page = this.state.thisPage + 1;
+        if (page > this.state.pageNum)
+            page = this.state.pageNum;
+        const options = this.state.options;
+        options.params.offset = page - 1;
+        this.search(page, options);
+    }
+
+    goToPage(event) {
+        if (event.key === 'Enter') {
+            let page = event.target.value;
+            const options = this.state.options;
+            options.params.offset = page - 1;
+            this.search(page, options);
+        }
+    }
+
+    search(page, options) {
         Meteor.call('search', options, (error, results) => {
             if (error) throw new Meteor.Error(error);
             let state = {
@@ -105,9 +136,7 @@ class SingleDic extends Component {
         let pageFrom = this.state.pageFrom;
         let pageTo = this.state.pageTo;
         let pages = [];
-        let emptyPageNum = 7 - (pageTo - pageFrom + 1);
-        for (let i = 0; i < emptyPageNum; ++i)
-            pages.push(<span key={'empty' + i}></span>);
+        let listPageNum = (pageTo - pageFrom + 1);
         for (let i = pageFrom; i <= pageTo; ++i)
             pages.push(<button key={i} className={'page-button ' + (this.state.thisPage === i ? 'page-button-selected' : '')} onClick={this.handlePageClick.bind(this, i)}>{i}</button>);
         
@@ -118,8 +147,13 @@ class SingleDic extends Component {
                     <div id='single-dic-title'>
                         <h1 className='dic-title'>{this.state.chineseName}</h1>
                         <h2 className='dic-subtitle'>(共{this.state.totalNum}筆，{this.state.pageNum}頁)</h2>
-                        <div className='dic-pages'>
-                            {pages}
+                        <div id='single-dic-right-container'>
+                            <button id='last-page' className='page-arrow' onClick={this.lastPage.bind(this)}></button>
+                            <div className='dic-pages' style={{gridTemplateColumns: 'repeat(' + listPageNum + ', 1fr)'}}>{pages}</div>
+                            <button id='next-page' className='page-arrow' onClick={this.nextPage.bind(this)}></button>
+                            <span>跳至第</span>
+                            <input type='text' onKeyPress={this.goToPage.bind(this)}></input>
+                            <span>頁</span>
                         </div>
                     </div>
                     <BriefWord key={this.state.dic} dic={this.state.dic} words={this.state.words}/>

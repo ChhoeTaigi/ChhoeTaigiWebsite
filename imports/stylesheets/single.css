@@ -24,13 +24,18 @@
     margin-bottom: 17px;
 }
 
-.dic-pages {
-    display: grid;
-    grid-template-columns: repeat(7, 1fr);
-    grid-column-gap: 4px;
+#single-dic-right-container{
     float: right;
     height: 30px;
-    margin-top: 6px;
+    padding-top: 6px;
+}
+.dic-pages {
+    float: left;
+    display: inline-grid;
+    height: 30px;
+    margin-left: 4px;
+    margin-right: 4px;
+    grid-column-gap: 4px;
 }
 
 .page-button {
@@ -51,10 +56,43 @@
     position: absolute;
     width: 16px;
     height: 2px;
-    bottom: 0;
+    bottom: 2px;
     left: 50%;
     margin-left: -8px;
     background-color: #657160;
+}
+
+.page-arrow {
+    float: left;
+    width: 26px;
+    height: 30px;
+    background-size: 26px 30px;
+}
+
+#last-page {
+    background-image: url(images/s_arrow_L@2x.png);
+}
+
+#next-page {
+    background-image: url(images/s_arrow_R@2x.png);
+    margin-right: 12px;
+}
+
+#single-dic-right-container > span {
+    float: left;
+    font-size: 13px;
+    font-weight: normal;
+    line-height: 30px;
+    color: #707070;
+}
+
+#single-dic-right-container > input {
+    float: left;
+    width: 40px;
+    height: 26px;
+    margin: 2px 5px;
+    border: solid 1px #b7b7b7;
+    border-radius: 2px;
 }
 
 #to-top {
