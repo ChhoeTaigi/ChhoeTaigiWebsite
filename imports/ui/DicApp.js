@@ -2,9 +2,33 @@ import React, { Component } from 'react';
 import { withRouter } from 'react-router-dom';
 
 class DicApp extends Component {
+    constructor(props) {
+        super(props);
+
+        this.state = {
+            background_height: window.innerHeight - 96,
+        };
+
+        this.handleResize = this.handleResize.bind(this);
+    }
+
+    handleResize() {
+        this.setState({
+            background_height: window.innerHeight - 96,
+        });
+    }
+
+    componentDidMount() {
+        window.addEventListener('resize', this.handleResize);
+    }
+
+    componentWillUnmount() {
+        window.removeEventListener('resize', this.handleResize);
+    }
+
     render() {
         return (
-            <div id='dic-app-container'>
+            <div id='dic-app-container' style={{minHeight: this.state.background_height + 'px'}}>
                 <h1 id='dic-app-title'>ChhoeTaigi 台語辭典APP</h1>
                 <span id='dic-app-content'>「ChhoeTaigi 台語辭典App」讓你可以把台語辭典安裝在手機上，隨身帶著走，走到哪隨時查到哪，查詢時也不需要網路連線，而且搜尋速度更快！是你學習台語、台語文的最佳好夥伴！</span>
                 <div id='dic-link-group'>

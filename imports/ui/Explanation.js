@@ -2,9 +2,33 @@ import React, { Component } from 'react';
 import { withRouter } from 'react-router-dom';
 
 class Explanation extends Component {
+    constructor(props) {
+        super(props);
+
+        this.state = {
+            background_height: window.innerHeight - 96,
+        };
+
+        this.handleResize = this.handleResize.bind(this);
+    }
+
+    handleResize() {
+        this.setState({
+            background_height: window.innerHeight - 96,
+        });
+    }
+
+    componentDidMount() {
+        window.addEventListener('resize', this.handleResize);
+    }
+
+    componentWillUnmount() {
+        window.removeEventListener('resize', this.handleResize);
+    }
+
     render() {
         return (
-            <div id='explanation-container'>
+            <div id='explanation-container' style={{minHeight: this.state.background_height + 'px'}}>
                 <h1 id='explanation-title'>搜尋功能說明</h1>
                 <div id='explanation-sec-1'>
                     <h2 className='explanation-subtitle'>搜尋方式</h2>
