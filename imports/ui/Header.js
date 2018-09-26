@@ -25,7 +25,7 @@ import { Link, withRouter } from 'react-router-dom'
 class Header extends Component {
     render() {
         var currentLocation = this.props.location.pathname
-        if (currentLocation === '/all' || currentLocation === '/single')
+        if (currentLocation === '/explanation' || currentLocation === '/all' || currentLocation === '/single')
             currentLocation = '/';
 
         return (
@@ -35,9 +35,9 @@ class Header extends Component {
                     <div id='header-right'>
                         <a id='FB-link' className='menu-item' href='https://www.facebook.com/ChhoeTaigi/' target='_blank'></a>
                         <Link className={'menu-text menu-item ' + (currentLocation == '/about' ? 'menu-item-select' : '')} to='/about'>關於找台語</Link>
+                        <Link className={'menu-text menu-item ' + (currentLocation == '/dic-app' ? 'menu-item-select' : '')} to='/dic-app'>台語辭典APP</Link>
                         <Link className={'menu-text menu-item ' + (currentLocation == '/advanced' ? 'menu-item-select' : '')} to='/advanced'>進階搜尋</Link>
                         <Link className={'menu-text menu-item ' + (currentLocation == '/' ? 'menu-item-select' : '')} to='/'>基礎搜尋</Link>
-                        <Link className={'menu-text menu-item ' + (currentLocation == '/landing' ? 'menu-item-select' : '')} to='/landing'>首頁</Link>
                     </div>
                 </div>
             </header>

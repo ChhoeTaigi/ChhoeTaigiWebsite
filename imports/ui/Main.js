@@ -2,14 +2,15 @@ import React, { Component } from 'react';
 import { Switch, Route, Redirect, withRouter } from 'react-router-dom';
 import DicStruct from '../api/dictionary_struct';
 
-import Landing from './Landing';
 import BasicSearch from './BasicSearch';
+import Explanation from './Explanation';
 import AdvancedSearch from './AdvancedSearch';
 import AllDics from './AllDics';
 import SingleDic from './SingleDic';
 import Update from './Update';
 import Detail from './Detail';
 import About from './About';
+import DicApp from './DicApp';
 import Account from './Account';
 
 // Landing page
@@ -43,7 +44,7 @@ class Main extends Component {
         if (Meteor.userId()) {
             additionalRoute = [
                 <Route key='basic' exact path='/' component={BasicSearch} />,
-                <Route key='landing' exact path='/landing' component={Landing} />,
+                <Route key='explanation' exact path='/explanation' component={Explanation} />,
                 <Route key='advanced' exact path='/advanced' component={AdvancedSearch} />,
                 <Route key='all' exact path='/all' component={AllDics} />,
                 <Route key='single' path="/single/:pageid" render={(props) => {
@@ -51,6 +52,7 @@ class Main extends Component {
                 }} />,
                 <Route key='detail' exact path={detailPath} component={Detail} />,
                 <Route key='about' exact path='/about' component={About} />,
+                <Route key='dic-app' exact path='/dic-app' component={DicApp} />,
                 <Route key='update' exact path='/update' component={Update} />,
             ];
         }

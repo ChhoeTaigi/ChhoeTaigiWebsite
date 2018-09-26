@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { withRouter } from 'react-router-dom';
+import { withRouter, Link } from 'react-router-dom';
 import ReactGA from 'react-ga';
 
 class BasicSearch extends Component {
@@ -99,7 +99,7 @@ class BasicSearch extends Component {
                                     <span>模糊搜尋</span>
                                 </label>
                                 <div id='wildcard-note-container'>
-                                    <a id='wildcard-note' href='#'>萬用字元搜尋說明</a>
+                                    <Link id='wildcard-note' to='/explanation'>搜尋功能說明</Link>
                                 </div>
                             </div>
                             <div id='seperator'></div>
