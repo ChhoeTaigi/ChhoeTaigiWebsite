@@ -13,11 +13,10 @@ class SingleDic extends Component {
         if (!state) {
             props.history.replace('/');
         }
-
         // dic result
         const dic = state.options.dic;
         const params = state.options.params;
-
+console.log(state);
         const offset = params.offset;
         if (offset !== undefined)
             delete params.offset;
@@ -35,7 +34,7 @@ class SingleDic extends Component {
 
         // num
         const rowPerPage = 30;
-        const totalNum = state.allResults.num[0].num;
+        const totalNum = state.allResults.num;
         const pageNum = Math.ceil(totalNum / rowPerPage);
 
         // page

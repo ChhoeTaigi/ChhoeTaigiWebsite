@@ -105,20 +105,7 @@ function searchSingleDic(dic, params) {
             offset = offsetM * limit;
 
         params = cleanParams(params);
-        let query = searchBrief(dic, params, limit, offset);
-        let queryNo = searchNo(dic, params);
-        return new Promise((resolve, reject) => {
-            Promise.all([queryNo, query])
-            .catch(error => reject(error))
-            .then(results => {
-                rtn = {
-                    dic: dic,
-                    num: results[0],
-                    words: results[1],
-                };
-                resolve(rtn);
-            });
-        });
+        return searchBrief(dic, params, limit, offset);
     }
 }
 
@@ -184,7 +171,11 @@ function searchBrief(dic, params, limit=-1, offset=0) {
         }
     }
     if (!valid)
-        return [];
+        return {
+            dic: dic,
+            num: 0,
+            words: [],
+        };
 
     const query = pg.select(briefArray);
     for (let key in params) {
@@ -206,7 +197,7 @@ function searchBrief(dic, params, limit=-1, offset=0) {
         .then(results => {
             rtn = {
                 dic: dic,
-                num: results[0],
+                num: results[0][0].num,
                 words: results[1],
             };
             resolve(rtn);
@@ -227,7 +218,11 @@ function searchSingleAllField(dic, params, limit=-1, offset=0) {
         // check params is in valid columns
         let value = params.value;
         if (value.trim() === '')
-            return [];
+            return {
+                dic: dic,
+                num: 0,
+                words: [],
+            };
 
         value = cleanWildcard(value);
         params.value = value;
@@ -248,7 +243,7 @@ function searchSingleAllField(dic, params, limit=-1, offset=0) {
             .then(results => {
                 rtn = {
                     dic: dic,
-                    num: results[0],
+                    num: results[0][0].num,
                     words: results[1],
                 };
                 resolve(rtn);
@@ -260,17 +255,6 @@ function searchSingleAllField(dic, params, limit=-1, offset=0) {
 function searchNo(dic, params) {
     let dicStruct = dicsStruct.filter(e => e.name===dic)[0];
     let columns = dicStruct.columns;
-
-    // check params is in valid columns
-    let valid = false;
-    for (let key in params) {
-        if (key in columns) {
-            valid = true;
-            break;
-        }
-    }
-    if (!valid)
-        return [];
 
     const cmd = pg.count('id as num');
     for (let key in params) {

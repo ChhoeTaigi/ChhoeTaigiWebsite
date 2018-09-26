@@ -42,14 +42,17 @@ export default class Word extends Component {
             row.push(<td key={'detail' + idx} className='detail-td'><Link to={linkUri}>詳細</Link></td>)
             rows.push(<tr className='content-row' key={idx}>{row}</tr>);
         }
-
-        return (
-            <table className={'brief-word ' + (this.props.width960 ? 'brief-word-960' : '')}>
-                <tbody>
-                    <tr className='header-row'>{header}</tr>
-                    {rows}
-                </tbody>
-            </table>
-        );
+        
+        if (words.length === 0)
+            return <div></div>;
+        else
+            return (
+                <table className={'brief-word ' + (this.props.width960 ? 'brief-word-960' : '')}>
+                    <tbody>
+                        <tr className='header-row'>{header}</tr>
+                        {rows}
+                    </tbody>
+                </table>
+            );
     }
 }
