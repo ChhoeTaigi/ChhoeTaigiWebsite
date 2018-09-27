@@ -18,8 +18,10 @@
     "react-dom": "^16.4.2",
     "react-facebook": "^5.0.3",
     "react-ga": "^2.5.3",
+    "react-localize-redux": "^3.4.0",
     "react-router-dom": "^4.3.1",
     "react-router-hash-link": "^1.2.0",
+    "redux": "^4.0.0",
     "request": "^2.88.0"
   },
   "meteor": {

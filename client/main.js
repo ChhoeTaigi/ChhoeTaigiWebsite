@@ -1,7 +1,8 @@
+import { Meteor } from 'meteor/meteor';
 import React, { Component } from 'react';
 import { render } from 'react-dom';
 import { BrowserRouter } from 'react-router-dom';
-import { Meteor } from 'meteor/meteor';
+import { LocalizeProvider } from "react-localize-redux";
 
 import '../imports/startup/both';
 import '../imports/startup/client';
@@ -17,9 +18,11 @@ Meteor.startup(() => {
 class Main extends Component {
   render() {
     return (
-      <BrowserRouter>
-        <App />
-      </BrowserRouter>
+      <LocalizeProvider>
+        <BrowserRouter>
+          <App />
+        </BrowserRouter>
+      </LocalizeProvider>
     );
   }
 }
