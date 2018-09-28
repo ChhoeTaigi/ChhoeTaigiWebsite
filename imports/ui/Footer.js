@@ -7,7 +7,7 @@ import { withCookies } from 'react-cookie';
 class Footer extends Component {
     constructor(props) {
         super(props);
-        let pathname = props.location.pathname;
+        const pathname = props.location.pathname;
 
         const { cookies } = props;
 
@@ -18,7 +18,7 @@ class Footer extends Component {
         };
 
         this.unlisten = this.props.history.listen((location, action) => {
-            let pathname = location.pathname;
+            const pathname = location.pathname;
             this.setState({
                 background: this.footerBackground(pathname),
             });
@@ -47,12 +47,19 @@ class Footer extends Component {
     }
 
     render() {
+        const pathname = this.props.location.pathname;
+        let localeButtonStyle = 'locale-button-g';
+        let localeButtonSelectedStyle = 'locale-button-selected-g';
+        if (pathname === '/') {
+            localeButtonStyle = 'locale-button';
+            localeButtonSelectedStyle = 'locale-button-selected';
+        }
         return (
             <div className={this.state.background}>
                 <div id='locale-container'>
-                    <button className={'locale-button ' + (this.state.locale === 'tb' ? 'locale-button-selected' : '')} value='tb' onClick={this.localeChange.bind(this)}>漢羅台文</button>
-                    <button className={'locale-button ' + (this.state.locale === 'po' ? 'locale-button-selected' : '')} value='po' onClick={this.localeChange.bind(this)}>Pe̍h-ōe-jī</button>
-                    <button className={'locale-button ' + (this.state.locale === 'hb' ? 'locale-button-selected' : '')} value='hb' onClick={this.localeChange.bind(this)}>華文</button>
+                    <button className={localeButtonStyle + ' ' + (this.state.locale === 'tb' ? localeButtonSelectedStyle : '')} value='tb' onClick={this.localeChange.bind(this)}>漢羅台文</button>
+                    <button className={localeButtonStyle + ' ' + (this.state.locale === 'po' ? localeButtonSelectedStyle : '')} value='po' onClick={this.localeChange.bind(this)}>Pe̍h-ōe-jī</button>
+                    <button className={localeButtonStyle + ' ' + (this.state.locale === 'hb' ? localeButtonSelectedStyle : '')} value='hb' onClick={this.localeChange.bind(this)}>華文</button>
                 </div>
                 <footer className={this.state.background}>
                     <Link id='footer-image' to='https://grants.g0v.tw/power/' target='_blank'></Link>

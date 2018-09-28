@@ -46,7 +46,21 @@ footer {
     color: white;
 }
 
+.locale-button-g {
+    height: 30px;
+    font-size: 15px;
+    padding-left: 10px;
+    padding-right: 10px;
+    text-align: center;
+    color: #3F4D38;
+}
+
 .locale-button-selected {
     border-radius: 2px;
     border: solid 1px white;
+}
+
+.locale-button-selected-g {
+    border-radius: 2px;
+    border: solid 1px #3F4D38;
 }
