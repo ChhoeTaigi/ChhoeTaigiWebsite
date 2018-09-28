@@ -170,7 +170,9 @@ class SingleDicOptions extends Component {
         let inputs = [];
         for (let key in columns) {
             inputs.push(
-                <input className='singl-dic-text-input' key={key + '-input'} type='text' placeholder='輸入關鍵字' name={key} onChange={this.handleInput.bind(this, key)} value={this.state.params[key]}></input>
+                <Translate key={key + '-input'}>{({ translate }) =>
+                    <input className='singl-dic-text-input' type='text' placeholder={translate('keyword')} name={key} onChange={this.handleInput.bind(this, key)} value={this.state.params[key]}></input>
+                }</Translate>
             )
         }
         return (
@@ -182,7 +184,9 @@ class SingleDicOptions extends Component {
                     <div id='inputs-container'>
                     {inputs}
                     </div>
-                    <input className='find-button' type="submit" value="開始找" style={{marginTop: '15px'}} />
+                    <Translate>{({ translate }) =>
+                        <input className='find-button' type="submit" value={translate('find')} style={{marginTop: '15px'}} />
+                    }</Translate>
                 </form>
             </div>
             

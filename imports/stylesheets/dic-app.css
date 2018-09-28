@@ -21,19 +21,20 @@
     position: absolute;
     left: 68px;
     top: 155px;
-    width: 334px;
-    height: 28px;
+    width: 350px;
+}
+
+#dic-app-description {
     font-size: 15px;
     line-height: 28px;
     color: #657160;
 }
 
 #dic-link-group {
-    position: absolute;
+    position: relative;
+    top: 20px;
     width: 339px;
     height: 280px;
-    top: 311px;
-    left: 68px;
 }
 
 #dic-link-1 {

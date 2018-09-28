@@ -12,7 +12,6 @@
 }
 
 #brief-container {
-	height: 272px;
 	background-color: #5b9564;
 }
 
@@ -153,7 +152,7 @@
 
 #join-box-1 > div {
 	position: absolute;
-	top: 70px;
+	top: 40px;
 	left: 391px;
 }
 
@@ -187,8 +186,9 @@
 
 #join-box-2 > div {
 	position: absolute;
+	width: 400px;
 	left: 128px;
-	top: 56px;
+	top: 30px;
 }
 
 #join-box-2 > button {
@@ -218,7 +218,6 @@
 #seeking-container {
 	margin: 90px auto 0 auto;
 	width: 858px;
-	height: 200px;
 	border: 8px solid #82b28e;
 	border-image: url(images/grid@2x.png) 16 round;
 }
@@ -226,7 +225,7 @@
 #seeking-title {
 	position: relative;
 	top: -26px;
-	width: 180px;
+	width: 400px;
 	margin-left: auto;
 	margin-right: auto;
 	height: 41px;
@@ -239,7 +238,6 @@
 	width: 580px;
 	margin-left: auto;
 	margin-right: auto;
-	margin-top: 20px;
 }
 
 #seeking-ol > li {
@@ -290,12 +288,14 @@
 
 .contact-button > span {
 	position: absolute;
-	left: 195px;
+	width: 170px;
+    left: 150px;
 	height: 168px;
 	font-size: 26px;
 	font-weight: 500;
 	line-height: 168px;
 	color: #babfb7;
+	text-align: center;
 }
 
 .contact-button:hover > span {
@@ -306,7 +306,7 @@
 	position: absolute;
 	width: 61px;
 	height: 16px;
-	left: 261px;
+	right: 50px;
 	top: 76px;
 	background-image: url(images/arrow@2x.png);
 	background-size: 61px 16px;
@@ -414,7 +414,7 @@
 
 #authorization-title-container {
 	position: relative;
-	width: 190px;
+	width: 400px;
 	height: 0;
 	margin-left: auto;
 	margin-right: auto;
@@ -423,7 +423,7 @@
 
 #authorization-title {
 	position: absolute;
-	width: 190px;
+	width: 400px;
 	height: 50px;
 	top: -25px;
 	border-radius: 2px;
@@ -507,7 +507,7 @@
 
 #feedback-text {
 	position: relative;
-	width: 250px;
+	width: 1000px;
 	height: 33px;
 	padding-top: 72px;
 	margin-left: auto;

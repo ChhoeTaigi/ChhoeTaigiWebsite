@@ -126,7 +126,7 @@
 
 #input-container-right {
     display: inline-block;
-    width: 571px;
+    width: 650px;
     margin-left: 6px;
 }
 
@@ -160,7 +160,7 @@
 #text-input-seperator {
     position: absolute;
     bottom: 0;
-    width: 538px;
+    width: 600px;
     height: 1px;
     left: 12px;
     opacity: 0.5;
@@ -176,7 +176,7 @@
 
 .text-input {
     height: 34px;
-    width: 557px;
+    width: 636px;
     border: none;
     padding: 0;
     padding-left: 14px;

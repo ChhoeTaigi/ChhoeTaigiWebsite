@@ -78,7 +78,6 @@ th, td {
 
 .find-button {
     display: block;
-    width: 176px;
     height: 48px;
     margin-left: auto;
     margin-right: auto;
@@ -95,7 +94,9 @@ th, td {
     font-weight: normal;
     line-height: 48px;
     color: #43944f;
-    padding-right: 14px;
+    padding-left: 20px;
+    padding-right: 44px;
+    background-position: right 14px center;
 }
 
 .find-button:active {
