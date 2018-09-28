@@ -10,6 +10,7 @@ Meteor.methods({
             return pg(dicName).count('*');
         }
     },
+
     'update.import'(folder, dicName) {
         if (Meteor.isClient) {
             let dictionaryUri = baseUri + '/' + folder + '/ChhoeTaigi_' + dicName + '.csv';

@@ -2,7 +2,9 @@ import React, { Component } from 'react';
 import { withRouter } from 'react-router-dom';
 import { withTracker } from 'meteor/react-meteor-data';
 
-import dic_struct from '../api/dictionary_struct';
+import dicStruct from '../api/dictionary_struct';
+import searchDicStruct from '../api/search_dictionary_struct';
+
 import '../api/update';
 import { Data } from '../api/data';
 
@@ -15,24 +17,37 @@ class Update extends Component {
             return;
         }
 
+        // init dic row num
         let rowNum = [];
         this.dics = [];
-        for (let key in dic_struct) {
-            let dicName = dic_struct[key].name;
-            rowNum[dicName] = -1;
-            this.dics.push(dicName);
+        for (let key in dicStruct) {
+            let dic = dicStruct[key].name;
+            rowNum[dic] = -1;
+            this.dics.push(dic);
         }
 
+        // init search dic row num
+        let searchRowNum = [];
+        this.searchDics = [];
+        for (let key in searchDicStruct) {
+            let dic = searchDicStruct[key].name;
+            rowNum[dic] = -1;
+            this.searchDics.push(dic);
+        }
+
+        // state
         this.state = {
             folder: '',
             rowNum: rowNum,
+            searchRowNum: searchRowNum,
         };
-        
+
+        // update dic row num
         for (let idx in this.dics) {
-            let dicName = this.dics[idx];
-            Meteor.call('update.rowNum', dicName, (error, result) => {
+            let dic = this.dics[idx];
+            Meteor.call('update.rowNum', dic, (error, result) => {
                 if (error) throw new Meteor.Error(error);
-                rowNum[dicName] = result[0].count;
+                rowNum[dic] = result[0].count;
                 this.setState({
                     rowNum: rowNum,
                 })
@@ -40,13 +55,39 @@ class Update extends Component {
             
         }
 
+        // update search dic row num
+        for (let idx in this.searchDics) {
+            let dic = this.searchDics[idx];
+            Meteor.call('update.rowNum', dic, (error, result) => {
+                if (error) throw new Meteor.Error(error);
+                searchRowNum[dic] = result[0].count;
+                this.setState({
+                    searchRowNum: searchRowNum,
+                })
+            });
+            
+        }
+
         this.setRowNum = this.setRowNum.bind(this);
+        this.setSearchRowNum = this.setSearchRowNum.bind(this);
     }
 
     componentWillReceiveProps(props) {
         this.setState({
             folder: props.folder,
         });
+    }
+
+    setRowNum(dic, num) {
+        let rowNum = this.state.rowNum;
+        rowNum[dic] = num;
+        this.setState(rowNum);
+    }
+
+    setSearchRowNum(dic, num) {
+        let searchRowNum = this.state.searchRowNum;
+        searchRowNum[dic] = num;
+        this.setState(searchRowNum);
     }
 
     update() {
@@ -66,13 +107,24 @@ class Update extends Component {
     }
 
     render() {
-        let dicRow = []
+        // dic
+        let dicRow = [];
         for (let idx in this.dics) {
-            let dicName = this.dics[idx];
+            let dic = this.dics[idx];
             dicRow.push(
-                <DicRow key={dicName} name={dicName} rowNum={this.state.rowNum[dicName]} setRowNum={this.setRowNum} folder={this.state.folder} />
+                <DicRow key={dic} name={dic} rowNum={this.state.rowNum[dic]} setRowNum={this.setRowNum} folder={this.state.folder} />
             )
         }
+
+        // search dic
+        let searchDicRow = [];
+        for (let idx in this.searchDics) {
+            let dic = this.searchDics[idx];
+            searchDicRow.push(
+                <DicRow key={dic} name={dic} rowNum={this.state.searchRowNum[dic]} setRowNum={this.setSearchRowNum} folder={this.state.folder} />
+            )
+        }
+
         return (
             <div>
                 <label>
@@ -81,15 +133,11 @@ class Update extends Component {
                     <button onClick={this.updateFolder.bind(this)} className='Mbutton'>更新</button>
                 </label>
                 {dicRow}
+                <hr></hr>
+                {searchDicRow}
                 <button onClick={this.update.bind(this)} className='Mbutton'>Import all</button>
             </div>
         );
-    }
-
-    setRowNum(dicName, num) {
-        let rowNum = this.state.rowNum;
-        rowNum[dicName] = num;
-        this.setState(rowNum);
     }
 }
 
