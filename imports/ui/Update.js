@@ -70,7 +70,7 @@ class Update extends Component {
         for (let idx in this.dics) {
             let dicName = this.dics[idx];
             dicRow.push(
-                <DicRow key={dicName} name={dicName} rowNum={this.state.rowNum[dicName]} setRowNum={this.setRowNum} />
+                <DicRow key={dicName} name={dicName} rowNum={this.state.rowNum[dicName]} setRowNum={this.setRowNum} folder={this.state.folder} />
             )
         }
         return (
@@ -115,7 +115,7 @@ class DicRow extends Component {
 
     import(name) {
         this.props.setRowNum(name, -1);
-        Meteor.call('update.import', name);
+        Meteor.call('update.import', this.props.folder, name);
     }
 
     render() {

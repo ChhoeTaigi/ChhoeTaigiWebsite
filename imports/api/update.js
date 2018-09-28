@@ -1,5 +1,4 @@
 const baseUri = 'https://raw.githubusercontent.com/ChhoeTaigi/ChhoeTaigiDatabase/master/ChhoeTaigiDatabase';
-const dateUri = '20180803-024253'
 
 import request from 'request';
 import csv from 'csvtojson';
@@ -11,9 +10,9 @@ Meteor.methods({
             return pg(dicName).count('*');
         }
     },
-    'update.import'(dicName) {
+    'update.import'(folder, dicName) {
         if (Meteor.isClient) {
-            let dictionaryUri = baseUri + '/' +dateUri + '/ChhoeTaigi_' + dicName + '.csv';
+            let dictionaryUri = baseUri + '/' + folder + '/ChhoeTaigi_' + dicName + '.csv';
 
             return new Promise((resolve, reject) => {
                 let jsonArray = [];
