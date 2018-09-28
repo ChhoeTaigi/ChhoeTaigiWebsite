@@ -1,9 +1,11 @@
 import React, { Component } from 'react';
-import { withRouter } from 'react-router-dom';
 import { logPageView } from '../api/analytics';
+import { withRouter } from 'react-router-dom';
 import { withLocalize } from "react-localize-redux";
 import { renderToStaticMarkup } from "react-dom/server";
-import globalTranslations from "../translations/header.json";
+import { withCookies } from 'react-cookie';
+
+import { getLocale } from '../api/locale';
 
 import Header from './Header';
 import Main from './Main';
@@ -13,16 +15,17 @@ class App extends Component {
     constructor(props) {
         super(props);
 
+        const { cookies } = props;
+
         props.initialize({
             languages: [
                 { name: "Hoabun", code: "hb" },
                 { name: "Taibun", code: "tb" },
                 { name: "Pe̍h-ōe-jī", code: "po" },
             ],
-            translation: globalTranslations,
             options: { 
                 renderToStaticMarkup,
-                defaultLanguage: "tb", 
+                defaultLanguage: getLocale(cookies),
             }
         });
     }
@@ -46,4 +49,4 @@ class App extends Component {
     }
 }
 
-export default withLocalize(withRouter(App));
+export default withCookies(withLocalize(withRouter(App)));

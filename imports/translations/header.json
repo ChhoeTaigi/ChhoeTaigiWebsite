@@ -1,22 +1,22 @@
 {
-    "basic": [
-      "基礎搜尋",
-      "基礎查詢",
-      "Ki-chhó͘  Chhâ-sûn"
-    ],
-    "advanced": [
-      "進階搜尋",
-      "進階查詢",
-      "Chìn-kai Chhâ-sûn"
-    ],
-    "dic-app": [
-      "台語辭典APP",
-      "台語辭典APP",
-      "Tâi-gí Sû-tián APP"
-    ],
-    "about": [
-      "關於找台語",
-      "了解ChhoeTaigi",
-      "Liáu-kái ChhoeTaigi"
-    ]
-  }
+  "basic": [
+    "基礎搜尋",
+    "基礎查詢",
+    "Ki-chhó͘  Chhâ-sûn"
+  ],
+  "advanced": [
+    "進階搜尋",
+    "進階查詢",
+    "Chìn-kai Chhâ-sûn"
+  ],
+  "dic-app": [
+    "台語辭典APP",
+    "台語辭典APP",
+    "Tâi-gí Sû-tián APP"
+  ],
+  "about": [
+    "關於找台語",
+    "了解ChhoeTaigi",
+    "Liáu-kái ChhoeTaigi"
+  ]
+}

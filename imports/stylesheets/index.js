@@ -6,6 +6,7 @@ import './brief-word.css';
 import './detail.css';
 import './dic-app.css';
 import './explanation.css';
+import './footer.css';
 import './global.css';
 import './header.css';
 import './landing.css';

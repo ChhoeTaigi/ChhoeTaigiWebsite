@@ -1,29 +1,18 @@
 import React, { Component } from 'react';
 import { Link, withRouter } from 'react-router-dom'
+import { withLocalize } from "react-localize-redux";
 import { Translate } from "react-localize-redux";
 
-// Landing
-/* class Header extends Component {
-    render() {
-        var currentLocation = this.props.location.pathname
-
-        return (
-            <header>
-                <div className='fix-width-center'>
-                    <img id='logo' src='/images/logo@2x.png' width='194' height='32' />
-                    <div id='header-right'>
-                        <a id='FB-link' className='menu-item' href='https://www.facebook.com/ChhoeTaigi/' target='_blank'></a>
-                        <Link className={'menu-text menu-item ' + (currentLocation == '/about' ? 'menu-item-select' : '')} to='/about'>關於找台語</Link>
-                        <Link className={'menu-text menu-item ' + (currentLocation == '/' ? 'menu-item-select' : '')} to='/'>首頁</Link>
-                    </div>
-                </div>
-            </header>
-        );
-    }
-} */
+import headerTranslations from '../translations/header.json';
 
 // Formal
 class Header extends Component {
+    constructor(props) {
+        super(props);
+
+        props.addTranslation(headerTranslations);
+    }
+
     render() {
         var currentLocation = this.props.location.pathname
         if (currentLocation === '/explanation' || currentLocation === '/all' || currentLocation === '/single')
@@ -46,4 +35,4 @@ class Header extends Component {
     }
 }
 
-export default withRouter(Header);
+export default withLocalize(withRouter(Header));

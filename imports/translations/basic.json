@@ -1,0 +1,72 @@
+{
+    "search-method": [
+        "1-搜尋方式",
+        "1-查ê方式",
+        "1-Chhâ ê Hong-sek"
+    ],
+    "equals": [
+        "精確搜尋",
+        "Kāng款--ê",
+        "Kāng-khoán--ê"
+    ],
+    "contains": [
+        "模糊搜尋",
+        "相關--ê",
+        "Siong-koan--ê"
+    ],
+    "explanation": [
+        "搜尋功能說明",
+        "Chhiau-chhōe功能說明",
+        "Chhiau-chhōe Kong-lêng Soat-bêng"
+    ],
+    "input-method": [
+        "2-輸入方式",
+        "2-輸入ê方式",
+        "2-Su-ji̍p ê Hong-sek"
+    ],
+    "lmj-tb": [
+        "羅馬字台文",
+        "羅馬字台文",
+        "Lô-má-jī Tâi-bûn"
+    ],
+    "poj": [
+        "白話字",
+        "白話字",
+        "Pe̍h-ōe-jī"
+    ],
+    "poj-input": [
+        "白話字輸入",
+        "白話字輸入",
+        "Pe̍h-ōe-jī Su-ji̍p"
+    ],
+    "lmj": [
+        "教育部羅馬字",
+        "教育部羅馬字",
+        "Kàu-io̍k-pō͘ Lô-má-jī"
+    ],
+    "lmj-input": [
+        "教育部羅馬字輸入",
+        "教育部羅馬字輸入",
+        "Kàu-io̍k-pō͘ Lô-má-jī Su-ji̍p"
+    ],
+    "keyword": [
+        "請輸入關鍵字",
+        "請phah beh chhōe ê字詞",
+        "Chhiáⁿ phah beh chhōe ê jī-sû"
+    ],
+    "corresponding-tb": [
+        "對應台文",
+        "對應台文",
+        "Tùi-èng Tâi-bûn"
+    ],
+    "corresponding-hb": [
+        "對應華文",
+        "對應華文",
+        "Tùi-èng Hôa-bûn"
+    ],
+    "corresponding-en": [
+        "對應英文",
+        "對應英文",
+        "Tùi-èng Eng-bûn"
+    ]
+}

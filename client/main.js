@@ -3,6 +3,7 @@ import React, { Component } from 'react';
 import { render } from 'react-dom';
 import { BrowserRouter } from 'react-router-dom';
 import { LocalizeProvider } from "react-localize-redux";
+import { CookiesProvider } from 'react-cookie';
 
 import '../imports/startup/both';
 import '../imports/startup/client';
@@ -18,11 +19,13 @@ Meteor.startup(() => {
 class Main extends Component {
   render() {
     return (
-      <LocalizeProvider>
-        <BrowserRouter>
-          <App />
-        </BrowserRouter>
-      </LocalizeProvider>
+      <CookiesProvider>
+        <LocalizeProvider>
+          <BrowserRouter>
+            <App />
+          </BrowserRouter>
+        </LocalizeProvider>
+      </CookiesProvider>
     );
   }
 }
