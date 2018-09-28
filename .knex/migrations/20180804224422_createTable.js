@@ -3,8 +3,8 @@ let DicStruct = require('../../imports/api/dictionary_struct');
 exports.up = function(knex, Promise) {
     cmd = [];
     for (let idx in DicStruct) {
-        let dicName = DicStruct[idx].name;
-        let columns = DicStruct[idx].columns;
+        const dicName = DicStruct[idx].name;
+        const columns = DicStruct[idx].columns;
         delete columns.id;
         cmd.push(
             knex.schema.createTable(dicName, (table) => {
