@@ -1,11 +1,9 @@
-const baseUri = 'http://raw.githubusercontent.com/ChhoeTaigi/ChhoeTaigiDatabase/master/ChhoeTaigiDatabase';
+const baseUri = 'https://raw.githubusercontent.com/ChhoeTaigi/ChhoeTaigiDatabase/master/ChhoeTaigiDatabase';
 const dateUri = '20180803-024253'
-const TaibunHoabunSoanntengSutianUri = baseUri + '/' +dateUri + '/' + 'ChhoeTaigi_TaibunHoabunSoanntengSutian.csv';
 
 import request from 'request';
 import csv from 'csvtojson';
 import pg from './pg';
-import { resolve } from 'url';
 
 Meteor.methods({
     'update.rowNum'(dicName) {
@@ -44,7 +42,6 @@ Meteor.methods({
             .catch((err) => {
                 console.log("err: ", err);
             });
-            console.log('saving to database complete');
         }
     },
 
