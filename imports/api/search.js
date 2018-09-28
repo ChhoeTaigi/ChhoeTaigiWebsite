@@ -210,7 +210,7 @@ function searchSingleAllField(dic, params, limit=-1, offset=0) {
         let dicStruct = dicsStruct.filter(e => e.name===dic)[0];
         let columns = dicStruct.columns;
         let brief = dicStruct.brief;
-        let briefArray = [];
+        let briefArray = ['id'];
         for (let key in brief) {
             briefArray.push(key);
         }
