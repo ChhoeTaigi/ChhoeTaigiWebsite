@@ -5,9 +5,9 @@
         "Ki-chhó͘ Chhâ-sûn"
     ],
     "search-method": [
-        "1-搜尋方式",
-        "1-查ê方式",
-        "1-Chhâ ê Hong-sek"
+        "1: 搜尋方式",
+        "1: 查詢ê方式",
+        "1: Chhâ-sûn ê Hong-sek"
     ],
     "equals": [
         "精確搜尋",
@@ -25,9 +25,9 @@
         "Chhiau-chhōe Kong-lêng Soat-bêng"
     ],
     "input-method": [
-        "2-輸入方式",
-        "2-輸入ê方式",
-        "2-Su-ji̍p ê Hong-sek"
+        "2: 輸入方式",
+        "2: 輸入ê方式",
+        "2: Su-ji̍p ê Hong-sek"
     ],
     "lmj-tb": [
         "羅馬字台文",
@@ -37,22 +37,22 @@
     "poj": [
         "白話字",
         "白話字",
-        "Pe̍h-ōe-jī"
+        "POJ"
     ],
     "poj-input": [
         "白話字輸入",
         "白話字輸入",
-        "Pe̍h-ōe-jī Su-ji̍p"
+        "POJ Su-ji̍p"
     ],
     "lmj": [
         "教育部羅馬字",
         "教育部羅馬字",
-        "Kàu-io̍k-pō͘ Lô-má-jī"
+        "Kàu-io̍k-pō͘ LMJ Su-ji̍p"
     ],
     "lmj-input": [
         "教育部羅馬字輸入",
         "教育部羅馬字輸入",
-        "Kàu-io̍k-pō͘ Lô-má-jī Su-ji̍p"
+        "Kàu-io̍k-pō͘ LMJ Su-ji̍p"
     ],
     "keyword": [
         "請輸入關鍵字",
