@@ -38,7 +38,6 @@ import Account from './Account';
 // formal
 class Main extends Component {
     render() {
-
         const detailPath = getDetailPath();
         let additionalRoute = [];
         if (Meteor.userId() || env === 'prod') {

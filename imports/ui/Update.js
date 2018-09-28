@@ -1,8 +1,10 @@
 import React, { Component } from 'react';
 import { withRouter } from 'react-router-dom';
+import { withTracker } from 'meteor/react-meteor-data';
 
 import dic_struct from '../api/dictionary_struct';
 import '../api/update';
+import { Data } from '../api/data';
 
 class Update extends Component {
     constructor(props) {
@@ -20,7 +22,9 @@ class Update extends Component {
             rowNum[dicName] = -1;
             this.dics.push(dicName);
         }
+
         this.state = {
+            folder: '',
             rowNum: rowNum,
         };
         
@@ -38,12 +42,29 @@ class Update extends Component {
 
         this.setRowNum = this.setRowNum.bind(this);
     }
+
+    componentWillReceiveProps(props) {
+        this.setState({
+            folder: props.folder,
+        });
+    }
+
     update() {
         Meteor.call('update.import', (error, result) => {
             console.log(result);
         });
     }
     
+    changeFolder(event) {
+        this.setState({
+            folder: event.target.value,
+        });
+    }
+
+    updateFolder() {
+        Meteor.call('data.update.folder', this.state.folder);
+    }
+
     render() {
         let dicRow = []
         for (let idx in this.dics) {
@@ -54,8 +75,13 @@ class Update extends Component {
         }
         return (
             <div>
+                <label>
+                    <span>資料夾名稱</span>
+                    <input id='folder' type='text' value={this.state.folder} onChange={this.changeFolder.bind(this)}></input>
+                    <button onClick={this.updateFolder.bind(this)} className='Mbutton'>更新</button>
+                </label>
                 {dicRow}
-                <button onClick={this.update.bind(this)}>Import</button>
+                <button onClick={this.update.bind(this)} className='Mbutton'>Import all</button>
             </div>
         );
     }
@@ -67,7 +93,16 @@ class Update extends Component {
     }
 }
 
-export default withRouter(Update);
+export default  withTracker(() => {
+    Meteor.subscribe('data');
+    const data = Data.findOne({});
+    let folder = '';
+    if (data !== undefined)
+        folder = data.folder;
+    return {
+        folder: folder,
+    };
+})(withRouter(Update));
 
 class DicRow extends Component {
     delete(name) {
@@ -87,8 +122,8 @@ class DicRow extends Component {
         return (
             <div>
                 <b>{this.props.name}</b>: {this.props.rowNum >= 0 ? this.props.rowNum : 'waiting'}
-                <button onClick={this.delete.bind(this, this.props.name)}>delete</button>
-                <button onClick={this.import.bind(this, this.props.name)}>import</button>
+                <button onClick={this.delete.bind(this, this.props.name)} className='Mbutton'>delete</button>
+                <button onClick={this.import.bind(this, this.props.name)} className='Mbutton'>import</button>
             </div>
         );
     }

@@ -11,3 +11,7 @@ import './header.css';
 import './landing.css';
 import './single.css';
 import './word.css'
+
+if (Meteor.userId()) {
+    import './manage.css';
+}

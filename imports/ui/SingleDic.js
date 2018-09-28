@@ -16,7 +16,7 @@ class SingleDic extends Component {
         // dic result
         const dic = state.options.dic;
         const params = state.options.params;
-console.log(state);
+
         const offset = params.offset;
         if (offset !== undefined)
             delete params.offset;

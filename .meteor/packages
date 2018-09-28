@@ -19,3 +19,4 @@ shell-server@0.3.1            # Server-side component of the `meteor shell` comm
 
 accounts-ui
 accounts-password
+react-meteor-data
