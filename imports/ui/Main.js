@@ -41,7 +41,7 @@ class Main extends Component {
 
         const detailPath = getDetailPath();
         let additionalRoute = [];
-        if (Meteor.userId()) {
+        if (Meteor.userId() || env === 'prod') {
             additionalRoute = [
                 <Route key='basic' exact path='/' component={BasicSearch} />,
                 <Route key='explanation' exact path='/explanation' component={Explanation} />,
@@ -53,8 +53,12 @@ class Main extends Component {
                 <Route key='detail' exact path={detailPath} component={Detail} />,
                 <Route key='about' exact path='/about' component={About} />,
                 <Route key='dic-app' exact path='/dic-app' component={DicApp} />,
-                <Route key='update' exact path='/update' component={Update} />,
             ];
+            if (Meteor.userId()) {
+                additionalRoute.push(
+                    <Route key='update' exact path='/update' component={Update} />
+                );
+            }
         }
         return (
             <main>

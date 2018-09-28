@@ -23,7 +23,7 @@ body {
 }
 
 body, input, button {
-    font-family: 'Noto Sans TC', taigiwebfont, 'Microsoft JhengHei', 'PingFang TC';
+    font-family: 'Noto Sans', 'Noto Sans TC', taigiwebfont, 'Microsoft JhengHei', 'PingFang TC', sans-serif;
     background-color: transparent;
 }
 
