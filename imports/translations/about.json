@@ -1,0 +1,147 @@
+{
+    "introduction": [
+        "簡介",
+        "簡介",
+        "Kán-kài"
+    ],
+    "bullet-1": [
+        "「ChhoeTaigi 找台語」計畫的目標是為了整理和數位化台語的字詞資料，不只提供公開授權的台語字詞資料庫，也有辭典網站和手機辭典app，希望吸引更多人投入相關研究或開發應用，更幫助一般使用者更便利的查詢台語的字詞資料。",
+        "「ChhoeTaigi 找台語」計畫是beh來整理kap數位化lán台語ê字詞資料，m̄-nā提供公開授權ê台語字詞資料庫，mā有線頂辭典網站kap手機á ê辭典app。Ǹg-bāng吸引lú來lú chē人來投入相關ê研究a̍h是開發無kâng ê應用，mā thang幫chān一般ê使用者、學習者，有koh khah利便chhiau-chhōe台語字詞ê好ke-si。",
+        "\"ChhoeTaigi 找台語\" kè-ōe sī beh lâi chéng-lí kap sò͘-ūi-hòa lán Tâi-gí ê jī-sû chu-liāu, m̄-nā thê-kiong kong-khai siū-khoân ê Tâi-gí jī-sû chu-liāu-khò͘, mā ū sòaⁿ-téng sû-tián bāng-chām kap chhiú-ki-á ê sû-tián app. Ǹg-bāng khip-ín lú-lâi-lú-chē lâng lâi tâu-ji̍p siong-koan ê gián-kiú a̍h-sī khai-hoat bô-kâng ê èng-iōng, mā thang pang-chān it-poaⁿ ê sú-iōng-chiá, ha̍k-si̍p-chiá, ū koh khah lī-piān chhiau-chhōe Tâi-gí jī-sû ê hó ke-si."
+    ],
+    "bullet-2": [
+        "此計畫是獲得g0v在2018年上半年所提供的獎助金，才得以開始進行，完成階段性目標。接下來需要靠更多人的實際參與，才能繼續長遠的走下去，請大家一起來支持！",
+        "Che計畫是得tio̍h g0v tī 2018年頂半冬所提供ê獎助金，chiah thang開始進行，完成基礎ê khang-khòe。Sòa--落-來需要靠koh khah chē人來參與、tàu-saⁿ-kāng，chiah有hoat-tō͘ 繼續kiâⁿ--落-去，請ta̍k-ê chò-hóe來支持！",
+        "Che kè-ōe sī tit-tio̍h g0v tī 2018 nî téng pòaⁿ-tang só͘ thê-kiong ê chióng-chō͘-kim, chiah thang khai-sí chìn-hêng, oân-sêng ki-chhó͘ ê khang-khòe. Sòa--lo̍h-lâi su-iàu khò koh khah chē lâng lâi chham-ú, tàu-saⁿ-kāng, chiah ū hoat-tō͘ kè-sio̍k kiâⁿ--lo̍h-khì, chhiáⁿ ta̍k-ê chò-hóe lâi chi-chhî."
+    ],
+    "feature": [
+        "特色",
+        "特色",
+        "Te̍k-sek"
+    ],
+    "feature-title-1": [
+        "字詞資料豐富",
+        "字詞資料Chē",
+        "Jī-sû Chu-liāu Chē"
+    ],
+    "feature-content-1": [
+        "整合10份文獻資料，超過30萬筆台語字詞",
+        "整合10份ê文獻資料，有30萬thóng筆ê台語字詞",
+        "Chéng-ha̍p 10 hūn ê bûn-hiàn chu-liāu, ū 30-bān thóng pit ê Tâi-gí jī-sû."
+    ],
+    "feature-title2": [
+        "標準化",
+        "標準化",
+        "Phiau-chún-hòa"
+    ],
+    "feature-content-2": [
+        "格式採歷史最悠久文獻最多的白話字，也提供教育部推行之羅馬字，並同時提供Unicode跟數字輸入格式",
+        "格式有提供歷史siōng久長、文獻siōng chē ê白話字，mā提供教育部chhui-hêng ê羅馬字，koh siāng時有Unicode kap數字輸入ê格式",
+        "Keh-sek ū thê-kiong le̍k-sú siōng kú-tn̂g, bûn-hiàn siōng chē ê Pe̍h-ōe-jī, mā ū thê-kiong Kàu-io̍k-pō͘ chhui-hêng ê Lô-má-jī, koh siāng-sî ū Unicode kap sò͘-jī su-ji̍p ê keh-sek."
+    ],
+    "feature-title-3": [
+        "數位化",
+        "數位化",
+        "Só͘-ûi-hòa"
+    ],
+    "feature-content-3": [
+        "字詞資料皆提供CSV格式，公開在GitHub網站",
+        "字詞資料lóng提供CSV ê格式，公開tī GitHub網站",
+        "Jī-sû chu-liāu lóng thê-kiong CSV ê keh-sek, kong-khai tī GitHub bāng-chām."
+    ],
+    "feature-title-4": [
+        "開放授權",
+        "開放授權",
+        "Khai-hòng Siū-khoân"
+    ],
+    "feature-content-4": [
+        "資料全部採用Creative Commons開放授權",
+        "資料全部用Creative Commons來開放授權",
+        "Chu-liāu choân-pō͘ iōng Creative Commons lâi khai-hòng siū-khoân."
+    ],
+    "feature-title-5": [
+        "服務化",
+        "服務化",
+        "Ho̍k-bū-hòa"
+    ],
+    "feature-content-5": [
+        "提供線上辭典網站及可離線辭典app，方便一次查詢全部台語字詞",
+        "提供線頂辭典網站kap免上網ê辭典app，利便ta̍k-ê 1-pái tio̍h ē-sái chhōe全部ê台語字詞",
+        "Thê-kiong sòaⁿ-téng sû-tián bāng-chām kap bián chiūⁿ-bāng ê sû-tián app, lī-piān ta̍k-ê 1-pái tio̍h ē-sái chhōe choân-pō͘ ê Tâi-gí jī-sû."
+    ],
+    "join": [
+        "加入協作",
+        "做伙貢獻",
+        "Chò-hóe Kòng-hiàn"
+    ],
+    "join-1": [
+        "字詞資料提供建議修改或討論",
+        "字詞ê資料請提供修改ê建議，a̍h是做伙來討論",
+        "Jī-sû ê chu-liāu chhiáⁿ thê-kiong siu-kái ê kiàn-gī, a̍h-sī chò-hóe lâi thó-lūn."
+    ],
+    "join-2": [
+        "請看下方聯絡方式",
+        "請看ē-kha ê聯絡方式",
+        "Chhiáⁿ khòaⁿ ē-kha ê liân-lo̍k hong-sek."
+    ],
+    "join-3": [
+        "參與開源專案，協助改進產品",
+        "參與開源專案，tàu-saⁿ-kāng來改進產品",
+        "Chham-ú khai-goân choan-àn, tàu-saⁿ-kāng lâi kái-chìn sán-phín."
+    ],
+    "sponsor": [
+        "徵求贊助",
+        "向望ta̍k-ê來贊助",
+        "Ǹg-bāng Ta̍k-ê Lâi Chàn-chō͘"
+    ],
+    "sponsor-1": [
+        "1. 產品營運資金（伺服器成本、維護成本等)",
+        "1. Lán產品運作ê資金（Server ê成本、維護ê成本等等）",
+        "1. Lán sán-phín ūn-chok ê chu-kim (Server ê sêng-pún, î-hō͘ ê sêng-pún téng-téng)."
+    ],
+    "sponsor-2": [
+        "2. 台語辭典或字詞資料授權（Creative Commons開放授權)",
+        "2. 授權lán台語辭典a̍h是台語字詞ê資料（Creative Commons開放授權）",
+        "2. Siū-khoân lán Tâi-gí sû-tián a̍h-sī Tâi-gí jī-sû ê chu-liāu (Creative Commons khai-hòng siū-khoân)."
+    ],
+    "contact": [
+        "聯絡方式",
+        "聯絡方式",
+        "Liân-lo̍k Hong-sek"
+    ],
+    "contact-1": [
+        "私訊",
+        "私訊",
+        "Su-sìn"
+    ],
+    "contact-2": [
+        "來信",
+        "寄phoe來",
+        "Kià phoe lâi"
+    ],
+    "members": [
+        "團隊成員介紹",
+        "紹介Lán團隊ê成員",
+        "Siau-kái Lán Thoân-tūi ê Sêng-oân"
+    ],
+    "authorization": [
+        "網站資料授權",
+        "網站資料ê授權",
+        "Bāng-chām Chu-liāu ê Siū-khoân"
+    ],
+    "authorization-1": [
+        "字詞資料",
+        "字詞資料",
+        "Jī-sû Chu-liāu"
+    ],
+    "authorization-2": [
+        "原書掃描圖片",
+        "原冊掃描ê圖",
+        "Goân-chheh Sáu-biô ê Tô͘"
+    ],
+    "opinion": [
+        "意見回饋與贊助請來信",
+        "若有siáⁿ-mi̍h建議a̍h是想beh贊助，請你寄phoe來kap gún連絡",
+        "Nā ū siáⁿ-mi̍h kiàn-gī a̍h-sī siūⁿ-beh chàn-chō͘, chhiáⁿ lí kià phoe lâi kap gún liân-lo̍k."
+    ]
+}

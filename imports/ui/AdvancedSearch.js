@@ -1,12 +1,18 @@
 import React, { Component } from 'react';
 import { withRouter } from 'react-router-dom';
+import { withLocalize } from "react-localize-redux";
+import { Translate } from "react-localize-redux";
 import ReactGA from 'react-ga';
 
 import dicStruct from '../api/dictionary_struct';
+import advancedTranslations from '../translations/advanced.json';
 
 class AdvancedSearch extends Component {
     constructor(props) {
         super(props);
+
+        props.addTranslation(advancedTranslations);
+
         this.state = {
             method: 'allField',
             selectedDic: undefined,
@@ -47,8 +53,8 @@ class AdvancedSearch extends Component {
     render() {
         // method buttons
         let methodButtons = [
-            <button className={'method-button ' + (this.state.method === 'allField' ? 'method-button-selected' : 'method-button-unselected')} key='allField' onClick={this.handleMethodButton.bind(this, 'allField')}>全文搜尋</button>,
-            <button className={'method-button ' + (this.state.method === 'singleDic' ? 'method-button-selected' : 'method-button-unselected')} key='singleDic' onClick={this.handleMethodButton.bind(this, 'singleDic')}>依辭典搜尋</button>
+            <button className={'method-button ' + (this.state.method === 'allField' ? 'method-button-selected' : 'method-button-unselected')} key='allField' onClick={this.handleMethodButton.bind(this, 'allField')}><Translate id='all-field' /></button>,
+            <button className={'method-button ' + (this.state.method === 'singleDic' ? 'method-button-selected' : 'method-button-unselected')} key='singleDic' onClick={this.handleMethodButton.bind(this, 'singleDic')}><Translate id='by-dic' /></button>
         ];
 
         // dictionary buttons
@@ -95,7 +101,7 @@ class AdvancedSearch extends Component {
     }
 }
 
-export default withRouter(AdvancedSearch);
+export default withLocalize(withRouter(AdvancedSearch));
 
 class SingleDicOptions extends Component {
     constructor(props) {
@@ -224,11 +230,13 @@ class AllFieldOptions extends Component {
 
     render() {
         return (
-            <form id='all-field-form' onSubmit={this.handleSubmit.bind(this)}>
-                <input className='all-field-text-input' type='text' placeholder='輸入關鍵字' onChange={this.handleInput.bind(this)} value={this.state.value}></input>
-                <input className='find-button' style={{marginTop: '30px'}} type="submit" value="開始找" />
-                <div id='bg-img'></div>
-            </form>
+            <Translate>{({ translate }) =>
+                <form id='all-field-form' onSubmit={this.handleSubmit.bind(this)}>
+                    <input className='all-field-text-input' type='text' placeholder={translate('keyword')} onChange={this.handleInput.bind(this)} value={this.state.value}></input>
+                    <input className='find-button' style={{marginTop: '30px'}} type="submit" value={translate('find')} />
+                    <div id='bg-img'></div>
+                </form>
+            }</Translate>
         );
     }
 }

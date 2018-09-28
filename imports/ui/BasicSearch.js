@@ -1,10 +1,16 @@
 import React, { Component } from 'react';
 import { withRouter, Link } from 'react-router-dom';
+import { withLocalize } from "react-localize-redux";
+import { Translate } from "react-localize-redux";
 import ReactGA from 'react-ga';
+
+import basicTranslations from '../translations/basic.json';
 
 class BasicSearch extends Component {
     constructor(props) {
         super(props);
+
+        props.addTranslation(basicTranslations);
 
         this.state = {
             searchMethod: 'equals',
@@ -84,61 +90,65 @@ class BasicSearch extends Component {
                 </div>
                 <div id='form-background' style={{minHeight: this.state.background_height + 'px'}}>
                     <form id='basic-form' onSubmit={this.handleSubmit.bind(this)}>
-                        <div id='search-title'>基礎搜尋</div>
+                        <div id='search-title'><Translate id="basic" /></div>
                         <div id='form-container'>
                             <div id='search-method-container'>
-                                <span>1-搜尋方式</span>
+                                <span><Translate id="search-method" /></span>
                                 <label id='radio-1' className='radio'>
                                     <div className={this.state.searchMethod === 'equals' ? 'checked' : 'unchecked'}></div>
                                     <input type="radio" name="searchMethod" value="equals" defaultChecked={this.state.searchMethod === 'equals'} onChange={this.handleInput.bind(this)} />
-                                    <span>精確搜尋</span>
+                                    <span><Translate id="equals" /></span>
                                 </label>
                                 <label id='radio-2' className='radio'>
                                     <div className={this.state.searchMethod === 'contains' ? 'checked' : 'unchecked'}></div>
                                     <input type="radio" name="searchMethod" value="contains" defaultChecked={this.state.searchMethod === 'contains'} onChange={this.handleInput.bind(this)} />
-                                    <span>模糊搜尋</span>
+                                    <span><Translate id="contains" /></span>
                                 </label>
                                 <div id='wildcard-note-container'>
-                                    <Link id='wildcard-note' to='/explanation'>搜尋功能說明</Link>
+                                    <Link id='wildcard-note' to='/explanation'><Translate id="explanation" /></Link>
                                 </div>
                             </div>
                             <div id='seperator'></div>
                             <div id='input-container'>
                                 <div id='input-container-left'>
-                                    <label className='input-title' htmlFor='spelling'>2-輸入方式 羅馬字台文</label>
+                                    <label className='input-title' htmlFor='spelling'><Translate id="input-method" /></label>
                                     <span className='text-height'></span>
-                                    <label className='input-title top-space' htmlFor="hanlo_taibun_poj">對應台文</label>
-                                    <label className='input-title top-space' htmlFor="hoabun">對應華文</label>
-                                    <label className='input-title top-space' htmlFor="english_descriptions">對應英文</label>
+                                    <label className='input-title top-space' htmlFor="hanlo_taibun_poj"><Translate id="corresponding-tb" /></label>
+                                    <label className='input-title top-space' htmlFor="hoabun"><Translate id="corresponding-hb" /></label>
+                                    <label className='input-title top-space' htmlFor="english_descriptions"><Translate id="corresponding-en" /></label>
                                 </div>
                                 <div id='input-container-right'>
                                     <div id='large-input-top'>
                                         <label id='radio-3' className='radio'>
                                             <div className={this.state.spellingMethod === 'poj_unicode' ? 'checked' : 'unchecked'}></div>
                                             <input type="radio" name="spellingMethod" value="poj_unicode" defaultChecked={this.state.spellingMethod === 'poj_unicode'} onChange={this.handleInput.bind(this)} />
-                                            <span>白話字</span>
+                                            <span><Translate id="poj" /></span>
                                         </label>
                                         <label id='radio-4' className='radio'>
                                             <div className={this.state.spellingMethod === 'poj_input' ? 'checked' : 'unchecked'}></div>
                                             <input type="radio" name="spellingMethod" value="poj_input" defaultChecked={this.state.spellingMethod === 'poj_input'} onChange={this.handleInput.bind(this)} />
-                                            <span>白話字輸入</span>
+                                            <span><Translate id="poj-input" /></span>
                                         </label>
                                         <label id='radio-5' className='radio'>
                                             <div className={this.state.spellingMethod === 'kiplmj_unicode' ? 'checked' : 'unchecked'}></div>
                                             <input type="radio" name="spellingMethod" value="kiplmj_unicode" defaultChecked={this.state.spellingMethod === 'kiplmj_unicode'} onChange={this.handleInput.bind(this)} />
-                                            <span>教育部羅馬字</span>
+                                            <span><Translate id="lmj" /></span>
                                         </label>
                                         <label id='radio-6' className='radio'>
                                             <div className={this.state.spellingMethod === 'kiplmj_input' ? 'checked' : 'unchecked'}></div>
                                             <input type="radio" name="spellingMethod" value="kiplmj_input" defaultChecked={this.state.spellingMethod === 'kiplmj_input'} onChange={this.handleInput.bind(this)} />
-                                            <span>教育部羅馬字輸入</span>
+                                            <span><Translate id="lmj-input" /></span>
                                         </label>
                                         <div id='text-input-seperator'></div>
                                     </div>
-                                    <input className='text-input' type="text" name="spelling" placeholder="輸入關鍵字" value={this.state.spelling} onChange={this.handleInput.bind(this)} />
-                                    <input className='text-input top-space' type="text" name="hanlo_taibun_poj" placeholder="輸入關鍵字" value={this.state.hanlo_taibun_poj} onChange={this.handleInput.bind(this)} />
-                                    <input className='text-input top-space' type="text" name="hoabun" placeholder="輸入關鍵字" value={this.state.hoabun} onChange={this.handleInput.bind(this)} />
-                                    <input className='text-input top-space' type="text" name="english_descriptions" placeholder="輸入關鍵字" value={this.state.english_descriptions} onChange={this.handleInput.bind(this)} />
+                                    <Translate>{({ translate }) =>
+                                        <div>
+                                            <input className='text-input' type="text" name="spelling" placeholder={translate('keyword')} value={this.state.spelling} onChange={this.handleInput.bind(this)} />
+                                            <input className='text-input top-space' type="text" name="hanlo_taibun_poj" placeholder={translate('keyword')} value={this.state.hanlo_taibun_poj} onChange={this.handleInput.bind(this)} />
+                                            <input className='text-input top-space' type="text" name="hoabun" placeholder={translate('keyword')} value={this.state.hoabun} onChange={this.handleInput.bind(this)} />
+                                            <input className='text-input top-space' type="text" name="english_descriptions" placeholder={translate('keyword')} value={this.state.english_descriptions} onChange={this.handleInput.bind(this)} />
+                                        </div>
+                                    }</Translate>
                                 </div>
                             </div>
                             <input className='find-button' style={{marginTop: '22px'}} type="submit" value="開始找" />
@@ -151,4 +161,4 @@ class BasicSearch extends Component {
     }
 }
 
-export default withRouter(BasicSearch);
+export default withLocalize(withRouter(BasicSearch));

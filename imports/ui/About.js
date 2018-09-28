@@ -1,9 +1,16 @@
 import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
+import { withLocalize } from "react-localize-redux";
+import { Translate } from "react-localize-redux";
 
-export default class About extends Component {
+import aboutTranslations from '../translations/about.json';
+
+class About extends Component {
 	constructor(props) {
 		super(props);
+
+		props.addTranslation(aboutTranslations);
+
 		this.state = {
 			contactRef: React.createRef(),
 		};
@@ -21,83 +28,83 @@ export default class About extends Component {
 	render() {
 		return (
 			<div>
-				<div id='introduction-title' className='about-title'>簡介</div>
+				<div id='introduction-title' className='about-title'><Translate id='introduction' /></div>
 				<div id='brief-container'>
 					<div className='fix-width-center'>
 						<ul id='brief-ul'>
-							<li className='brief-li'>「ChhoeTaigi 找台語」計畫的目標是為了整理和數位化台語的字詞資料，不只提供公開授權的台語字詞資料庫，也有辭典網站和手機辭典app，希望吸引更多人投入相關研究或開發應用，更幫助一般使用者更便利的查詢台語的字詞資料。</li>
-							<li className='brief-li'>此計畫是獲得g0v在2018年上半年所提供的獎助金計畫，才得以開始進行，完成階段性目標，接下來需要靠更多官方和民間的實際支持和相挺，才能繼續長遠的走下去。</li>
+							<li className='brief-li'><Translate id='bullet-1' /></li>
+							<li className='brief-li'><Translate id='bullet-2' /></li>
 						</ul>
 					</div>
 				</div>
 				<div id='feature-container'>
-					<div id='feature-title' className='about-title'>特色</div>
+					<div id='feature-title' className='about-title'><Translate id='feature' /></div>
 					<div className='feature-card-three-columns'>
 						<div className='feature-card'>
 							<img id='feature-1' src='images/data@2x.png' width='136' height='107'></img>
-							<span className='feature-card-title'>資料豐富</span>
-							<span className='feature-card-content'>整合10份文獻資料，超過30萬筆台語字詞</span>
+							<span className='feature-card-title'><Translate id='feature-title-1' /></span>
+							<span className='feature-card-content'><Translate id='feature-content-1' /></span>
 						</div>
 						<div className='feature-card'>
 							<img id='feature-2' src='images/standard@2x.png' width='178' height='99'></img>
-							<span className='feature-card-title'>標準化</span>
-							<span className='feature-card-content'>格式採歷史最悠久文獻最多的白話字，也提供教育部推行之羅馬字，並同時提供Unicode跟數字輸入格式</span>
+							<span className='feature-card-title'><Translate id='feature-title-1' /></span>
+							<span className='feature-card-content'><Translate id='feature-content-2' /></span>
 						</div>
 						<div className='feature-card'>
 							<img id='feature-3' src='images/digital@2x.png' width='118' height='94'></img>
-							<span className='feature-card-title'>數位化</span>
-							<span className='feature-card-content'>字詞資料皆提供CSV格式，公開在GitHub</span>
+							<span className='feature-card-title'><Translate id='feature-title-1' /></span>
+							<span className='feature-card-content'><Translate id='feature-content-3' /></span>
 						</div>
 					</div>
 					<div className='feature-card-two-columns'>
 						<div className='feature-card'>
 							<img id='feature-4' src='images/opencc@2x.png' width='129' height='91'></img>
-							<span className='feature-card-title'>公開授權</span>
-							<span className='feature-card-content'>資料全部採用Creative Commons公開授權</span>
+							<span className='feature-card-title'><Translate id='feature-title-1' /></span>
+							<span className='feature-card-content'><Translate id='feature-content-4' /></span>
 						</div>
 						<div className='feature-card'>
 							<img id='feature-5' src='images/service@2x.png' width='135' height='93'></img>
-							<span className='feature-card-title'>服務化</span>
-							<span className='feature-card-content'>提供線上辭典網站及可離線辭典app，方便一次查詢全部台語字詞</span>
+							<span className='feature-card-title'><Translate id='feature-title-1' /></span>
+							<span className='feature-card-content'><Translate id='feature-content-5' /></span>
 						</div>
 					</div>
 				</div>
 				<div id='join-container'>
-					<div id='join-title' className='about-title'>加入協作</div>
+					<div id='join-title' className='about-title'><Translate id='join' /></div>
 					<div id='join-box-1' className='join-box'>
 						<img src='images/discuss@2x.png' width='180' height='173'></img>
-						<div>字詞資料提供建議修改或討論</div>
+						<div><Translate id='join-1' /></div>
 						<button onClick={this.gotoContact.bind(this)}></button>
-						<span onClick={this.gotoContact.bind(this)}>請看下方聯絡方式</span>
+						<span onClick={this.gotoContact.bind(this)}><Translate id='join-2' /></span>
 					</div>
 					<div id='join-box-2' className='join-box'>
-						<div>參與開源專案，協助改進產品</div>
+						<div><Translate id='join-3' /></div>
 						<button onClick={this.openGithub.bind(this)}>GitHub</button>
 						<img src='images/participate@2x.png' width='256' height='150'></img>
 					</div>
 				</div>
 				<div id='seeking-container'>
-					<div id='seeking-title' className='about-title'>徵求贊助</div>
+					<div id='seeking-title' className='about-title'><Translate id='sponsor' /></div>
 					<ol id='seeking-ol'>
-						<li>產品營運資金（伺服器成本、維護成本等)</li>
-						<li>台語辭典或字詞資料授權（Creative Commons開放授權)</li>
+						<li><Translate id='sponsor-1' /></li>
+						<li><Translate id='sponsor-2' /></li>
 					</ol>
 				</div>
 				<div id='contact-container'>
-					<div ref={this.state.contactRef} id='contact-title' className='about-title'>聯絡方式</div>
+					<div ref={this.state.contactRef} id='contact-title' className='about-title'><Translate id='contact' /></div>
 					<div id='contact-buttons-container'>
 						<a id='contact-button-1' className='contact-button' href='http://chat.taigi.info/' target='_blank'>
-							<span>私訊</span>
+							<span><Translate id='contact-1' /></span>
 							<div></div>
 						</a>
 						<a id='contact-button-2' className='contact-button' href='mailto:ngoohebi+chhoetaigi@gmail.com' target='_blank'>
-							<span>來信</span>
+							<span><Translate id='contact-2' /></span>
 							<div></div>
 						</a>
 					</div>
 				</div>
 				<div id='members-container' className='fix-width-center'>
-					<div id='members-title' className='about-title'>團隊成員介紹</div>
+					<div id='members-title' className='about-title'><Translate id='members' /></div>
 					<div className='person-card-three-columns'>
 						<div className='person-card'>
 							<img className='profile' src='images/hebi.png' width='120' height='120'></img>
@@ -135,28 +142,30 @@ export default class About extends Component {
 				</div>
 				<div id='authorization'>
 					<div id='authorization-title-container'>
-						<div id='authorization-title'>網站資料授權</div>
+						<div id='authorization-title'><Translate id='authorization' /></div>
 					</div>
 					<div id='authorization-left-bg'></div>
 					<div id='authorization-right-bg'></div>
 					<div id='authorization-content-center'>
 						<div id='authorization-content'>
 							<div className='authorization-block' style={{left: '100px'}}>
-								<div className='authorization-title'>字詞資料</div>
+								<div className='authorization-title'><Translate id='authorization-1' /></div>
 								<a className='authorization-link' href='https://github.com/ChhoeTaigi/ChhoeTaigiDatabase' target='_blank'>ChhoeTaigi 找台語：台語字詞資料庫</a>
 							</div>
 							<div className='authorization-block' style={{right: '62px'}}>
-								<div className='authorization-title'>原書掃描圖片</div>
+								<div className='authorization-title'><Translate id='authorization-2' /></div>
 								<a className='authorization-link' href='http://ip194097.ntcu.edu.tw/memory/tgb/MoWT.asp' target='_blank'>台語文記憶</a>
 							</div>
 						</div>
 					</div>
 				</div>
 				<div id='feedback'>
-					<div id='feedback-text'>意見回饋與贊助請來信</div>
+					<div id='feedback-text'><Translate id='opinion' /></div>
 					<a id='feedback-email' href='mailto:ngoohebi+chhoetaigi@gmail.com'>ngoohebi+chhoetaigi@gmail.com</a>
 				</div>
 			</div>
 		);
 	}
 }
+
+export default withLocalize(About);
