@@ -29,7 +29,7 @@ class Footer extends Component {
         let background = 'footer-bg1';
         if (pathname === '/') {
             background = 'footer-bg2';
-        } else if (pathname === '/advanced') {
+        } else if (pathname === '/chinkai') {
             background = 'footer-bg3';
         }
 

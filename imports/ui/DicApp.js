@@ -3,7 +3,7 @@ import { withRouter } from 'react-router-dom';
 import { withLocalize } from "react-localize-redux";
 import { Translate } from "react-localize-redux";
 
-import dicAppTranslations from '../translations/dic-app.json';
+import dicAppTranslations from '../translations/app.json';
 
 class DicApp extends Component {
     constructor(props) {
@@ -34,10 +34,10 @@ class DicApp extends Component {
 
     render() {
         return (
-            <div id='dic-app-container' style={{minHeight: this.state.background_height + 'px'}}>
-                <h1 id='dic-app-title'>ChhoeTaigi 台語辭典APP</h1>
-                <div id='dic-app-content'>
-                    <span  id='dic-app-description'><Translate id='description' /></span>
+            <div id='app-container' style={{minHeight: this.state.background_height + 'px'}}>
+                <h1 id='app-title'>ChhoeTaigi 台語辭典APP</h1>
+                <div id='app-content'>
+                    <span  id='app-description'><Translate id='description' /></span>
                     <div id='dic-link-group'>
                         <div id='dic-link-1'>
                             <span>iOS版</span>
@@ -53,7 +53,7 @@ class DicApp extends Component {
                         </div>
                     </div>
                 </div>
-                <img id='dic-app-img' src='images/app_pic@2x.png' width='622' height='428'></img>
+                <img id='app-img' src='images/app_pic@2x.png' width='622' height='428'></img>
             </div>
         );
     }

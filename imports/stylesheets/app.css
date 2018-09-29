@@ -1,4 +1,4 @@
-#dic-app-container {
+#app-container {
     position: relative;
     width: 1024px;
     height: 606px;
@@ -6,7 +6,7 @@
     margin-right: auto;
 }
 
-#dic-app-title {
+#app-title {
     position: absolute;
     height: 47px;
     left: 68px;
@@ -17,14 +17,14 @@
     color: #23672e;
 }
 
-#dic-app-content {
+#app-content {
     position: absolute;
     left: 68px;
     top: 155px;
     width: 350px;
 }
 
-#dic-app-description {
+#app-description {
     font-size: 15px;
     line-height: 28px;
     color: #657160;
@@ -87,7 +87,7 @@
     color: white;
 }
 
-#dic-app-img {
+#app-img {
     position: absolute;
     top: 95px;
     left: 497px;
