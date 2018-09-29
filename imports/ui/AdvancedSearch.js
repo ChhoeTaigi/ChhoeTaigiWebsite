@@ -171,7 +171,7 @@ class SingleDicOptions extends Component {
         for (let key in columns) {
             inputs.push(
                 <Translate key={key + '-input'}>{({ translate }) =>
-                    <input className='singl-dic-text-input' type='text' placeholder={translate('keyword')} name={key} onChange={this.handleInput.bind(this, key)} value={this.state.params[key]}></input>
+                    <input className='single-dic-text-input' type='text' placeholder={translate('keyword')} name={key} onChange={this.handleInput.bind(this, key)} value={this.state.params[key]}></input>
                 }</Translate>
             )
         }

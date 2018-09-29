@@ -61,7 +61,7 @@
 
 .all-field-text-input::placeholder {
     font-size: 16px;
-    color: #8a9b83;
+    color: #C5D1C0;
     font-weight: lighter;
     letter-spacing: 1px;
 }
@@ -153,7 +153,7 @@
     padding-top: 5px;
 }
 
-.singl-dic-text-input {
+.single-dic-text-input {
     width: 547px;
     height: 34px;
     margin-top: 13px;
@@ -164,9 +164,9 @@
     font-size: 15px;
 }
 
-.singl-dic-text-input::placeholder {
+.single-dic-text-input::placeholder {
     font-size: 15px;
-    color: #8a9b83;
+    color: #C5D1C0;
     font-weight: lighter;
     letter-spacing: 1px;
 }
