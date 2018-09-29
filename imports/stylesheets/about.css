@@ -42,7 +42,7 @@
 }
 
 #feature-container {
-	height: 704px;
+	height: 740px;
 }
 
 #feature-title {
@@ -52,7 +52,7 @@
 .feature-card-three-columns {
 	position: relative;
 	width: 1020px;
-	height: 284px;
+	height: 310px;
 	margin-left: auto;
 	margin-right: auto;
 }
@@ -143,22 +143,22 @@
 }
 
 .join-box > div {
-	height: 33px;
 	font-size: 22px;
 	font-weight: 500;
-	line-height: 1.5;
+	line-height: 33px;
   	color: #3f4d38;
 }
 
 #join-box-1 > div {
 	position: absolute;
+	width: 470px;
 	top: 40px;
-	left: 391px;
+	left: 350px;
 }
 
 #join-box-1 > img {
 	position: absolute;
-	left: 144px;
+	left: 100px;
 	bottom: 0;
 }
 
@@ -166,7 +166,7 @@
 	position: absolute;
 	width: 20px;
 	height: 30px;
-	left: 391px;
+	left: 350px;
 	bottom: 49px;
 	background-image: url('images/Slide down@2x.png');
 	background-size: 20px 30px;
@@ -175,7 +175,7 @@
 #join-box-1 > span {
 	position: absolute;
 	height: 22px;
-	left: 420px;
+	left: 385px;
 	bottom: 53px;
 	font-size: 15px;
 	font-weight: normal;
@@ -186,8 +186,8 @@
 
 #join-box-2 > div {
 	position: absolute;
-	width: 400px;
-	left: 128px;
+	width: 420px;
+	left: 90px;
 	top: 30px;
 }
 
@@ -195,7 +195,7 @@
 	position: absolute;
 	width: 174px;
 	height: 46px;
-	left: 128px;
+	left: 90px;
 	bottom: 45px;
 	border-radius: 2px;
 	box-shadow: 0 4px 2px 0 rgba(0, 0, 0, 0.16);

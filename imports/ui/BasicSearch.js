@@ -151,7 +151,9 @@ class BasicSearch extends Component {
                                     }</Translate>
                                 </div>
                             </div>
-                            <input className='find-button' style={{marginTop: '22px'}} type="submit" value="開始找" />
+                            <Translate>{({ translate }) =>
+                                <input className='find-button' style={{marginTop: '22px'}} type="submit" value={translate('find')} />
+                            }</Translate>
                         </div>
                         
                     </form>

@@ -33,7 +33,7 @@
 #dic-link-group {
     position: relative;
     top: 20px;
-    width: 339px;
+    width: 370px;
     height: 280px;
 }
 
@@ -43,13 +43,12 @@
 }
 
 #dic-link-2 {
-    width: 150px;
+    width: 220px;
     float: right;
 }
 
 #dic-link-1 > span, #dic-link-2 > span {
     display: block;
-    height: 24px;
     margin-left: auto;
     margin-right: auto;
     font-size: 16px;
@@ -78,8 +77,7 @@
 }
 
 #dic-link-2 > span:nth-child(3) {
-    width: 130px;
-    height: 44px;
+    width: 200px;
     padding: 3px 10px;
     border-radius: 10px;
     background-color: #879e5a;
