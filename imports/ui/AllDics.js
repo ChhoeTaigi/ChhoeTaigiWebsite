@@ -118,7 +118,7 @@ class AllDics extends Component {
                 <DictionaryBrief ref={thisRef} key={dic} dicResults={dicResults} showMore={this.showMore.bind(this, dic)} showMoreButton={dicResults.words.length > 1} />
             );
 
-            totalNum += parseInt(allResults[idx].num[0].num);
+            totalNum += parseInt(allResults[idx].num);
         }
         this.refs = refs;
         let remainingButtonNum = 9 - (allResults.filter(e => e).length % 9);
@@ -154,7 +154,7 @@ class DictionaryBrief extends Component {
         let dic = props.dicResults.dic;
         const struct = dicStruct.filter(struct => struct.name===dic)[0];
         const chineseName = struct.chineseName;
-        const totalNum = props.dicResults.num[0].num;
+        const totalNum = props.dicResults.num;
         const words = props.dicResults.words;
 
         this.state = {

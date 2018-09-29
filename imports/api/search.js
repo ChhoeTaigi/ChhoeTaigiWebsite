@@ -56,7 +56,7 @@ Meteor.methods({
 
 function basicSearch(params) {
     if (Meteor.isServer) {
-        const searchLimit = 3;
+        const searchLimit = 20;
         params = cleanParams(params);
 
         querys = [];
