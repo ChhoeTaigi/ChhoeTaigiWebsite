@@ -78,7 +78,7 @@ function basicSearch(params) {
 
 function searchAllField(params) {
     if (Meteor.isServer) {
-        const searchLimit = 3;
+        const searchLimit = 20;
         querys = [];
         for (let idx in dicsStruct) {
             let dic = dicsStruct[idx].name
