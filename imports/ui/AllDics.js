@@ -106,6 +106,8 @@ class AllDics extends Component {
             const dicResults = allResults[idx];
             const dic = dicResults.dic;
             const chineseName = dicStruct.filter((e) => e.name === dic)[0].chineseName;
+            const rowNum = parseInt(allResults[idx].num);
+
             dicButtons.push(
                 <a className={'all-dic-button ' + (this.state.selectedDic === dic ? 'all-dic-button-selected' : 'all-dic-button-unselected')} key={dic} onClick={this.handleButtonClicked.bind(this, dic)}>
                     <div><span>{(parseInt(idx) + 1) + '. ' + chineseName}</span></div>
@@ -115,10 +117,10 @@ class AllDics extends Component {
             let thisRef = React.createRef();
             refs[dic] = thisRef;
             dicBriefs.push(
-                <DictionaryBrief ref={thisRef} key={dic} dicResults={dicResults} showMore={this.showMore.bind(this, dic)} showMoreButton={dicResults.words.length > 1} />
+                <DictionaryBrief ref={thisRef} key={dic} dicResults={dicResults} showMore={this.showMore.bind(this, dic)} showMoreButton={rowNum > 20} />
             );
 
-            totalNum += parseInt(allResults[idx].num);
+            totalNum += rowNum;
         }
         this.refs = refs;
         let remainingButtonNum = 9 - (allResults.filter(e => e).length % 9);
