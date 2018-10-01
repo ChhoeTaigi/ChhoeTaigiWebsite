@@ -1,117 +1,140 @@
 {
     "explanation": [
-        "搜尋功能說明",
-        "Chhiau-chhōe功能說明",
-        "Chhiau-chhōe Kong-lêng Soat-bêng"
+        "按怎chhōe？",
+        "Án-ná chhōe?",
+        "如何搜尋？",
+        "How to search?"
     ],
     "method": [
-        "搜尋方式",
-        "查ê方式",
-        "Chhâ ê Hong-sek"
+        "Thai ê方式",
+        "Thai ê Hong-sek",
+        "篩選條件",
+        "Search Filters"
     ],
     "equals": [
-        "精確搜尋：搜尋符合關鍵字且完全相同的資料",
         "Kāng款--ê：Chhōe完全kāng款--ê。",
-        "Kāng-khoán--ê: Chhōe oân-choân kāng-khoán--ê."
+        "Kāng-khoán--ê: Chhōe oân-choân kāng-khoán--ê.",
+        "精確搜尋：搜尋完全符合關鍵字的資料",
+        "Exact Search: Search data that have the exact keywords"
     ],
     "contains": [
+        "相關--ê：Chhōe內底有kauh beh chhōe ê字詞--ê。",
+        "Siong-koan--ê: Chhōe lāi-té ū kauh beh chhōe ê jī-sû--ê.",
         "模糊搜尋：搜尋有包含關鍵字的資料",
-        "相關--ê：Chhōe內底有輸入ê字詞--ê。",
-        "Siong-koan--ê: Chhōe lāi-té ū su-ji̍p ê jī-sû--ê."
+        "Fuzzy Search: Search data contains the keywords"
     ],
     "condition": [
-        "搜尋條件",
-        "查ê條件",
-        "Chhâ ê Tiâu-kiāⁿ"
+        "Chhōe ê方式",
+        "Chhōe ê Hong-sek",
+        "輸入方式",
+        "Search Keywords"
     ],
     "lmj-tb": [
         "羅馬字台文：",
+        "Lô-má-jī Tâi-bûn:",
         "羅馬字台文：",
-        "Lô-má-jī Tâi-bûn:"
-    ],
-    "poj": [
-        "白話字",
-        "白話字",
-        "Pe̍h-ōe-jī"
-    ],
-    "poj-unicode": [
-        "白話字Unicode格式，以台語輸入法直接輸入。",
-        "白話字Unicode ê格式，用台語輸入法直接phah。",
-        "Pe̍h-ōe-jī Unicode ê keh-sek, ēng Tâi-gí Su-ji̍p-hoat ti̍t-chiap phah."
+        "Roman Taigi"
     ],
     "poj-input": [
         "白話字輸入",
+        "POJ Su-ji̍p",
         "白話字輸入",
-        "Pe̍h-ōe-jī Su-ji̍p"
+        "POJ Input"
     ],
     "poj-num": [
-        "白話字數字調號格式，適合沒有台語輸入法時使用。聲調數字放在最後（第1、4聲不用加數字），白話字「o͘ 」以「oo」代替、鼻音「ⁿ」以「nn」代替。例如查「chho͘」改為輸入【chhoo】、查「siâⁿ」改為輸入【siann5】。",
-        "白話字數字調號ê格式，適合無安裝台語輸入法ê人來使用。聲調數字khǹg tī字ê siōng尾（第1、4聲m̄免寫數字），白話字「o͘ 」用「oo」來代替、鼻音「ⁿ」用「nn」來代替。譬如beh chhōe「chho͘」改做phah【chhoo】、beh chhōe「siâⁿ」改做phah【siann5】。",
-        "Pe̍h-ōe-jī sò͘-jī tiâu-hō ê keh-sek, sek-ha̍p bô an-chng Tâi-gí Su-ji̍p-hoat ê lâng lâi sú-iōng. Siaⁿ-tiāu sò͘-jī khǹg tī jī ê siōng-bóe (Tē 1, 4 siaⁿ m̄-bián siá sò͘-jī), Pe̍h-ōe-jī \"o͘ \" iōng \"oo\" lâi tāi-thè, phîⁿ-im \"ⁿ\" iōng \"nn\" lâi tāi-thè. Phì-jū beh chhōe \"chho͘ \" kái chò phah \"chhoo\", beh chhōe \"siaⁿ\" kái chò phah \"siann\"."
-    ],
-    "lmj": [
-        "教育部羅馬字",
-        "教育部羅馬字",
-        "Kàu-io̍k-pō͘ Lô-má-jī"
-    ],
-    "lmj-unicode": [
-        "教育部羅馬字Unicode格式，以台語輸入法直接輸入。",
-        "教育部羅馬字Unicode ê格式，用台語輸入法直接phah。",
-        "Kàu-io̍k-pō͘ Lô-má-jī Unicode ê keh-sek, ēng Tâi-gí Su-ji̍p-hoat ti̍t-chiap phah."
+        "白話字輸入ê格式，適合無安裝台語輸入法ê人來使用。聲調phah數字，khǹg tī字ê siōng尾（第1、4聲m̄免寫數字），白話字「o͘ 」用「oo」來代替、鼻音「ⁿ」用「nn」來代替。譬如beh chhōe「chho͘」改做phah【chhoo】、beh chhōe「siâⁿ」改做phah【siann5】。",
+        "Pe̍h-ōe-jī su-ji̍p ê keh-sek, sek-ha̍p bô an-chng Tâi-gí Su-ji̍p-hoat ê lâng lâi sú-iōng. Siaⁿ-tiāu phah sò͘-jī, khǹg tī jī ê siōng-bóe (Tē 1, 4 siaⁿ m̄-bián siá sò͘-jī), Pe̍h-ōe-jī \"o͘ \" iōng \"oo\" lâi tāi-thè, phîⁿ-im \"ⁿ\" iōng \"nn\" lâi tāi-thè. Phì-jū beh chhōe \"chho͘ \" kái chò phah \"chhoo\", beh chhōe \"siaⁿ\" kái chò phah \"siann\".",
+        "白話字輸入的格式，適合沒有台語輸入法時使用。聲調直接輸入數字，放在最後（第1、4聲不用加數字），白話字「o͘ 」以「oo」代替、鼻音「ⁿ」以「nn」代替。例如查「chho͘」改為輸入【chhoo】、查「siâⁿ」改為輸入【siann5】。",
+        "POJ input format, using Taigi keyboard. Type number tone at the end of each word (Excluding the 1st and 4th tone number). Type \"oo\" instead of \"o͘ \" and \"nn\" instead of \"ⁿ\" in POJ. For example, type \"chhoo\" to search \"chho͘ \"; type \"siann5\" to search \"siâⁿ\"."
     ],
     "lmj-input": [
         "教育部羅馬字輸入",
+        "Kàu-io̍k-pō͘ Lô-má-jī Su-ji̍p",
         "教育部羅馬字輸入",
-        "Kàu-io̍k-pō͘ Lô-má-jī Su-ji̍p"
+        "MoE Roman Input"
     ],
     "lmj-num": [
-        "教育部羅馬字數字調號格式，適合沒有台語輸入法時使用。聲調數字放在最後（第1、4聲不用加數字）。例如查「pe̍h」改為輸入【peh8】。",
-        "教育部羅馬字數字調號ê格式，適合無安裝台語輸入法ê人來使用。聲調數字khǹg tī字ê siōng尾（第1、4聲m̄免寫數字）。譬如beh chhōe「pe̍h」改做phah【peh8】。",
-        "Kàu-io̍k-pō͘ Lô-má-jī sò͘-jī tiâu-hō ê keh-sek, sek-ha̍p bô an-chng Tâi-gí Su-ji̍p-hoat ê lâng lâi sú-iōng. Siaⁿ-tiāu sò͘-jī khǹg tī jī ê siōng-bóe (Tē 1, 4 siaⁿ m̄-bián siá sò͘-jī). Phì-jū beh chhōe \"pe̍h\" kái chò phah \"peh8\"."
+        "教育部羅馬字輸入ê格式，適合無安裝台語輸入法ê人來使用。聲調phah數字，khǹg tī字ê siōng尾（第1、4聲m̄免寫數字）。譬如beh chhōe「pe̍h」改做phah【peh8】。",
+        "Kàu-io̍k-pō͘ Lô-má-jī su-ji̍p ê keh-sek, sek-ha̍p bô an-chng Tâi-gí Su-ji̍p-hoat ê lâng lâi sú-iōng. Siaⁿ-tiāu phah sò͘-jī, khǹg tī jī ê siōng-bóe (Tē 1, 4 siaⁿ m̄-bián siá sò͘-jī). Phì-jū beh chhōe \"pe̍h\" kái chò phah \"peh8\".",
+        "教育部羅馬字輸入格式，適合沒有台語輸入法時使用。聲調直接輸入數字，放在最後（第1、4聲不用加數字）。例如查「pe̍h」改為輸入【peh8】。",
+        "MoE (Ministry of Education) Roman input format, using Taigi keyboard. Type number tone at the end of each word (Excluding the 1st and 4th tone number). For example, type \"peh8\" to search \"pe̍h\"."
+    ],
+    "poj": [
+        "白話字",
+        "POJ",
+        "白話字",
+        "POJ"
+    ],
+    "poj-unicode": [
+        "白話字Unicode ê格式，用台語輸入法直接phah。",
+        "Pe̍h-ōe-jī Unicode ê keh-sek, ēng Tâi-gí Su-ji̍p-hoat ti̍t-chiap phah.",
+        "白話字Unicode格式，以台語輸入法直接輸入。",
+        "POJ Unicode format, using Taigi keyboard."
+    ],
+    "lmj": [
+        "教育部羅馬字",
+        "Kàu-io̍k-pō͘ Lô-má-jī",
+        "教育部羅馬字",
+        "MoE Roman"
+    ],
+    "lmj-unicode": [
+        "教育部羅馬字Unicode ê格式，用台語輸入法直接phah。",
+        "Kàu-io̍k-pō͘ Lô-má-jī Unicode ê keh-sek, ēng Tâi-gí Su-ji̍p-hoat ti̍t-chiap phah.",
+        "教育部羅馬字Unicode格式，以台語輸入法直接輸入。",
+        "MoE (Ministry of Education) Roman Unicode format, using Taigi keyboard."
     ],
     "tb": [
-        "漢羅台文：輸入漢字或是漢羅合用的台語文。",
-        "漢羅台文：Phah漢字a̍h是漢羅合用ê台語文。",
-        "Hàn-lô Tâi-bûn: Phah Hàn-jī a̍h-sī Hàn-lô ha̍p-iōng ê Tâi-gí-bûn."
+        "漢字/漢羅台文：Phah漢字a̍h是漢羅合用ê台語文。",
+        "Hàn-jī/Hàn-lô Tâi-bûn: Phah Hàn-jī a̍h-sī Hàn-lô ha̍p-iōng ê Tâi-gí-bûn.",
+        "漢字/漢羅台文：輸入漢字或是漢羅合用的台語文。",
+        "Hanzi/Han-Roman Taigi: Type Taigi Hanzi or Han-Roman Taigi words."
     ],
     "hb": [
-        "對應華文：輸入對應台語的華語漢字。",
         "對應華文：Phah對應台語ê華語漢字。",
-        "Tùi-èng Hôa-bûn: Phah tùi-èng Tâi-gí ê Hôa-gí Hàn-jī."
+        "Tùi-èng Hôa-bûn: Phah tùi-èng Tâi-gí ê Hôa-gí Hàn-jī.",
+        "對應華文：輸入對應台語的華語漢字。",
+        "Chinese: Type Chinese to search corresponding Taigi."
     ],
     "en": [
-        "對應英文：輸入對應台語的英文。",
         "對應英文：Phah對應台語ê英文。",
-        "Tùi-èng Eng-bûn: Phah tùi-èng Tâi-gí ê Eng-bûn."
+        "Tùi-èng Eng-bûn: Phah tùi-èng Tâi-gí ê Eng-bûn.",
+        "對應英文：輸入對應台語的英文。",
+        "English: Type English to search corresponding Taigi."
     ],
     "wildcard": [
-        "萬用字元搜尋",
         "用萬用字元來chhōe",
-        "Iōng bān-iōng jī-goân lâi chhōe"
-    ],
-    "one-more": [
-        "代表0或1個以上的任意字元。",
-        "代表有可能無，a̍h是有1 ê以上任何ê字。",
-        "Tāi-piáu ū khó-lêng bô, a̍h-sī ū 1 ê í-siōng jīm-hô ê jī."
-    ],
-    "one-more-ex": [
-        "例如輸入「白話字」關鍵字查【*pn̄g】，可以找到「âng-tāu-pn̄g」、「be̍h-á-pn̄g」、「chhài-pn̄g」、「pn̄g」等等",
-        "譬如phah「白話字」ê關鍵字chhōe【*pn̄g】，ē-sái chhōe tio̍h「âng-tāu-pn̄g」、「be̍h-á-pn̄g」、「chhài-pn̄g」、「pn̄g」等等。",
-        "Phí-jū phah \"Pe̍h-ōe-jī\" ê koan-kiān-jī chhōe \"*pn̄g\", ē-sái chhōe tio̍h \"âng-tāu-pn̄g\", \"be̍h-á-pn̄g\", \"chhài-pn̄g\", \"pn̄g\" téng-téng."
+        "Iōng bān-iōng jī-goân lâi chhōe",
+        "萬用字元搜尋",
+        "Search with Wildcard Character"
     ],
     "one": [
-        "代表1個任意字元。",
-        "代表1 ê任何ê字。",
-        "Tāi-piáu 1 ê jīm-hô ê jī."
+        "*：代表有1 ê以上任何ê字，a̍h是無半字。",
+        "*: Tāi-piáu ū 1-ê í-siōng jīm-hô ê jī, a̍h-sī bô-pòaⁿ-jī.",
+        "*：代表有0或1個以上的任意字元。",
+        "*: Matches zero or more non-space characters."
     ],
     "one-ex": [
-        "例如輸入「白話字」關鍵字查「p+」，可以找到「pa」、「pá」等等。輸入「對應華文」關鍵字查「豬++」，可以找到「豬蹄子」、「豬血湯」等等。",
         "譬如phah「白話字」ê關鍵字chhōe「p+」，ē-sái chhōe tio̍h「pa」、「pá」等等。Phah「對應華文」ê關鍵字chhōe「豬++」，ē-sái chhōe tio̍h「豬蹄子」、「豬血湯」等等。",
-        "Phí-jū phah \"Pe̍h-ōe-jī\" ê koan-kiān-jī chhōe \"p+\", ē-sái chhōe tio̍h \"pa\", \"pá\" téng-téng. Phah \"Tùi-èng Hôa-bûn\" ê koan-kiān-jī chhōe \"豬++\", ē-sái chhōe tio̍h \"豬蹄子\", \"豬血湯\" téng-téng."
+        "Phí-jū phah \"Pe̍h-ōe-jī\" ê koan-kiān-jī chhōe \"p+\", ē-sái chhōe tio̍h \"pa\", \"pá\" téng-téng. Phah \"Tùi-èng Hôa-bûn\" ê koan-kiān-jī chhōe \"豬++\", ē-sái chhōe tio̍h \"豬蹄子\", \"豬血湯\" téng-téng.",
+        "例如輸入「白話字」關鍵字查「p+」，可以找到「pa」、「pá」等等。輸入「對應華文」關鍵字查「豬++」，可以找到「豬蹄子」、「豬血湯」等等。",
+        "For example: When searching POJ with keyword \"*pn̄g\", you will find \"âng-tāu-pn̄g\", \"be̍h-á-pn̄g\", \"chhài-pn̄g\", \"pn̄g\", etc."
+    ],
+    "any": [
+        "+：代表有tú好1 ê任何ê字。",
+        "+: Tāi-piáu ū tú-hó 1-ê jīm-hô ê jī.",
+        "+：代表有剛好1個的任意字元。",
+        "+: Ｍatches exactly one non-space character."
+    ],
+    "any-ex": [
+        "譬如phah「白話字」ê關鍵字chhōe「p+」，ē-sái chhōe tio̍h「pa」、「pá」等等。Phah「對應華文」ê關鍵字chhōe「豬++」，ē-sái chhōe tio̍h「豬頭皮」、「豬血湯」等等。",
+        "Phí-jū phah \"Pe̍h-ōe-jī\" ê koan-kiān-jī chhōe \"p+\", ē-sái chhōe tio̍h \"pa\", \"pá\" téng-téng. Phah \"Tùi-èng Hôa-bûn\" ê koan-kiān-jī chhōe \"豬++\", ē-sái chhōe tio̍h \"豬頭皮\", \"豬血湯\" téng-téng.",
+        "例如輸入「白話字」關鍵字查「p+」，可以找到「pa」、「pá」等等。輸入「對應華文」關鍵字查「豬++」，可以找到「豬頭皮」、「豬血湯」等等。",
+        "For example: When searching POJ with keyword \"p+\", you will find \"pa\", \"pá\", etc. When searching Chinese with keyword \"豬++\", you will find \"豬頭皮\", \"豬血湯\", etc."
     ],
     "contact": [
-        "以上說明若不夠完善，或是使用上有疑問，歡迎跟我們聯絡，謝謝！",
-        "若以上ê說明無sáⁿ清楚，a̍h是使用有siáⁿ問題，lóng歡迎kap gún聯絡，多謝！",
-        "Nā í-siōng ê soat-bêng bô sáⁿ chheng-chhó, a̍h-sī sú-iōng ū siáⁿ būn-tê, lóng hoan-gêng kap gún liân-lo̍k, to-siā!"
+        "若以上ê說明無夠清楚，a̍h是使用有siáⁿ問題，lóng歡迎kap gún聯絡，多謝！",
+        "Nā í-siōng ê soat-bêng bô kàu chheng-chhó, a̍h-sī sú-iōng ū siáⁿ būn-tê, lóng hoan-gêng kap gún liân-lo̍k, to-siā!",
+        "以上說明若哪裡不清楚，或是使用上有疑問，歡迎跟我們聯絡，謝謝！",
+        "Please feel free to contact us if you have any question or suggestion, thank you!"
     ]
 }

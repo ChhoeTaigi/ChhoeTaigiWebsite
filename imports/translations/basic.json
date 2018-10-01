@@ -1,82 +1,98 @@
 {
     "basic": [
-        "基礎搜尋",
-        "基礎搜尋",
-        "Ki-chhó͘ Chhâ-sûn"
+        "簡單Chhōe",
+        "Kán-tan Chhōe",
+        "簡易搜尋",
+        "Basic Search"
     ],
     "search-method": [
-        "1: 搜尋方式",
-        "1: 查詢ê方式",
-        "1: Chhâ-sûn ê Hong-sek"
+        "1: Thai ê方式",
+        "1: Thai ê Hong-sek",
+        "1: 篩選條件",
+        "1. Search Filters"
     ],
     "equals": [
-        "精確搜尋",
         "Kāng款--ê",
-        "Kāng-khoán--ê"
+        "Kāng-khoán--ê",
+        "精確搜尋",
+        "Exact Search"
     ],
     "contains": [
-        "模糊搜尋",
         "相關--ê",
-        "Siong-koan--ê"
+        "Siong-koan--ê",
+        "模糊搜尋",
+        "Fuzzy Search"
     ],
     "explanation": [
-        "搜尋功能說明",
-        "Chhiau-chhōe功能說明",
-        "Chhiau-chhōe Kong-lêng Soat-bêng"
+        "按怎chhōe？",
+        "Án-ná chhōe?",
+        "如何搜尋？",
+        "How to search?"
     ],
     "input-method": [
+        "2: Chhōe ê方式",
+        "2: Chhōe ê Hong-sek",
         "2: 輸入方式",
-        "2: 輸入ê方式",
-        "2: Su-ji̍p ê Hong-sek"
+        "2. Search Keywords"
     ],
     "lmj-tb": [
         "羅馬字台文",
+        "Lô-má-jī Tâi-bûn",
         "羅馬字台文",
-        "Lô-má-jī Tâi-bûn"
+        "Roman Taigi"
     ],
     "poj": [
         "白話字",
+        "POJ",
         "白話字",
         "POJ"
     ],
     "poj-input": [
         "白話字輸入",
+        "POJ Su-ji̍p",
         "白話字輸入",
-        "POJ Su-ji̍p"
+        "POJ Input"
     ],
     "lmj": [
         "教育部羅馬字",
+        "Kàu-io̍k-pō͘  LMJ",
         "教育部羅馬字",
-        "Kàu-io̍k-pō͘  LMJ"
+        "MoE Roman"
     ],
     "lmj-input": [
         "教育部羅馬字輸入",
+        "Kàu-io̍k-pō͘ LMJ Su-ji̍p",
         "教育部羅馬字輸入",
-        "Kàu-io̍k-pō͘ LMJ Su-ji̍p"
+        "MoE Roman Input"
     ],
     "keyword": [
-        "請輸入關鍵字",
         "請phah beh chhōe ê字詞",
-        "Chhiáⁿ phah beh chhōe ê jī-sû"
+        "Chhiáⁿ phah beh chhōe ê jī-sû",
+        "請輸入關鍵字",
+        "Enter keywords"
     ],
     "corresponding-tb": [
-        "對應台文",
-        "對應台文",
-        "Tùi-èng Tâi-bûn"
+        "漢字/漢羅台文",
+        "Hàn-jī/Hàn-lô Tâi-bûn",
+        "漢字/漢羅台文",
+        "Hanzi/Han-Roman Taigi"
     ],
     "corresponding-hb": [
         "對應華文",
+        "Tùi-èng Hôa-bûn",
         "對應華文",
-        "Tùi-èng Hôa-bûn"
+        "Chinese"
     ],
     "corresponding-en": [
         "對應英文",
+        "Tùi-èng Eng-bûn",
         "對應英文",
-        "Tùi-èng Eng-bûn"
+        "English"
     ],
     "find": [
-        "開始找",
         "開始chhōe",
-        "Khai-sí Chhōe"
+        "Khai-sí Chhōe",
+        "開始找",
+        "Search"
     ]
 }

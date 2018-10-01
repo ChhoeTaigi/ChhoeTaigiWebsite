@@ -60,6 +60,7 @@ class Footer extends Component {
                     <button className={localeButtonStyle + ' ' + (this.state.locale === 'tb' ? localeButtonSelectedStyle : '')} value='tb' onClick={this.localeChange.bind(this)}>漢羅台文</button>
                     <button className={localeButtonStyle + ' ' + (this.state.locale === 'po' ? localeButtonSelectedStyle : '')} value='po' onClick={this.localeChange.bind(this)}>Pe̍h-ōe-jī</button>
                     <button className={localeButtonStyle + ' ' + (this.state.locale === 'hb' ? localeButtonSelectedStyle : '')} value='hb' onClick={this.localeChange.bind(this)}>華文</button>
+                    <button className={localeButtonStyle + ' ' + (this.state.locale === 'en' ? localeButtonSelectedStyle : '')} value='en' onClick={this.localeChange.bind(this)}>English</button>
                 </div>
                 <footer className={this.state.background}>
                     <Link id='footer-image' to='https://grants.g0v.tw/power/' target='_blank'></Link>

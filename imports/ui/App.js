@@ -19,9 +19,10 @@ class App extends Component {
 
         props.initialize({
             languages: [
-                { name: "Hoabun", code: "hb" },
-                { name: "Taibun", code: "tb" },
-                { name: "Pe̍h-ōe-jī", code: "po" },
+                { name: 'Taibun', code: 'tb' },
+                { name: 'Pe̍h-ōe-jī', code: 'po' },
+                { name: 'Hoabun', code: 'hb' },
+                { name: 'English', code: 'en'}
             ],
             options: { 
                 renderToStaticMarkup,

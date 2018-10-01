@@ -79,8 +79,8 @@ class Explanation extends Component {
                 </div>
                 <div id='explanation-sec-3'>
                     <h2 className='explanation-subtitle'><Translate id='wildcard' /></h2>
-                    <h3 className='explanation-subtitle2'><Translate id='one-more' /></h3>
-                    <span className='explanation-content'><Translate id='one-more-ex' /></span>
+                    <h3 className='explanation-subtitle2'><Translate id='any' /></h3>
+                    <span className='explanation-content'><Translate id='any-ex' /></span>
                     <h3 className='explanation-subtitle2'><Translate id='one' /></h3>
                     <span className='explanation-content'><Translate id='one-ex' /></span>
                 </div>

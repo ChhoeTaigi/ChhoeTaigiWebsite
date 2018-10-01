@@ -1,22 +1,26 @@
 {
     "all-field": [
+        "Chhōe全部ê資料",
+        "Chhōe Choân-pō͘ ê Chu-liāu",
         "全文搜尋",
-        "查全部ê資料",
-        "Chhâ Choân-pō͘ ê Chu-liāu"
+        "Full-text Search"
     ],
     "keyword": [
-        "輸入關鍵字",
         "請phah beh chhōe ê字詞",
-        "Chhiáⁿ phah beh chhōe ê jī-sû"
+        "Chhiáⁿ phah beh chhōe ê jī-sû",
+        "輸入關鍵字",
+        "Enter keywords"
     ],
     "find": [
-        "開始找",
         "開始chhōe",
-        "Khai-sí Chhōe"
+        "Khai-sí Chhōe",
+        "開始找",
+        "Search"
     ],
     "by-dic": [
-        "依不同資料搜尋",
         "Chhōe孤1 ê資料",
-        "Chhōe Ko͘ 1-ê Chu-liāu"
+        "Chhōe Ko͘ 1-ê Chu-liāu",
+        "依不同資料搜尋",
+        "Dataset Search"
     ]
 }
