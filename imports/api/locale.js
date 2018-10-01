@@ -1,7 +1,10 @@
 
-export const setLocale = (cookies, locale) => {
-    cookies.set('locale', locale);
-    document.location.reload(true);
+export const setLocale = (provider, locale) => {
+    provider.state.cookies.set('locale', locale);
+    provider.props.setActiveLanguage(locale);
+    provider.setState({
+        locale: locale,
+    });
 }
 
 export const getLocale = (cookies) => {

@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Link, withRouter } from 'react-router-dom';
+import { withLocalize } from "react-localize-redux";
 
 import { setLocale, getLocale } from '../api/locale';
 import { withCookies } from 'react-cookie';
@@ -42,8 +43,7 @@ class Footer extends Component {
 
     localeChange(event) {
         const locale = event.target.value;
-        setLocale(this.state.cookies, locale);
-        this.setState({locale: locale});
+        setLocale(this, locale);
     }
 
     render() {
@@ -70,4 +70,4 @@ class Footer extends Component {
     }
 }
 
-export default withCookies(withRouter(Footer));
+export default withCookies(withLocalize(withRouter(Footer)));
