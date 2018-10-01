@@ -139,10 +139,27 @@ class SingleDic extends Component {
     render() {
         let pageFrom = this.state.pageFrom;
         let pageTo = this.state.pageTo;
-        let pages = [];
-        let listPageNum = (pageTo - pageFrom + 1);
-        for (let i = pageFrom; i <= pageTo; ++i)
-            pages.push(<button key={i} className={'page-button ' + (this.state.thisPage === i ? 'page-button-selected' : '')} onClick={this.handlePageClick.bind(this, i)}>{i}</button>);
+
+        let pageView;
+        if (pageTo > 1) {
+            let pages = [];
+            let listPageNum = (pageTo - pageFrom + 1);
+
+            for (let i = pageFrom; i <= pageTo; ++i)
+                pages.push(<button key={i} className={'page-button ' + (this.state.thisPage === i ? 'page-button-selected' : '')} onClick={this.handlePageClick.bind(this, i)}>{i}</button>);
+            
+            pageView = (
+                <div id='single-dic-right-container'>
+                    <button id='last-page' className='page-arrow' onClick={this.lastPage.bind(this)}></button>
+                    <div className='dic-pages' style={{gridTemplateColumns: 'repeat(' + listPageNum + ', 1fr)'}}>{pages}</div>
+                    <button id='next-page' className='page-arrow' onClick={this.nextPage.bind(this)}></button>
+                    <span>跳至第</span>
+                    <input type='text' onKeyPress={this.goToPage.bind(this)}></input>
+                    <span>頁</span>
+                </div>
+            )
+        }
+        
         
         return (
             <div id='single-dic-container' style={{minHeight: this.state.background_height}}>
@@ -153,14 +170,7 @@ class SingleDic extends Component {
                             <h1 className='dic-title'>{this.state.chineseName}</h1>
                             <h2 className='dic-subtitle'>(共{this.state.totalNum}筆，{this.state.pageNum}頁)</h2>
                         </div>
-                        <div id='single-dic-right-container'>
-                            <button id='last-page' className='page-arrow' onClick={this.lastPage.bind(this)}></button>
-                            <div className='dic-pages' style={{gridTemplateColumns: 'repeat(' + listPageNum + ', 1fr)'}}>{pages}</div>
-                            <button id='next-page' className='page-arrow' onClick={this.nextPage.bind(this)}></button>
-                            <span>跳至第</span>
-                            <input type='text' onKeyPress={this.goToPage.bind(this)}></input>
-                            <span>頁</span>
-                        </div>
+                        { pageView }
                     </div>
                     <BriefWord key={this.state.dic} dic={this.state.dic} words={this.state.words}/>
                 </div>
