@@ -14,7 +14,7 @@ class BasicSearch extends Component {
 
         this.state = {
             searchMethod: 'equals',
-            spellingMethod: 'poj_unicode',
+            spellingMethod: 'poj_input',
             spelling: '',
             hanlo_taibun_poj: '',
             hoabun: '',
@@ -120,24 +120,24 @@ class BasicSearch extends Component {
                                 <div id='input-container-right'>
                                     <div id='large-input-top'>
                                         <label id='radio-3' className='radio'>
-                                            <div className={this.state.spellingMethod === 'poj_unicode' ? 'checked' : 'unchecked'}></div>
-                                            <input type="radio" name="spellingMethod" value="poj_unicode" defaultChecked={this.state.spellingMethod === 'poj_unicode'} onChange={this.handleInput.bind(this)} />
-                                            <span><Translate id="poj" /></span>
-                                        </label>
-                                        <label id='radio-4' className='radio'>
                                             <div className={this.state.spellingMethod === 'poj_input' ? 'checked' : 'unchecked'}></div>
                                             <input type="radio" name="spellingMethod" value="poj_input" defaultChecked={this.state.spellingMethod === 'poj_input'} onChange={this.handleInput.bind(this)} />
                                             <span><Translate id="poj-input" /></span>
                                         </label>
-                                        <label id='radio-5' className='radio'>
-                                            <div className={this.state.spellingMethod === 'kiplmj_unicode' ? 'checked' : 'unchecked'}></div>
-                                            <input type="radio" name="spellingMethod" value="kiplmj_unicode" defaultChecked={this.state.spellingMethod === 'kiplmj_unicode'} onChange={this.handleInput.bind(this)} />
-                                            <span><Translate id="lmj" /></span>
-                                        </label>
-                                        <label id='radio-6' className='radio'>
+                                        <label id='radio-4' className='radio'>
                                             <div className={this.state.spellingMethod === 'kiplmj_input' ? 'checked' : 'unchecked'}></div>
                                             <input type="radio" name="spellingMethod" value="kiplmj_input" defaultChecked={this.state.spellingMethod === 'kiplmj_input'} onChange={this.handleInput.bind(this)} />
                                             <span><Translate id="lmj-input" /></span>
+                                        </label>
+                                        <label id='radio-5' className='radio'>
+                                            <div className={this.state.spellingMethod === 'poj_unicode' ? 'checked' : 'unchecked'}></div>
+                                            <input type="radio" name="spellingMethod" value="poj_unicode" defaultChecked={this.state.spellingMethod === 'poj_unicode'} onChange={this.handleInput.bind(this)} />
+                                            <span><Translate id="poj" /></span>
+                                        </label>
+                                        <label id='radio-6' className='radio'>
+                                            <div className={this.state.spellingMethod === 'kiplmj_unicode' ? 'checked' : 'unchecked'}></div>
+                                            <input type="radio" name="spellingMethod" value="kiplmj_unicode" defaultChecked={this.state.spellingMethod === 'kiplmj_unicode'} onChange={this.handleInput.bind(this)} />
+                                            <span><Translate id="lmj" /></span>
                                         </label>
                                         <div id='text-input-seperator'></div>
                                     </div>
