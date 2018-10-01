@@ -12,7 +12,7 @@ class DicApp extends Component {
         props.addTranslation(dicAppTranslations);
 
         this.state = {
-            background_height: window.innerHeight - 96,
+            background_height: window.innerHeight - 168,
         };
 
         this.handleResize = this.handleResize.bind(this);
@@ -20,7 +20,7 @@ class DicApp extends Component {
 
     handleResize() {
         this.setState({
-            background_height: window.innerHeight - 96,
+            background_height: window.innerHeight - 168,
         });
     }
 

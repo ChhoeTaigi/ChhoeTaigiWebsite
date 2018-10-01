@@ -19,7 +19,7 @@ class BasicSearch extends Component {
             hanlo_taibun_poj: '',
             hoabun: '',
             english_descriptions: '',
-            background_height: window.innerHeight - 302,
+            background_height: window.innerHeight - 374,
         };
 
         this.handleResize = this.handleResize.bind(this);
@@ -27,7 +27,7 @@ class BasicSearch extends Component {
 
     handleResize() {
         this.setState({
-            background_height: window.innerHeight - 302,
+            background_height: window.innerHeight - 374,
         });
     }
 
@@ -88,7 +88,7 @@ class BasicSearch extends Component {
                 <div id='banner-container'>
                     <img id='banner' src='images/home_image@2x.png' width='730' height='200'></img>
                 </div>
-                <div id='form-background' style={{minHeight: this.state.background_height + 'px'}}>
+                <div id='form-background'  style={{minHeight: this.state.background_height + 'px'}}>
                     <form id='basic-form' onSubmit={this.handleSubmit.bind(this)} autoComplete='off'>
                         <div id='search-title'><Translate id="basic" /></div>
                         <div id='form-container'>
