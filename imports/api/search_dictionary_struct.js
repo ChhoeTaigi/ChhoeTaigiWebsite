@@ -2,23 +2,28 @@
 
 module.exports = [
     {
-        name: 'KauiokpooTaigiSutian2',
+        name: 'KauiokpooTaigiSutian',
+        dbname: 'KauiokpooTaigiSutian2',
         columns: ['poj_unicode', 'poj_input', 'kiplmj_unicode', 'kiplmj_input', 'main_id'],
     },
     {
-        name: 'TaiJitToaSuTian2',
+        name: 'TaiJitToaSuTian',
+        dbname: 'TaiJitToaSuTian2',
         columns: ['poj_unicode', 'poj_input', 'kiplmj_unicode', 'kiplmj_input', 'main_id'],
     },
     {
-        name: 'TaibunHoabunSoanntengSutian2',
+        name: 'TaibunHoabunSoanntengSutian',
+        dbname: 'TaibunHoabunSoanntengSutian2',
         columns: ['poj_unicode', 'poj_input', 'kiplmj_unicode', 'kiplmj_input', 'main_id'],
     },
     {
-        name: 'TaioanPehoeKichhooGiku2',
+        name: 'TaioanPehoeKichhooGiku',
+        dbname: 'TaioanPehoeKichhooGiku2',
         columns: ['poj_unicode', 'poj_input', 'kiplmj_unicode', 'kiplmj_input', 'main_id'],
     },
     {
-        name: 'iTaigiHoaTaiSutian2',
+        name: 'iTaigiHoaTaiSutian',
+        dbname: 'iTaigiHoaTaiSutian2',
         columns: ['poj_unicode', 'poj_input', 'kiplmj_unicode', 'kiplmj_input', 'main_id'],
     },
 ]

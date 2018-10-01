@@ -3,7 +3,7 @@ let searchDicStruct = require('../../imports/api/search_dictionary_struct');
 exports.up = function(knex, Promise) {
     cmd = [];
     for (let idx in searchDicStruct) {
-        const dicName = searchDicStruct[idx].name;
+        const dicName = searchDicStruct[idx].dbname;
         const columns = searchDicStruct[idx].columns;
         cmd.push(
             knex.schema.createTable(dicName, (table) => {
@@ -24,7 +24,7 @@ exports.up = function(knex, Promise) {
 exports.down = function(knex, Promise) {
     cmd = [];
     for (let idx in searchDicStruct) {
-        let dicName = searchDicStruct[idx].name;
+        let dicName = searchDicStruct[idx].dbname;
         cmd.push(
             knex.schema.dropTable(dicName)
         )

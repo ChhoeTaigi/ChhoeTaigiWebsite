@@ -58,7 +58,7 @@ class Update extends Component {
         // update search dic row num
         for (let idx in this.searchDics) {
             let dic = this.searchDics[idx];
-            Meteor.call('update.rowNum', dic, (error, result) => {
+            Meteor.call('update.searchRowNum', dic, (error, result) => {
                 if (error) throw new Meteor.Error(error);
                 searchRowNum[dic] = result[0].count;
                 this.setState({
@@ -121,19 +121,22 @@ class Update extends Component {
         for (let idx in this.searchDics) {
             let dic = this.searchDics[idx];
             searchDicRow.push(
-                <DicRow key={dic} name={dic} rowNum={this.state.searchRowNum[dic]} setRowNum={this.setSearchRowNum} folder={this.state.folder} />
+                <DicRow key={dic} name={dic} rowNum={this.state.searchRowNum[dic]} setRowNum={this.setSearchRowNum} folder={this.state.folder} search />
             )
         }
 
         return (
             <div>
+                <h1>更新辭典資料庫</h1>
                 <label>
                     <span>資料夾名稱</span>
                     <input id='folder' type='text' value={this.state.folder} onChange={this.changeFolder.bind(this)}></input>
                     <button onClick={this.updateFolder.bind(this)} className='Mbutton'>更新</button>
                 </label>
+                <h2>主要辭典</h2>
                 {dicRow}
                 <hr></hr>
+                <h2>搜尋辭典(lomaji_search_table)</h2>
                 {searchDicRow}
                 <button onClick={this.update.bind(this)} className='Mbutton'>Import all</button>
             </div>
@@ -153,25 +156,48 @@ export default  withTracker(() => {
 })(withRouter(Update));
 
 class DicRow extends Component {
-    delete(name) {
-        this.props.setRowNum(name, -1);
-        Meteor.call('update.delete', name, (error, result) => {
+    delete(dic) {
+        this.props.setRowNum(dic, -1);
+        Meteor.call('update.delete', dic, (error, result) => {
             if (error) throw new Meteor.Error(error);
-            this.props.setRowNum(name, result[0].count);
+            this.props.setRowNum(dic, result[0].count);
         })
     }
 
-    import(name) {
-        this.props.setRowNum(name, -1);
-        Meteor.call('update.import', this.props.folder, name);
+    deleteSearch(dic) {
+        this.props.setRowNum(dic, -1);
+        Meteor.call('update.deleteSearch', dic, (error, result) => {
+            if (error) throw new Meteor.Error(error);
+            this.props.setRowNum(dic, result[0].count);
+        })
+    }
+
+    import(dic) {
+        this.props.setRowNum(dic, -1);
+        Meteor.call('update.import', this.props.folder, dic);
+    }
+
+    importSearch(dic) {
+        this.props.setRowNum(dic, -1);
+        Meteor.call('update.importSearch', this.props.folder, dic);
     }
 
     render() {
+        let deleteButton;
+        let importButton;
+        if (this.props.search) {
+            deleteButton = <button onClick={this.deleteSearch.bind(this, this.props.name)} className='Mbutton'>delete</button>;
+            importButton = <button onClick={this.importSearch.bind(this, this.props.name)} className='Mbutton'>import</button>;
+        } else {
+            deleteButton = <button onClick={this.delete.bind(this, this.props.name)} className='Mbutton'>delete</button>;
+            importButton = <button onClick={this.import.bind(this, this.props.name)} className='Mbutton'>import</button>;
+        }
+        
         return (
             <div>
                 <b>{this.props.name}</b>: {this.props.rowNum >= 0 ? this.props.rowNum : 'waiting'}
-                <button onClick={this.delete.bind(this, this.props.name)} className='Mbutton'>delete</button>
-                <button onClick={this.import.bind(this, this.props.name)} className='Mbutton'>import</button>
+                {deleteButton}
+                {importButton}
             </div>
         );
     }
