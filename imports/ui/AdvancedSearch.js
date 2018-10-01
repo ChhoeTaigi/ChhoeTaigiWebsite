@@ -16,7 +16,7 @@ class AdvancedSearch extends Component {
         this.state = {
             method: 'allField',
             selectedDic: undefined,
-            background_height: window.innerHeight - 96,
+            background_height: window.innerHeight - 168,
         };
 
         this.handleResize = this.handleResize.bind(this);
@@ -24,7 +24,7 @@ class AdvancedSearch extends Component {
 
     handleResize() {
         this.setState({
-            background_height: window.innerHeight - 96,
+            background_height: window.innerHeight - 168,
         });
     }
 
@@ -58,14 +58,16 @@ class AdvancedSearch extends Component {
         ];
 
         // dictionary buttons
-        let dicButtons = [];
+        let dicButtonsArr = [];
+        let dicButtons;
         if (this.state.method === 'singleDic') {
             for (let idx in dicStruct) {
                 let dic = dicStruct[idx].name;
-                dicButtons.push(
+                dicButtonsArr.push(
                     <button className={'dic-button ' + (this.state.selectedDic === dic ? 'dic-button-selected' : 'dic-button-unselected')} key={dic} onClick={this.handleDicButton.bind(this, dic)}>{(parseInt(idx) + 1) + '. ' + dicStruct[idx].chineseName}</button>
                 );
             }
+            dicButtons = <div id='dic-buttons-container'>{dicButtonsArr}</div>;
         }
 
         // search options
@@ -85,7 +87,7 @@ class AdvancedSearch extends Component {
                 <div id='advanced-container'>
                     <div id='method-buttons-container'>{methodButtons}</div>
                     <div id='option-container'>
-                        <div id='dic-buttons-container'>{dicButtons}</div>
+                        {dicButtons}
                         {searchOptions}
                     </div>
                 </div>

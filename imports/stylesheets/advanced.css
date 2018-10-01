@@ -6,8 +6,8 @@
     margin-left: auto;
     margin-right: auto;
     width: 978px;
-    padding-top: 46px;
-    padding-bottom: 75px;
+    padding-top: 22px;
+    padding-bottom: 46px;
 }
 
 #method-buttons-container {
@@ -42,7 +42,7 @@
 
 #all-field-form {
     position: relative;
-    height: 299px;
+    height: 289px;
     padding-top: 226px;
 }
 
@@ -72,7 +72,7 @@
     width: 247px;
     height: 177px;
     left: 49px;
-    bottom: -30px;
+    bottom: -40px;
     background-image: url(images/pic@2x.png);
     background-size: 247px 177px;
     z-index: 1;
