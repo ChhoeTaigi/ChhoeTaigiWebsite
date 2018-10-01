@@ -1,3 +1,7 @@
+#single-dic-container {
+    overflow: auto;
+}
+
 #keywords {
     width: 957px;
     height: 36px;
@@ -12,7 +16,7 @@
     color: #657160;
 }
 
-#single-dic-container {
+#single-dic-content-container {
     width: 978px;
     margin-left: auto;
     margin-right: auto;

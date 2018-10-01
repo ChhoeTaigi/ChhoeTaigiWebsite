@@ -21,7 +21,7 @@ class AllDics extends Component {
         let firstDic = state.allResults.find(e => e);;
         if (firstDic)
             state.selectedDic = firstDic.dic;
-        state.background_height = window.innerHeight - 12;
+        state.background_height = window.innerHeight - 168;
         this.state = state;
 
         this.handleScroll = this.handleScroll.bind(this);
@@ -42,11 +42,12 @@ class AllDics extends Component {
 
     handleResize() {
         this.setState({
-            background_height: window.innerHeight - 120,
+            background_height: window.innerHeight - 168,
         });
     }
 
     componentDidMount() {
+        window.scrollTo(0, 0);
         window.addEventListener('scroll', this.handleScroll);
         window.addEventListener('resize', this.handleResize);
     }
@@ -131,7 +132,7 @@ class AllDics extends Component {
         }
         
         return (
-            <div style={{minHeight: this.state.background_height + 'px'}}>
+            <div id='all-dic-container' style={{minHeight: this.state.background_height + 'px'}}>
                 <div id='all-dic-keywords'>搜尋關鍵字：{keywords}</div>
                 <div id='all-dic-result-num'>檢索結果：共{dicLen}本/{totalNum}筆</div>
                 <div id='all-dic-buttons-background' style={this.state.isSticky ? {boxShadow: '0 3px 6px 0 rgba(0, 0, 0, 0.16)'} : {}}>

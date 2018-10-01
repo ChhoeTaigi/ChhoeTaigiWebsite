@@ -5,6 +5,10 @@
     visibility: hidden;
 }
 
+#all-dic-container {
+    overflow: auto;
+}
+
 #all-dic-keywords {
     width: 957px;
     height: 38px;

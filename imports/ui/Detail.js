@@ -35,22 +35,31 @@ class Detail extends Component {
             path: path,
             dic: dic,
             chineseName: chineseName,
-            background_height: window.innerHeight - 148,
+            background_height: window.innerHeight - 168,
         };
+
+        this.handleResize = this.handleResize.bind(this);
     }
 
     componentDidMount() {
-        window.addEventListener('resize', () => {
-            this.setState({
-                background_height: window.innerHeight - 148,
-            });
+        window.scrollTo(0, 0);
+        window.addEventListener('resize', this.handleResize);
+    }
+
+    componentWillUnmount() {
+        window.removeEventListener('resize', this.handleResize);
+    }
+
+    handleResize() {
+        this.setState({
+            background_height: window.innerHeight - 168,
         });
     }
 
     render() {
         
         return (
-            <div style={{minHeight: this.state.background_height}}>
+            <div id='detail-container' style={{minHeight: this.state.background_height}}>
                 <div id='fb-root'></div>
                 <div id='script'></div>
                 <div id='poj-container'>{this.state.chineseName}：{this.state.title}</div>

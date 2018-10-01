@@ -63,7 +63,7 @@ class SingleDic extends Component {
             chineseName: chineseName,
             options: state.options,
             words: state.allResults.words,
-            background_height: window.innerHeight - 120,
+            background_height: window.innerHeight - 168,
         };
 
         this.handleResize = this.handleResize.bind(this);
@@ -71,11 +71,12 @@ class SingleDic extends Component {
 
     handleResize() {
         this.setState({
-            background_height: window.innerHeight - 120,
+            background_height: window.innerHeight - 168,
         });
     }
 
     componentDidMount() {
+        window.scrollTo(0, 0);
         window.addEventListener('resize', this.handleResize);
     }
 
@@ -144,9 +145,9 @@ class SingleDic extends Component {
             pages.push(<button key={i} className={'page-button ' + (this.state.thisPage === i ? 'page-button-selected' : '')} onClick={this.handlePageClick.bind(this, i)}>{i}</button>);
         
         return (
-            <div style={{minHeight: this.state.background_height}}>
+            <div id='single-dic-container' style={{minHeight: this.state.background_height}}>
                 <div id='keywords'>搜尋關鍵字：{this.state.keywords}</div>
-                <div id='single-dic-container'>
+                <div id='single-dic-content-container'>
                     <div id='single-dic-title'>
                         <div id='single-dic-left-container'>
                             <h1 className='dic-title'>{this.state.chineseName}</h1>
