@@ -84,10 +84,6 @@ class SingleDic extends Component {
         window.removeEventListener('resize', this.handleResize);
     }
 
-    scrollToTop() {
-        window.scrollTo(0, 0);
-    }
-
     handlePageClick(page) {
         const options = this.state.options;
         options.params.offset = page - 1;
@@ -141,6 +137,7 @@ class SingleDic extends Component {
         let pageTo = this.state.pageTo;
 
         let pageView;
+        let bottomPageView;
         if (pageTo > 1) {
             let pages = [];
             let listPageNum = (pageTo - pageFrom + 1);
@@ -158,6 +155,12 @@ class SingleDic extends Component {
                     <span>頁</span>
                 </div>
             )
+
+            bottomPageView = (
+                <div id='bottom-page-container'>
+                    { pageView }
+                </div>
+            );
         }
         
         
@@ -173,8 +176,8 @@ class SingleDic extends Component {
                         { pageView }
                     </div>
                     <BriefWord key={this.state.dic} dic={this.state.dic} words={this.state.words}/>
+                    { bottomPageView }
                 </div>
-                <button id='to-top' onClick={this.scrollToTop.bind(this)}>回頁面頂端</button>
             </div>
         );
     }

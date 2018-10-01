@@ -104,21 +104,7 @@
     border-radius: 2px;
 }
 
-#to-top {
-    display: block;
-    width: 102px;
-    height: 26px;
-    margin: 22px auto 46px auto;
-    border-radius: 2px;
-    border: solid 1px #43944f;
-    font-size: 13px;
-    font-weight: 500;
-    color: #43944f;
-    line-height: 24px;
-    text-align: left;
-    padding-left: 8px;
-    background-image: url(images/top@2x.png);
-    background-size: 15px 15px;
-    background-position: 79px 5px;
-    background-repeat: no-repeat;
+#bottom-page-container {
+    height: 40px;
+    width: 100%;
 }
