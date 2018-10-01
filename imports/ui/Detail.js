@@ -33,6 +33,7 @@ class Detail extends Component {
         this.state = {
             struct: struct,
             path: path,
+            dic: dic,
             chineseName: chineseName,
             background_height: window.innerHeight - 148,
         };
@@ -54,7 +55,7 @@ class Detail extends Component {
                 <div id='script'></div>
                 <div id='poj-container'>{this.state.chineseName}：{this.state.title}</div>
                 <div id='word-container'>
-                    <Word columns={this.state.word}></Word>
+                    <Word columns={this.state.word} dic={this.state.dic}></Word>
                 </div>
                 <div id='fb-comments'>
                     <FacebookProvider appId='306448440105903'>
