@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
+import { Translate } from "react-localize-redux";
 
 import dicStruct from '../api/dictionary_struct';
 
@@ -39,7 +40,7 @@ export default class Word extends Component {
                     row.push(<td key={key + idx} style={{width: columnWidth[key]}}>{word[key]}</td>);
             }
             const linkUri = '/' + dic + '/' + word.id;
-            row.push(<td key={'detail' + idx} className='detail-td'><Link to={linkUri}>詳細</Link></td>)
+            row.push(<td key={'detail' + idx} className='detail-td'><Link to={linkUri}><Translate id='more' /></Link></td>)
             rows.push(<tr className='content-row' key={idx}>{row}</tr>);
         }
         

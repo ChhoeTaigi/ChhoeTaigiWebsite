@@ -1,13 +1,19 @@
 import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
 import { withRouter } from 'react-router-dom';
+import { withLocalize } from "react-localize-redux";
+import { Translate } from "react-localize-redux";
 
+import resultsTranslations from '../translations/results.json';
 import dicStruct from '../api/dictionary_struct';
 import BriefWord from './BriefWord';
 
 class AllDics extends Component {
     constructor(props) {
         super(props);
+
+        props.addTranslation(resultsTranslations);
+
         let state = props.location.state;
         if (!state) {
             props.history.replace('/');
@@ -133,8 +139,8 @@ class AllDics extends Component {
         
         return (
             <div id='all-dic-container' style={{minHeight: this.state.background_height + 'px'}}>
-                <div id='all-dic-keywords'>搜尋關鍵字：{keywords}</div>
-                <div id='all-dic-result-num'>檢索結果：共{dicLen}本/{totalNum}筆</div>
+                <div id='all-dic-keywords'><Translate id='keyowrd' />：{keywords}</div>
+                <div id='all-dic-result-num'><Translate id='all-result-1' />{dicLen}<Translate id='all-result-2' />{totalNum}<Translate id='all-result-3' /></div>
                 <div id='all-dic-buttons-background' style={this.state.isSticky ? {boxShadow: '0 3px 6px 0 rgba(0, 0, 0, 0.16)'} : {}}>
                     <div id='all-dic-buttons-container'>
                         {dicButtons}
@@ -148,7 +154,7 @@ class AllDics extends Component {
     }
 }
 
-export default withRouter(AllDics);
+export default withLocalize(withRouter(AllDics));
 
 class DictionaryBrief extends Component {
     constructor(props) {
@@ -175,10 +181,10 @@ class DictionaryBrief extends Component {
         return (
             <div className='dic-container'>
                 <h1 className='dic-title' id='all-dic-title'>{this.state.chineseName}</h1>
-                <h2 className='dic-subtitle'>(共{this.state.totalNum}筆)</h2>
+                <h2 className='dic-subtitle'>(<Translate id='result-1' />{this.state.totalNum}<Translate id='result-2' />)</h2>
                 <div className='dic-content-container'>
                     <BriefWord key={this.state.dic} dic={this.state.dic} words={this.state.words} width960 />
-                    {this.props.showMoreButton ? <button className='show-more-button' onClick={this.showMore.bind(this)}>顯示更多</button> : ''}
+                    {this.props.showMoreButton ? <button className='show-more-button' onClick={this.showMore.bind(this)}><Translate id='mroe-results' /></button> : ''}
                 </div>
             </div>
         );

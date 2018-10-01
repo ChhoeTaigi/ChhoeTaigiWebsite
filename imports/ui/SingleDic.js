@@ -1,13 +1,17 @@
 import React, { Component } from 'react';
 import { withRouter } from 'react-router-dom';
+import { withLocalize } from "react-localize-redux";
+import { Translate } from "react-localize-redux";
 
+import resultsTranslations from '../translations/results.json';
 import dicStruct from '../api/dictionary_struct';
-
 import BriefWord from './BriefWord';
 
 class SingleDic extends Component {
     constructor(props) {
         super(props);
+
+        props.addTranslation(resultsTranslations);
 
         let state = props.location.state;
         if (!state) {
@@ -166,7 +170,7 @@ class SingleDic extends Component {
         
         return (
             <div id='single-dic-container' style={{minHeight: this.state.background_height}}>
-                <div id='keywords'>搜尋關鍵字：{this.state.keywords}</div>
+                <div id='keywords'><Translate id='keyowrd' />：{this.state.keywords}</div>
                 <div id='single-dic-content-container'>
                     <div id='single-dic-title'>
                         <div id='single-dic-left-container'>
@@ -183,4 +187,4 @@ class SingleDic extends Component {
     }
 }
 
-export default withRouter(SingleDic);
+export default withLocalize(withRouter(SingleDic));
