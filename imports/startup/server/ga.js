@@ -4,7 +4,7 @@ const scopes = 'https://www.googleapis.com/auth/analytics.readonly';
 const email = 'ga-324@chhoetaigiwebsite.iam.gserviceaccount.com';
 const jsonFile = '/Users/leo/Documents/git/ChhoeTaigi/server/chhoetaigiwebsite-22a755925ef2.json';
 const viewID = '180234162';
-
+/*
 var analytics = google.analytics('v3');
 var jwtClient = new google.auth.JWT(
     email,
@@ -34,3 +34,5 @@ jwtClient.authorize(function(err, tokens) {
         });
     }
 })
+
+*/
