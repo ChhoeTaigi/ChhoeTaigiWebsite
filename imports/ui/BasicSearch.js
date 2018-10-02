@@ -89,7 +89,7 @@ class BasicSearch extends Component {
                     <img id='banner' src='images/home_image@2x.png' width='730' height='200'></img>
                 </div>
                 <div id='form-background'  style={{minHeight: this.state.background_height + 'px'}}>
-                    <form id='basic-form' onSubmit={this.handleSubmit.bind(this)} autoComplete='off'>
+                    <form id='basic-form' onSubmit={this.handleSubmit.bind(this)} autoComplete='false'>
                         <div id='search-title'><Translate id="basic" /></div>
                         <div id='form-container'>
                             <div id='search-method-container'>

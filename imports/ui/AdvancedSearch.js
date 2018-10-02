@@ -179,7 +179,7 @@ class SingleDicOptions extends Component {
         }
         return (
             <div id='single-dic-form-container'>
-                <form id='single-dic-form' onSubmit={this.handleSubmit.bind(this)} autoComplete='off'>
+                <form id='single-dic-form' onSubmit={this.handleSubmit.bind(this)} autoComplete='false'>
                     <div id='labels-container'>
                         {labels}
                     </div>
@@ -237,7 +237,7 @@ class AllFieldOptions extends Component {
     render() {
         return (
             <Translate>{({ translate }) =>
-                <form id='all-field-form' onSubmit={this.handleSubmit.bind(this)} autoComplete='off'>
+                <form id='all-field-form' onSubmit={this.handleSubmit.bind(this)} autoComplete='false'>
                     <input className='all-field-text-input' type='text' placeholder={translate('keyword')} onChange={this.handleInput.bind(this)} value={this.state.value}></input>
                     <input className='find-button' style={{marginTop: '30px'}} type="submit" value={translate('find')} />
                     <div id='bg-img'></div>
