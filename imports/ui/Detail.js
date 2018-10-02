@@ -35,7 +35,7 @@ class Detail extends Component {
             path: path,
             dic: dic,
             chineseName: chineseName,
-            background_height: window.innerHeight - 168,
+            background_height: window.innerHeight - 154,
         };
 
         this.handleResize = this.handleResize.bind(this);
@@ -52,7 +52,7 @@ class Detail extends Component {
 
     handleResize() {
         this.setState({
-            background_height: window.innerHeight - 168,
+            background_height: window.innerHeight - 154,
         });
     }
 

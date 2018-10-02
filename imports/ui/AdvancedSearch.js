@@ -16,7 +16,7 @@ class AdvancedSearch extends Component {
         this.state = {
             method: 'allField',
             selectedDic: undefined,
-            background_height: window.innerHeight - 168,
+            background_height: window.innerHeight - 154,
         };
 
         this.handleResize = this.handleResize.bind(this);
@@ -24,7 +24,7 @@ class AdvancedSearch extends Component {
 
     handleResize() {
         this.setState({
-            background_height: window.innerHeight - 168,
+            background_height: window.innerHeight - 154,
         });
     }
 

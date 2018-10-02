@@ -8,7 +8,10 @@ if (Meteor.isServer) {
         if (this.userId)
             return Data.find();
         else
-            return this.ready();
+            return Data.find({}, {fields: {
+                sessions: 1,
+                clicks: 1,
+            }});
     });
 }
 

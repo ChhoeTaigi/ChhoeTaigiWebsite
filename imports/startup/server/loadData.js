@@ -12,4 +12,8 @@ if (data === undefined) {
     Data.insert({
         folder: '20180803-024253',
     });
+} else if (data.folder === undefined) {
+    Data.update(data, {$set: {
+        folder: '20180803-024253',
+    }}, {upsert: true});
 }

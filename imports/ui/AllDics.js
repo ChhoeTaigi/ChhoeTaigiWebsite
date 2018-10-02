@@ -27,7 +27,7 @@ class AllDics extends Component {
         let firstDic = state.allResults.find(e => e);;
         if (firstDic)
             state.selectedDic = firstDic.dic;
-        state.background_height = window.innerHeight - 168;
+        state.background_height = window.innerHeight - 154;
         this.state = state;
 
         this.handleScroll = this.handleScroll.bind(this);
@@ -48,7 +48,7 @@ class AllDics extends Component {
 
     handleResize() {
         this.setState({
-            background_height: window.innerHeight - 168,
+            background_height: window.innerHeight - 154,
         });
     }
 

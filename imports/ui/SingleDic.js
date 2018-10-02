@@ -67,7 +67,7 @@ class SingleDic extends Component {
             chineseName: chineseName,
             options: state.options,
             words: state.allResults.words,
-            background_height: window.innerHeight - 168,
+            background_height: window.innerHeight - 154,
         };
 
         this.handleResize = this.handleResize.bind(this);
@@ -75,7 +75,7 @@ class SingleDic extends Component {
 
     handleResize() {
         this.setState({
-            background_height: window.innerHeight - 168,
+            background_height: window.innerHeight - 154,
         });
     }
 

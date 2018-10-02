@@ -69,12 +69,12 @@
 #bg-img {
     display: block;
     position: absolute;
-    width: 247px;
-    height: 177px;
+    width: 224px;
+    height: 155px;
     left: 49px;
     bottom: -40px;
     background-image: url(images/pic@2x.png);
-    background-size: 247px 177px;
+    background-size: 224px 155px;
     z-index: 1;
 }
 

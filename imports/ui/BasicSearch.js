@@ -19,7 +19,7 @@ class BasicSearch extends Component {
             hanlo_taibun_poj: '',
             hoabun: '',
             english_descriptions: '',
-            background_height: window.innerHeight - 374,
+            background_height: window.innerHeight - 360,
         };
 
         this.handleResize = this.handleResize.bind(this);
@@ -27,7 +27,7 @@ class BasicSearch extends Component {
 
     handleResize() {
         this.setState({
-            background_height: window.innerHeight - 374,
+            background_height: window.innerHeight - 360,
         });
     }
 

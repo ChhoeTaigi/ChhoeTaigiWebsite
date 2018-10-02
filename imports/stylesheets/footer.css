@@ -29,6 +29,34 @@ footer {
 	top: 7px;
 }
 
+#footer-top-container {
+    position: relative;
+    height: 58px;
+    width: 960px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#visit-container {
+    position: absolute;
+    height: 58px;
+    top: 12px;
+}
+
+#visit-container > div {
+    height: 21px;
+    font-size: 13px;
+    line-height: 21px;
+}
+
+.visit-container-w > div {
+    color: #d0e3d0;
+}
+
+.visit-container-b > div {
+    color: #3F4D38;
+}
+
 #locale-container {
     width: 300px;
     height: 58px;
@@ -39,19 +67,17 @@ footer {
 
 .locale-button {
     height: 30px;
-    font-size: 15px;
+    font-size: 14px;
     padding-left: 10px;
     padding-right: 10px;
     text-align: center;
+}
+
+.locale-button-w {
     color: white;
 }
 
 .locale-button-g {
-    height: 30px;
-    font-size: 15px;
-    padding-left: 10px;
-    padding-right: 10px;
-    text-align: center;
     color: #3F4D38;
 }
 
@@ -62,5 +88,5 @@ footer {
 
 .locale-button-selected-g {
     border-radius: 2px;
-    border: solid 1px #3F4D38;
+    border: solid 1px #657160;
 }
