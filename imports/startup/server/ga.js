@@ -22,8 +22,8 @@ jwtClient.authorize(function(err, tokens) {
             auth: jwtClient,
             'ids': 'ga:' + viewID,
             'metrics': 'ga:pageviews,ga:sessions',
-            'start-date': '2015-01-01',
-            'end-date': '2015-03-09'
+            'start-date': '2018-08-01',
+            'end-date': '2018-10-01'
         }, function(err, response) {
             if (err) {
                 console.log(err);
