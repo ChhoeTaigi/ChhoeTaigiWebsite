@@ -47,24 +47,24 @@ class About extends Component {
 						</div>
 						<div className='feature-card'>
 							<img id='feature-2' src='images/standard@2x.png' width='178' height='99'></img>
-							<span className='feature-card-title'><Translate id='feature-title-1' /></span>
+							<span className='feature-card-title'><Translate id='feature-title-2' /></span>
 							<span className='feature-card-content'><Translate id='feature-content-2' /></span>
 						</div>
 						<div className='feature-card'>
 							<img id='feature-3' src='images/digital@2x.png' width='118' height='94'></img>
-							<span className='feature-card-title'><Translate id='feature-title-1' /></span>
+							<span className='feature-card-title'><Translate id='feature-title-3' /></span>
 							<span className='feature-card-content'><Translate id='feature-content-3' /></span>
 						</div>
 					</div>
 					<div className='feature-card-two-columns'>
 						<div className='feature-card'>
 							<img id='feature-4' src='images/opencc@2x.png' width='129' height='91'></img>
-							<span className='feature-card-title'><Translate id='feature-title-1' /></span>
+							<span className='feature-card-title'><Translate id='feature-title-4' /></span>
 							<span className='feature-card-content'><Translate id='feature-content-4' /></span>
 						</div>
 						<div className='feature-card'>
 							<img id='feature-5' src='images/service@2x.png' width='135' height='93'></img>
-							<span className='feature-card-title'><Translate id='feature-title-1' /></span>
+							<span className='feature-card-title'><Translate id='feature-title-5' /></span>
 							<span className='feature-card-content'><Translate id='feature-content-5' /></span>
 						</div>
 					</div>
