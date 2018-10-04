@@ -35,8 +35,10 @@ class App extends Component {
         logPageView();
     }
 
-    componentDidUpdate() {
-        logPageView();
+    componentDidUpdate(prevProps) {
+        if (this.props.location !== prevProps.location) {
+            logPageView();
+        }
     }
 
     render() {
