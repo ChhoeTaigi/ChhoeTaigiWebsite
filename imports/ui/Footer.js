@@ -71,9 +71,13 @@ class Footer extends Component {
                     </div>
                     <div id='locale-container'>
                         <button className={'locale-button ' + localeButtonStyle + ' ' + (this.state.locale === 'tb' ? localeButtonSelectedStyle : '')} value='tb' onClick={this.localeChange.bind(this)}>漢羅台文</button>
+                        {/*
                         <button className={'locale-button ' + localeButtonStyle + ' ' + (this.state.locale === 'po' ? localeButtonSelectedStyle : '')} value='po' onClick={this.localeChange.bind(this)}>Pe̍h-ōe-jī</button>
+                        */}
                         <button className={'locale-button ' + localeButtonStyle + ' ' + (this.state.locale === 'hb' ? localeButtonSelectedStyle : '')} value='hb' onClick={this.localeChange.bind(this)}>華文</button>
+                        {/*
                         <button className={'locale-button ' + localeButtonStyle + ' ' + (this.state.locale === 'en' ? localeButtonSelectedStyle : '')} value='en' onClick={this.localeChange.bind(this)}>English</button>
+                        */}
                     </div>
                 </div>
                 
