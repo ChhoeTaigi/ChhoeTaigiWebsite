@@ -96,4 +96,5 @@ class GA {
 }
 
 const ga = new GA();
-ga.start();
+if (env === 'prod')
+    ga.start();
