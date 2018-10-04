@@ -42,15 +42,38 @@
 
 #all-field-form {
     position: relative;
-    height: 289px;
-    padding-top: 226px;
+    height: 319px;
+    padding-top: 165px;
+}
+
+#all-field-search-method-container {
+    margin-left: auto;
+    margin-right: auto;
+    width: 586px;
+    height: 24px;;
+    padding-left: 6px;
+    font-size: 16px;
+    font-weight: 500;
+    color: #3f4d38;
+    line-height: 24px;
+}
+
+#all-field-radio-1 {
+    margin-left: 10px;
+}
+
+#all-field-radio-2 {
+    margin-left: 28px;
+}
+
+#all-field-wildcard-note-container {
+    float: right;
 }
 
 .all-field-text-input {
     display: block;
-    margin-left: auto;
-    margin-right: auto;
-    width: 592px;
+    margin: 16px auto 0 auto;
+    width: 580px;
     height: 40px;
     background-color: #eef5ef;
     border: none;
@@ -72,7 +95,7 @@
     width: 224px;
     height: 155px;
     left: 49px;
-    bottom: -40px;
+    bottom: -28px;
     background-image: url(images/pic@2x.png);
     background-size: 224px 155px;
     z-index: 1;
@@ -129,6 +152,28 @@
     background-color: #d6e3d8;
 }
 
+#search-method {
+    font-size: 16px;
+    font-weight: 500;
+}
+
+#single-dic-search-method-container {
+    width: 559px;
+    height: 34px;
+    line-height: 34px;
+    font-size: 16px;
+    font-weight: 500;
+    color: #3f4d38;
+}
+
+#single-dic-radio-2 {
+    margin-left: 28px;
+}
+
+#single-dic-wildcard-note-container {
+    float: right;
+}
+
 #labels-container {
     display: inline-block;
     width: 269px;
@@ -142,7 +187,6 @@
     margin-top: 13px;
     line-height: 34px;
     font-size: 15px;
-    font-weight: normal;
     text-align: right;
     color: #3f4d38;
 }

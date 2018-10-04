@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { withRouter } from 'react-router-dom';
+import { withRouter, Link } from 'react-router-dom';
 import { withLocalize } from "react-localize-redux";
 import { Translate } from "react-localize-redux";
 import ReactGA from 'react-ga';
@@ -108,14 +108,19 @@ export default withLocalize(withRouter(AdvancedSearch));
 class SingleDicOptions extends Component {
     constructor(props) {
         super(props);
+        let params = this.clearInput(this.props.dic);
+        params.searchMethod = 'equals';
         this.state = {
-            params: this.clearInput(this.props.dic),
-        }
+            params: params,
+        };
     }
 
     componentWillUpdate(nextProps, nextState) {
-        if (this.props.dic !== nextProps.dic)
-            nextState.params = this.clearInput(nextProps.dic);
+        if (this.props.dic !== nextProps.dic) {
+            let newParams = this.clearInput(nextProps.dic);
+            newParams.searchMethod = this.state.searchMethod;
+            nextState.params = newParams;
+        }
     }
 
     clearInput(dic) {
@@ -151,9 +156,11 @@ class SingleDicOptions extends Component {
         event.preventDefault();
     }
 
-    handleInput(key, event) {
+    handleInput(event) {
+        let key = event.target.name;
+        let value = event.target.value;
         let params = this.state.params;
-        params[key] = event.target.value;
+        params[key] = value;
         this.setState({
             params: params,
         });
@@ -162,29 +169,49 @@ class SingleDicOptions extends Component {
     render() {
         let dic = this.props.dic;
         let columns = dicStruct.filter((e) => e.name === dic)[0].columns;
-        let labels = [];
+        let labels = [
+            <label key='search-method-label' className='single-dic-label' id='search-method'><Translate id='search-method' /></label>
+        ];
         for (let key in columns) {
             labels.push(
                 <label className='single-dic-label' key={key + '-label'} htmlFor={key}>{columns[key]}</label>
             );
         }
 
-        let inputs = [];
+        let inputs = [
+            <div key='search-method-radio' id='single-dic-search-method-container'>
+                <label className='radio'>
+                    <div className={this.state.params.searchMethod === 'equals' ? 'checked' : 'unchecked'}></div>
+                    <input type="radio" name="searchMethod" value="equals" defaultChecked={this.state.params.searchMethod === 'equals'} onChange={this.handleInput.bind(this)} />
+                    <span><Translate id="equals" /></span>
+                </label>
+                <label id='single-dic-radio-2' className='radio'>
+                    <div className={this.state.params.searchMethod === 'contains' ? 'checked' : 'unchecked'}></div>
+                    <input type="radio" name="searchMethod" value="contains" defaultChecked={this.state.params.searchMethod === 'contains'} onChange={this.handleInput.bind(this)} />
+                    <span><Translate id="contains" /></span>
+                </label>
+                <div id='single-dic-wildcard-note-container'>
+                    <Link id='wildcard-note' to='/explanation'><Translate id="explanation" /></Link>
+                </div>
+            </div>
+        ];
         for (let key in columns) {
             inputs.push(
                 <Translate key={key + '-input'}>{({ translate }) =>
-                    <input className='single-dic-text-input' type='text' placeholder={translate('keyword')} name={key} onChange={this.handleInput.bind(this, key)} value={this.state.params[key]}></input>
+                    <input className='single-dic-text-input' type='text' placeholder={translate('keyword')} name={key} onChange={this.handleInput.bind(this)} value={this.state.params[key]}></input>
                 }</Translate>
             )
         }
         return (
             <div id='single-dic-form-container'>
                 <form id='single-dic-form' onSubmit={this.handleSubmit.bind(this)} autoComplete='false'>
-                    <div id='labels-container'>
-                        {labels}
-                    </div>
-                    <div id='inputs-container'>
-                    {inputs}
+                    <div>
+                        <div id='labels-container'>
+                            {labels}
+                        </div>
+                        <div id='inputs-container'>
+                            {inputs}
+                        </div>
                     </div>
                     <Translate>{({ translate }) =>
                         <input className='find-button' type="submit" value={translate('find')} style={{marginTop: '15px'}} />
@@ -200,6 +227,7 @@ class AllFieldOptions extends Component {
     constructor(props) {
         super(props);
         this.state = {
+            searchMethod: 'equals',
             value: '',
         }
     }
@@ -229,16 +257,34 @@ class AllFieldOptions extends Component {
     }
 
     handleInput(event) {
-        this.setState({
-            value: event.target.value,
-        });
+        let key = event.target.name;
+        let value = event.target.value;
+        let state = [];
+        state[key] = value;
+        this.setState(state);
     }
 
     render() {
         return (
             <Translate>{({ translate }) =>
                 <form id='all-field-form' onSubmit={this.handleSubmit.bind(this)} autoComplete='false'>
-                    <input className='all-field-text-input' type='text' placeholder={translate('keyword')} onChange={this.handleInput.bind(this)} value={this.state.value}></input>
+                    <div id='all-field-search-method-container'>
+                        <span><Translate id="search-method" /></span>
+                        <label id='all-field-radio-1' className='radio'>
+                            <div className={this.state.searchMethod === 'equals' ? 'checked' : 'unchecked'}></div>
+                            <input type="radio" name="searchMethod" value="equals" defaultChecked={this.state.searchMethod === 'equals'} onChange={this.handleInput.bind(this)} />
+                            <span><Translate id="equals" /></span>
+                        </label>
+                        <label id='all-field-radio-2' className='radio'>
+                            <div className={this.state.searchMethod === 'contains' ? 'checked' : 'unchecked'}></div>
+                            <input type="radio" name="searchMethod" value="contains" defaultChecked={this.state.searchMethod === 'contains'} onChange={this.handleInput.bind(this)} />
+                            <span><Translate id="contains" /></span>
+                        </label>
+                        <div id='all-field-wildcard-note-container'>
+                            <Link id='wildcard-note' to='/explanation'><Translate id="explanation" /></Link>
+                        </div>
+                    </div>
+                    <input className='all-field-text-input' type='text' placeholder={translate('keyword')} name='value' onChange={this.handleInput.bind(this)} value={this.state.value}></input>
                     <input className='find-button' style={{marginTop: '30px'}} type="submit" value={translate('find')} />
                     <div id='bg-img'></div>
                 </form>
