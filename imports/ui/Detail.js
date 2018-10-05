@@ -50,6 +50,10 @@ class Detail extends Component {
         window.removeEventListener('resize', this.handleResize);
     }
 
+    componentDidUpdate() {
+        window.FB.XFBML.parse();
+    }
+
     handleResize() {
         this.setState({
             background_height: window.innerHeight - 154,
