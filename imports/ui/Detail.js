@@ -57,7 +57,6 @@ class Detail extends Component {
     }
 
     render() {
-        
         return (
             <div id='detail-container' style={{minHeight: this.state.background_height}}>
                 <div id='fb-root'></div>

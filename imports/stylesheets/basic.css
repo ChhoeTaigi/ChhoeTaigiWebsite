@@ -63,11 +63,11 @@
 }
 
 .radio > div[class='checked'] {
-    background-image: url(images/checkbox_select@2x.png);
+    background-image: url(/images/checkbox_select@2x.png);
 }
 
 .radio > div[class='unchecked'] {
-    background-image: url(images/checkbox@2x.png);
+    background-image: url(/images/checkbox@2x.png);
 }
 
 .radio > span {

@@ -18,7 +18,7 @@ footer {
 }
 
 #footer-image {
-	background-image: url(images/poweredby-long-i@2x.png);
+	background-image: url(/images/poweredby-long-i@2x.png);
 	background-size: 208px 26px;
 	position: relative;
 	display: block;

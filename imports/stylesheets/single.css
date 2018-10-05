@@ -79,11 +79,11 @@
 }
 
 #last-page {
-    background-image: url(images/s_arrow_L@2x.png);
+    background-image: url(/images/s_arrow_L@2x.png);
 }
 
 #next-page {
-    background-image: url(images/s_arrow_R@2x.png);
+    background-image: url(/images/s_arrow_R@2x.png);
     margin-right: 12px;
 }
 

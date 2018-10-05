@@ -96,7 +96,7 @@
     height: 155px;
     left: 49px;
     bottom: -28px;
-    background-image: url(images/pic@2x.png);
+    background-image: url(/images/pic@2x.png);
     background-size: 224px 155px;
     z-index: 1;
 }

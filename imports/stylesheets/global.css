@@ -82,7 +82,7 @@ th, td {
     border-radius: 2px;
     box-shadow: 0 4px 2px 0 rgba(0, 0, 0, 0.16);
     background-color: white;
-    background-image: url(images/magnifier@2x.png);
+    background-image: url(/images/magnifier@2x.png);
     background-repeat: no-repeat;
     background-size: 22px 18px;
     background-position: 114px center; 
@@ -97,7 +97,7 @@ th, td {
 }
 
 .find-button:active {
-	background-image: url(images/magnifier_w@2x.png);
+	background-image: url(/images/magnifier_w@2x.png);
     background-color: #43944f;
     box-shadow: none;
     color: white;
