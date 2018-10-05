@@ -27,13 +27,13 @@
         "字詞資料Chē",
         "Jī-sû Chu-liāu Chē",
         "字詞資料豐富",
-        "Rich Data of Taigi Words"
+        "Rich Data of Tâi-gí Words"
     ],
     "feature-content-1": [
         "整合10份ê文獻資料，有30萬thóng筆ê台語字詞",
         "Chéng-ha̍p 10 hūn ê bûn-hiàn chu-liāu, ū 30-bān thóng pit ê Tâi-gí jī-sû.",
         "整合10份文獻資料，超過30萬筆台語字詞",
-        "Intergrates data of 10 Taigi literatures. With more than 300,000 Taigi words in total."
+        "Intergrates data of 10 Tâi-gí literatures. With more than 300,000 Tâi-gí words in total."
     ],
     "feature-title-2": [
         "標準化",
@@ -87,13 +87,13 @@
         "做伙貢獻",
         "Chò-hóe Kòng-hiàn",
         "加入協作",
-        "Join collaboration"
+        "We need your contribution!"
     ],
     "join-1": [
         "字詞ê資料請提供修改ê建議，a̍h是做伙來討論",
         "Jī-sû ê chu-liāu chhiáⁿ thê-kiong siu-kái ê kiàn-gī, a̍h-sī chò-hóe lâi thó-lūn.",
         "歡迎提供修改建議，或一起參加討論",
-        "Suggestions or discussions are welcomed."
+        "Give suggestions or join our discussions."
     ],
     "join-2": [
         "請看ē-kha ê聯絡方式",
@@ -108,22 +108,22 @@
         "Participate in our open source projects."
     ],
     "sponsor": [
-        "向望ta̍k-ê來贊助",
+        "Ǹg望ta̍k-ê來贊助",
         "Ǹg-bāng Ta̍k-ê Lâi Chàn-chō͘",
         "徵求贊助",
-        "Sponsor our project"
+        "Sponsor or support our project"
     ],
     "sponsor-1": [
         "Lán產品運作ê資金（Server ê成本、維護ê成本等等）",
         "Lán sán-phín ūn-chok ê chu-kim (Server ê sêng-pún, î-hō͘ ê sêng-pún téng-téng).",
-        "產品營運資金（伺服器成本、維護成本等)",
-        "Working capital for running servers, maintaining products, and etc."
+        "資金：產品營運資金(伺服器成本、維護成本等)",
+        "Funds: Sponsor us with working capital for servers and product maintenance, etc."
     ],
     "sponsor-2": [
         "授權lán台語辭典a̍h是台語字詞ê資料（Creative Commons開放授權）",
         "Siū-khoân lán Tâi-gí sû-tián a̍h-sī Tâi-gí jī-sû ê chu-liāu (Creative Commons khai-hòng siū-khoân).",
-        "台語辭典或字詞資料授權（Creative Commons開放授權)",
-        "Authorization for use your Taigi dictionaries and released as open license, Creative Commons."
+        "資料：台語辭典或字詞資料授權(Creative Commons開放授權)",
+        "Data: Authorize us to use your Tâi-gí dictionaries and enable the public to access the data. (Creative Commons open license)"
     ],
     "contact": [
         "聯絡方式",
@@ -141,7 +141,7 @@
         "寄phoe來",
         "Kià phoe lâi",
         "來信",
-        "Mail"
+        "Email"
     ],
     "members": [
         "紹介Lán團隊ê成員",
@@ -159,18 +159,18 @@
         "字詞資料",
         "Jī-sû Chu-liāu",
         "字詞資料",
-        "Datasets Information"
+        "Tâi-gí word datasets"
     ],
     "authorization-2": [
         "原冊掃描ê圖",
         "Goân-chheh Sáu-biô ê Tô͘",
         "原書掃描圖片",
-        "Original Books"
+        "Scanned images of original books"
     ],
     "opinion": [
         "若有siáⁿ-mi̍h建議a̍h是想beh贊助，請你寄phoe來kap gún連絡",
         "Nā ū siáⁿ-mi̍h kiàn-gī a̍h-sī siūⁿ-beh chàn-chō͘, chhiáⁿ lí kià phoe lâi kap gún liân-lo̍k.",
         "意見回饋與贊助請來信",
-        "Please contact us for feedback or sponsorship."
+        "If you wish to give suggestions or to be our sponsor, please feel free to contact us."
     ]
 }
