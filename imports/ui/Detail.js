@@ -51,7 +51,8 @@ class Detail extends Component {
     }
 
     componentDidUpdate() {
-        window.FB.XFBML.parse();
+        if (window.FB)
+            window.FB.XFBML.parse();
     }
 
     handleResize() {
