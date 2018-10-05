@@ -50,25 +50,26 @@ class Explanation extends Component {
                             <table className='explanation-table'>
                                 <tbody>
                                     <tr>
-                                        <th><Translate id='poj' /></th>
-                                        <td></td>
-                                        <td><Translate id='poj-unicode' /></td>
-                                    </tr>
-                                    <tr>
                                         <th><Translate id='poj-input' /></th>
                                         <td></td>
                                         <td><Translate id='poj-num' /></td>
-                                    </tr>
-                                    <tr>
-                                        <th><Translate id='lmj' /></th>
-                                        <td></td>
-                                        <td><Translate id='lmj-unicode' /></td>
                                     </tr>
                                     <tr>
                                         <th><Translate id='lmj-input' /></th>
                                         <td></td>
                                         <td><Translate id='lmj-num' /></td>
                                     </tr>
+                                    <tr>
+                                        <th><Translate id='poj' /></th>
+                                        <td></td>
+                                        <td><Translate id='poj-unicode' /></td>
+                                    </tr>
+                                    <tr>
+                                        <th><Translate id='lmj' /></th>
+                                        <td></td>
+                                        <td><Translate id='lmj-unicode' /></td>
+                                    </tr>
+                                    
                                 </tbody>
                             </table>
                         </li>

@@ -21,7 +21,7 @@ class Main extends Component {
         if (Meteor.userId() || env === 'prod') {
             additionalRoute = [
                 <Route key='basic' exact path='/' component={BasicSearch} />,
-                <Route key='explanation' exact path='/explanation' component={Explanation} />,
+                <Route key='explanation' exact path='/annachhoe' component={Explanation} />,
                 <Route key='advanced' exact path='/chinkai' component={AdvancedSearch} />,
                 <Route key='all' exact path='/all' component={AllDics} />,
                 <Route key='single' path="/single/:pageid" render={(props) => {

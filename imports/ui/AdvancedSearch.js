@@ -199,7 +199,7 @@ class SingleDicOptions extends Component {
                     <span><Translate id="contains" /></span>
                 </label>
                 <div id='single-dic-wildcard-note-container'>
-                    <Link id='wildcard-note' to='/explanation'><Translate id="explanation" /></Link>
+                    <Link id='wildcard-note' to='/annachhoe'><Translate id="explanation" /></Link>
                 </div>
             </div>
         ];
@@ -290,7 +290,7 @@ class AllFieldOptions extends Component {
                             <span><Translate id="contains" /></span>
                         </label>
                         <div id='all-field-wildcard-note-container'>
-                            <Link id='wildcard-note' to='/explanation'><Translate id="explanation" /></Link>
+                            <Link id='wildcard-note' to='/annachhoe'><Translate id="explanation" /></Link>
                         </div>
                     </div>
                     <input className='all-field-text-input' type='text' placeholder={translate('keyword')} name='value' onChange={this.handleInput.bind(this)} value={this.state.value}></input>

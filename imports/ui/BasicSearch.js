@@ -107,7 +107,7 @@ class BasicSearch extends Component {
                                     <span><Translate id="contains" /></span>
                                 </label>
                                 <div id='wildcard-note-container'>
-                                    <Link id='wildcard-note' to='/explanation'><Translate id="explanation" /></Link>
+                                    <Link id='wildcard-note' to='/annachhoe'><Translate id="explanation" /></Link>
                                 </div>
                             </div>
                             <div id='seperator'></div>

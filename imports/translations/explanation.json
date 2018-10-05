@@ -14,14 +14,14 @@
     "equals": [
         "Kāng款--ê：Chhōe完全kāng款--ê。",
         "Kāng-khoán--ê: Chhōe oân-choân kāng-khoán--ê.",
-        "精確搜尋：搜尋完全符合關鍵字的資料",
-        "Exact Search: Search data that have the exact keywords"
+        "精確搜尋：搜尋完全符合關鍵字的資料。",
+        "Exact Search: Search data that have the exact keywords."
     ],
     "contains": [
         "相關--ê：Chhōe內底有kauh beh chhōe ê字詞--ê。",
         "Siong-koan--ê: Chhōe lāi-té ū kauh beh chhōe ê jī-sû--ê.",
-        "模糊搜尋：搜尋有包含關鍵字的資料",
-        "Fuzzy Search: Search data contains the keywords"
+        "模糊搜尋：搜尋有包含關鍵字的資料。",
+        "Fuzzy Search: Search data contains the keywords."
     ],
     "condition": [
         "Chhōe ê方式",
@@ -36,10 +36,10 @@
         "Roman Taigi"
     ],
     "poj-input": [
-        "白話字輸入",
-        "POJ Su-ji̍p",
-        "白話字輸入",
-        "POJ Input"
+        "白話字(數字輸入)",
+        "POJ (Sò͘-jī Su-ji̍p)",
+        "白話字(數字輸入)",
+        "POJ (Number Input)"
     ],
     "poj-num": [
         "白話字輸入ê格式，適合無安裝台語輸入法ê人來使用。聲調phah數字，khǹg tī字ê siōng尾（第1、4聲m̄免寫數字），白話字「o͘ 」用「oo」來代替、鼻音「ⁿ」用「nn」來代替。譬如beh chhōe「chho͘」改做phah【chhoo】、beh chhōe「siâⁿ」改做phah【siann5】。",
@@ -48,10 +48,10 @@
         "POJ input format, using Taigi keyboard. Type number tone at the end of each word (Excluding the 1st and 4th tone number). Type \"oo\" instead of \"o͘ \" and \"nn\" instead of \"ⁿ\" in POJ. For example, type \"chhoo\" to search \"chho͘ \"; type \"siann5\" to search \"siâⁿ\"."
     ],
     "lmj-input": [
-        "教育部羅馬字輸入",
-        "Kàu-io̍k-pō͘ Lô-má-jī Su-ji̍p",
-        "教育部羅馬字輸入",
-        "MoE Roman Input"
+        "教育部羅馬字(數字輸入)",
+        "Kàu-io̍k-pō͘  LMJ (Sò͘-jī Su-ji̍p)",
+        "教育部羅馬字(數字輸入)",
+        "MoE Roman (Number Input)"
     ],
     "lmj-num": [
         "教育部羅馬字輸入ê格式，適合無安裝台語輸入法ê人來使用。聲調phah數字，khǹg tī字ê siōng尾（第1、4聲m̄免寫數字）。譬如beh chhōe「pe̍h」改做phah【peh8】。",

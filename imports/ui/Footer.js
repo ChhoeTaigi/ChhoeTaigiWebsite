@@ -1,8 +1,11 @@
 import React, { Component } from 'react';
 import { Link, withRouter } from 'react-router-dom';
-import { withLocalize } from "react-localize-redux";
 import { withCookies } from 'react-cookie';
 import { withTracker } from 'meteor/react-meteor-data';
+import { withLocalize } from "react-localize-redux";
+import { Translate } from "react-localize-redux";
+
+import footerTranslations from '../translations/footer.json';
 
 import { setLocale, getLocale } from '../api/locale';
 import { Data } from '../api/data';
@@ -10,6 +13,9 @@ import { Data } from '../api/data';
 class Footer extends Component {
     constructor(props) {
         super(props);
+
+        props.addTranslation(footerTranslations);
+
         const pathname = props.location.pathname;
 
         const { cookies } = props;
@@ -66,8 +72,8 @@ class Footer extends Component {
             <div className={this.state.background}>
                 <div id='footer-top-container' className={visitContainerStyle}>
                     <div id='visit-container'>
-                        <div>造訪人數：{sessions}</div>
-                        <div>查詢次數：{clicks}</div>
+                        <div><Translate id='visitors' />：{sessions}</div>
+                        <div><Translate id='searches' />：{clicks}</div>
                     </div>
                     <div id='locale-container'>
                         <button className={'locale-button ' + localeButtonStyle + ' ' + (this.state.locale === 'tb' ? localeButtonSelectedStyle : '')} value='tb' onClick={this.localeChange.bind(this)}>漢羅台文</button>
