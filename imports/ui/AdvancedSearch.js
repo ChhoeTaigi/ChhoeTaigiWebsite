@@ -108,10 +108,9 @@ export default withLocalize(withRouter(AdvancedSearch));
 class SingleDicOptions extends Component {
     constructor(props) {
         super(props);
-        let params = this.clearInput(this.props.dic);
-        params.searchMethod = 'equals';
         this.state = {
-            params: params,
+            columns: this.clearInput(this.props.dic),
+            searchMethod: 'equals',
         };
     }
 
@@ -124,12 +123,12 @@ class SingleDicOptions extends Component {
     }
 
     clearInput(dic) {
-        let columns = dicStruct.filter((e) => e.name === dic)[0].columns;
-        let params = {};
-        for (let key in columns) {
-            params[key] = '';
+        let dicColumns = dicStruct.filter((e) => e.name === dic)[0].columns;
+        let columns = {};
+        for (let key in dicColumns) {
+            columns[key] = '';
         }
-        return params;
+        return columns;
     }
 
     handleSubmit(event) {
@@ -139,10 +138,13 @@ class SingleDicOptions extends Component {
             label: 'single-dic'
         });
 
-        let params = this.state.params;
+        let params = {
+            dic: this.props.dic,
+            searchMethod: this.state.searchMethod,
+            columns: this.state.columns,
+        };
         let options = {
             method: 'singleDic',
-            dic: this.props.dic,
             params: params,
         };
         Meteor.call('search', options, (error, results) => {
@@ -159,11 +161,17 @@ class SingleDicOptions extends Component {
     handleInput(event) {
         let key = event.target.name;
         let value = event.target.value;
-        let params = this.state.params;
-        params[key] = value;
-        this.setState({
-            params: params,
-        });
+        if (key === 'searchMethod') {
+            this.setState({
+                searchMethod: value,
+            });
+        } else {
+            let columns = this.state.columns;
+            columns[key] = value;
+            this.setState({
+                columns: columns,
+            });
+        }
     }
 
     render() {
@@ -181,13 +189,13 @@ class SingleDicOptions extends Component {
         let inputs = [
             <div key='search-method-radio' id='single-dic-search-method-container'>
                 <label className='radio'>
-                    <div className={this.state.params.searchMethod === 'equals' ? 'checked' : 'unchecked'}></div>
-                    <input type="radio" name="searchMethod" value="equals" defaultChecked={this.state.params.searchMethod === 'equals'} onChange={this.handleInput.bind(this)} />
+                    <div className={this.state.searchMethod === 'equals' ? 'checked' : 'unchecked'}></div>
+                    <input type="radio" name="searchMethod" value="equals" defaultChecked={this.state.searchMethod === 'equals'} onChange={this.handleInput.bind(this)} />
                     <span><Translate id="equals" /></span>
                 </label>
                 <label id='single-dic-radio-2' className='radio'>
-                    <div className={this.state.params.searchMethod === 'contains' ? 'checked' : 'unchecked'}></div>
-                    <input type="radio" name="searchMethod" value="contains" defaultChecked={this.state.params.searchMethod === 'contains'} onChange={this.handleInput.bind(this)} />
+                    <div className={this.state.searchMethod === 'contains' ? 'checked' : 'unchecked'}></div>
+                    <input type="radio" name="searchMethod" value="contains" defaultChecked={this.state.searchMethod === 'contains'} onChange={this.handleInput.bind(this)} />
                     <span><Translate id="contains" /></span>
                 </label>
                 <div id='single-dic-wildcard-note-container'>
@@ -198,13 +206,13 @@ class SingleDicOptions extends Component {
         for (let key in columns) {
             inputs.push(
                 <Translate key={key + '-input'}>{({ translate }) =>
-                    <input className='single-dic-text-input' type='text' placeholder={translate('keyword')} name={key} onChange={this.handleInput.bind(this)} value={this.state.params[key]}></input>
+                    <input className='single-dic-text-input' type='text' placeholder={translate('keyword')} name={key} onChange={this.handleInput.bind(this)} value={this.state.columns[key]}></input>
                 }</Translate>
             )
         }
         return (
             <div id='single-dic-form-container'>
-                <form id='single-dic-form' onSubmit={this.handleSubmit.bind(this)} autoComplete='false'>
+                <form id='single-dic-form' onSubmit={this.handleSubmit.bind(this)} autoComplete='off'>
                     <div>
                         <div id='labels-container'>
                             {labels}
@@ -242,6 +250,7 @@ class AllFieldOptions extends Component {
         let options = {
             method: 'allField',
             params: {
+                searchMethod: this.state.searchMethod,
                 value: this.state.value,
             }
         };
@@ -267,7 +276,7 @@ class AllFieldOptions extends Component {
     render() {
         return (
             <Translate>{({ translate }) =>
-                <form id='all-field-form' onSubmit={this.handleSubmit.bind(this)} autoComplete='false'>
+                <form id='all-field-form' onSubmit={this.handleSubmit.bind(this)} autoComplete='off'>
                     <div id='all-field-search-method-container'>
                         <span><Translate id="search-method" /></span>
                         <label id='all-field-radio-1' className='radio'>

@@ -18,18 +18,19 @@ class SingleDic extends Component {
             props.history.replace('/');
         }
         // dic result
-        const dic = state.options.dic;
+        const dic = state.options.params.dic;
         const params = state.options.params;
+        const columns = params.columns;
 
         const offset = params.offset;
         if (offset !== undefined)
             delete params.offset;
 
         let keywords = [];
-        for (let key in params) {
-            let param = params[key].replace(/\s/g, '');
-            if (param !== '' && key !== 'searchMethod' && key !== 'spellingMethod') {
-                keywords.push(param)
+        for (let key in columns) {
+            let column = columns[key].replace(/\s/g, '');
+            if (column !== '') {
+                keywords.push(column)
             }
         }
         keywords = keywords.join('，');

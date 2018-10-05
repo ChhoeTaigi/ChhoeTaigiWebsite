@@ -65,7 +65,7 @@ class AllDics extends Component {
 
     showMore(dic) {
         let options = this.state.options;
-        options.dic = dic;
+        options.params.dic = dic;
         Meteor.call('search', options, (error, results) => {
             if (error) throw new Meteor.Error(error);
             let state = {
@@ -89,12 +89,13 @@ class AllDics extends Component {
 
     render() {
         const params = this.state.options.params;
+        const columns = params.columns;
         let keywords = [];
-        if (params.value === undefined) {
-            for (let key in params) {
-                let param = params[key].replace(/\s/g, '');
-                if (param !== '' && key !== 'searchMethod' && key !== 'spellingMethod') {
-                    keywords.push(param)
+        if (columns !== undefined) {
+            for (let key in columns) {
+                let column = columns[key].replace(/\s/g, '');
+                if (column !== '') {
+                    keywords.push(column)
                 }
             }
             keywords = keywords.join('，');

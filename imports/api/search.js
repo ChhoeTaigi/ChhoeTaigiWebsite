@@ -2,48 +2,58 @@ import pg from './pg';
 import dicsStruct from './dictionary_struct';
 
 // Input:
-// options: {
+// options = {
 //     method: 'singleDic',
-//     dic: 'TaiJitToaSuTian',
-//     poj_unicode: 'a',
+//     params: {
+//         dic: 'TaiJitToaSuTian',
+//         columns: {
+//             poj_input: 'a',
+//         }
+//     }
 // }
 
 // Output:
-// allResults: {
+// allResults = {
 //     [
-//         dic: 'TaiJitToaSuTian',
-//         words: [],
+//         {
+//             dic: 'TaiJitToaSuTian',
+//             num: 0,
+//             words: []
+//         }
 //     ],
 // }
 
 Meteor.methods({
     'search'(options) {
         let method = options.method;
-        if (method === 'allField') {
-            let params = options.params;
-            if (options.dic) {
-                const limit = 30;
-                let offset = params.offset * limit;
-                if (offset === undefined)
-                    offset = 0;
-                return searchSingleAllField(options.dic, params, limit, offset);
-            } 
-            else
-                return searchAllField(params);
-        } else if (method === 'basic') {
-            let params = options.params;
-            if (options.dic) {
+        let params = processSearchMethod(options.params);
+        params = processBasicSearchColumns(params);
+        params = cleanEmptyColumns(params);
+        params = validateColumns(params);
+        params = processWildcard(params);
+        
+        if (method === 'basic') {
+            if (params.dic) {
                 const limit = 30;
                 let offset = params.offset * limit;
                 if (offset === undefined)
                     offset = 0;
 
-                params = cleanParams(params);
-                return searchBrief(options.dic, params, limit, offset);
+                return searchBrief(params.dic, params, limit, offset);
             } else
                 return basicSearch(params);
+        } else if (method === 'allField') {
+            if (params.dic) {
+                const limit = 30;
+                let offset = params.offset * limit;
+                if (offset === undefined)
+                    offset = 0;
+                return searchSingleAllField(params.dic, params, limit, offset);
+            } 
+            else
+                return searchAllField(params);
         } else if (method === 'singleDic') {
-            return searchSingleDic(options.dic, options.params);
+            return searchSingleDic(params.dic, params);
         }
     },
 
@@ -54,10 +64,85 @@ Meteor.methods({
     },
 });
 
+// equals / contains
+function processSearchMethod(params) {
+    if (params.searchMethod === 'contains') {
+        if (params.value !== undefined) {
+            if (/\S/.test(params.value)) {
+                params.value = '%' + params.value + '%';
+            }
+        } else if (params.columns !== undefined) {
+            for (let key in params.columns) {
+                if (/\S/.test(params.columns[key])) {
+                    params.columns[key] = '%' + params.columns[key] + '%';
+                }
+            }
+        }
+    }
+    return params;
+}
+
+// spellingMethod
+function processBasicSearchColumns(params) {
+    if (params.spellingMethod) {
+        params.columns[params.spellingMethod] = params.columns.spelling;
+        delete params.columns.spelling;
+    }
+    return params;
+}
+
+// check '  '
+function cleanEmptyColumns(params) {
+    if (params.columns !== undefined) {
+        for (let key in params.columns) {
+            if (!/\S/.test(params.columns[key])) {
+                delete params.columns[key];
+            }
+        }
+    } else if (params.value !== undefined) {
+        if (!/\S/.test(params.value)) {
+            delete params.value;
+        }
+    }
+    return params;
+}
+
+// check columns exist
+function validateColumns(params) {
+    if (params.dic !== undefined) {
+        if (params.columns !== undefined) {
+            const dicColumns = dicsStruct.filter(e => e.name === params.dic)[0].columns;
+            for (let key in params.columns) {
+                if (!(key in dicColumns)) {
+                    delete params.columns[key];
+                }
+            }
+        }
+    }
+    return params;
+}
+
+// wildcard
+function processWildcard(params) {
+    const reM = new RegExp('\\*', 'g');
+    const reP = new RegExp('\\+', 'g');
+
+    if (params.value !== undefined) {
+        params.value = params.value.replace(reM, '%');
+        params.value = params.value.replace(reP, '_');
+    } else if (params.columns !== undefined) {
+        for (let key in params.columns) {
+            params.columns[key] = params.columns[key].replace(reM, '%');
+            params.columns[key] = params.columns[key].replace(reP, '_');
+        }
+    }
+
+    return params;
+}
+
 function basicSearch(params) {
     if (Meteor.isServer) {
         const searchLimit = 20;
-        params = cleanParams(params);
 
         querys = [];
         for (let idx in dicsStruct) {
@@ -104,73 +189,21 @@ function searchSingleDic(dic, params) {
         if (offsetM)
             offset = offsetM * limit;
 
-        params = cleanParams(params);
         return searchBrief(dic, params, limit, offset);
     }
 }
 
-function cleanParams(params) {
-    let searchMethod = params.searchMethod;
-    if (searchMethod)
-        delete params.searchMethod;
-    
-    let spelling = params.spelling;
-    if (spelling) {
-        params[params.spellingMethod] = spelling;
-        delete params.spellingMethod;
-        delete params.spelling;
-    }
-
-    if ('offset' in params)
-        delete params.offset;
-
-    for (let key in params) {
-        if (!params[key].trim())
-            delete params[key];
-    }
-
-    // wildcard charactors
-    for (let key in params) {
-        params[key] = cleanWildcard(params[key]);
-    }
-    
-    if (searchMethod) {
-        if (searchMethod === 'contains') {
-            for (let key in params) {
-                params[key] = '%' + params[key] + '%';
-            }
-        }
-    }
-        
-    return params;
-}
-
-function cleanWildcard(value) {
-    const reM = new RegExp('\\*', 'g');
-    const reP = new RegExp('\\+', 'g');
-    value = value.replace(reM, '%');
-    value = value.replace(reP, '_');
-    return value;
-}
-
 function searchBrief(dic, params, limit=-1, offset=0) {
-    let dicStruct = dicsStruct.filter(e => e.name===dic)[0];
-    let columns = dicStruct.columns;
-    let brief = dicStruct.brief;
-    let briefArray = ['id'];
+    const dicStruct = dicsStruct.filter(e => e.name===dic)[0];
+    const brief = dicStruct.brief;
+    const briefArray = ['id'];
     for (let key in brief) {
         briefArray.push(key);
     }
 
+    const columns = params.columns;
     // check params is in valid columns
-    let valid = false;
-    for (let key in params) {
-        if (key in columns) {
-            valid = true;
-            break;
-        }
-    }
-    if (!valid)
+    if (Object.keys(columns).length === 0)
         return {
             dic: dic,
             num: 0,
@@ -178,11 +211,11 @@ function searchBrief(dic, params, limit=-1, offset=0) {
         };
 
     const query = pg.select(briefArray);
-    for (let key in params) {
+    for (let key in columns) {
         if (key === 'id')
-        query.andWhere(key, params[key]);
-        else if (key in columns)
-        query.andWhere(key, 'like', params[key]);
+            query.andWhere(key, columns[key]);
+        else
+            query.andWhere(key, 'like', columns[key]);
     }
     query.from(dic)
     if (limit >= 0)
@@ -207,29 +240,25 @@ function searchBrief(dic, params, limit=-1, offset=0) {
 
 function searchSingleAllField(dic, params, limit=-1, offset=0) {
     if (Meteor.isServer) {
-        let dicStruct = dicsStruct.filter(e => e.name===dic)[0];
-        let columns = dicStruct.columns;
-        let brief = dicStruct.brief;
-        let briefArray = ['id'];
+        const dicStruct = dicsStruct.filter(e => e.name===dic)[0];
+        const columns = dicStruct.columns;
+        const brief = dicStruct.brief;
+        const briefArray = ['id'];
         for (let key in brief) {
             briefArray.push(key);
         }
 
-        // check params is in valid columns
-        let value = params.value;
-        if (value.trim() === '')
+        if (params.value === undefined)
             return {
                 dic: dic,
                 num: 0,
                 words: [],
             };
 
-        value = cleanWildcard(value);
-        params.value = value;
         const query = pg.select(briefArray);
         for (key in columns) {
             if (key !== 'id')
-            query.orWhere(key, 'like', value);
+                query.orWhere(key, 'like', params.value);
         }
         query.from(dic)
         if (limit >= 0)
@@ -253,15 +282,14 @@ function searchSingleAllField(dic, params, limit=-1, offset=0) {
 }
 
 function searchNo(dic, params) {
-    let dicStruct = dicsStruct.filter(e => e.name===dic)[0];
-    let columns = dicStruct.columns;
+    let columns = params.columns;
 
     const cmd = pg.count('id as num');
-    for (let key in params) {
+    for (let key in columns) {
         if (key === 'id')
-            cmd.andWhere(key, params[key]);
-        else if (key in columns)
-            cmd.andWhere(key, 'like', params[key]);
+            cmd.andWhere(key, columns[key]);
+        else
+            cmd.andWhere(key, 'like', columns[key]);
     }
     cmd.from(dic)
     return cmd;

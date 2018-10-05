@@ -49,10 +49,12 @@ class BasicSearch extends Component {
         let params = {
             searchMethod: this.state.searchMethod,
             spellingMethod: this.state.spellingMethod,
-            spelling: this.state.spelling,
-            hanlo_taibun_poj: this.state.hanlo_taibun_poj,
-            hoabun: this.state.hoabun,
-            english_descriptions: this.state.english_descriptions,
+            columns: {
+                spelling: this.state.spelling,
+                hanlo_taibun_poj: this.state.hanlo_taibun_poj,
+                hoabun: this.state.hoabun,
+                english_descriptions: this.state.english_descriptions,
+            },
         }
         let options = {
             method: 'basic',
@@ -89,7 +91,7 @@ class BasicSearch extends Component {
                     <img id='banner' src='images/home_image@2x.png' width='730' height='200'></img>
                 </div>
                 <div id='form-background'  style={{minHeight: this.state.background_height + 'px'}}>
-                    <form id='basic-form' onSubmit={this.handleSubmit.bind(this)} autoComplete='false'>
+                    <form id='basic-form' onSubmit={this.handleSubmit.bind(this)} autoComplete='off'>
                         <div id='search-title'><Translate id="basic" /></div>
                         <div id='form-container'>
                             <div id='search-method-container'>
