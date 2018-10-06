@@ -204,7 +204,14 @@ function searchBrief(dic, params, limit=-1, offset=0) {
 
     const columns = params.columns;
     // check params is in valid columns
-    if (Object.keys(columns).length === 0)
+    let valid = false;
+    for (let key in columns) {
+        if (key in dicColumns) {
+	    valid = true;
+	    break;
+	}
+    }
+    if (!valid)
         return {
             dic: dic,
             num: 0,
