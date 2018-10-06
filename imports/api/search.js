@@ -195,6 +195,7 @@ function searchSingleDic(dic, params) {
 
 function searchBrief(dic, params, limit=-1, offset=0) {
     const dicStruct = dicsStruct.filter(e => e.name===dic)[0];
+    const dicColumns = dicStruct.columns;
     const brief = dicStruct.brief;
     const briefArray = ['id'];
     for (let key in brief) {
@@ -209,12 +210,12 @@ function searchBrief(dic, params, limit=-1, offset=0) {
             num: 0,
             words: [],
         };
-
+    
     const query = pg.select(briefArray);
     for (let key in columns) {
         if (key === 'id')
             query.andWhere(key, columns[key]);
-        else
+        else if (key in dicColumns)
             query.andWhere(key, 'like', columns[key]);
     }
     query.from(dic)
@@ -282,13 +283,14 @@ function searchSingleAllField(dic, params, limit=-1, offset=0) {
 }
 
 function searchNo(dic, params) {
-    let columns = params.columns;
+    const dicColumns = dicsStruct.filter(e => e.name === dic)[0].columns;
+    const columns = params.columns;
 
     const cmd = pg.count('id as num');
     for (let key in columns) {
         if (key === 'id')
             cmd.andWhere(key, columns[key]);
-        else
+        else if (key in dicColumns)
             cmd.andWhere(key, 'like', columns[key]);
     }
     cmd.from(dic)
