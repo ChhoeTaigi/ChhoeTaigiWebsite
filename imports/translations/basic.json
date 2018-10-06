@@ -48,10 +48,10 @@
         "POJ"
     ],
     "poj-input": [
-        "白話字輸入",
-        "POJ Su-ji̍p",
-        "白話字輸入",
-        "POJ Input"
+        "白話字(數字輸入)",
+        "POJ (Sò͘-jī Su-ji̍p)",
+        "白話字(數字輸入)",
+        "POJ (Number Input)"
     ],
     "lmj": [
         "教育部羅馬字",
@@ -60,10 +60,10 @@
         "MoE Roman"
     ],
     "lmj-input": [
-        "教育部羅馬字輸入",
-        "Kàu-io̍k-pō͘ LMJ Su-ji̍p",
-        "教育部羅馬字輸入",
-        "MoE Roman Input"
+        "教育部羅馬字(數字輸入)",
+        "Kàu-io̍k-pō͘  LMJ (Sò͘-jī Su-ji̍p)",
+        "教育部羅馬字(數字輸入)",
+        "MoE Roman (Number Input)"
     ],
     "keyword": [
         "請phah beh chhōe ê字詞",
