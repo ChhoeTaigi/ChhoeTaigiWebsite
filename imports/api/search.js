@@ -201,12 +201,12 @@ function searchBrief(dic, params, limit=-1, offset=0) {
     for (let key in brief) {
         briefArray.push(key);
     }
-
+    
     const columns = params.columns;
     // check params is in valid columns
     let valid = false;
     for (let key in columns) {
-        if (key in dicColumns) {
+        if ((key in dicColumns) || ((key === 'taibun') && (('hanlo_taibun_poj' in dicColumns) || ('hanlo_taibun_kiplmj' in dicColumns) || ('hanji_taibun' in dicColumns)))) {
 	    valid = true;
 	    break;
 	}
@@ -217,13 +217,21 @@ function searchBrief(dic, params, limit=-1, offset=0) {
             num: 0,
             words: [],
         };
-    
+  
     const query = pg.select(briefArray);
     for (let key in columns) {
         if (key === 'id')
             query.andWhere(key, columns[key]);
-        else if (key in dicColumns)
-            query.andWhere(key, 'like', columns[key]);
+        else if (key === 'taibun') {
+	    if ('hanlo_taibun_poj' in dicColumns)
+		query.orWhere('hanlo_taibun_poj', 'like', columns[key]);
+	    if ('hanlo_taibun_kiplmj' in dicColumns)
+		query.orWhere('hanlo_taibun_kiplmj', 'like', columns[key]);
+	    if ('hanji_taibun' in dicColumns)
+		query.orWhere('hanji_taibun', 'like', columns[key]);
+	} else if (key in dicColumns) {
+	    query.andWhere(key, 'like', columns[key]);
+	}
     }
     query.from(dic)
     if (limit >= 0)

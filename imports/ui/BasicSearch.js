@@ -16,7 +16,7 @@ class BasicSearch extends Component {
             searchMethod: 'equals',
             spellingMethod: 'poj_input',
             spelling: '',
-            hanlo_taibun_poj: '',
+            taibun: '',
             hoabun: '',
             english_descriptions: '',
             background_height: window.innerHeight - 360,
@@ -51,7 +51,7 @@ class BasicSearch extends Component {
             spellingMethod: this.state.spellingMethod,
             columns: {
                 spelling: this.state.spelling,
-                hanlo_taibun_poj: this.state.hanlo_taibun_poj,
+                taibun: this.state.taibun,
                 hoabun: this.state.hoabun,
                 english_descriptions: this.state.english_descriptions,
             },
@@ -115,7 +115,7 @@ class BasicSearch extends Component {
                                 <div id='input-container-left'>
                                     <label className='input-title' htmlFor='spelling'><Translate id="input-method" /></label>
                                     <span className='text-height'></span>
-                                    <label className='input-title top-space' htmlFor="hanlo_taibun_poj"><Translate id="corresponding-tb" /></label>
+                                    <label className='input-title top-space' htmlFor="taibun"><Translate id="corresponding-tb" /></label>
                                     <label className='input-title top-space' htmlFor="hoabun"><Translate id="corresponding-hb" /></label>
                                     <label className='input-title top-space' htmlFor="english_descriptions"><Translate id="corresponding-en" /></label>
                                 </div>
@@ -146,7 +146,7 @@ class BasicSearch extends Component {
                                     <Translate>{({ translate }) =>
                                         <div>
                                             <input className='text-input' type="text" name="spelling" placeholder={translate('keyword')} value={this.state.spelling} onChange={this.handleInput.bind(this)} />
-                                            <input className='text-input top-space' type="text" name="hanlo_taibun_poj" placeholder={translate('keyword')} value={this.state.hanlo_taibun_poj} onChange={this.handleInput.bind(this)} />
+                                            <input className='text-input top-space' type="text" name="taibun" placeholder={translate('keyword')} value={this.state.taibun_poj} onChange={this.handleInput.bind(this)} />
                                             <input className='text-input top-space' type="text" name="hoabun" placeholder={translate('keyword')} value={this.state.hoabun} onChange={this.handleInput.bind(this)} />
                                             <input className='text-input top-space' type="text" name="english_descriptions" placeholder={translate('keyword')} value={this.state.english_descriptions} onChange={this.handleInput.bind(this)} />
                                         </div>
