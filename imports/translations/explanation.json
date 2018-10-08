@@ -107,25 +107,25 @@
         "萬用字元搜尋",
         "Search with Wildcard Character"
     ],
-    "one": [
+    "any": [
         "*：代表有1 ê以上任何ê字，a̍h是無半字。",
         "*: Tāi-piáu ū 1-ê í-siōng jīm-hô ê jī, a̍h-sī bô-pòaⁿ-jī.",
         "*：代表有0或1個以上的任意字元。",
         "*: Matches zero or more non-space characters."
     ],
-    "one-ex": [
-        "譬如phah「白話字」ê關鍵字chhōe「p+」，ē-sái chhōe tio̍h「pa」、「pá」等等。Phah「對應華文」ê關鍵字chhōe「豬++」，ē-sái chhōe tio̍h「豬蹄子」、「豬血湯」等等。",
-        "Phí-jū phah \"Pe̍h-ōe-jī\" ê koan-kiān-jī chhōe \"p+\", ē-sái chhōe tio̍h \"pa\", \"pá\" téng-téng. Phah \"Tùi-èng Hôa-bûn\" ê koan-kiān-jī chhōe \"豬++\", ē-sái chhōe tio̍h \"豬蹄子\", \"豬血湯\" téng-téng.",
-        "例如輸入「白話字」關鍵字查「p+」，可以找到「pa」、「pá」等等。輸入「對應華文」關鍵字查「豬++」，可以找到「豬蹄子」、「豬血湯」等等。",
+    "any-ex": [
+        "譬如phah「白話字」ê關鍵字chhōe【*pn̄g】，ē-sái chhōe tio̍h「âng-tāu-pn̄g」、「be̍h-á-pn̄g」、「chhài-pn̄g」、「pn̄g」等等。",
+        "Phí-jū phah \"Pe̍h-ōe-jī\" ê koan-kiān-jī chhōe \"*pn̄g\", ē-sái chhōe tio̍h \"âng-tāu-pn̄g\", \"be̍h-á-pn̄g\", \"chhài-pn̄g\", \"pn̄g\" téng-téng.",
+        "例如輸入「白話字」關鍵字查【*pn̄g】，可以找到「âng-tāu-pn̄g」、「be̍h-á-pn̄g」、「chhài-pn̄g」、「pn̄g」等等。",
         "For example: When searching POJ with keyword \"*pn̄g\", you will find \"âng-tāu-pn̄g\", \"be̍h-á-pn̄g\", \"chhài-pn̄g\", \"pn̄g\", etc."
-    ],
-    "any": [
+    ], 
+    "one": [
         "+：代表有tú好1 ê任何ê字。",
         "+: Tāi-piáu ū tú-hó 1-ê jīm-hô ê jī.",
         "+：代表有剛好1個的任意字元。",
         "+: Ｍatches exactly one non-space character."
     ],
-    "any-ex": [
+    "one-ex": [
         "譬如phah「白話字」ê關鍵字chhōe「p+」，ē-sái chhōe tio̍h「pa」、「pá」等等。Phah「對應華文」ê關鍵字chhōe「豬++」，ē-sái chhōe tio̍h「豬頭皮」、「豬血湯」等等。",
         "Phí-jū phah \"Pe̍h-ōe-jī\" ê koan-kiān-jī chhōe \"p+\", ē-sái chhōe tio̍h \"pa\", \"pá\" téng-téng. Phah \"Tùi-èng Hôa-bûn\" ê koan-kiān-jī chhōe \"豬++\", ē-sái chhōe tio̍h \"豬頭皮\", \"豬血湯\" téng-téng.",
         "例如輸入「白話字」關鍵字查「p+」，可以找到「pa」、「pá」等等。輸入「對應華文」關鍵字查「豬++」，可以找到「豬頭皮」、「豬血湯」等等。",
