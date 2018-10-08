@@ -38,15 +38,15 @@
 
 #form-container {
     background-color: #d0e3d0;
-    height: 370px;
     border-radius: 0 0 5px 5px;
+    overflow: auto;
 }
 
 #search-method-container {
-    height: 54px;
+    height: 42px;
     padding-left: 43px;
     padding-right: 43px;
-    line-height: 54px;
+    line-height: 42px;
 }
 
 .radio > div {
@@ -102,8 +102,12 @@
     background-color: #43944f;
 }
 
+#input-method {
+    width: 874px;
+    margin: 9px auto 4px auto;
+}
+
 #input-container {
-    margin-top: 16px;
     padding-left: 43px;
 }
 
@@ -122,6 +126,7 @@
 
 #input-container-left {
     display: inline-block;
+    width: 178px;
 }
 
 #input-container-right {

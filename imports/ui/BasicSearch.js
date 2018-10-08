@@ -111,9 +111,10 @@ class BasicSearch extends Component {
                                 </div>
                             </div>
                             <div id='seperator'></div>
+                            <div id='input-method'><Translate id="input-method" /></div>
                             <div id='input-container'>
                                 <div id='input-container-left'>
-                                    <label className='input-title' htmlFor='spelling'><Translate id="input-method" /></label>
+                                    <label className='input-title' htmlFor='spelling'><Translate id="lmj-tb" /></label>
                                     <span className='text-height'></span>
                                     <label className='input-title top-space' htmlFor="taibun"><Translate id="corresponding-tb" /></label>
                                     <label className='input-title top-space' htmlFor="hoabun"><Translate id="corresponding-hb" /></label>
@@ -154,7 +155,7 @@ class BasicSearch extends Component {
                                 </div>
                             </div>
                             <Translate>{({ translate }) =>
-                                <input className='find-button' style={{marginTop: '22px'}} type="submit" value={translate('find')} />
+                                <input className='find-button' style={{marginTop: '12px', marginBottom: '20px'}} type="submit" value={translate('find')} />
                             }</Translate>
                         </div>
                         
