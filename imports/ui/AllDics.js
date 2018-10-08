@@ -78,7 +78,7 @@ class AllDics extends Component {
 
     handleButtonClicked(dic, event) {
         const domNode = ReactDOM.findDOMNode(this.refs[dic].current);
-        window.scrollTo(0, domNode.offsetTop - 135);
+        window.scrollTo(0, domNode.offsetTop - 125);
 
         this.setState({
             selectedDic: dic,
@@ -131,7 +131,7 @@ class AllDics extends Component {
             totalNum += rowNum;
         }
         this.refs = refs;
-        let remainingButtonNum = 9 - (allResults.filter(e => e).length % 9);
+        let remainingButtonNum = (9 - (allResults.filter(e => e).length % 9)) % 9;
         for (let i = 0; i < remainingButtonNum; ++i) {
             dicButtons.push(
                 <span className='all-dic-empty' key={'empty' + i}></span>
