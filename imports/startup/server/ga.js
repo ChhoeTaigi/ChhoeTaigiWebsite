@@ -4,7 +4,7 @@ const scopes = 'https://www.googleapis.com/auth/analytics.readonly';
 const email = 'ga-324@chhoetaigiwebsite.iam.gserviceaccount.com';
 const jsonFile = '/chhoetaigiwebsite-22a755925ef2.json';
 const viewID = '180234162';
-const updatePeriod = 5000; // ms
+const updatePeriod = 30000; // ms
 
 const queries = [
     {
