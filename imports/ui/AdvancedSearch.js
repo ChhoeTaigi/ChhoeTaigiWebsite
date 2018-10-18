@@ -4,6 +4,7 @@ import { withLocalize } from "react-localize-redux";
 import { Translate } from "react-localize-redux";
 import ReactGA from 'react-ga';
 
+import { stringify } from '../api/urlHelper';
 import dicStruct from '../api/dictionary_struct';
 import advancedTranslations from '../translations/advanced.json';
 
@@ -75,10 +76,10 @@ class AdvancedSearch extends Component {
         if (this.state.method === 'singleDic') {
             let selectedDic = this.state.selectedDic;
             if (selectedDic) {
-                searchOptions = <SingleDicOptions key='singleDicOptions' dic={selectedDic} updateResults={this.updateResults.bind(this)} />;
+                searchOptions = <SingleDicOptions key='singleDicOptions' dic={selectedDic} />;
             }
         } else {
-            searchOptions = <AllFieldOptions key='allFieldOptions' updateResults={this.updateResults.bind(this)} />;
+            searchOptions = <AllFieldOptions key='allFieldOptions' />;
         }
 
         // view
@@ -94,18 +95,11 @@ class AdvancedSearch extends Component {
             </div>
         );
     }
-
-    updateResults(state) {
-        if (state.options.method === 'singleDic')
-            this.props.history.push('/single/1', state);
-        else if (state.options.method === 'allField')
-            this.props.history.push('/all', state);
-    }
 }
 
 export default withLocalize(withRouter(AdvancedSearch));
 
-class SingleDicOptions extends Component {
+class SingleDicOptionsClass extends Component {
     constructor(props) {
         super(props);
         this.state = {
@@ -116,14 +110,13 @@ class SingleDicOptions extends Component {
 
     componentWillUpdate(nextProps, nextState) {
         if (this.props.dic !== nextProps.dic) {
-            let newParams = this.clearInput(nextProps.dic);
-            newParams.searchMethod = this.state.searchMethod;
-            nextState.params = newParams;
+            let columns = this.clearInput(nextProps.dic);
+            nextState.columns = columns;
         }
     }
 
     clearInput(dic) {
-        let dicColumns = dicStruct.filter((e) => e.name === dic)[0].columns;
+        let dicColumns = dicStruct.find((e) => e.name === dic).columns;
         let columns = {};
         for (let key in dicColumns) {
             columns[key] = '';
@@ -138,23 +131,18 @@ class SingleDicOptions extends Component {
             label: 'single-dic'
         });
 
-        let params = {
+        let options = {
+            method: 'single-dic',
             dic: this.props.dic,
             searchMethod: this.state.searchMethod,
             columns: this.state.columns,
         };
-        let options = {
-            method: 'singleDic',
-            params: params,
-        };
-        Meteor.call('search', options, (error, results) => {
-            if (error) throw new Meteor.Error(error);
-            let state = {
-                options: options,
-                allResults: results,
-            }
-            this.props.updateResults(state);
+        
+        this.props.history.push({
+            pathname: 'search', 
+            search: stringify(options),
         });
+
         event.preventDefault();
     }
 
@@ -176,7 +164,7 @@ class SingleDicOptions extends Component {
 
     render() {
         let dic = this.props.dic;
-        let columns = dicStruct.filter((e) => e.name === dic)[0].columns;
+        let columns = dicStruct.find((e) => e.name === dic).columns;
         let labels = [
             <label key='search-method-label' className='single-dic-label' id='search-method'><Translate id='search-method' /></label>
         ];
@@ -231,7 +219,9 @@ class SingleDicOptions extends Component {
     }
 }
 
-class AllFieldOptions extends Component {
+const SingleDicOptions = withRouter(SingleDicOptionsClass);
+
+class AllFieldOptionsClass extends Component {
     constructor(props) {
         super(props);
         this.state = {
@@ -248,20 +238,16 @@ class AllFieldOptions extends Component {
         });
 
         let options = {
-            method: 'allField',
-            params: {
-                searchMethod: this.state.searchMethod,
-                value: this.state.value,
-            }
+            method: 'all-field',
+            searchMethod: this.state.searchMethod,
+            value: this.state.value,
         };
-        Meteor.call('search', options, (error, results) => {
-            if (error) throw new Meteor.Error(error);
-            let state = {
-                options: options,
-                allResults: results,
-            }
-            this.props.updateResults(state);
+        
+        this.props.history.push({
+            pathname: 'search', 
+            search: stringify(options),
         });
+
         event.preventDefault();
     }
 
@@ -301,3 +287,5 @@ class AllFieldOptions extends Component {
         );
     }
 }
+
+const AllFieldOptions = withRouter(AllFieldOptionsClass);

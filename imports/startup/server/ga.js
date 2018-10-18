@@ -86,7 +86,7 @@ class GA {
             const sessions = results[0][0];
             Data.update(data, {$set: {sessions: sessions}}, {upsert: true});
         } else if (this.queryIdx === 1) {
-            const clicks = results.filter(e => e[0] === 'Search')[0][1];
+            const clicks = results.find(e => e[0] === 'Search')[1];
             Data.update(data, {$set: {clicks: clicks}}, {upsert: true});
         }
 

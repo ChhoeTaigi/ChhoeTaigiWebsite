@@ -1,37 +1,35 @@
 import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
-import { withRouter } from 'react-router-dom';
+import { Link, withRouter } from 'react-router-dom';
 import { withLocalize } from "react-localize-redux";
 import { Translate } from "react-localize-redux";
 
+import { stringify } from '../api/urlHelper';
 import resultsTranslations from '../translations/results.json';
 import dicStruct from '../api/dictionary_struct';
 import BriefWord from './BriefWord';
 
-class AllDics extends Component {
+class DictionaryList extends Component {
     constructor(props) {
         super(props);
 
         props.addTranslation(resultsTranslations);
-
-        let state = props.location.state;
-        if (!state) {
-            props.history.replace('/');
-        }
-        for (let idx in state.allResults) {
-            if (state.allResults[idx].words.length === 0)
-                delete state.allResults[idx];
-        }
-        this.refs = {};
-
-        let firstDic = state.allResults.find(e => e);;
-        if (firstDic)
-            state.selectedDic = firstDic.dic;
-        state.background_height = window.innerHeight - 154;
-        this.state = state;
+        
+        this.state = {
+            background_height: window.innerHeight - 154,
+        };
 
         this.handleScroll = this.handleScroll.bind(this);
         this.handleResize = this.handleResize.bind(this);
+    }
+
+    componentWillReceiveProps(props) {
+        if (props.allResults) {
+            const firstDic = props.allResults.find(e => (e.words.length !== 0)).dic;
+            this.setState({
+                selectedDic: firstDic,
+            });
+        }
     }
 
     handleScroll() {
@@ -63,19 +61,6 @@ class AllDics extends Component {
         window.removeEventListener('resize', this.handleResize);
     }
 
-    showMore(dic) {
-        let options = this.state.options;
-        options.params.dic = dic;
-        Meteor.call('search', options, (error, results) => {
-            if (error) throw new Meteor.Error(error);
-            let state = {
-                options: options,
-                allResults: results,
-            }
-            this.props.history.push('single/1', state);
-        });
-    }
-
     handleButtonClicked(dic, event) {
         const domNode = ReactDOM.findDOMNode(this.refs[dic].current);
         window.scrollTo(0, domNode.offsetTop - 125);
@@ -88,55 +73,66 @@ class AllDics extends Component {
     }
 
     render() {
-        const params = this.state.options.params;
-        const columns = params.columns;
         let keywords = [];
-        if (columns !== undefined) {
-            for (let key in columns) {
-                let column = columns[key].replace(/\s/g, '');
-                if (column !== '') {
-                    keywords.push(column)
-                }
-            }
-            keywords = keywords.join('，');
-        } else {
-            keywords = params.value;
-        }
-        
-        const dicLen = this.state.allResults.filter(e => e).length;
-
-        const allResults = this.state.allResults;
         let dicButtons = [];
         let dicBriefs = [];
-        let refs = {};
+        let dicLen = 0;
         let totalNum = 0;
-        for (let idx in allResults) {
-            const dicResults = allResults[idx];
-            const dic = dicResults.dic;
-            const chineseName = dicStruct.find((e) => e.name === dic).chineseName;
-            const rowNum = parseInt(allResults[idx].num);
+        if (this.props.allResults) {
+            const options = this.props.options;
+            const columns = options.columns;
+            
+            if (columns !== undefined) {
+                // all dics
+                for (let key in columns) {
+                    if (columns[key]) {
+                        let column = columns[key].replace(/\s/g, '');
+                        if (column !== '') {
+                            keywords.push(column)
+                        }
+                    }
+                }
+                keywords = keywords.join('，');
+            } else if (options.value) {
+                // all fields
+                keywords = options.value;
+            }
 
-            dicButtons.push(
-                <a className={'all-dic-button ' + (this.state.selectedDic === dic ? 'all-dic-button-selected' : 'all-dic-button-unselected')} key={dic} onClick={this.handleButtonClicked.bind(this, dic)}>
-                    <div><span>{(parseInt(idx) + 1) + '. ' + chineseName}</span></div>
-                </a>
-            )
-
-            let thisRef = React.createRef();
-            refs[dic] = thisRef;
-            dicBriefs.push(
-                <DictionaryBrief ref={thisRef} key={dic} dicResults={dicResults} showMore={this.showMore.bind(this, dic)} showMoreButton={rowNum > 20} />
-            );
-
-            totalNum += rowNum;
-        }
-        this.refs = refs;
-        let remainingButtonNum = (9 - (allResults.filter(e => e).length % 9)) % 9;
-        for (let i = 0; i < remainingButtonNum; ++i) {
-            dicButtons.push(
-                <span className='all-dic-empty' key={'empty' + i}></span>
-            );
-        }
+            dicLen = this.props.allResults.filter(e => e).length;
+    
+            const allResults = this.props.allResults;
+            
+            let refs = {};
+            for (let idx in allResults) {
+                const dicResults = allResults[idx];
+                if (dicResults.words.length !== 0) {
+                    const dic = dicResults.dic;
+                    const chineseName = dicStruct.find((e) => e.name === dic).chineseName;
+                    const rowNum = parseInt(allResults[idx].num);
+        
+                    dicButtons.push(
+                        <a className={'all-dic-button ' + (this.state.selectedDic === dic ? 'all-dic-button-selected' : 'all-dic-button-unselected')} key={dic} onClick={this.handleButtonClicked.bind(this, dic)}>
+                            <div><span>{(parseInt(idx) + 1) + '. ' + chineseName}</span></div>
+                        </a>
+                    )
+        
+                    let thisRef = React.createRef();
+                    refs[dic] = thisRef;
+                    dicBriefs.push(
+                        <DictionaryBrief ref={thisRef} key={dic} dicResults={dicResults} options={this.props.options} showMoreButton={rowNum > 20} />
+                    );
+        
+                    totalNum += rowNum;
+                }
+            }
+            this.refs = refs;
+            let remainingButtonNum = (9 - (allResults.filter(e => e).length % 9)) % 9;
+            for (let i = 0; i < remainingButtonNum; ++i) {
+                dicButtons.push(
+                    <span className='all-dic-empty' key={'empty' + i}></span>
+                );
+            }
+        } 
         
         return (
             <div id='all-dic-container' style={{minHeight: this.state.background_height + 'px'}}>
@@ -155,27 +151,28 @@ class AllDics extends Component {
     }
 }
 
-export default withLocalize(withRouter(AllDics));
+export default withLocalize(withRouter(DictionaryList));
 
 class DictionaryBrief extends Component {
     constructor(props) {
         super(props);
 
         let dic = props.dicResults.dic;
-        const struct = dicStruct.find(struct => struct.name===dic);
+        const struct = dicStruct.find(e => e.name === dic);
         const chineseName = struct.chineseName;
         const totalNum = props.dicResults.num;
         const words = props.dicResults.words;
+        const options = Object.assign({}, props.options);
+        options.dic = dic;
+        const url = '/search?' + stringify(options);
 
         this.state = {
             dic: dic,
             chineseName: chineseName,
             totalNum: totalNum,
             words: words,
+            url: url,
         };
-    }
-    showMore() {
-        this.props.showMore();
     }
 
     render() {
@@ -185,7 +182,7 @@ class DictionaryBrief extends Component {
                 <h2 className='dic-subtitle'>(<Translate id='result-1' />{this.state.totalNum}<Translate id='result-2' />)</h2>
                 <div className='dic-content-container'>
                     <BriefWord key={this.state.dic} dic={this.state.dic} words={this.state.words} width960 />
-                    {this.props.showMoreButton ? <button className='show-more-button' onClick={this.showMore.bind(this)}><Translate id='mroe-results' /></button> : ''}
+                    {this.props.showMoreButton ? <Link className='show-more-button' to={this.state.url}><Translate id='mroe-results' /></Link> : ''}
                 </div>
             </div>
         );

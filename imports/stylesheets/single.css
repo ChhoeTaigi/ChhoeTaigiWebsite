@@ -53,6 +53,9 @@
     color: #657160;
     padding-left: 6px;
     padding-right: 6px;
+    line-height: 30px;
+    text-decoration: none;
+    text-align: center;
 }
 
 .page-button-selected {

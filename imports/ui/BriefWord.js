@@ -7,46 +7,39 @@ import dicStruct from '../api/dictionary_struct';
 export default class Word extends Component {
     constructor(props) {
         super(props);
-
-        let dic = props.dic;
-        let struct = dicStruct.filter(e => e.name === dic)[0];
-        let headerTitle = struct.brief;
-        let columnWidth = struct.briefWidth;
-        this.state = {
-            headerTitle: headerTitle,
-            columnWidth: columnWidth,
-        };
+        this.state = {};
     }
 
     render() {
-        // header
-        let headerTitle = this.state.headerTitle;
-        let header = [];
-        for (let key in headerTitle) {
-            header.push(<th key={key}>{headerTitle[key]}</th>);
-        }
-        header.push(<th key='detail' className='detail-td'></th>);
+        const words = this.props.words;
 
-        // rows
-        let columnWidth = this.state.columnWidth;
-        let dic = this.props.dic;
-        let words = this.props.words;
-        let rows = []
-        for (let idx in words) {
-            let word = words[idx];
-            let row = [];
-            for (let key in word) {
-                if (key in headerTitle)
-                    row.push(<td key={key + idx} style={{width: columnWidth[key]}}>{word[key]}</td>);
-            }
-            const linkUri = '/' + dic + '/' + word.id;
-            row.push(<td key={'detail' + idx} className='detail-td'><Link to={linkUri}><Translate id='more' /></Link></td>)
-            rows.push(<tr className='content-row' key={idx}>{row}</tr>);
-        }
-        
-        if (words.length === 0)
+        if (words === undefined || words.length === 0)
             return <div></div>;
-        else
+        else {
+            const dic = this.props.dic;
+            const struct = dicStruct.find(e => e.name === dic);
+            // header
+            const headerTitle = struct.brief;
+            const header = [];
+            for (let key in headerTitle) {
+                header.push(<th key={key}>{headerTitle[key]}</th>);
+            }
+            header.push(<th key='detail' className='detail-td'></th>);
+
+            // rows
+            const columnWidth = struct.briefWidth;
+            const rows = []
+            for (let idx in words) {
+                const word = words[idx];
+                const row = [];
+                for (let key in word) {
+                    if (key in headerTitle)
+                        row.push(<td key={key + idx} style={{width: columnWidth[key]}}>{word[key]}</td>);
+                }
+                const linkUri = '/' + dic + '/' + word.id;
+                row.push(<td key={'detail' + idx} className='detail-td'><Link to={linkUri}><Translate id='more' /></Link></td>)
+                rows.push(<tr className='content-row' key={idx}>{row}</tr>);
+            }
             return (
                 <table className={'brief-word ' + (this.props.width960 ? 'brief-word-960' : '')}>
                     <tbody>
@@ -55,5 +48,6 @@ export default class Word extends Component {
                     </tbody>
                 </table>
             );
+        }
     }
 }

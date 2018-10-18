@@ -3,10 +3,9 @@ import { Switch, Route, Redirect, withRouter } from 'react-router-dom';
 import DicStruct from '../api/dictionary_struct';
 
 import BasicSearch from './BasicSearch';
-import Explanation from './Explanation';
 import AdvancedSearch from './AdvancedSearch';
-import AllDics from './AllDics';
-import SingleDic from './SingleDic';
+import Explanation from './Explanation';
+import Search from './Search';
 import Update from './Update';
 import Detail from './Detail';
 import About from './About';
@@ -21,12 +20,9 @@ class Main extends Component {
         if (Meteor.userId() || env === 'prod') {
             additionalRoute = [
                 <Route key='basic' exact path='/' component={BasicSearch} />,
-                <Route key='explanation' exact path='/annachhoe' component={Explanation} />,
                 <Route key='advanced' exact path='/chinkai' component={AdvancedSearch} />,
-                <Route key='all' exact path='/all' component={AllDics} />,
-                <Route key='single' path="/single/:pageid" render={(props) => {
-                    return <SingleDic key={props.match.params.pageid} />;
-                }} />,
+                <Route key='explanation' exact path='/annachhoe' component={Explanation} />,
+                <Route key='search' exact path='/search' component={Search} />,
                 <Route key='detail' exact path={detailPath} component={Detail} />,
                 <Route key='about' exact path='/liaukai' component={About} />,
                 <Route key='app' exact path='/app' component={DicApp} />,

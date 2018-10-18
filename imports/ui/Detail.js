@@ -26,7 +26,7 @@ class Detail extends Component {
             });
         });
 
-        const struct = dicStruct.filter(struct => struct.name === dic)[0];
+        const struct = dicStruct.find(struct => struct.name === dic);
         const chineseName = struct.chineseName;
         const path = 'https://' + window.location.hostname + props.location.pathname;
 
@@ -63,7 +63,7 @@ class Detail extends Component {
 
     render() {
         return (
-            <div id='detail-container' style={{minHeight: this.state.background_height}}>
+            <div style={{minHeight: this.state.background_height}}>
                 <div id='fb-root'></div>
                 <div id='script'></div>
                 <div id='poj-container'>{this.state.chineseName}：{this.state.title}</div>

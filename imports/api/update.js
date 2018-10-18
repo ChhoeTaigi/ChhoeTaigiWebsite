@@ -15,7 +15,7 @@ Meteor.methods({
 
     'update.searchRowNum'(dicName) {
         if (Meteor.isServer) {
-            const searchDicName = searchDicStruct.filter(e => e.name === dicName)[0].dbname;
+            const searchDicName = searchDicStruct.find(e => e.name === dicName).dbname;
             return pg(searchDicName).count('*');
         }
     },
@@ -81,7 +81,7 @@ Meteor.methods({
 
     'update.saveSearch'(dicName, jsonArray) {        
         if (Meteor.isServer) {
-            const searchDicName = searchDicStruct.filter(e => e.name === dicName)[0].dbname;
+            const searchDicName = searchDicStruct.find(e => e.name === dicName).dbname;
             return pg.batchInsert(searchDicName, jsonArray)
             .catch((err) => {
                 console.log("err: ", err);
@@ -99,7 +99,7 @@ Meteor.methods({
 
     'update.deleteSearch'(dicName) {
         if (Meteor.isServer) {
-            const searchDicName = searchDicStruct.filter(e => e.name === dicName)[0].dbname;
+            const searchDicName = searchDicStruct.find(e => e.name === dicName).dbname;
             return pg(searchDicName).delete().then(() => {
                 return pg(searchDicName).count('*');
             });

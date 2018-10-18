@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
-import { withRouter } from 'react-router-dom';
+import { Link, withRouter } from 'react-router-dom';
 import { withLocalize } from "react-localize-redux";
 import { Translate } from "react-localize-redux";
 
+import { stringify } from '../api/urlHelper';
 import resultsTranslations from '../translations/results.json';
 import dicStruct from '../api/dictionary_struct';
 import BriefWord from './BriefWord';
@@ -13,64 +14,10 @@ class SingleDic extends Component {
 
         props.addTranslation(resultsTranslations);
 
-        let state = props.location.state;
-        if (!state) {
-            props.history.replace('/');
-        }
-        // dic result
-        const dic = state.options.params.dic;
-        const params = state.options.params;
-        const columns = params.columns;
-
-        const offset = params.offset;
-        if (offset !== undefined)
-            delete params.offset;
-
-        let keywords = [];
-        for (let key in columns) {
-            let column = columns[key].replace(/\s/g, '');
-            if (column !== '') {
-                keywords.push(column)
-            }
-        }
-        keywords = keywords.join('，');
-        const struct = dicStruct.filter(struct => struct.name===dic)[0];
-        const chineseName = struct.chineseName;
-
-        // num
-        const rowPerPage = 30;
-        const totalNum = state.allResults.num;
-        const pageNum = Math.ceil(totalNum / rowPerPage);
-
-        // page
-        let thisPage = 1;
-        if (offset)
-            thisPage = offset + 1;
-        let pageFrom = thisPage - 3;
-        if (pageFrom < 1)
-            pageFrom = 1;
-        let pageTo = pageFrom + 6;
-        
-        if (pageTo > pageNum)
-            pageTo = pageNum;
-        pageFrom = pageTo - 6;
-        if (pageFrom < 1)
-            pageFrom = 1;
-
         this.state = {
-            dic: dic,
-            keywords: keywords,
-            totalNum: totalNum,
-            pageNum: pageNum,
-            thisPage: thisPage,
-            pageFrom: pageFrom,
-            pageTo: pageTo,
-            chineseName: chineseName,
-            options: state.options,
-            words: state.allResults.words,
             background_height: window.innerHeight - 154,
         };
-
+        
         this.handleResize = this.handleResize.bind(this);
     }
 
@@ -89,57 +36,71 @@ class SingleDic extends Component {
         window.removeEventListener('resize', this.handleResize);
     }
 
-    handlePageClick(page) {
-        const options = this.state.options;
-        options.params.offset = page - 1;
-        this.search(page, options);
-    }
-
-    lastPage() {
-        let page = this.state.thisPage - 1;
-        if (page < 1)
-            page = 1;
-        const options = this.state.options;
-        options.params.offset = page - 1;
-        this.search(page, options);
-    }
-
-    nextPage() {
-        let page = this.state.thisPage + 1;
-        if (page > this.state.pageNum)
-            page = this.state.pageNum;
-        const options = this.state.options;
-        options.params.offset = page - 1;
-        this.search(page, options);
-    }
-
-    goToPage(event) {
+    goToPage(pageNum, event) {
         if (event.key === 'Enter') {
             let page = event.target.value;
             if (page < 1)
                 page = 1;
-            if (page > this.state.pageNum)
-                page = this.state.pageNum;
-            const options = this.state.options;
-            options.params.offset = page - 1;
-            this.search(page, options);
+            if (page > pageNum)
+                page = pageNum;
+            const options = this.props.options;
+            options.page = page;
+            this.props.history.push({
+                pathname: 'search', 
+                search: stringify(options),
+            });
         }
     }
 
-    search(page, options) {
-        Meteor.call('search', options, (error, results) => {
-            if (error) throw new Meteor.Error(error);
-            let state = {
-                options: options,
-                allResults: results,
-            }
-            this.props.history.push('/single/' + page, state);
-        });
-    }
-
     render() {
-        let pageFrom = this.state.pageFrom;
-        let pageTo = this.state.pageTo;
+        let dic;
+        let keywords = [];
+        let totalNum;
+        let pageNum;
+        let thisPage;
+        let pageFrom;
+        let pageTo;
+        let chineseName;
+        const options = this.props.options;
+        let words;
+
+        if (this.props.allResults) {
+            // dic result
+            dic = options.dic;
+            const columns = options.columns;
+
+            for (let key in columns) {
+                if (columns[key]) {
+                    const column = columns[key].replace(/\s/g, '');
+                    if (column !== '') {
+                        keywords.push(column)
+                    }
+                }
+            }
+            keywords = keywords.join('，');
+            const struct = dicStruct.find(e => e.name === dic);
+            chineseName = struct.chineseName;
+
+            // num
+            const rowPerPage = 30;
+            totalNum = this.props.allResults.num;
+            pageNum = Math.ceil(totalNum / rowPerPage);
+
+            // page
+            thisPage = parseInt(options.page || 1);
+            pageFrom = thisPage - 3;
+            if (pageFrom < 1)
+                pageFrom = 1;
+            pageTo = pageFrom + 6;
+
+            if (pageTo > pageNum)
+                pageTo = pageNum;
+            pageFrom = pageTo - 6;
+            if (pageFrom < 1)
+                pageFrom = 1;
+
+            words = this.props.allResults.words;
+        }
 
         let pageView;
         let bottomPageView;
@@ -147,16 +108,29 @@ class SingleDic extends Component {
             let pages = [];
             let listPageNum = (pageTo - pageFrom + 1);
 
-            for (let i = pageFrom; i <= pageTo; ++i)
-                pages.push(<button key={i} className={'page-button ' + (this.state.thisPage === i ? 'page-button-selected' : '')} onClick={this.handlePageClick.bind(this, i)}>{i}</button>);
+            for (let i = pageFrom; i <= pageTo; ++i) {
+                options.page = i;
+                const pageUrl = '/search?' + stringify(options);
+                pages.push(<Link key={i} className={'page-button ' + (thisPage === i ? 'page-button-selected' : '')} to={pageUrl}>{i}</Link>);
+            }
             
+            let lastPage = thisPage - 1;
+            lastPage = lastPage < 1 ? 1 : lastPage;
+            options.page = lastPage;
+            const lastPageUrl = '/search?' + stringify(options);
+            
+            let nextPage = thisPage + 1;
+            nextPage = nextPage > pageNum ? pageNum : nextPage;
+            options.page = nextPage;
+            const nextPageUrl = '/search?' + stringify(options);
+
             pageView = (
                 <div id='single-dic-right-container'>
-                    <button id='last-page' className='page-arrow' onClick={this.lastPage.bind(this)}></button>
+                    <Link id='last-page' className='page-arrow' to={lastPageUrl}></Link>
                     <div className='dic-pages' style={{gridTemplateColumns: 'repeat(' + listPageNum + ', 1fr)'}}>{pages}</div>
-                    <button id='next-page' className='page-arrow' onClick={this.nextPage.bind(this)}></button>
+                    <Link id='next-page' className='page-arrow' to={nextPageUrl}></Link>
                     <span>跳至第</span>
-                    <input type='text' onKeyPress={this.goToPage.bind(this)}></input>
+                    <input type='text' onKeyPress={this.goToPage.bind(this, pageNum)}></input>
                     <span>頁</span>
                 </div>
             )
@@ -168,19 +142,18 @@ class SingleDic extends Component {
             );
         }
         
-        
         return (
             <div id='single-dic-container' style={{minHeight: this.state.background_height}}>
-                <div id='keywords'><Translate id='keyowrd' />：{this.state.keywords}</div>
+                <div id='keywords'><Translate id='keyowrd' />：{keywords}</div>
                 <div id='single-dic-content-container'>
                     <div id='single-dic-title'>
                         <div id='single-dic-left-container'>
-                            <h1 className='dic-title'>{this.state.chineseName}</h1>
-                            <h2 className='dic-subtitle'>(共{this.state.totalNum}筆，{this.state.pageNum}頁)</h2>
+                            <h1 className='dic-title'>{chineseName}</h1>
+                            <h2 className='dic-subtitle'>(共{totalNum}筆，{pageNum}頁)</h2>
                         </div>
                         { pageView }
                     </div>
-                    <BriefWord key={this.state.dic} dic={this.state.dic} words={this.state.words}/>
+                    <BriefWord key={dic} dic={dic} words={words}/>
                     { bottomPageView }
                 </div>
             </div>

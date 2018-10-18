@@ -3,6 +3,7 @@ import { withRouter, Link } from 'react-router-dom';
 import { withLocalize } from "react-localize-redux";
 import { Translate } from "react-localize-redux";
 import ReactGA from 'react-ga';
+import { stringify } from '../api/urlHelper';
 
 import basicTranslations from '../translations/basic.json';
 
@@ -46,7 +47,8 @@ class BasicSearch extends Component {
             label: 'basic'
         });
 
-        let params = {
+        const options = {
+            method: 'basic',
             searchMethod: this.state.searchMethod,
             spellingMethod: this.state.spellingMethod,
             columns: {
@@ -56,23 +58,12 @@ class BasicSearch extends Component {
                 english_descriptions: this.state.english_descriptions,
             },
         }
-        let options = {
-            method: 'basic',
-            params: params,
-        };
-        Meteor.call('search', options, (error, allResults) => {
-            if (error) throw new Meteor.Error(error);
-            for (let idx in allResults) {
-                if (allResults[idx].words.length === 0)
-                    delete allResults[idx];
-            }
 
-            let state = {
-                allResults: allResults,
-                options: options,
-            };
-            this.props.history.push('all', state);
+        this.props.history.push({
+            pathname: 'search', 
+            search: stringify(options),
         });
+        
         event.preventDefault();
     }
 
