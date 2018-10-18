@@ -9,7 +9,7 @@ Meteor.methods({
         options = cleanEmptyColumns(options);
         options = validateColumns(options);
         options = processWildcard(options);
-        
+
         if (method === 'basic') {
             if (options.dic) {
                 const limit = 30;
@@ -70,16 +70,16 @@ function processBasicSearchColumns(options) {
     return options;
 }
 
-// check '  '
+// check '  ' or undefined
 function cleanEmptyColumns(options) {
     if (options.columns !== undefined) {
         for (let key in options.columns) {
-            if (!/\S/.test(options.columns[key])) {
+            if (!/\S/.test(options.columns[key]) || (options.columns[key] === undefined)) {
                 delete options.columns[key];
             }
         }
     } else if (options.value !== undefined) {
-        if (!/\S/.test(options.value)) {
+        if (!/\S/.test(options.value) || (options.value === undefined)) {
             delete options.value;
         }
     }
@@ -218,7 +218,7 @@ function searchAllField(options) {
         }
 
         // check valid input
-        if (!/\S/.test(options.value))
+        if (!/\S/.test(options.value) || (options.value === undefined))
             return {
                 dic: dic,
                 num: 0,

@@ -24,7 +24,7 @@ class DictionaryList extends Component {
     }
 
     componentWillReceiveProps(props) {
-        if (props.allResults) {
+        if (props.allResults && props.allResults.filter(e => (e.words.length !== 0)).length > 0) {
             const firstDic = props.allResults.find(e => (e.words.length !== 0)).dic;
             this.setState({
                 selectedDic: firstDic,
@@ -98,7 +98,7 @@ class DictionaryList extends Component {
                 keywords = options.value;
             }
 
-            dicLen = this.props.allResults.filter(e => e).length;
+            dicLen = this.props.allResults.filter(e => (e.words.length > 0)).length;
     
             const allResults = this.props.allResults;
             
