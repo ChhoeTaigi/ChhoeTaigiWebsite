@@ -137,10 +137,10 @@ class BasicSearch extends Component {
                                     </div>
                                     <Translate>{({ translate }) =>
                                         <div>
-                                            <input className='text-input' type="text" name="chhoetaigi_lomaji" placeholder={translate('keyword')} value={this.state.spelling} onChange={this.handleInput.bind(this)} />
-                                            <input className='text-input top-space' type="text" name="chhoetaigi_taibun" placeholder={translate('keyword')} value={this.state.taibun_poj} onChange={this.handleInput.bind(this)} />
-                                            <input className='text-input top-space' type="text" name="chhoetaigi_hoabun" placeholder={translate('keyword')} value={this.state.hoabun} onChange={this.handleInput.bind(this)} />
-                                            <input className='text-input top-space' type="text" name="chhoetaigi_english_descriptions" placeholder={translate('keyword')} value={this.state.english_descriptions} onChange={this.handleInput.bind(this)} />
+                                            <input className='text-input' type="text" name="spelling" placeholder={translate('keyword')} value={this.state.spelling} onChange={this.handleInput.bind(this)} />
+                                            <input className='text-input top-space' type="text" name="taibun" placeholder={translate('keyword')} value={this.state.taibun_poj} onChange={this.handleInput.bind(this)} />
+                                            <input className='text-input top-space' type="text" name="hoabun" placeholder={translate('keyword')} value={this.state.hoabun} onChange={this.handleInput.bind(this)} />
+                                            <input className='text-input top-space' type="text" name="english_descriptions" placeholder={translate('keyword')} value={this.state.english_descriptions} onChange={this.handleInput.bind(this)} />
                                         </div>
                                     }</Translate>
                                 </div>

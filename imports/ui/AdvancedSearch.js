@@ -194,7 +194,7 @@ class SingleDicOptionsClass extends Component {
         for (let key in columns) {
             inputs.push(
                 <Translate key={key + '-input'}>{({ translate }) =>
-                    <input className='single-dic-text-input' type='text' placeholder={translate('keyword')} name={'chhoetaigi_' + key} onChange={this.handleInput.bind(this)} value={this.state.columns[key]}></input>
+                    <input className='single-dic-text-input' type='text' placeholder={translate('keyword')} name={key} onChange={this.handleInput.bind(this)} value={this.state.columns[key]}></input>
                 }</Translate>
             )
         }
@@ -279,7 +279,7 @@ class AllFieldOptionsClass extends Component {
                             <Link id='wildcard-note' to='/annachhoe'><Translate id="explanation" /></Link>
                         </div>
                     </div>
-                    <input className='all-field-text-input' type='text' placeholder={translate('keyword')} name='chhoetaigi_keyword' onChange={this.handleInput.bind(this)} value={this.state.value}></input>
+                    <input className='all-field-text-input' type='text' placeholder={translate('keyword')} name='value' onChange={this.handleInput.bind(this)} value={this.state.value}></input>
                     <input className='find-button' style={{marginTop: '30px'}} type="submit" value={translate('find')} />
                     <div id='bg-img'></div>
                 </form>
