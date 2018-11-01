@@ -1,3 +1,5 @@
+import knex from 'knex';
+
 import pg from './pg';
 import dicStruct from './dictionary_struct';
 
@@ -119,6 +121,14 @@ function processWildcard(options) {
     return options;
 }
 
+// lowercase query
+function lowerQeury(key) {
+    return pg.raw('LOWER(\"' + key + '\")');
+}
+function lowerStr(str) {
+    return str.toLowerCase();
+}
+
 // basic search
 function basicSearch(options) {
     const dic = options.dic;
@@ -148,23 +158,25 @@ function basicSearch(options) {
   
     const query = pg.select(briefArray);
     for (let key in columns) {
-        if (key === 'id')
-            query.andWhere(key, columns[key]);
-        else if (key === 'taibun') {
+        if (key === 'taibun') {
             if ('hanlo_taibun_poj' in dicColumns)
-                query.orWhere('hanlo_taibun_poj', 'like', columns[key]);
+                query.orWhere(lowerQeury('hanlo_taibun_poj'), 'like', lowerStr(columns[key]));
             if ('hanlo_taibun_kiplmj' in dicColumns)
-                query.orWhere('hanlo_taibun_kiplmj', 'like', columns[key]);
+                query.orWhere(lowerQeury('hanlo_taibun_kiplmj'), 'like', lowerStr(columns[key]));
             if ('hanji_taibun' in dicColumns)
-                query.orWhere('hanji_taibun', 'like', columns[key]);
+                query.orWhere(lowerQeury('hanji_taibun'), 'like', lowerStr(columns[key]));
         } else if (key in dicColumns) {
-            query.andWhere(key, 'like', columns[key]);
+            query.andWhere(lowerQeury(key), 'like',  lowerStr(columns[key]));
         }
     }
+
     query.from(dic)
-    if (options.limit)
+    if (options.limit) {
         query.limit(options.limit);
-    query.offset(options.offset || 0);
+    }
+    if (options.offset) {
+        query.offset(options.offset);
+    }
 
     const queryNo = searchBasicNo(options);
 
@@ -228,12 +240,15 @@ function searchAllField(options) {
         const query = pg.select(briefArray);
         for (key in columns) {
             if (key !== 'id')
-                query.orWhere(key, 'like', options.value);
+                query.orWhere(lowerQeury(key), 'like', lowerStr(options.value));
         }
         query.from(dic)
-        if (options.limit)
+        if (options.limit) {
             query.limit(options.limit);
-        query.offset(options.offset || 0);
+        }
+        if (options.offset) {
+            query.offset(options.offset);
+        }
 
         const queryNo = searchAllFieldNo(options);
         return new Promise((resolve, reject) => {
@@ -307,7 +322,7 @@ function searchSingleDic(options) {
             if (key === 'id')
                 query.andWhere(key, columns[key]);
             else if (key in dicColumns)
-                query.andWhere(key, 'like', columns[key]);
+                query.andWhere(lowerQeury(key), 'like', lowerStr(columns[key]));
         }
         query.from(dic)
         query.limit(options.limit);
@@ -338,17 +353,15 @@ function searchBasicNo(options) {
 
     const query = pg.count('id as num');
     for (let key in columns) {
-        if (key === 'id')
-            query.andWhere(key, columns[key]);
-        else if (key === 'taibun') {
+        if (key === 'taibun') {
             if ('hanlo_taibun_poj' in dicColumns)
-                query.orWhere('hanlo_taibun_poj', 'like', columns[key]);
+                query.orWhere(lowerQeury('hanlo_taibun_poj'), 'like', lowerStr(columns[key]));
             if ('hanlo_taibun_kiplmj' in dicColumns)
-                query.orWhere('hanlo_taibun_kiplmj', 'like', columns[key]);
+                query.orWhere(lowerQeury('hanlo_taibun_kiplmj'), 'like', lowerStr(columns[key]));
             if ('hanji_taibun' in dicColumns)
-                query.orWhere('hanji_taibun', 'like', columns[key]);
+                query.orWhere(lowerQeury('hanji_taibun'), 'like', lowerStr(columns[key]));
         } else if (key in dicColumns) {
-            query.andWhere(key, 'like', columns[key]);
+            query.andWhere(lowerQeury(key, 'like'), lowerStr(columns[key]));
         }
     }
     query.from(dic)
@@ -362,7 +375,7 @@ function searchAllFieldNo(options) {
     const query = pg.count('id as num');
     for (key in columns) {
         if (key !== 'id')
-        query.orWhere(key, 'like', value);
+        query.orWhere(lowerQeury(key), 'like', lowerStr(value));
     }
     query.from(dic)
     return query;
@@ -378,7 +391,7 @@ function searchSingleDicNo(options) {
         if (key === 'id')
         query.andWhere(key, columns[key]);
         else if (key in dicColumns)
-        query.andWhere(key, 'like', columns[key]);
+        query.andWhere(lowerQeury(key), 'like', lowerStr(columns[key]));
     }
     query.from(dic)
     return query;
