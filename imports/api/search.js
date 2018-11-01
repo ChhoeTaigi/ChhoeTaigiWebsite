@@ -9,7 +9,6 @@ Meteor.methods({
         options = processSearchMethod(options);
         options = processBasicSearchColumns(options);
         options = cleanEmptyColumns(options);
-        options = validateColumns(options);
         options = processWildcard(options);
 
         if (method === 'basic') {
@@ -88,21 +87,6 @@ function cleanEmptyColumns(options) {
     return options;
 }
 
-// check columns exist
-function validateColumns(options) {
-    if (options.dic !== undefined) {
-        if (options.columns !== undefined) {
-            const dicColumns = dicStruct.find(e => e.name === options.dic).columns;
-            for (let key in options.columns) {
-                if (!(key in dicColumns)) {
-                    delete options.columns[key];
-                }
-            }
-        }
-    }
-    return options;
-}
-
 // wildcard
 function processWildcard(options) {
     const reM = new RegExp('\\*', 'g');
@@ -149,6 +133,7 @@ function basicSearch(options) {
             break;
         }
     }
+
     if (!valid)
         return {
             dic: dic,
