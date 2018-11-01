@@ -7,21 +7,23 @@ import { stringify } from '../api/urlHelper';
 
 import basicTranslations from '../translations/basic.json';
 
+let state = {
+    searchMethod: 'equals',
+    spellingMethod: 'poj_input',
+    spelling: '',
+    taibun: '',
+    hoabun: '',
+    english_descriptions: '',
+    background_height: window.innerHeight - 360,
+};
+
 class BasicSearch extends Component {
     constructor(props) {
         super(props);
 
         props.addTranslation(basicTranslations);
 
-        this.state = {
-            searchMethod: 'equals',
-            spellingMethod: 'poj_input',
-            spelling: '',
-            taibun: '',
-            hoabun: '',
-            english_descriptions: '',
-            background_height: window.innerHeight - 360,
-        };
+        this.state = state;
 
         this.handleResize = this.handleResize.bind(this);
     }
@@ -38,6 +40,7 @@ class BasicSearch extends Component {
 
     componentWillUnmount() {
         window.removeEventListener('resize', this.handleResize);
+        state = this.state;
     }
 
     handleSubmit(event) {
@@ -138,7 +141,7 @@ class BasicSearch extends Component {
                                     <Translate>{({ translate }) =>
                                         <div>
                                             <input className='text-input' type="text" name="spelling" placeholder={translate('keyword')} value={this.state.spelling} onChange={this.handleInput.bind(this)} />
-                                            <input className='text-input top-space' type="text" name="taibun" placeholder={translate('keyword')} value={this.state.taibun_poj} onChange={this.handleInput.bind(this)} />
+                                            <input className='text-input top-space' type="text" name="taibun" placeholder={translate('keyword')} value={this.state.taibun} onChange={this.handleInput.bind(this)} />
                                             <input className='text-input top-space' type="text" name="hoabun" placeholder={translate('keyword')} value={this.state.hoabun} onChange={this.handleInput.bind(this)} />
                                             <input className='text-input top-space' type="text" name="english_descriptions" placeholder={translate('keyword')} value={this.state.english_descriptions} onChange={this.handleInput.bind(this)} />
                                         </div>
