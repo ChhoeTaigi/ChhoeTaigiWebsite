@@ -95,7 +95,7 @@ class Footer extends Component {
     }
 }
 
-export default  withTracker(() => {
+export default withTracker(() => {
     Meteor.subscribe('data');
     const data = Data.findOne();
     if (data === undefined) {
@@ -112,6 +112,10 @@ export default  withTracker(() => {
 })(withCookies(withLocalize(withRouter(Footer))));
 
 function commafy(num) {
+    if (num == null) {
+        return ""
+    }
+
     var str = num.toString();
     if (str.length > 3) {
         str = str.replace(/(\d)(?=(\d{3})+$)/g, '$1,');
