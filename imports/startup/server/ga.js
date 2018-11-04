@@ -101,7 +101,7 @@ if (data.length > 1) {
     Data.remove({});
 }
 
-// check if folder exists
+// check if GA data exists
 data = Data.findOne({});
 if (data === undefined) {
     Data.insert({

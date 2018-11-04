@@ -1,5 +1,3 @@
-import knex from 'knex';
-
 import pg from './pg';
 import dicStruct from './dictionary_struct';
 

@@ -1,9 +1,8 @@
-const baseUri = 'https://raw.githubusercontent.com/ChhoeTaigi/ChhoeTaigiDatabase/master/ChhoeTaigiDatabase';
-
 import request from 'request';
 import csv from 'csvtojson';
 import pg from './pg';
 
+import constants from './constants';
 import searchDicStruct from './search_dictionary_struct';
 
 Meteor.methods({
@@ -20,9 +19,13 @@ Meteor.methods({
         }
     },
 
-    'update.import'(folder, dicName) {
+    'update.import'(dicName) {
         if (Meteor.isClient) {
-            let dictionaryUri = baseUri + '/' + folder + '/ChhoeTaigi_' + dicName + '.csv';
+            let dictionaryUri = constants.CHHOETAIGI_DATASOURCE_BASE_URL + 
+                                constants.CHHOETAIGI_DATASOURCE_RELEASE_TAG +
+                                constants.CHHOETAIGI_DATASOURCE_DICT_URL_START + 
+                                dicName + 
+                                constants.CHHOETAIGI_DATASOURCE_DICT_URL_END;
 
             return new Promise((resolve, reject) => {
                 let jsonArray = [];
@@ -45,9 +48,13 @@ Meteor.methods({
         }
     },
 
-    'update.importSearch'(folder, dicName) {
+    'update.importSearch'(dicName) {
         if (Meteor.isClient) {
-            let dictionaryUri = baseUri + '/' + folder + '/lomaji_search_table/ChhoeTaigi_' + dicName + '.csv';
+            let dictionaryUri = constants.CHHOETAIGI_DATASOURCE_BASE_URL + 
+                                constants.CHHOETAIGI_DATASOURCE_RELEASE_TAG +
+                                constants.CHHOETAIGI_DATASOURCE_DICT_URL_START + 
+                                dicName + 
+                                constants.CHHOETAIGI_DATASOURCE_DICT_URL_END;
 
             return new Promise((resolve, reject) => {
                 let jsonArray = [];
