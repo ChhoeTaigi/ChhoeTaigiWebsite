@@ -7,6 +7,13 @@ import ReactGA from 'react-ga';
 import { stringify } from '../api/urlHelper';
 import dicStruct from '../api/dictionary_struct';
 import advancedTranslations from '../translations/advanced.json';
+import { isEmpty } from '../api/utilities';
+
+let state = {
+    method: 'allField',
+    selectedDic: undefined,
+    background_height: window.innerHeight - 154,
+};
 
 class AdvancedSearch extends Component {
     constructor(props) {
@@ -14,11 +21,7 @@ class AdvancedSearch extends Component {
 
         props.addTranslation(advancedTranslations);
 
-        this.state = {
-            method: 'allField',
-            selectedDic: undefined,
-            background_height: window.innerHeight - 154,
-        };
+        this.state = state;
 
         this.handleResize = this.handleResize.bind(this);
     }
@@ -35,6 +38,7 @@ class AdvancedSearch extends Component {
 
     componentWillUnmount() {
         window.removeEventListener('resize', this.handleResize);
+        state = this.state;
     }
 
     handleMethodButton(method) {
@@ -99,13 +103,19 @@ class AdvancedSearch extends Component {
 
 export default withLocalize(withRouter(AdvancedSearch));
 
+let singleDicState = {};
+
 class SingleDicOptionsClass extends Component {
     constructor(props) {
         super(props);
-        this.state = {
-            columns: this.clearInput(this.props.dic),
-            searchMethod: 'equals',
-        };
+        if (isEmpty(singleDicState)) {
+            this.state = {
+                columns: this.clearInput(this.props.dic),
+                searchMethod: 'equals',
+            };
+        } else {
+            this.state = singleDicState;
+        }
     }
 
     componentWillUpdate(nextProps, nextState) {
@@ -113,6 +123,10 @@ class SingleDicOptionsClass extends Component {
             let columns = this.clearInput(nextProps.dic);
             nextState.columns = columns;
         }
+    }
+
+    componentWillUnmount() {
+        singleDicState = this.state;
     }
 
     clearInput(dic) {
@@ -221,13 +235,20 @@ class SingleDicOptionsClass extends Component {
 
 const SingleDicOptions = withRouter(SingleDicOptionsClass);
 
+
+let allFieldState = {
+    searchMethod: 'equals',
+    value: '',
+};
+
 class AllFieldOptionsClass extends Component {
     constructor(props) {
         super(props);
-        this.state = {
-            searchMethod: 'equals',
-            value: '',
-        }
+        this.state = allFieldState;
+    }
+
+    componentWillUnmount() {
+        allFieldState = this.state;
     }
 
     handleSubmit(event) {
