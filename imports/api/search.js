@@ -3,34 +3,36 @@ import dicStruct from './dictionary_struct';
 
 Meteor.methods({
     'search'(options) {
-        let method = options.method;
-        options = processSearchMethod(options);
-        options = processBasicSearchColumns(options);
-        options = cleanEmptyColumns(options);
-        options = processWildcard(options);
+        if (Meteor.isServer) {
+            let method = options.method;
+            options = processSearchMethod(options);
+            options = processBasicSearchColumns(options);
+            options = cleanEmptyColumns(options);
+            options = processWildcard(options);
 
-        if (method === 'basic') {
-            if (options.dic) {
+            if (method === 'basic') {
+                if (options.dic) {
+                    const limit = 30;
+                    options.limit = limit;
+                    options.offset = ((options.page || 1) - 1) * limit;
+                    return basicSearch(options);
+                } else
+                    return basicSearches(options);
+            } else if (method === 'all-field') {
+                if (options.dic) {
+                    const limit = 30;
+                    options.limit = limit;
+                    options.offset = ((options.page || 1) - 1) * limit;
+                    return searchAllField(options);
+                } 
+                else
+                    return searchAllFields(options);
+            } else if (method === 'single-dic') {
                 const limit = 30;
                 options.limit = limit;
                 options.offset = ((options.page || 1) - 1) * limit;
-                return basicSearch(options);
-            } else
-                return basicSearches(options);
-        } else if (method === 'all-field') {
-            if (options.dic) {
-                const limit = 30;
-                options.limit = limit;
-                options.offset = ((options.page || 1) - 1) * limit;
-                return searchAllField(options);
-            } 
-            else
-                return searchAllFields(options);
-        } else if (method === 'single-dic') {
-            const limit = 30;
-            options.limit = limit;
-            options.offset = ((options.page || 1) - 1) * limit;
-            return searchSingleDic(options);
+                return searchSingleDic(options);
+            }
         }
     },
 
@@ -139,21 +141,9 @@ function basicSearch(options) {
             words: [],
         };
   
-    const query = pg.select(briefArray);
-    for (let key in columns) {
-        if (key === 'taibun') {
-            if ('hanlo_taibun_poj' in dicColumns)
-                query.orWhere(lowerQeury('hanlo_taibun_poj'), 'like', lowerStr(columns[key]));
-            if ('hanlo_taibun_kiplmj' in dicColumns)
-                query.orWhere(lowerQeury('hanlo_taibun_kiplmj'), 'like', lowerStr(columns[key]));
-            if ('hanji_taibun' in dicColumns)
-                query.orWhere(lowerQeury('hanji_taibun'), 'like', lowerStr(columns[key]));
-        } else if (key in dicColumns) {
-            query.andWhere(lowerQeury(key), 'like',  lowerStr(columns[key]));
-        }
-    }
+    const query = queryDonditionBasic(options);
+    query.select(briefArray);
 
-    query.from(dic)
     if (options.limit) {
         query.limit(options.limit);
     }
@@ -178,163 +168,173 @@ function basicSearch(options) {
 }
 
 function basicSearches(options) {
-    if (Meteor.isServer) {
-        const limit = 20;
-        options.limit = limit;
+    const limit = 20;
+    options.limit = limit;
 
-        querys = [];
-        for (let idx in dicStruct) {
-            let dic = dicStruct[idx].name
-            options.dic = dic;
-            query = basicSearch(options);
-            querys.push(query);
-        }
-
-        return new Promise((resolve, reject) => {
-            Promise.all(querys)
-            .catch(error => reject(error))
-            .then(results => {
-                resolve(results);
-            });
-        });
+    querys = [];
+    for (let idx in dicStruct) {
+        let dic = dicStruct[idx].name
+        options.dic = dic;
+        query = basicSearch(options);
+        querys.push(query);
     }
+
+    return new Promise((resolve, reject) => {
+        Promise.all(querys)
+        .catch(error => reject(error))
+        .then(results => {
+            resolve(results);
+        });
+    });
 }
 
 // all field search
 function searchAllField(options) {
-    if (Meteor.isServer) {
-        const dic = options.dic;
-        const struct = dicStruct.find(e => e.name===dic);
-        const columns = struct.columns;
-        const brief = struct.brief;
-        const briefArray = ['id'];
-        for (let key in brief) {
-            briefArray.push(key);
-        }
-
-        // check valid input
-        if (!/\S/.test(options.value) || (options.value === undefined))
-            return {
-                dic: dic,
-                num: 0,
-                words: [],
-            };
-
-        const query = pg.select(briefArray);
-        for (key in columns) {
-            if (key !== 'id')
-                query.orWhere(lowerQeury(key), 'like', lowerStr(options.value));
-        }
-        query.from(dic)
-        if (options.limit) {
-            query.limit(options.limit);
-        }
-        if (options.offset) {
-            query.offset(options.offset);
-        }
-
-        const queryNo = searchAllFieldNo(options);
-        return new Promise((resolve, reject) => {
-            Promise.all([queryNo, query])
-            .catch(error => reject(error))
-            .then(results => {
-                rtn = {
-                    dic: dic,
-                    num: results[0][0].num,
-                    words: results[1],
-                };
-                resolve(rtn);
-            });
-        });
+    const dic = options.dic;
+    const struct = dicStruct.find(e => e.name===dic);
+    const columns = struct.columns;
+    const brief = struct.brief;
+    const briefArray = ['id'];
+    for (let key in brief) {
+        briefArray.push(key);
     }
+
+    // check valid input
+    if (!/\S/.test(options.value) || (options.value === undefined))
+        return {
+            dic: dic,
+            num: 0,
+            words: [],
+        };
+
+    const query = queryDonditionAllField(options);
+    query.select(briefArray);
+
+    if (options.limit) {
+        query.limit(options.limit);
+    }
+    if (options.offset) {
+        query.offset(options.offset);
+    }
+
+    const queryNo = searchAllFieldNo(options);
+    return new Promise((resolve, reject) => {
+        Promise.all([queryNo, query])
+        .catch(error => reject(error))
+        .then(results => {
+            rtn = {
+                dic: dic,
+                num: results[0][0].num,
+                words: results[1],
+            };
+            resolve(rtn);
+        });
+    });
 }
 
 function searchAllFields(options) {
-    if (Meteor.isServer) {
-        const limit = 20;
-        options.limit = limit;
+    const limit = 20;
+    options.limit = limit;
 
-        querys = [];
-        for (let idx in dicStruct) {
-            let dic = dicStruct[idx].name
-            options.dic = dic;
-            query = searchAllField(options);
-            querys.push(query);
-        }
-
-        return new Promise((resolve, reject) => {
-            Promise.all(querys)
-            .catch(error => reject(error))
-            .then(results => {
-                resolve(results);
-            });
-        });
+    querys = [];
+    for (let idx in dicStruct) {
+        let dic = dicStruct[idx].name
+        options.dic = dic;
+        query = searchAllField(options);
+        querys.push(query);
     }
+
+    return new Promise((resolve, reject) => {
+        Promise.all(querys)
+        .catch(error => reject(error))
+        .then(results => {
+            resolve(results);
+        });
+    });
 }
 
 // single dictionary search
 function searchSingleDic(options) {
-    if (Meteor.isServer) {
-        const dic = options.dic;
-        const struct = dicStruct.find(e => e.name === dic);
-        const dicColumns = struct.columns;
-        const brief = struct.brief;
-        const briefArray = ['id'];
-        for (let key in brief) {
-            briefArray.push(key);
-        }
-        
-        const columns = options.columns;
-        // check valid columns
-        let valid = false;
-        for (let key in columns) {
-            if (key in dicColumns) {
-                valid = true;
-                break;
-            }
-        }
-        if (!valid)
-            return {
-                dic: dic,
-                num: 0,
-                words: [],
-            };
-    
-        const query = pg.select(briefArray);
-        for (let key in columns) {
-            if (key === 'id')
-                query.andWhere(key, columns[key]);
-            else if (key in dicColumns)
-                query.andWhere(lowerQeury(key), 'like', lowerStr(columns[key]));
-        }
-        query.from(dic)
-        query.limit(options.limit);
-        query.offset(options.offset || 0);
-
-        const queryNo = searchSingleDicNo(options);
-
-        return new Promise((resolve, reject) => {
-            Promise.all([queryNo, query])
-            .catch(error => reject(error))
-            .then(results => {
-                rtn = {
-                    dic: dic,
-                    num: results[0][0].num,
-                    words: results[1],
-                };
-                resolve(rtn);
-            });
-        });
+    const dic = options.dic;
+    const struct = dicStruct.find(e => e.name === dic);
+    const dicColumns = struct.columns;
+    const brief = struct.brief;
+    const briefArray = ['id'];
+    for (let key in brief) {
+        briefArray.push(key);
     }
+    
+    const columns = options.columns;
+    // check valid columns
+    let valid = false;
+    for (let key in columns) {
+        if (key in dicColumns) {
+            valid = true;
+            break;
+        }
+    }
+    if (!valid)
+        return {
+            dic: dic,
+            num: 0,
+            words: [],
+        };
+    
+    const query = queryDonditionSingleDic(options);
+    query.select(briefArray);
+
+    query.limit(options.limit);
+    if (options.offset) {
+        query.offset(options.offset);
+    }
+
+    const queryNo = searchSingleDicNo(options);
+
+    return new Promise((resolve, reject) => {
+        Promise.all([queryNo, query])
+        .catch(error => reject(error))
+        .then(results => {
+            rtn = {
+                dic: dic,
+                num: results[0][0].num,
+                words: results[1],
+            };
+            resolve(rtn);
+        });
+    });
 }
 
 // query result number
 function searchBasicNo(options) {
+    const query = queryDonditionBasic(options);
+
+    query.count('id as num');
+    
+    return query;
+}
+
+function searchAllFieldNo(options) {
+    const query = queryDonditionAllField(options);
+    query.count('id as num');
+
+    return query;
+}
+
+function searchSingleDicNo(options) {
+    const query = queryDonditionSingleDic(options);
+    query.count('id as num');
+
+    return query;
+}
+
+// query condition
+function queryDonditionBasic(options) {
     const dic = options.dic;
-    const dicColumns = dicStruct.find(e => e.name === dic).columns;
+    const struct = dicStruct.find(e => e.name === dic);
+    const dicColumns = struct.columns;
     const columns = options.columns;
 
-    const query = pg.count('id as num');
+    const query = pg.from(dic);
     for (let key in columns) {
         if (key === 'taibun') {
             if ('hanlo_taibun_poj' in dicColumns)
@@ -344,38 +344,38 @@ function searchBasicNo(options) {
             if ('hanji_taibun' in dicColumns)
                 query.orWhere(lowerQeury('hanji_taibun'), 'like', lowerStr(columns[key]));
         } else if (key in dicColumns) {
-            query.andWhere(lowerQeury(key, 'like'), lowerStr(columns[key]));
+            query.andWhere(lowerQeury(key), 'like',  lowerStr(columns[key]));
         }
     }
-    query.from(dic)
     return query;
 }
 
-function searchAllFieldNo(options) {
+function queryDonditionAllField(options) {
     const dic = options.dic;
-    let columns = dicStruct.find(e => e.name===dic).columns;
-    const value = options.value;
-    const query = pg.count('id as num');
+    const struct = dicStruct.find(e => e.name===dic);
+    const columns = struct.columns;
+
+    const query = pg.from(dic);
     for (key in columns) {
         if (key !== 'id')
-        query.orWhere(lowerQeury(key), 'like', lowerStr(value));
+            query.orWhere(lowerQeury(key), 'like', lowerStr(options.value));
     }
-    query.from(dic)
     return query;
 }
 
-function searchSingleDicNo(options) {
+function queryDonditionSingleDic(options) {
     const dic = options.dic;
-    const dicColumns = dicStruct.find(e => e.name === dic).columns;
+    const struct = dicStruct.find(e => e.name === dic);
+    const dicColumns = struct.columns;
     const columns = options.columns;
 
-    const query = pg.count('id as num');
+    const query = pg.from(dic);
     for (let key in columns) {
         if (key === 'id')
-        query.andWhere(key, columns[key]);
+            query.andWhere(key, columns[key]);
         else if (key in dicColumns)
-        query.andWhere(lowerQeury(key), 'like', lowerStr(columns[key]));
+            query.andWhere(lowerQeury(key), 'like', lowerStr(columns[key]));
     }
-    query.from(dic)
+
     return query;
 }
