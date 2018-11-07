@@ -33,8 +33,26 @@ class Main extends Component {
                 );
             }
         }
+        
+        let facebookChat = "";
+        
+        if (env === 'prod') {
+            facebookChat = (
+                // <!-- Your customer chat code -->
+                <div class="fb-customerchat"
+                attribution="install_email"
+                page_id="198185797612542"
+                minimized="true"
+                theme_color="#67b868"
+                logged_in_greeting="平安出頭天！請問kám有問題a̍h是建議？歡迎來留話。"
+                logged_out_greeting="平安出頭天！請問kám有問題a̍h是建議？歡迎來留話。">
+                </div>
+            )
+        }
+
         return (
             <main>
+                {facebookChat}
                 <Switch>
                     {additionalRoute}
                     <Route exact path='/account' component={Account} />
