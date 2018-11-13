@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { logPageView } from '../api/analytics';
+import { logPageView } from '../api/google-analytics/google-analytics';
 import { withRouter } from 'react-router-dom';
 import { withLocalize } from "react-localize-redux";
 import { renderToStaticMarkup } from "react-dom/server";
