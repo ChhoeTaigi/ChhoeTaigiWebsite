@@ -1,12 +1,10 @@
 import React, { Component } from 'react';
 import { withRouter } from 'react-router-dom';
-import { withTracker } from 'meteor/react-meteor-data';
 
 import dicStruct from '../api/dictionary_struct';
 import searchDicStruct from '../api/search_dictionary_struct';
 
 import '../api/update';
-import { Data } from '../api/data';
 
 class Update extends Component {
     constructor(props) {
@@ -37,7 +35,6 @@ class Update extends Component {
 
         // state
         this.state = {
-            folder: '',
             rowNum: rowNum,
             searchRowNum: searchRowNum,
         };
@@ -72,12 +69,6 @@ class Update extends Component {
         this.setSearchRowNum = this.setSearchRowNum.bind(this);
     }
 
-    componentWillReceiveProps(props) {
-        this.setState({
-            folder: props.folder,
-        });
-    }
-
     setRowNum(dic, num) {
         let rowNum = this.state.rowNum;
         rowNum[dic] = num;
@@ -95,16 +86,6 @@ class Update extends Component {
             console.log(result);
         });
     }
-    
-    changeFolder(event) {
-        this.setState({
-            folder: event.target.value,
-        });
-    }
-
-    updateFolder() {
-        Meteor.call('data.update.folder', this.state.folder);
-    }
 
     render() {
         // dic
@@ -112,7 +93,7 @@ class Update extends Component {
         for (let idx in this.dics) {
             let dic = this.dics[idx];
             dicRow.push(
-                <DicRow key={dic} name={dic} rowNum={this.state.rowNum[dic]} setRowNum={this.setRowNum} folder={this.state.folder} />
+                <DicRow key={dic} name={dic} rowNum={this.state.rowNum[dic]} setRowNum={this.setRowNum} />
             )
         }
 
@@ -121,18 +102,13 @@ class Update extends Component {
         for (let idx in this.searchDics) {
             let dic = this.searchDics[idx];
             searchDicRow.push(
-                <DicRow key={dic} name={dic} rowNum={this.state.searchRowNum[dic]} setRowNum={this.setSearchRowNum} folder={this.state.folder} search />
+                <DicRow key={dic} name={dic} rowNum={this.state.searchRowNum[dic]} setRowNum={this.setSearchRowNum} search />
             )
         }
 
         return (
             <div>
                 <h1>更新辭典資料庫</h1>
-                <label>
-                    <span>資料夾名稱</span>
-                    <input id='folder' type='text' value={this.state.folder} onChange={this.changeFolder.bind(this)}></input>
-                    <button onClick={this.updateFolder.bind(this)} className='Mbutton'>更新</button>
-                </label>
                 <h2>主要辭典</h2>
                 {dicRow}
                 <hr></hr>
@@ -144,16 +120,7 @@ class Update extends Component {
     }
 }
 
-export default  withTracker(() => {
-    Meteor.subscribe('data');
-    const data = Data.findOne({});
-    let folder = '';
-    if (data !== undefined)
-        folder = data.folder;
-    return {
-        folder: folder,
-    };
-})(withRouter(Update));
+export default withRouter(Update);
 
 class DicRow extends Component {
     delete(dic) {
@@ -174,12 +141,12 @@ class DicRow extends Component {
 
     import(dic) {
         this.props.setRowNum(dic, -1);
-        Meteor.call('update.import', this.props.folder, dic);
+        Meteor.call('update.import', dic);
     }
 
     importSearch(dic) {
         this.props.setRowNum(dic, -1);
-        Meteor.call('update.importSearch', this.props.folder, dic);
+        Meteor.call('update.importSearch', dic);
     }
 
     render() {

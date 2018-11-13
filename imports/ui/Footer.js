@@ -8,7 +8,7 @@ import { Translate } from "react-localize-redux";
 import footerTranslations from '../translations/footer.json';
 
 import { setLocale, getLocale } from '../api/locale';
-import { Data } from '../api/data';
+import { Minimongo } from '../api/minimongo';
 
 class Footer extends Component {
     constructor(props) {
@@ -96,17 +96,17 @@ class Footer extends Component {
 }
 
 export default withTracker(() => {
-    Meteor.subscribe('data');
-    const data = Data.findOne();
-    if (data === undefined) {
+    Meteor.subscribe('minimongo');
+    const minimongo = Minimongo.findOne();
+    if (minimongo === undefined) {
         return {
             sessions: 0,
             clicks: 0,
         };
     } else {
         return {
-            sessions: data.sessions,
-            clicks: data.clicks,
+            sessions: minimongo.sessions,
+            clicks: minimongo.clicks,
         };
     }
 })(withCookies(withLocalize(withRouter(Footer))));
