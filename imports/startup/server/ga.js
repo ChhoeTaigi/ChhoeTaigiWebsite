@@ -16,7 +16,7 @@ const queries = [
     },
 ];
 
-import { Minimongo } from '../../api/minimongo';
+import { Minimongo } from '../../api/minimongo/minimongo';
 
 class GA {
     constructor() {

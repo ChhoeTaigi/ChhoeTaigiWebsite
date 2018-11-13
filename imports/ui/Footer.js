@@ -8,7 +8,7 @@ import { Translate } from "react-localize-redux";
 import footerTranslations from '../translations/footer.json';
 
 import { setLocale, getLocale } from '../api/locale';
-import { Minimongo } from '../api/minimongo';
+import { Minimongo } from '../api/minimongo/minimongo';
 
 class Footer extends Component {
     constructor(props) {
