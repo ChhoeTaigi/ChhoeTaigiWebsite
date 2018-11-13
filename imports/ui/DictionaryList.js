@@ -6,7 +6,7 @@ import { Translate } from "react-localize-redux";
 
 import { stringify } from '../api/urlHelper';
 import resultsTranslations from '../translations/results.json';
-import dicStruct from '../api/dictionary_struct';
+import dicStruct from '../api/dicts/dictionary-struct';
 import BriefWord from './BriefWord';
 
 class DictionaryList extends Component {

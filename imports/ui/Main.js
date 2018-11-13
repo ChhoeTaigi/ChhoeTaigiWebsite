@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Switch, Route, Redirect, withRouter } from 'react-router-dom';
-import DicStruct from '../api/dictionary_struct';
+import DicStruct from '../api/dicts/dictionary-struct';
 
 import BasicSearch from './BasicSearch';
 import AdvancedSearch from './AdvancedSearch';

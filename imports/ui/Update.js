@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import { withRouter } from 'react-router-dom';
 
-import dicStruct from '../api/dictionary_struct';
-import searchDicStruct from '../api/search_dictionary_struct';
+import dicStruct from '../api/dicts/dictionary-struct';
+import searchDicStruct from '../api/dicts/dictionary-struct-lomaji-search';
 
 import '../api/update';
 

@@ -1,5 +1,5 @@
 import pg from './pg';
-import dicStruct from './dictionary_struct';
+import dicStruct from './dicts/dictionary-struct';
 
 Meteor.methods({
     'search'(options) {

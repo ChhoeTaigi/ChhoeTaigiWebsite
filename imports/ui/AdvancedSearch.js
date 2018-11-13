@@ -5,7 +5,7 @@ import { Translate } from "react-localize-redux";
 import ReactGA from 'react-ga';
 
 import { stringify } from '../api/urlHelper';
-import dicStruct from '../api/dictionary_struct';
+import dicStruct from '../api/dicts/dictionary-struct';
 import advancedTranslations from '../translations/advanced.json';
 import { isEmpty } from '../api/utilities';
 

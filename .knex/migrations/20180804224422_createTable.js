@@ -1,4 +1,4 @@
-let DicStruct = require('../../imports/api/dictionary_struct');
+let DicStruct = require('../../imports/api/dicts/dictionary-struct');
 
 exports.up = function(knex, Promise) {
     cmd = [];

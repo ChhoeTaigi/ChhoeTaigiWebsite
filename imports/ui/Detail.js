@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { withRouter } from 'react-router-dom';
 import FacebookProvider, { Comments } from 'react-facebook';
 
-import dicStruct from '../api/dictionary_struct';
+import dicStruct from '../api/dicts/dictionary-struct';
 import Word from "./Word";
 
 class Detail extends Component {

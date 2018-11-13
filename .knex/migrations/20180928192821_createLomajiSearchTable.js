@@ -1,4 +1,4 @@
-let searchDicStruct = require('../../imports/api/search_dictionary_struct');
+let searchDicStruct = require('../../imports/api/dicts/dictionary-struct-lomaji-search');
 
 exports.up = function(knex, Promise) {
     cmd = [];

@@ -3,7 +3,7 @@ import csv from 'csvtojson';
 import pg from './pg';
 
 import constants from './constants';
-import searchDicStruct from './search_dictionary_struct';
+import searchDicStruct from './dicts/dictionary-struct-lomaji-search';
 
 Meteor.methods({
     'update.rowNum'(dicName) {
