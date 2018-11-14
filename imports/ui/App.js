@@ -7,9 +7,9 @@ import { withCookies } from 'react-cookie';
 
 import { getLocale } from '../api/utils/locale';
 
-import Header from './Header';
-import Main from './Main';
-import Footer from './Footer';
+import Header from './main/Header';
+import Main from './main/Main';
+import Footer from './main/Footer';
 
 class App extends Component {
     constructor(props) {

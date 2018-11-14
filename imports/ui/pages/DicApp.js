@@ -3,7 +3,7 @@ import { withRouter } from 'react-router-dom';
 import { withLocalize } from "react-localize-redux";
 import { Translate } from "react-localize-redux";
 
-import dicAppTranslations from '../translations/app.json';
+import dicAppTranslations from '../../translations/app.json';
 
 class DicApp extends Component {
     constructor(props) {

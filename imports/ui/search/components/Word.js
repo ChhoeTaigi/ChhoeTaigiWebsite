@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-import originalScannedCopy from '../api/utils/original-scanned-copy';
+import originalScannedCopy from '../../../api/utils/original-scanned-copy';
 
 export default class Word extends Component {
     constructor(props) {

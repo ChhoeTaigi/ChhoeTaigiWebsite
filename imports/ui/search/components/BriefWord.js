@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import { Translate } from "react-localize-redux";
 
-import dicStruct from '../api/dicts/dictionary-struct';
+import dicStruct from '../../../api/dicts/dictionary-struct';
 
 export default class Word extends Component {
     constructor(props) {

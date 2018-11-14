@@ -3,7 +3,7 @@ import { withRouter } from 'react-router-dom';
 import { withLocalize } from "react-localize-redux";
 import { Translate } from "react-localize-redux";
 
-import explanationTranslations from '../translations/explanation.json';
+import explanationTranslations from '../../translations/explanation.json';
 
 class Explanation extends Component {
     constructor(props) {

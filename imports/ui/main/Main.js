@@ -1,16 +1,16 @@
 import React, { Component } from 'react';
 import { Switch, Route, Redirect, withRouter } from 'react-router-dom';
-import DicStruct from '../api/dicts/dictionary-struct';
+import DicStruct from '../../api/dicts/dictionary-struct';
 
-import BasicSearch from './BasicSearch';
-import AdvancedSearch from './AdvancedSearch';
-import Explanation from './Explanation';
-import Search from './Search';
-import Update from './Update';
-import Detail from './Detail';
-import About from './About';
-import DicApp from './DicApp';
-import Account from './Account';
+import BasicSearch from '../search/basic/BasicSearch';
+import AdvancedSearch from '../search/advanced/AdvancedSearch';
+import Explanation from '../pages/Explanation';
+import Search from '../../ui/search/components/Search';
+import Update from '../pages/Update';
+import Detail from '../search/components/Detail';
+import About from '../pages/About';
+import DicApp from '../pages/DicApp';
+import Account from '../pages/Account';
 
 // formal
 class Main extends Component {

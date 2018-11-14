@@ -4,10 +4,10 @@ import { withLocalize } from "react-localize-redux";
 import { Translate } from "react-localize-redux";
 import ReactGA from 'react-ga';
 
-import { stringify } from '../api/utils/url-helper';
-import dicStruct from '../api/dicts/dictionary-struct';
-import advancedTranslations from '../translations/advanced.json';
-import { isEmpty } from '../api/utils/utils';
+import { stringify } from '../../../api/utils/url-helper';
+import dicStruct from '../../../api/dicts/dictionary-struct';
+import advancedTranslations from '../../../translations/advanced.json';
+import { isEmpty } from '../../../api/utils/utils';
 
 let state = {
     method: 'allField',

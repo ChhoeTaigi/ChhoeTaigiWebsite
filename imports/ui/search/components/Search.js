@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { withRouter } from 'react-router-dom';
 
-import { parse } from '../api/utils/url-helper';
+import { parse } from '../../../api/utils/url-helper';
 import DictionaryList from './DictionaryList';
 import SingleDic from './SingleDic';
 

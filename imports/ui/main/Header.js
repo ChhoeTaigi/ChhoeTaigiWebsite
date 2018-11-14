@@ -3,7 +3,7 @@ import { Link, withRouter } from 'react-router-dom'
 import { withLocalize } from "react-localize-redux";
 import { Translate } from "react-localize-redux";
 
-import headerTranslations from '../translations/header.json';
+import headerTranslations from '../../translations/header.json';
 
 // Formal
 class Header extends Component {
