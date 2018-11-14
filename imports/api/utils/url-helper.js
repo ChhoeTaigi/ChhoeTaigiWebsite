@@ -1,6 +1,6 @@
 import queryString from 'query-string'
 
-import dicStruct from './dicts/dictionary-struct';
+import dicStruct from '../dicts/dictionary-struct';
 
 export const stringify = (options) => {
     let query = {

@@ -4,7 +4,7 @@ import { withRouter } from 'react-router-dom';
 import dicStruct from '../api/dicts/dictionary-struct';
 import searchDicStruct from '../api/dicts/dictionary-struct-lomaji-search';
 
-import '../api/update';
+import '../api/methods/update';
 
 class Update extends Component {
     constructor(props) {

@@ -1,10 +1,10 @@
 import knex from 'knex';
 
-const host = require('./host');
+const host = require('../constants/host');
 
-let pg;
+let postgres;
 if (Meteor.isServer) {
-    pg = knex({
+    postgres = knex({
         client: 'postgresql',
         connection: {
           host: host,
@@ -15,4 +15,4 @@ if (Meteor.isServer) {
     });
 }
 
-export default pg;
+export default postgres;

@@ -1,21 +1,21 @@
 import request from 'request';
 import csv from 'csvtojson';
-import pg from './pg';
+import postgres from '../database/postgres';
 
-import constants from './constants';
-import searchDicStruct from './dicts/dictionary-struct-lomaji-search';
+import constants from '../constants/constants';
+import searchDicStruct from '../dicts/dictionary-struct-lomaji-search';
 
 Meteor.methods({
     'update.rowNum'(dicName) {
         if (Meteor.isServer) {
-            return pg(dicName).count('*');
+            return postgres(dicName).count('*');
         }
     },
 
     'update.searchRowNum'(dicName) {
         if (Meteor.isServer) {
             const searchDicName = searchDicStruct.find(e => e.name === dicName).dbname;
-            return pg(searchDicName).count('*');
+            return postgres(searchDicName).count('*');
         }
     },
 
@@ -79,7 +79,7 @@ Meteor.methods({
 
     'update.save'(dicName, jsonArray) {        
         if (Meteor.isServer) {
-            return pg.batchInsert(dicName, jsonArray)
+            return postgres.batchInsert(dicName, jsonArray)
             .catch((err) => {
                 console.log("err: ", err);
             });
@@ -89,7 +89,7 @@ Meteor.methods({
     'update.saveSearch'(dicName, jsonArray) {        
         if (Meteor.isServer) {
             const searchDicName = searchDicStruct.find(e => e.name === dicName).dbname;
-            return pg.batchInsert(searchDicName, jsonArray)
+            return postgres.batchInsert(searchDicName, jsonArray)
             .catch((err) => {
                 console.log("err: ", err);
             });
@@ -98,8 +98,8 @@ Meteor.methods({
 
     'update.delete'(dicName) {
         if (Meteor.isServer) {
-            return pg(dicName).delete().then(() => {
-                return pg(dicName).count('*');
+            return postgres(dicName).delete().then(() => {
+                return postgres(dicName).count('*');
             });
         }
     },
@@ -107,8 +107,8 @@ Meteor.methods({
     'update.deleteSearch'(dicName) {
         if (Meteor.isServer) {
             const searchDicName = searchDicStruct.find(e => e.name === dicName).dbname;
-            return pg(searchDicName).delete().then(() => {
-                return pg(searchDicName).count('*');
+            return postgres(searchDicName).delete().then(() => {
+                return postgres(searchDicName).count('*');
             });
         }
     }

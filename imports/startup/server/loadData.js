@@ -1,4 +1,4 @@
-import { Minimongo } from '../../api/minimongo/minimongo';
+import { Minimongo } from '../../api/database/minimongo';
 
 // check if only one record
 let data = Minimongo.find().fetch();

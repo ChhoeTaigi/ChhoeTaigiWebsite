@@ -3,7 +3,7 @@ import { withRouter, Link } from 'react-router-dom';
 import { withLocalize } from "react-localize-redux";
 import { Translate } from "react-localize-redux";
 import ReactGA from 'react-ga';
-import { stringify } from '../api/urlHelper';
+import { stringify } from '../api/utils/url-helper';
 
 import basicTranslations from '../translations/basic.json';
 

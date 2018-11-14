@@ -4,7 +4,7 @@ import { Link, withRouter } from 'react-router-dom';
 import { withLocalize } from "react-localize-redux";
 import { Translate } from "react-localize-redux";
 
-import { stringify } from '../api/urlHelper';
+import { stringify } from '../api/utils/url-helper';
 import resultsTranslations from '../translations/results.json';
 import dicStruct from '../api/dicts/dictionary-struct';
 import BriefWord from './BriefWord';

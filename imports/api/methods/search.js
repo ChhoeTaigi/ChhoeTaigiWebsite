@@ -1,5 +1,5 @@
-import pg from './pg';
-import dicStruct from './dicts/dictionary-struct';
+import postgres from '../database/postgres';
+import dicStruct from '../dicts/dictionary-struct';
 
 Meteor.methods({
     'search'(options) {
@@ -38,7 +38,7 @@ Meteor.methods({
 
     'search.dicAndId'(dic, id) {
         if (Meteor.isServer) {
-            return pg(dic).select('*').where({id: id}).limit(1);
+            return postgres(dic).select('*').where({id: id}).limit(1);
         }
     },
 });
@@ -107,7 +107,7 @@ function processWildcard(options) {
 
 // lowercase query
 function lowerQeury(key) {
-    return pg.raw('LOWER(\"' + key + '\")');
+    return postgres.raw('LOWER(\"' + key + '\")');
 }
 function lowerStr(str) {
     return str.toLowerCase();
@@ -334,7 +334,7 @@ function queryDonditionBasic(options) {
     const dicColumns = struct.columns;
     const columns = options.columns;
 
-    const query = pg.from(dic);
+    const query = postgres.from(dic);
     for (let key in columns) {
         if (key === 'taibun') {
             if ('hanlo_taibun_poj' in dicColumns)
@@ -355,7 +355,7 @@ function queryDonditionAllField(options) {
     const struct = dicStruct.find(e => e.name===dic);
     const columns = struct.columns;
 
-    const query = pg.from(dic);
+    const query = postgres.from(dic);
     for (key in columns) {
         if (key !== 'id')
             query.orWhere(lowerQeury(key), 'like', lowerStr(options.value));
@@ -369,7 +369,7 @@ function queryDonditionSingleDic(options) {
     const dicColumns = struct.columns;
     const columns = options.columns;
 
-    const query = pg.from(dic);
+    const query = postgres.from(dic);
     for (let key in columns) {
         if (key === 'id')
             query.andWhere(key, columns[key]);

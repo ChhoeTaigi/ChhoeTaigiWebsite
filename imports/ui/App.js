@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
-import { logPageView } from '../api/google-analytics/google-analytics';
+import { logPageView } from '../api/utils/google-analytics';
 import { withRouter } from 'react-router-dom';
 import { withLocalize } from "react-localize-redux";
 import { renderToStaticMarkup } from "react-dom/server";
 import { withCookies } from 'react-cookie';
 
-import { getLocale } from '../api/locale';
+import { getLocale } from '../api/utils/locale';
 
 import Header from './Header';
 import Main from './Main';

@@ -1,6 +1,6 @@
 // Update with your config settings.
 
-const host = require('../imports/api/host.js');
+const host = require('../imports/api/constants/host.js');
 
 module.exports = {
 
