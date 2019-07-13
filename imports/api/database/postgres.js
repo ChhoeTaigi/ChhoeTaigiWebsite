@@ -8,9 +8,9 @@ if (Meteor.isServer) {
         client: 'postgresql',
         connection: {
           host: host,
-          database: 'dictionary',
-          user:     'postgres',
-          password: '12345678',
+          database: 'm94c52efefa744bed029f00030f755458cf2ca157',
+          user:     'pi',
+          password: 'qazxcvbnm',
         }
     });
 }

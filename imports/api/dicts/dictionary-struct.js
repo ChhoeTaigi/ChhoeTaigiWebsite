@@ -2,7 +2,7 @@
 
 module.exports = [
     {
-        name: 'TaibunHoabunSoanntengSutian',
+        name: 'TaibunHoabunSoanntengSuTian',
         chineseName: '台文華文線頂辭典',
         brief: {
             poj_unicode: '白話字',
@@ -32,7 +32,7 @@ module.exports = [
         }
     },
     {
-        name: 'TaiJitToaSuTian',
+        name: 'TaijitToaSuTian',
         chineseName: '台日大辭典(台文譯本)',
         brief: {
             poj_unicode: '白話字',
@@ -121,7 +121,7 @@ module.exports = [
         }
     },
     {
-        name: 'KauiokpooTaigiSutian',
+        name: 'KauiokpooTaigiSuTian',
         chineseName: '教育部台語辭典',
         brief: {
             poj_unicode: '白話字',
@@ -154,7 +154,7 @@ module.exports = [
         }
     },
     {
-        name: 'KamJitian',
+        name: 'KamJiTian',
         chineseName: '甘字典',
         brief: {
             poj_unicode: '白話字',
@@ -172,18 +172,24 @@ module.exports = [
             id: '編號',
             poj_unicode: '白話字',
             poj_input: '白話字輸入',
-            hanlo_taibun_poj: '漢羅台文(白話字)',
+            hanlo_taibun_poj: '漢羅台文(白話字)', //已移除
+            hanji_taibun: '漢字台文',
+            poj_bunim_unicode: '文音(白話字)',
+            poj_bunim_input: '文音(白話字輸入)',
             poj_kaisoeh: '台文解說(白話字)',
             hanlo_taibun_kaisoeh_poj: '漢羅台文解說(白話字)',
             kiplmj_unicode: '教育部羅馬字',
             kiplmj_input: '教育部羅馬字輸入',
-            hanlo_taibun_kiplmj: '漢羅台文(教育部羅馬字)',
-            kiplmj_kaisoeh: '漢羅台文解說(教育部羅馬字)',
+            hanlo_taibun_kiplmj: '漢羅台文(教育部羅馬字)',//已移除
+            kiplmj_kaisoeh: '漢羅台文解說(教育部羅馬字)',//已移除
+            kiplmj_bunim_unicode: '文音(教育部羅馬字)',
+            kiplmj_bunim_input: '文音(教育部羅馬字輸入)',
+            kiplmj_kaisoeh: '台文解說(教育部羅馬字)',
             page_number: '原冊頁數',
         }
     },
     {
-        name: 'iTaigiHoaTaiSutian',
+        name: 'iTaigiHoaTaiSuTian',
         chineseName: 'iTaigi華台辭典',
         brief: {
             poj_unicode: '白話字',
