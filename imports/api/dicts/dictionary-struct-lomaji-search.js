@@ -7,8 +7,8 @@ module.exports = [
         columns: ['poj_unicode', 'poj_input', 'kiplmj_unicode', 'kiplmj_input', 'main_id'],
     },
     {
-        name: 'TaiJitToaSuTian',
-        dbname: 'TaiJitToaSuTian2',
+        name: 'TaijitToaSutian',
+        dbname: 'TaijitToaSutian2',
         columns: ['poj_unicode', 'poj_input', 'kiplmj_unicode', 'kiplmj_input', 'main_id'],
     },
     {
@@ -22,8 +22,8 @@ module.exports = [
         columns: ['poj_unicode', 'poj_input', 'kiplmj_unicode', 'kiplmj_input', 'main_id'],
     },
     {
-        name: 'iTaigiHoaTaiSutian',
-        dbname: 'iTaigiHoaTaiSutian2',
+        name: 'iTaigiHoataiSutian',
+        dbname: 'iTaigiHoataiSutian2',
         columns: ['poj_unicode', 'poj_input', 'kiplmj_unicode', 'kiplmj_input', 'main_id'],
     },
 ]

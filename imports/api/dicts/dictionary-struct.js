@@ -2,7 +2,7 @@
 
 module.exports = [
     {
-        name: 'TaibunHoabunSoanntengSuTian',
+        name: 'TaibunHoabunSoanntengSutian',
         chineseName: '台文華文線頂辭典',
         brief: {
             poj_unicode: '白話字',
@@ -32,7 +32,7 @@ module.exports = [
         }
     },
     {
-        name: 'TaijitToaSuTian',
+        name: 'TaijitToaSutian',
         chineseName: '台日大辭典(台文譯本)',
         brief: {
             poj_unicode: '白話字',
@@ -66,7 +66,7 @@ module.exports = [
         }
     },
     {
-        name: 'MaryknollTaiEngSuTian',
+        name: 'MaryknollTaiengSutian',
         chineseName: 'Maryknoll台英辭典',
         brief: {
             poj_unicode: '白話字',
@@ -92,7 +92,7 @@ module.exports = [
         }
     },
     {
-        name: 'EmbreeTaigiSuTian',
+        name: 'EmbreeTaigiSutian',
         chineseName: 'Embree台語辭典',
         brief: {
             poj_unicode: '白話字',
@@ -121,7 +121,7 @@ module.exports = [
         }
     },
     {
-        name: 'KauiokpooTaigiSuTian',
+        name: 'KauiokpooTaigiSutian',
         chineseName: '教育部台語辭典',
         brief: {
             poj_unicode: '白話字',
@@ -154,7 +154,7 @@ module.exports = [
         }
     },
     {
-        name: 'KamJiTian',
+        name: 'KamJitian',
         chineseName: '甘字典',
         brief: {
             poj_unicode: '白話字',
@@ -189,7 +189,7 @@ module.exports = [
         }
     },
     {
-        name: 'iTaigiHoaTaiSuTian',
+        name: 'iTaigiHoataiSutian',
         chineseName: 'iTaigi華台辭典',
         brief: {
             poj_unicode: '白話字',

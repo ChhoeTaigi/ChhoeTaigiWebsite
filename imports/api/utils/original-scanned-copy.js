@@ -3,10 +3,10 @@ import { func } from "prop-types";
 export default originalPage = (dic, page) => {
 
     let link = '';
-    if (dic === 'TaijitToaSuTian')
-        link = parseTaijitToaSuTian(page);
-    else if (dic === 'KamJiTian')
-        link = parseKamJiTian(page);
+    if (dic === 'TaijitToaSutian')
+        link = parseTaijitToaSutian(page);
+    else if (dic === 'KamJitian')
+        link = parseKamJitian(page);
     else if (dic === 'TaioanPehoeKichhooGiku')
         link = parseTaioanPehoeKichhooGiku(page);
     else if (dic === 'TaioanSitbutMialui')
@@ -14,7 +14,7 @@ export default originalPage = (dic, page) => {
     return link;
 }
 
-function parseTaijitToaSuTian(page) {
+function parseTaijitToaSutian(page) {
     const char = page.slice(0, 1);
     page = page.slice(1, 5);
     let url;
@@ -35,7 +35,7 @@ function parseTaijitToaSuTian(page) {
     return url;
 }
 
-function parseKamJiTian(page) {
+function parseKamJitian(page) {
     page = parseInt(page) + 34;
     const baseUrl1 = 'http://ip194097.ntcu.edu.tw/memory/tgb/data/EMISJT/EMISJT_%E9%A0%81%E9%9D%A2_0';
     const baseUrl2 = '.png';

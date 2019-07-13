@@ -10,7 +10,7 @@ class Update extends Component {
     constructor(props) {
         super(props);
 
-        if(!Meteor.userId()) {
+        if (!Meteor.userId()) {
             this.props.history.push('/');
             return;
         }
@@ -49,7 +49,7 @@ class Update extends Component {
                     rowNum: rowNum,
                 })
             });
-            
+
         }
 
         // update search dic row num
@@ -62,7 +62,7 @@ class Update extends Component {
                     searchRowNum: searchRowNum,
                 })
             });
-            
+
         }
 
         this.setRowNum = this.setRowNum.bind(this);
@@ -87,6 +87,27 @@ class Update extends Component {
         });
     }
 
+    createDB() {
+        console.log("按下");
+        Meteor.call("create.import", (error, result) => {
+          console.log("訊息"+result);
+        });
+      }
+
+    createTB() {
+        console.log("按下");
+        Meteor.call("createTB.import", (error, result) => {
+            console.log("訊息"+result);
+        });
+    }
+
+    UpdateALLDate() {
+        console.log("按下");
+        Meteor.call("updateALL.import", (error, result) => {
+            console.log("訊息"+result);
+        });
+    }
+
     render() {
         // dic
         let dicRow = [];
@@ -108,13 +129,28 @@ class Update extends Component {
 
         return (
             <div>
+                <h1>新建資料庫</h1>
+                <button onClick={this.createDB.bind(this)} className="Mbutton">
+                    CreateDB
+           </button>
+                <h1>新建資料表</h1>
+                <button onClick={this.createTB.bind(this)} className="Mbutton">
+                    CreateTB
+            </button>
+                <h1>新增所有資料</h1>
+                <button onClick={this.UpdateALLDate.bind(this)} className="Mbutton">
+                   UpdateALLDate
+            </button>
+
                 <h1>更新辭典資料庫</h1>
                 <h2>主要辭典</h2>
                 {dicRow}
-                <hr></hr>
+                <hr />
                 <h2>搜尋辭典(lomaji_search_table)</h2>
                 {searchDicRow}
-                <button onClick={this.update.bind(this)} className='Mbutton'>Import all</button>
+                <button onClick={this.update.bind(this)} className="Mbutton">
+                    Import all
+            </button>
             </div>
         );
     }
@@ -159,7 +195,7 @@ class DicRow extends Component {
             deleteButton = <button onClick={this.delete.bind(this, this.props.name)} className='Mbutton'>delete</button>;
             importButton = <button onClick={this.import.bind(this, this.props.name)} className='Mbutton'>import</button>;
         }
-        
+
         return (
             <div>
                 <b>{this.props.name}</b>: {this.props.rowNum >= 0 ? this.props.rowNum : 'waiting'}
