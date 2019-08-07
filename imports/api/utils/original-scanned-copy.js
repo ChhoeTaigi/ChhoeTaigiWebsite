@@ -18,7 +18,7 @@ function parseTaijitToaSutian(page) {
     const char = page.slice(0, 1);
     page = page.slice(1, 5);
     let url;
-    if (char === 'a') {
+    if (char === 'A') {
         const baseUrl1 = 'http://ip194097.ntcu.edu.tw/memory/TGB/data/TJTST1/TJTST1_%E9%A0%81%E9%9D%A2_';
         const baseUrl2 = '.png';
         if (page < 99)
@@ -26,7 +26,7 @@ function parseTaijitToaSutian(page) {
         else
             page = parseInt(page) + 14;
         url = baseUrl1 + pad(page, 3) + baseUrl2;
-    } else if (char === 'b') {
+    } else if (char === 'B') {
         page = parseInt(page) + 4;
         const baseUrl1 = 'http://ip194097.ntcu.edu.tw/memory/TGB/data/TJTST2/TJTST2_%E9%A0%81%E9%9D%A2_';
         const baseUrl2 = '.png';
