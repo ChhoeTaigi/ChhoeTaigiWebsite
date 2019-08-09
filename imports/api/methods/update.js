@@ -79,7 +79,7 @@ Meteor.methods({
     },
 
     'update.save'(dicName, jsonArray) {
-        console.log("資料表" + dicName +"："+ jsonArray);
+        console.log("資料表" + dicName + "：" + jsonArray);
         if (Meteor.isServer) {
             return postgres.batchInsert(dicName, jsonArray)
                 .catch((err) => {
@@ -127,39 +127,67 @@ Meteor.methods({
         }
     },
 
+    // 個別新增
+
+    'updateDistinct.import'(value) {
+        if (Meteor.isClient) {
+                let dictionaryUri = constants.CHHOETAIGI_DATASOURCE_NEWS_TITLE +
+                    DicStruct[value].name +
+                    constants.CHHOETAIGI_DATASOURCE_DICT_URL_END;
+
+                console.log("GItURL:" + dictionaryUri)
+                new Promise((resolve, reject) => {
+                    let jsonArray = [];
+                    csv()
+                        .fromStream(request.get(dictionaryUri))
+                        .subscribe((json) => {
+                            jsonArray.push(json);
+                        }, (error) => {
+                        }, () => {
+                            Meteor.call('update.save', DicStruct[value].name, jsonArray, (error, result) => {
+                                if (error) reject(error);
+                                resolve(result);
+                            });
+                        });
+                });
+        }
+    },
+
+
 
     // 新增所有資料
     'updateALL.import'() {
         if (Meteor.isClient) {
-            
-            for (let idx in DicStruct) {
-                
 
-                let dictionaryUri =constants.CHHOETAIGI_DATASOURCE_NEWS_TITLE +
-                DicStruct[idx].name +
-                constants.CHHOETAIGI_DATASOURCE_DICT_URL_END;
- 
-            console.log("GItURL:"+dictionaryUri)
-            new Promise((resolve, reject) => {
-                let jsonArray = [];
-                csv()
-                    .fromStream(request.get(dictionaryUri))
-                    .subscribe((json) => {
-                        jsonArray.push(json);
-                    }, (error) => {
-                    }, () => {
-                        Meteor.call('update.save', DicStruct[idx].name, jsonArray, (error, result) => {
-                            if (error) reject(error);
-                            resolve(result);
+
+            for (let idx in DicStruct) {
+
+
+                let dictionaryUri = constants.CHHOETAIGI_DATASOURCE_NEWS_TITLE +
+                    DicStruct[idx].name +
+                    constants.CHHOETAIGI_DATASOURCE_DICT_URL_END;
+
+                console.log("GItURL:" + dictionaryUri)
+                new Promise((resolve, reject) => {
+                    let jsonArray = [];
+                    csv()
+                        .fromStream(request.get(dictionaryUri))
+                        .subscribe((json) => {
+                            jsonArray.push(json);
+                        }, (error) => {
+                        }, () => {
+                            Meteor.call('update.save', DicStruct[idx].name, jsonArray, (error, result) => {
+                                if (error) reject(error);
+                                resolve(result);
+                            });
                         });
-                    });
-            });
+                });
 
 
             }
-    
 
-           
+
+
 
         }
     },

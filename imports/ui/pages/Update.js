@@ -90,23 +90,31 @@ class Update extends Component {
     createDB() {
         console.log("按下");
         Meteor.call("create.import", (error, result) => {
-          console.log("訊息"+result);
+            console.log("訊息" + result);
         });
-      }
+    }
 
     createTB() {
         console.log("按下");
         Meteor.call("createTB.import", (error, result) => {
-            console.log("訊息"+result);
+            console.log("訊息" + result);
         });
     }
 
     UpdateALLDate() {
         console.log("按下");
         Meteor.call("updateALL.import", (error, result) => {
-            console.log("訊息"+result);
+            console.log("訊息" + result);
         });
     }
+
+    UpdateDistinct(value) {
+        console.log("按下");
+        Meteor.call("updateDistinct.import", value, (error, result) => {
+            console.log("訊息" + result);
+        });
+    }
+
 
     render() {
         // dic
@@ -132,15 +140,64 @@ class Update extends Component {
                 <h1>新建資料庫</h1>
                 <button onClick={this.createDB.bind(this)} className="Mbutton">
                     CreateDB
-           </button>
+                </button>
                 <h1>新建資料表</h1>
                 <button onClick={this.createTB.bind(this)} className="Mbutton">
                     CreateTB
+               </button>
+                {/*  */}
+                <h1>新增 台文華文線頂辭典</h1>
+                <button onClick={this.UpdateDistinct.bind(this, 0)} className="Mbutton">
+                    Update
             </button>
-                <h1>新增所有資料</h1>
-                <button onClick={this.UpdateALLDate.bind(this)} className="Mbutton">
-                   UpdateALLDate
+
+                <h1>新增 台日大辭典(台文譯本)</h1>
+                <button onClick={this.UpdateDistinct.bind(this, 1)} className="Mbutton">
+                    Update 台日大辭典(台文譯本)
             </button>
+
+                <h1>新增 Maryknoll台英辭典</h1>
+                <button onClick={this.UpdateDistinct.bind(this, 2)} className="Mbutton">
+                    Update Maryknoll台英辭典
+            </button>
+
+                <h1>新增 Embree台語辭典</h1>
+                <button onClick={this.UpdateDistinct.bind(this, 3)} className="Mbutton">
+                    Update Embree台語辭典
+            </button>
+
+
+                <h1>新增 教育部台語辭典</h1>
+                <button onClick={this.UpdateDistinct.bind(this, 4)} className="Mbutton">
+                    Update 教育部台語辭典
+            </button>
+
+
+                <h1>新增 甘字典</h1>
+                <button onClick={this.UpdateDistinct.bind(this, 5)} className="Mbutton">
+                    Update 甘字典
+            </button>
+
+
+                <h1>新增 iTaigi華台辭典</h1>
+                <button onClick={this.UpdateDistinct.bind(this, 6)} className="Mbutton">
+                    Update iTaigi華台辭典
+            </button>
+
+
+                <h1>新增 台灣白話基礎語句</h1>
+                <button onClick={this.UpdateDistinct.bind(this, 7)} className="Mbutton">
+                    Update 台灣白話基礎語句
+            </button>
+
+
+                <h1>新增 台灣植物名彙</h1>
+                <button onClick={this.UpdateDistinct.bind(this, 8)} className="Mbutton">
+                    Update 台灣植物名彙
+            </button>
+
+                {/*  */}
+
 
                 <h1>更新辭典資料庫</h1>
                 <h2>主要辭典</h2>
@@ -150,7 +207,7 @@ class Update extends Component {
                 {searchDicRow}
                 <button onClick={this.update.bind(this)} className="Mbutton">
                     Import all
-            </button>
+                 </button>
             </div>
         );
     }
