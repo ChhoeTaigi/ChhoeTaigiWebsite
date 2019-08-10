@@ -10,8 +10,8 @@ module.exports = {
       host: host,
       port:     '5432',
       database: 'dictionary',
-      user:     'postgres',
-      password: '12345678'
+      user:     'pi',
+      password: 'qazxcvbnm'
     },
     pool: {
       min: 2,
@@ -28,8 +28,8 @@ module.exports = {
       host: host,
       port:     '5432',
       database: 'dictionary',
-      user:     'postgres',
-      password: '12345678'
+      user:     'pi',
+      password: 'qazxcvbnm'
     },
     pool: {
       min: 2,
