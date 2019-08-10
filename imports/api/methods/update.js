@@ -131,25 +131,30 @@ Meteor.methods({
 
     'updateDistinct.import'(value) {
         if (Meteor.isClient) {
-                let dictionaryUri = constants.CHHOETAIGI_DATASOURCE_NEWS_TITLE +
-                    DicStruct[value].name +
-                    constants.CHHOETAIGI_DATASOURCE_DICT_URL_END;
+            let dictionaryUri = constants.CHHOETAIGI_DATASOURCE_NEWS_TITLE +
+                DicStruct[value].name +
+                constants.CHHOETAIGI_DATASOURCE_DICT_URL_END;
 
-                console.log("GItURL:" + dictionaryUri)
-                new Promise((resolve, reject) => {
-                    let jsonArray = [];
-                    csv()
-                        .fromStream(request.get(dictionaryUri))
-                        .subscribe((json) => {
-                            jsonArray.push(json);
-                        }, (error) => {
-                        }, () => {
-                            Meteor.call('update.save', DicStruct[value].name, jsonArray, (error, result) => {
-                                if (error) reject(error);
-                                resolve(result);
-                            });
+            console.log("GItURL:" + dictionaryUri)
+            new Promise((resolve, reject) => {
+                let jsonArray = [];
+                csv()
+                    .fromStream(request.get(dictionaryUri))
+                    .subscribe((json) => {
+                        jsonArray.push(json);
+                    }, (error) => {
+                        console.log("GItURLErr:" + error)
+                    }, () => {
+                        Meteor.call('update.save', DicStruct[value].name, jsonArray, (error, result) => {
+                            if (error) {
+                                reject(error)
+                                console.log("updateErr:" + error)
+                            };
+                            resolve(result);
+                            console.log("result result")
                         });
-                });
+                    });
+            });
         }
     },
 
@@ -179,6 +184,7 @@ Meteor.methods({
                             Meteor.call('update.save', DicStruct[idx].name, jsonArray, (error, result) => {
                                 if (error) reject(error);
                                 resolve(result);
+                                console.log('result result');
                             });
                         });
                 });

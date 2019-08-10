@@ -148,52 +148,52 @@ class Update extends Component {
                 {/*  */}
                 <h1>新增 台文華文線頂辭典</h1>
                 <button onClick={this.UpdateDistinct.bind(this, 0)} className="Mbutton">
-                    Update
+                    Update 台文華文線頂辭典(TaibunHoabunSoanntengSutian)
             </button>
 
                 <h1>新增 台日大辭典(台文譯本)</h1>
                 <button onClick={this.UpdateDistinct.bind(this, 1)} className="Mbutton">
-                    Update 台日大辭典(台文譯本)
+                    Update 台日大辭典(台文譯本)(TaijitToaSutian)
             </button>
 
                 <h1>新增 Maryknoll台英辭典</h1>
                 <button onClick={this.UpdateDistinct.bind(this, 2)} className="Mbutton">
-                    Update Maryknoll台英辭典
+                    Update Maryknoll台英辭典(MaryknollTaiengSutian)
             </button>
 
                 <h1>新增 Embree台語辭典</h1>
                 <button onClick={this.UpdateDistinct.bind(this, 3)} className="Mbutton">
-                    Update Embree台語辭典
+                    Update Embree台語辭典(EmbreeTaigiSutian)
             </button>
 
 
                 <h1>新增 教育部台語辭典</h1>
                 <button onClick={this.UpdateDistinct.bind(this, 4)} className="Mbutton">
-                    Update 教育部台語辭典
+                    Update 教育部台語辭典(KauiokpooTaigiSutian)
             </button>
 
 
                 <h1>新增 甘字典</h1>
                 <button onClick={this.UpdateDistinct.bind(this, 5)} className="Mbutton">
-                    Update 甘字典
+                    Update 甘字典(KamJitian)
             </button>
 
 
                 <h1>新增 iTaigi華台辭典</h1>
                 <button onClick={this.UpdateDistinct.bind(this, 6)} className="Mbutton">
-                    Update iTaigi華台辭典
+                    Update iTaigi華台辭典(iTaigiHoataiSutian)
             </button>
 
 
                 <h1>新增 台灣白話基礎語句</h1>
                 <button onClick={this.UpdateDistinct.bind(this, 7)} className="Mbutton">
-                    Update 台灣白話基礎語句
+                    Update 台灣白話基礎語句(TaioanPehoeKichhooGiku)
             </button>
 
 
                 <h1>新增 台灣植物名彙</h1>
                 <button onClick={this.UpdateDistinct.bind(this, 8)} className="Mbutton">
-                    Update 台灣植物名彙
+                    Update 台灣植物名彙(TaioanSitbutMialui)
             </button>
 
                 {/*  */}
