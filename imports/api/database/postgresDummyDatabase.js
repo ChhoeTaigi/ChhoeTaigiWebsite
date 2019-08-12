@@ -1,17 +1,18 @@
 import knex from 'knex';
 import constants from '../constants/constants';
 
-let postgres;
+let postgresDummyDatabase;
 if (Meteor.isServer) {
-  postgres = knex({
+  postgresDummyDatabase = knex({
     client: 'postgresql',
     connection: {
       host: constants.HOST,
-      database: constants.PG_DEFAULT_DATABASE,
+      database: 'postgres',
       user: constants.PG_USER,
       password: constants.PG_PSWD,
+      multipleStatements: true
     }
   });
 }
 
-export default postgres;
+export default postgresDummyDatabase;
