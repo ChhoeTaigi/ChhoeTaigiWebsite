@@ -32,6 +32,7 @@ postgresql-contrib
 RUN curl https://install.meteor.com/ | sh
 
 # Install & Start Passenger
+# https://www.phusionpassenger.com/library/walkthroughs/deploy/meteor/ownserver/apache/oss/bionic/deploy_app.html
 RUN apt-get install -y dirmngr gnupg
 RUN apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys 561F9B9CAC40B2F7
 RUN apt-get install -y apt-transport-https ca-certificates
@@ -39,6 +40,9 @@ RUN sh -c 'echo deb https://oss-binaries.phusionpassenger.com/apt/passenger bion
 RUN apt-get update && apt-get install -y libapache2-mod-passenger
 RUN a2enmod passenger && apache2ctl restart
 RUN /usr/bin/passenger-config validate-install && /usr/sbin/passenger-memory-stats
+
+# Install Certbot
+# https://certbot.eff.org/lets-encrypt/ubuntubionic-apache
 
 # Set permission
 RUN addgroup dev
