@@ -1,3 +1,4 @@
+sudo mkdir /var/www/ChhoeTaigi
 cd /var/www/ChhoeTaigi
 sudo rm -rf tmp
 sudo mkdir -p tmp
@@ -5,8 +6,6 @@ cd tmp
 sudo tar xzf /home/website/ChhoeTaigiWebsite/DeployTools/new_package/ChhoeTaigiWebsite.tar.gz
 cd /var/www/ChhoeTaigi/tmp/bundle/programs/server
 sudo npm install --production
-sudo npm audit fix
-sudo npm prune --production
 sudo mv /var/www/ChhoeTaigi/bundle /var/www/ChhoeTaigi/bundle.old
 sudo mv /var/www/ChhoeTaigi/tmp/bundle /var/www/ChhoeTaigi/bundle
 passenger-config restart-app /var/www/ChhoeTaigi/bundle
