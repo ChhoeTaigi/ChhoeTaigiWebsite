@@ -1,3 +1,5 @@
+cd /home/website/ChhoeTaigiWebsite/
+meteor npm install
 cd /home/website/ChhoeTaigiWebsite/DeployTools
 sudo rm -r new_package
 meteor build --server-only /home/website/ChhoeTaigiWebsite/DeployTools/new_package
