@@ -10,7 +10,7 @@ RUN apt-get update
 
 # Install basic
 #
-# sudo apt-get install curl nano git nodejs npm apache2
+# sudo apt-get install curl nano git nodejs npm apache2 apache2-dev
 #
 RUN apt-get install -y \
 curl \
@@ -18,7 +18,8 @@ nano \
 git \
 nodejs \
 npm \
-apache2
+apache2 \
+apache2-dev
 
 # Install Postgres
 #
@@ -38,6 +39,10 @@ RUN sh -c 'echo deb https://oss-binaries.phusionpassenger.com/apt/passenger bion
 RUN apt-get update && apt-get install -y libapache2-mod-passenger
 RUN a2enmod passenger && apache2ctl restart
 RUN /usr/bin/passenger-config validate-install && /usr/sbin/passenger-memory-stats
+
+# Set permission
+RUN addgroup dev
+# RUN adduser username dev
 
 # Get source code of website
 WORKDIR /home
