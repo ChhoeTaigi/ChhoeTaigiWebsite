@@ -16,7 +16,7 @@ const queries = [
     },
 ];
 
-import { Data } from '../../api/data';
+import { Minimongo } from '../../api/database/minimongo';
 
 class GA {
     constructor() {
@@ -81,13 +81,13 @@ class GA {
 
     process(results) {
         //console.log(results);
-        const data = Data.findOne();
+        const minimongo = Minimongo.findOne();
         if (this.queryIdx === 0) {
             const sessions = results[0][0];
-            Data.update(data, {$set: {sessions: sessions}}, {upsert: true});
+            Minimongo.update(minimongo, {$set: {sessions: sessions}}, {upsert: true});
         } else if (this.queryIdx === 1) {
             const clicks = results.find(e => e[0] === 'Search')[1];
-            Data.update(data, {$set: {clicks: clicks}}, {upsert: true});
+            Minimongo.update(minimongo, {$set: {clicks: clicks}}, {upsert: true});
         }
 
         // update query index
@@ -96,26 +96,26 @@ class GA {
 }
 
 // check if only one record
-let data = Data.find().fetch();
-if (data.length > 1) {
-    Data.remove({});
+let minimongo = Minimongo.find().fetch();
+if (minimongo.length > 1) {
+    Minimongo.remove({});
 }
 
 // check if GA data exists
-data = Data.findOne({});
-if (data === undefined) {
-    Data.insert({
+minimongo = Minimongo.findOne({});
+if (minimongo === undefined) {
+    Minimongo.insert({
         sessions: 0,
         clicks: 0,
     });
 } else {
-    if (data.sessions === undefined) {
-        Data.update(data, {$set: {
+    if (minimongo.sessions === undefined) {
+        Minimongo.update(minimongo, {$set: {
             sessions: 0,
         }}, {upsert: true});
     }
-    if (data.clicks === undefined) {
-        Data.update(data, {$set: {
+    if (minimongo.clicks === undefined) {
+        Minimongo.update(minimongo, {$set: {
             clicks: 0,
         }}, {upsert: true});
     }

@@ -1,15 +1,15 @@
 import React, { Component } from 'react';
-import { logPageView } from '../api/analytics';
+import { logPageView } from '../api/utils/google-analytics';
 import { withRouter } from 'react-router-dom';
 import { withLocalize } from "react-localize-redux";
 import { renderToStaticMarkup } from "react-dom/server";
 import { withCookies } from 'react-cookie';
 
-import { getLocale } from '../api/locale';
+import { getLocale } from '../api/utils/locale';
 
-import Header from './Header';
-import Main from './Main';
-import Footer from './Footer';
+import Header from './main/Header';
+import Main from './main/Main';
+import Footer from './main/Footer';
 
 class App extends Component {
     constructor(props) {

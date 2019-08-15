@@ -1,0 +1,12 @@
+Update process:
+
+1. Git pull from remote/master (Warning: Will do "git reset --hard")
+   run "sh gitCheckoutDevelop.sh" or "gitCheckoutMaster.sh"
+
+2. Meteor build for server
+   run "buildMeteor.sh"
+
+3. Extract package, install, and restart Passanger
+   run "sh deployUpdate.sh"
+
+Done.

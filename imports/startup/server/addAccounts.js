@@ -1,7 +1,7 @@
 import { Meteor } from "meteor/meteor";
 
 Meteor.startup(() => {
-    let names = ['shiami', 'leo', 'eyes'];
+    let names = ['shiami', 'leo', 'eyes' , 'marco'];
 
     for (let idx in names) {
         let name = names[idx];
