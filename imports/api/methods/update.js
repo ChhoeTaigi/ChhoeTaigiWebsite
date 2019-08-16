@@ -126,7 +126,10 @@ Meteor.methods({
   "createDatabase.import"() {
     if (Meteor.isServer) {
       postgresDummyDatabase
-        .raw("DROP DATABASE IF EXISTS " + constants.PG_DEFAULT_DATABASE)
+        .raw(
+        // "UPDATE pg_database SET datallowconn = false WHERE datname = " + constants.PG_DEFAULT_DATABASE + ";" +
+        // "SELECT pg_terminate_backend(pid) FROM pg_stat_activity WHERE datname = " + constants.PG_DEFAULT_DATABASE + ";" +
+        "DROP DATABASE " + constants.PG_DEFAULT_DATABASE + ";")
         .then(function(result) {
           console.log(result);
           createDatabaseWithOwner();

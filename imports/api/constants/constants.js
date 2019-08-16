@@ -9,7 +9,7 @@ const Constants = {
 
     HOST: '127.0.0.1',
 
-    PG_DEFAULT_DATABASE: 'dicts',
+    PG_DEFAULT_DATABASE: 'dicts20190816',
     PG_USER: 'postgres',
     PG_PSWD: '12345678'
 }

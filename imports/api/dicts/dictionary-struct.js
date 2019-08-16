@@ -159,20 +159,19 @@ module.exports = [
         brief: {
             poj_unicode: '白話字',
             kiplmj_unicode: '教育部羅馬字',
-            hanlo_taibun_poj: '漢羅台文(白話字)',
+            hanji_taibun: '漢字台文',
             hanlo_taibun_kaisoeh_poj: '漢羅台文解說(白話字)',
         },
         briefWidth: {
             poj_unicode: '166px',
             kiplmj_unicode: '158px',
-            hanlo_taibun_poj: '140px',
+            hanji_taibun: '140px',
             hanlo_taibun_kaisoeh_poj: '448px',
         },
         columns: {
             id: '編號',
             poj_unicode: '白話字',
             poj_input: '白話字輸入',
-            hanlo_taibun_poj: '漢羅台文(白話字)', //已移除
             hanji_taibun: '漢字台文',
             poj_bunim_unicode: '文音(白話字)',
             poj_bunim_input: '文音(白話字輸入)',
@@ -180,8 +179,6 @@ module.exports = [
             hanlo_taibun_kaisoeh_poj: '漢羅台文解說(白話字)',
             kiplmj_unicode: '教育部羅馬字',
             kiplmj_input: '教育部羅馬字輸入',
-            hanlo_taibun_kiplmj: '漢羅台文(教育部羅馬字)',//已移除
-            kiplmj_kaisoeh: '漢羅台文解說(教育部羅馬字)',//已移除
             kiplmj_bunim_unicode: '文音(教育部羅馬字)',
             kiplmj_bunim_input: '文音(教育部羅馬字輸入)',
             kiplmj_kaisoeh: '台文解說(教育部羅馬字)',
