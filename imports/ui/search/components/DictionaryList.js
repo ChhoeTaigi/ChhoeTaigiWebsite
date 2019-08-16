@@ -17,6 +17,7 @@ class DictionaryList extends Component {
         
         this.state = {
             background_height: window.innerHeight - 154,
+            gotResult: false,
         };
 
         this.handleScroll = this.handleScroll.bind(this);
@@ -28,6 +29,7 @@ class DictionaryList extends Component {
             const firstDic = props.allResults.find(e => (e.words.length !== 0)).dic;
             this.setState({
                 selectedDic: firstDic,
+                gotResult: true,
             });
         }
     }
@@ -74,14 +76,16 @@ class DictionaryList extends Component {
 
     render() {
         let keywords = [];
+        let resultCount = [];
         let dicButtons = [];
         let dicBriefs = [];
         let dicLen = 0;
         let totalNum = 0;
+
         if (this.props.allResults) {
             const options = this.props.options;
             const columns = options.columns;
-            
+
             if (columns !== undefined) {
                 // all dics
                 for (let key in columns) {
@@ -132,12 +136,19 @@ class DictionaryList extends Component {
                     <span className='all-dic-empty' key={'empty' + i}></span>
                 );
             }
+
+            if (this.state.gotResult) {
+                let thisRef = React.createRef();
+                resultCount.push(
+                    <div id='all-dic-result-num'><Translate id='all-result-1' />{dicLen}<Translate id='all-result-2' />{totalNum}<Translate id='all-result-3' /></div>
+                )
+            }
         } 
-        
+
         return (
             <div id='all-dic-container' style={{minHeight: this.state.background_height + 'px'}}>
                 <div id='all-dic-keywords'><Translate id='keyowrd' />：{keywords}</div>
-                <div id='all-dic-result-num'><Translate id='all-result-1' />{dicLen}<Translate id='all-result-2' />{totalNum}<Translate id='all-result-3' /></div>
+                    {resultCount}
                 <div id='all-dic-buttons-background' style={this.state.isSticky ? {boxShadow: '0 3px 6px 0 rgba(0, 0, 0, 0.16)'} : {}}>
                     <div id='all-dic-buttons-container'>
                         {dicButtons}
