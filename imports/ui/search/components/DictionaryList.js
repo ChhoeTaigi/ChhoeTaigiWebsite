@@ -29,9 +29,12 @@ class DictionaryList extends Component {
             const firstDic = props.allResults.find(e => (e.words.length !== 0)).dic;
             this.setState({
                 selectedDic: firstDic,
-                gotResult: true,
             });
         }
+
+        this.setState({
+            gotResult: true,
+        });
     }
 
     handleScroll() {
