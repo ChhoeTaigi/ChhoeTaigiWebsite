@@ -144,10 +144,16 @@
         "Email"
     ],
     "members": [
-        "紹介Lán團隊ê成員",
-        "Siau-kái Lán Thoân-tūi ê Sêng-oân",
-        "團隊成員介紹",
+        "團隊成員",
+        "Thoân-tūi Sêng-oân",
+        "團隊成員",
         "Team Members"
+    ],
+    "former-members": [
+        "過去ê參與者",
+        "Kòe-khì ê Chham-ú-chiá",
+        "過去的參與者",
+        "Former Members"
     ],
     "authorization": [
         "網站資料ê授權",

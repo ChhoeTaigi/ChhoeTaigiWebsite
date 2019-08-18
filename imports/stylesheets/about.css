@@ -337,7 +337,12 @@
 }
 
 #members-container {
-	height: 664px;
+	height: 450px;
+}
+
+#former-members-container {
+	height: 300px;
+	width: 820px;
 }
 
 #members-title {
@@ -355,6 +360,13 @@
 .person-card-two-columns {
 	position: relative;
 	width: 680px;
+	height: 305px;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.former-person-card-five-columns {
+	position: relative;
 	height: 305px;
 	margin-left: auto;
 	margin-right: auto;
@@ -407,8 +419,55 @@
 	margin-top: 1px;
 }
 
+.person-card-small {
+	float: left;
+	width: 204px;
+	height: 100%;
+}
+
+.profile-small {
+	display: block;
+	width: 100px;
+	margin-left: auto;
+	margin-right: auto;
+	border: solid 1px #C7C7C7;
+	border-radius: 60px;
+}
+
+.name-small {
+	width: 200px;
+	height: 36px;
+	font-size: 18px;
+	font-weight: 500;
+	line-height: 36px;
+	color: #3f4d38;
+	text-align: center;
+	margin-top: 14px;
+}
+
+.title-small {
+	width: 200px;
+	height: 34px;
+	font-size: 12px;
+	line-height: 20px;
+	color: #3f4d38;
+	text-align: center;
+	margin-top: 5px;
+}
+
+.description-small {
+	width: 200px;
+	margin-left: auto;
+	margin-right: auto;
+	font-size: 12px;
+	line-height: 21px;
+	color: #707070;
+	text-align: center;
+	margin-top: 10px;
+}
+
 #authorization {
-	margin-top: 25px;
+	margin-top: 225px;
 	height: 168px;
 }
 

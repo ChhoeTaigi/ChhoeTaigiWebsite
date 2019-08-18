@@ -105,38 +105,41 @@ class About extends Component {
 				</div>
 				<div id='members-container' className='fix-width-center'>
 					<div id='members-title' className='about-title'><Translate id='members' /></div>
-					<div className='person-card-three-columns'>
+					<div className='person-card-two-columns'>
 						<div className='person-card'>
 							<img className='profile' src='images/hebi.png' width='120' height='120'></img>
 							<div className='name'>Hê-bí</div>
 							<div className='title'>Sàu thô͘-kha kiam kòng cheng.</div>
 							<div className='description'>Khiàn-phang ēng--ê. Lâi chú 1 tiáⁿ phang-kòng-kòng ê Tâi-gí moâi.</div>
 						</div>
-						<div className='person-card'>
-							<img className='profile' src='images/titeng.png' width='120' height='120'></img>
-							<div className='name'>Tìtêng</div>
-							<div className='title'>Hū-chek kiò ta̍k-ke hun-thâu mài loān-tàn</div>
-							<div className='description'>Jîn-seng chhiūⁿ tàu-tô͘, tàu chı̍t-pak chhit-chhái ê Tâi-gí tô͘.</div>
-						</div>
-						<div className='person-card'>
-							<img className='profile' src='images/buncheng.png' width='120' height='120'></img>
-							<div className='name'>BûnCheng</div>
-							<div className='title'>Iau-pá-chhá</div>
-							<div className='description'>Tâi-oân-lâng. Tâi-gí. To̍k-li̍p Kiàn-kok.</div>
-						</div>
 					</div>
-					<div className='person-card-two-columns'>
-						<div className='person-card'>
-							<img className='profile' src='images/eyes.png' width='120' height='120'></img>
-							<div className='name'>Eyes</div>
-							<div className='title'>網頁設計</div>
-							<div className='description'>小時候講台語大人還聽得懂，長大後卻被唸聽無(Thiaⁿ bô)...</div>
+				</div>
+				<div id='former-members-container' className='fix-width-center'>
+					<div id='members-title' className='about-title'><Translate id='former-members' /></div>
+					<div className='former-person-card-five-columns'>
+						<div className='person-card-small'>
+							<img className='profile-small' src='images/titeng.png' width='100' height='100'></img>
+							<div className='name-small'>Tìtêng</div>
+							<div className='title-small'>Hū-chek kiò ta̍k-ke hun-thâu mài loān-tàn</div>
+							<div className='description-small'>Jîn-seng chhiūⁿ tàu-tô͘, tàu chı̍t-pak chhit-chhái ê Tâi-gí tô͘.</div>
 						</div>
-						<div className='person-card'>
-							<img className='profile' src='images/leo.png' width='120' height='120'></img>
-							<div className='name'>Leo Wu</div>
-							<div className='title'>網頁前後端</div>
-							<div className='description'>台語用羅馬字拼音更有趣</div>
+						<div className='person-card-small'>
+							<img className='profile-small' src='images/buncheng.png' width='100' height='100'></img>
+							<div className='name-small'>BûnCheng</div>
+							<div className='title-small'>Iau-pá-chhá</div>
+							<div className='description-small'>Tâi-oân-lâng. Tâi-gí. To̍k-li̍p Kiàn-kok.</div>
+						</div>
+						<div className='person-card-small'>
+							<img className='profile-small' src='images/leo.png' width='100' height='100'></img>
+							<div className='name-small'>Leo Wu</div>
+							<div className='title-small'>網頁前後端</div>
+							<div className='description-small'>台語用羅馬字拼音更有趣</div>
+						</div>
+						<div className='person-card-small'>
+							<img className='profile-small' src='images/eyes.png' width='100' height='100'></img>
+							<div className='name-small'>Eyes</div>
+							<div className='title-small'>網頁設計</div>
+							<div className='description-small'>小時候講台語大人還聽得懂，長大後卻被唸聽無(Thiaⁿ bô)...</div>
 						</div>
 					</div>
 				</div>
