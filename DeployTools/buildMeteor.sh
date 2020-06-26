@@ -1,6 +1,8 @@
 cd /home/website/ChhoeTaigiWebsite/
-meteor npm install bcrypt
-meteor npm install
+sudo npm install -g npm@latest
+sudo npm install --unsafe-perm
+meteor npm install --save bcrypt-nodejs
+meteor npm uninstall --save bcrypt
 sudo rm -r /home/website/new_package
 sudo npm install --production
 meteor build /home/website/new_package --server-only
