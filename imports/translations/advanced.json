@@ -1,9 +1,9 @@
 {
     "search-method": [
-        "Kéng ê方式",
-        "Kéng ê Hong-sek",
-        "篩選條件",
-        "Search Filters"
+        "1. Kéng ê方式",
+        "1. Kéng ê Hong-sek",
+        "1. 篩選條件",
+        "1. Search Filters"
     ],
     "equals": [
         "Kāng款--ê",
@@ -35,6 +35,12 @@
         "輸入關鍵字",
         "Enter keywords"
     ],
+    "reset": [
+        "Têng Phah",
+        "Têng Phah",
+        "重新輸入",
+        "Clear"
+    ],
     "find": [
         "開始Chhōe",
         "Khai-sí Chhōe",
@@ -42,7 +48,7 @@
         "Search"
     ],
     "by-dic": [
-        "Chhōe孤1 ê資料",
+        "Chhōe孤1-ê資料",
         "Chhōe Ko͘ 1-ê Chu-liāu",
         "依不同資料搜尋",
         "Dataset Search"

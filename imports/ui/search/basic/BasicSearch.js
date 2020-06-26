@@ -4,7 +4,6 @@ import { withLocalize } from "react-localize-redux";
 import { Translate } from "react-localize-redux";
 import ReactGA from 'react-ga';
 import { stringify } from '../../../api/utils/url-helper';
-
 import basicTranslations from '../../../translations/basic.json';
 
 let state = {
@@ -36,6 +35,7 @@ class BasicSearch extends Component {
 
     componentDidMount() {
         window.addEventListener('resize', this.handleResize);
+        window.scrollTo(0, 0)
     }
 
     componentWillUnmount() {
@@ -78,6 +78,15 @@ class BasicSearch extends Component {
         this.setState(state);
     }
 
+    resetAllInput = () => { 
+        this.setState({
+            spelling: "",
+            taibun: "",
+            hoabun: "",
+            english_descriptions: ""
+        });
+    }
+
     render() {
         return (
             <div>
@@ -89,7 +98,7 @@ class BasicSearch extends Component {
                         <div id='search-title'><Translate id="basic" /></div>
                         <div id='form-container'>
                             <div id='search-method-container'>
-                                <span><Translate id="search-method" /></span>
+                                <span id='search-method-text-container'><Translate id="search-method" /></span>
                                 <label id='radio-1' className='radio'>
                                     <div className={this.state.searchMethod === 'equals' ? 'checked' : 'unchecked'}></div>
                                     <input type="radio" name="searchMethod" value="equals" defaultChecked={this.state.searchMethod === 'equals'} onChange={this.handleInput.bind(this)} />
@@ -100,8 +109,8 @@ class BasicSearch extends Component {
                                     <input type="radio" name="searchMethod" value="contains" defaultChecked={this.state.searchMethod === 'contains'} onChange={this.handleInput.bind(this)} />
                                     <span><Translate id="contains" /></span>
                                 </label>
-                                <div id='wildcard-note-container'>
-                                    <Link id='wildcard-note' to='/annachhoe'><Translate id="explanation" /></Link>
+                                <div id='regex-note-container'>
+                                    <Link id='regex-note' to='/annachhoe'><Translate id="explanation" /></Link>
                                 </div>
                             </div>
                             <div id='seperator'></div>
@@ -140,19 +149,26 @@ class BasicSearch extends Component {
                                     </div>
                                     <Translate>{({ translate }) =>
                                         <div>
-                                            <input className='text-input' type="text" name="spelling" placeholder={translate('keyword')} value={this.state.spelling} onChange={this.handleInput.bind(this)} />
+                                            <input className='text-input-lomaji' type="text" name="spelling" placeholder={translate('keyword')} value={this.state.spelling} onChange={this.handleInput.bind(this)} />
                                             <input className='text-input top-space' type="text" name="taibun" placeholder={translate('keyword')} value={this.state.taibun} onChange={this.handleInput.bind(this)} />
-                                            <input className='text-input top-space' type="text" name="hoabun" placeholder={translate('keyword')} value={this.state.hoabun} onChange={this.handleInput.bind(this)} />
-                                            <input className='text-input top-space' type="text" name="english_descriptions" placeholder={translate('keyword')} value={this.state.english_descriptions} onChange={this.handleInput.bind(this)} />
+                                            <input className='text-input top-space' type="text" name="hoabun" placeholder={translate('keyword_suggest_fuzzy')} value={this.state.hoabun} onChange={this.handleInput.bind(this)} />
+                                            <input className='text-input top-space' type="text" name="english_descriptions" placeholder={translate('keyword_suggest_fuzzy')} value={this.state.english_descriptions} onChange={this.handleInput.bind(this)} />
                                         </div>
                                     }</Translate>
                                 </div>
                             </div>
                             <Translate>{({ translate }) =>
-                                <input className='find-button' style={{marginTop: '12px', marginBottom: '20px'}} type="submit" value={translate('find')} />
+                                <div className="search_actions">
+                                    <div className="search_actions_search_button"><input className='find-button' style={{marginTop: '12px', marginBottom: '20px'}} type="submit" value={translate('find')} /></div>
+                                    <div className="search_actions_clear_button"><input className='clear-button' style={{marginTop: '12px', marginBottom: '20px'}} type="button" value={translate('reset')} onClick={this.resetAllInput} /></div>
+                                </div>
                             }</Translate>
+                            <div className="support_taibun_kesimi">
+                                <label className="support_taibun_kesimi_part1_label"><Translate id="support_taibun_kesimi_part1" /></label>
+                                <a className="support_taibun_kesimi_part2_a" target="_blank" href="https://www.zeczec.com/projects/taibun-kesimi"><Translate id="support_taibun_kesimi_part2" /></a>
+                                <label className="support_taibun_kesimi_part3_label"><Translate id="support_taibun_kesimi_part3" /></label>
+                            </div>
                         </div>
-                        
                     </form>
                 </div>
             </div>

@@ -79,11 +79,22 @@ class Explanation extends Component {
                     </ul>
                 </div>
                 <div id='explanation-sec-3'>
-                    <h2 className='explanation-subtitle'><Translate id='wildcard' /></h2>
-                    <h3 className='explanation-subtitle2'><Translate id='any' /></h3>
-                    <span className='explanation-content'><Translate id='any-ex' /></span>
-                    <h3 className='explanation-subtitle2'><Translate id='one' /></h3>
-                    <span className='explanation-content'><Translate id='one-ex' /></span>
+                    <h2 className='explanation-subtitle'><Translate id='regex' /></h2>
+                    <h3 className='explanation-subtitle2'><Translate id='jimho-jigoan' /></h3>
+                    <span className='explanation-content'><Translate id='jimho-jigoan-le1' /></span>
+                    <span className='explanation-content'><Translate id='jimho-jigoan-le2' /></span>
+                    <h3 className='explanation-subtitle2'><Translate id='1e-jigoan' /></h3>
+                    <span className='explanation-content'><Translate id='1e-jigoan-le' /></span>
+                    <h3 className='explanation-subtitle2'><Translate id='hanche-khuithau' /></h3>
+                    <span className='explanation-content'><Translate id='hanche-khuithau-le' /></span>
+                    <h3 className='explanation-subtitle2'><Translate id='hanche-kiatsok' /></h3>
+                    <span className='explanation-content'><Translate id='hanche-kiatsok-le' /></span>
+                    <h3 className='explanation-subtitle2'><Translate id='choanpoo-sianntiau' /></h3>
+                    <span className='explanation-content'><Translate id='choanpoo-sianntiau-le' /></span>
+                    <h3 className='explanation-subtitle2'><Translate id='ahun-jisu' /></h3>
+                    <span className='explanation-content'><Translate id='ahun-jisu-le' /></span>
+                    <h3 className='explanation-subtitle2'><Translate id='bokang-khiunnkhau' /></h3>
+                    <span className='explanation-content'><Translate id='bokang-khiunnkhau-le' /></span>
                 </div>
                 <div id='explanation-note'><Translate id='contact' /></div>
             </div>

@@ -9,6 +9,8 @@ import resultsTranslations from '../../../translations/results.json';
 import dicStruct from '../../../api/dicts/dictionary-struct';
 import BriefWord from './BriefWord';
 
+import { LoadingIndicator } from './LoadingIndicator';
+
 class DictionaryList extends Component {
     constructor(props) {
         super(props);
@@ -18,6 +20,7 @@ class DictionaryList extends Component {
         this.state = {
             background_height: window.innerHeight - 154,
             gotResult: false,
+            isSticky: false,
         };
 
         this.handleScroll = this.handleScroll.bind(this);
@@ -68,7 +71,7 @@ class DictionaryList extends Component {
 
     handleButtonClicked(dic, event) {
         const domNode = ReactDOM.findDOMNode(this.refs[dic].current);
-        window.scrollTo(0, domNode.offsetTop - 125);
+        window.scrollTo(0, domNode.offsetTop - 150);
 
         this.setState({
             selectedDic: dic,
@@ -80,7 +83,7 @@ class DictionaryList extends Component {
     render() {
         let keywords = [];
         let resultCount = [];
-        let dicButtons = [];
+        let dicButtonsRow = [];
         let dicBriefs = [];
         let dicLen = 0;
         let totalNum = 0;
@@ -117,9 +120,9 @@ class DictionaryList extends Component {
                     const chineseName = dicStruct.find((e) => e.name === dic).chineseName;
                     const rowNum = parseInt(allResults[idx].num);
         
-                    dicButtons.push(
+                    dicButtonsRow.push(
                         <a className={'all-dic-button ' + (this.state.selectedDic === dic ? 'all-dic-button-selected' : 'all-dic-button-unselected')} key={dic} onClick={this.handleButtonClicked.bind(this, dic)}>
-                            <div><span>{(parseInt(idx) + 1) + '. ' + chineseName}</span></div>
+                            <div><span>{chineseName}</span></div>
                         </a>
                     )
         
@@ -135,7 +138,7 @@ class DictionaryList extends Component {
             this.refs = refs;
             let remainingButtonNum = (9 - (allResults.filter(e => e).length % 9)) % 9;
             for (let i = 0; i < remainingButtonNum; ++i) {
-                dicButtons.push(
+                dicButtonsRow.push(
                     <span className='all-dic-empty' key={'empty' + i}></span>
                 );
             }
@@ -151,10 +154,11 @@ class DictionaryList extends Component {
         return (
             <div id='all-dic-container' style={{minHeight: this.state.background_height + 'px'}}>
                 <div id='all-dic-keywords'><Translate id='keyowrd' />：{keywords}</div>
-                    {resultCount}
+                {resultCount}
+                {!this.props.allResults && LoadingIndicator}
                 <div id='all-dic-buttons-background' style={this.state.isSticky ? {boxShadow: '0 3px 6px 0 rgba(0, 0, 0, 0.16)'} : {}}>
                     <div id='all-dic-buttons-container'>
-                        {dicButtons}
+                        {dicButtonsRow}
                     </div>
                 </div>
                 <div id='brief-result-container'>

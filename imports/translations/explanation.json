@@ -6,10 +6,10 @@
         "How to search?"
     ],
     "method": [
-        "Kéng ê方式",
-        "Kéng ê Hong-sek",
-        "篩選條件",
-        "Search Filters"
+        "1. Kéng ê方式",
+        "1. Kéng ê Hong-sek",
+        "1. 篩選條件",
+        "1. Search Filters"
     ],
     "equals": [
         "Kāng款--ê：Chhōe完全kāng款--ê。",
@@ -24,10 +24,10 @@
         "Fuzzy Search: Search data contains the keywords."
     ],
     "condition": [
-        "Chhōe ê方式",
-        "Chhōe ê Hong-sek",
-        "輸入方式",
-        "Search Keywords"
+        "2. Chhōe ê方式",
+        "2. Chhōe ê Hong-sek",
+        "2. 輸入方式",
+        "2. Search Keywords"
     ],
     "lmj-tb": [
         "羅馬字台文：",
@@ -42,21 +42,21 @@
         "POJ (Number Input)"
     ],
     "poj-num": [
-        "白話字輸入ê格式，適合無安裝台語輸入法ê人來使用。聲調phah數字，khǹg tī字ê siōng尾（第1、4聲m̄免寫數字），白話字「o͘ 」用「oo」來代替、鼻音「ⁿ」用「nn」來代替。譬如beh chhōe「chho͘」改做phah【chhoo】、beh chhōe「siâⁿ」改做phah【siann5】。",
+        "白話字輸入ê格式，適合無安裝台語輸入法ê人來使用。聲調phah數字，khǹg tī字ê siōng尾（第1、4聲m̄免寫數字），白話字 「o͘」 用 「oo」 來代替、鼻音 「ⁿ」 用 「nn」 來代替。譬如beh chhōe 「chho͘」 ài phah 【chhoo】 、beh chhōe 「siâⁿ」 ài phah 【siann5】。",
         "Pe̍h-ōe-jī su-ji̍p ê keh-sek, sek-ha̍p bô an-chng Tâi-gí Su-ji̍p-hoat ê lâng lâi sú-iōng. Siaⁿ-tiāu phah sò͘-jī, khǹg tī jī ê siōng-bóe (Tē 1, 4 siaⁿ m̄-bián siá sò͘-jī), Pe̍h-ōe-jī \"o͘ \" iōng \"oo\" lâi tāi-thè, phîⁿ-im \"ⁿ\" iōng \"nn\" lâi tāi-thè. Phì-jū beh chhōe \"chho͘ \" kái chò phah \"chhoo\", beh chhōe \"siaⁿ\" kái chò phah \"siann\".",
-        "白話字輸入的格式，適合沒有台語輸入法時使用。聲調直接輸入數字，放在最後（第1、4聲不用加數字），白話字「o͘ 」以「oo」代替、鼻音「ⁿ」以「nn」代替。例如查「chho͘」改為輸入【chhoo】、查「siâⁿ」改為輸入【siann5】。",
+        "白話字輸入的格式，適合沒有台語輸入法時使用。聲調直接輸入數字，放在最後（第1、4聲不用加數字），白話字 「o͘」 以 「oo」 代替、鼻音 「ⁿ」 以 「nn」 代替。例如查 「chho͘」 需輸入 【chhoo】 、查 「siâⁿ」 需輸入 【siann5】。",
         "POJ input format, using Taigi keyboard. Type number tone at the end of each word (Excluding the 1st and 4th tone number). Type \"oo\" instead of \"o͘ \" and \"nn\" instead of \"ⁿ\" in POJ. For example, type \"chhoo\" to search \"chho͘ \"; type \"siann5\" to search \"siâⁿ\"."
     ],
     "lmj-input": [
-        "教育部羅馬字(數字輸入)",
+        "教育部羅馬拼音(數字輸入)",
         "Kàu-io̍k-pō͘  LMJ (Sò͘-jī Su-ji̍p)",
-        "教育部羅馬字(數字輸入)",
+        "教育部羅馬拼音(數字輸入)",
         "MoE Roman (Number Input)"
     ],
     "lmj-num": [
-        "教育部羅馬字輸入ê格式，適合無安裝台語輸入法ê人來使用。聲調phah數字，khǹg tī字ê siōng尾（第1、4聲m̄免寫數字）。譬如beh chhōe「pe̍h」改做phah【peh8】。",
+        "教育部羅馬拼音輸入ê格式，適合無安裝台語輸入法ê人來使用。聲調phah數字，khǹg tī字ê siōng尾（第1、4聲m̄免寫數字）。譬如beh chhōe 「pe̍h」 ài phah 【peh8】。",
         "Kàu-io̍k-pō͘ Lô-má-jī su-ji̍p ê keh-sek, sek-ha̍p bô an-chng Tâi-gí Su-ji̍p-hoat ê lâng lâi sú-iōng. Siaⁿ-tiāu phah sò͘-jī, khǹg tī jī ê siōng-bóe (Tē 1, 4 siaⁿ m̄-bián siá sò͘-jī). Phì-jū beh chhōe \"pe̍h\" kái chò phah \"peh8\".",
-        "教育部羅馬字輸入格式，適合沒有台語輸入法時使用。聲調直接輸入數字，放在最後（第1、4聲不用加數字）。例如查「pe̍h」改為輸入【peh8】。",
+        "教育部羅馬拼音輸入格式，適合沒有台語輸入法時使用。聲調直接輸入數字，放在最後（第1、4聲不用加數字）。例如查 「pe̍h」 需輸入 【peh8】。",
         "MoE (Ministry of Education) Roman input format, using Taigi keyboard. Type number tone at the end of each word (Excluding the 1st and 4th tone number). For example, type \"peh8\" to search \"pe̍h\"."
     ],
     "poj": [
@@ -72,15 +72,15 @@
         "POJ Unicode format, using Taigi keyboard."
     ],
     "lmj": [
-        "教育部羅馬字",
+        "教育部羅馬拼音",
         "Kàu-io̍k-pō͘ Lô-má-jī",
-        "教育部羅馬字",
+        "教育部羅馬拼音",
         "MoE Roman"
     ],
     "lmj-unicode": [
-        "教育部羅馬字Unicode ê格式，用台語輸入法直接phah。",
+        "教育部羅馬拼音Unicode ê格式，用台語輸入法直接phah。",
         "Kàu-io̍k-pō͘ Lô-má-jī Unicode ê keh-sek, ēng Tâi-gí Su-ji̍p-hoat ti̍t-chiap phah.",
-        "教育部羅馬字Unicode格式，以台語輸入法直接輸入。",
+        "教育部羅馬拼音Unicode格式，以台語輸入法直接輸入。",
         "MoE (Ministry of Education) Roman Unicode format, using Taigi keyboard."
     ],
     "tb": [
@@ -101,35 +101,101 @@
         "對應英文：輸入對應台語的英文。",
         "English: Type English to search corresponding Taigi."
     ],
-    "wildcard": [
-        "用萬用字元來chhōe",
-        "Iōng bān-iōng jī-goân lâi chhōe",
-        "萬用字元搜尋",
-        "Search with Wildcard Character"
+    "regex": [
+        "3. 用正規表示式（REGEX）來chhōe，下底提供khah tiāⁿ用ê例",
+        "3. Iōng Chèng-kui Piáu-sī-sek (POSIX REGEX) lâi chhōe, ē-té thê-kiong khah tiāⁿ iōng ê lē",
+        "3. 使用正規表示式（REGEX）來找，以下提供較常用的範例",
+        "3. Search with REGEX"
     ],
-    "any": [
-        "*：代表有1 ê以上任何ê字，a̍h是無半字。",
-        "*: Tāi-piáu ū 1-ê í-siōng jīm-hô ê jī, a̍h-sī bô-pòaⁿ-jī.",
-        "*：代表有0或1個以上的任意字元。",
-        "*: Matches zero or more non-space characters."
+    "jimho-jigoan": [
+        "【.*】：代表有1-ê以上任何ê字元，a̍h是無半ê字元。",
+        "【.*】: Tāi-piáu ū 1-ê í-siōng jīm-hô ê jī-goân, a̍h-sī bô pòaⁿ ê jī-goân.",
+        "【.*】：代表有0或1個以上的任意字元。",
+        "【.*】: Matches zero or more non-space characters."
     ],
-    "any-ex": [
-        "譬如phah「白話字」ê關鍵字chhōe【*pn̄g】，ē-sái chhōe tio̍h「âng-tāu-pn̄g」、「be̍h-á-pn̄g」、「chhài-pn̄g」、「pn̄g」等等。",
-        "Phí-jū phah \"Pe̍h-ōe-jī\" ê koan-kiān-jī chhōe \"*pn̄g\", ē-sái chhōe tio̍h \"âng-tāu-pn̄g\", \"be̍h-á-pn̄g\", \"chhài-pn̄g\", \"pn̄g\" téng-téng.",
-        "例如輸入「白話字」關鍵字查【*pn̄g】，可以找到「âng-tāu-pn̄g」、「be̍h-á-pn̄g」、「chhài-pn̄g」、「pn̄g」等等。",
-        "For example: When searching POJ with keyword \"*pn̄g\", you will find \"âng-tāu-pn̄g\", \"be̍h-á-pn̄g\", \"chhài-pn̄g\", \"pn̄g\", etc."
+    "jimho-jigoan-le1": [
+        "1. 譬如phah 「白話字(數字輸入)」 ê關鍵字chhōe 【.*png5】 ，ē-sái chhōe tio̍h 「âng-tāu-pn̄g」 、 「be̍h-á-pn̄g」 、 「chhài-pn̄g」 、 「pn̄g」 等等。",
+        "1. Phí-jū phah \"Pe̍h-ōe-jī(Sò͘-jī Su-ji̍p)\" ê koan-kiān-jī chhōe \".*png5\", ē-sái chhōe tio̍h \"âng-tāu-pn̄g\", \"be̍h-á-pn̄g\", \"chhài-pn̄g\", \"pn̄g\" téng-téng.",
+        "1. 例如輸入 「白話字(數字輸入)」 關鍵字查 【.*png5】 ，可以找到 「âng-tāu-pn̄g」 、 「be̍h-á-pn̄g」 、 「chhài-pn̄g」 、 「pn̄g」 等等。",
+        "1. For example: When searching POJ(Number Input) with keyword \".*png5\", you will find \"âng-tāu-pn̄g\", \"be̍h-á-pn̄g\", \"chhài-pn̄g\", \"pn̄g\", etc."
+    ],
+    "jimho-jigoan-le2": [
+        "2. 譬如beh chhōe 【sat-ba̍k-hî】 soah bē曉拼字，kan-na知影開頭ê字母，phah 「白話字(數字輸入)」 ê關鍵字chhōe 【s.*-b.*-h.*】 就chhōe有。",
+        "2. Phí-jū beh chhōe \"sat-ba̍k-hî\" soah bē-hiáu pheng-jī, kan-na chai-iáⁿ khui-thâu ê jī-bó, phah \"Pe̍h-ōe-jī(Sò͘-jī Su-ji̍p)\" ê koan-kiān-jī chhōe \"s.*-b.*-h.*\" chiū chhōe ū.",
+        "2. 例如要找 【sat-ba̍k-hî】 但是不會拼字，只要知道開頭的字母，輸入 「白話字(數字輸入)」 關鍵字查 【s.*-b.*-h.*】 就可以找到。",
+        "2. For example: You want to search \"sat-ba̍k-hî\" but don't know how to spell, you only need to know the first charactors. Search POJ(Number Input) with keyword \"s.*-b.*-h.*\", and you will find it."
+    ],
+    "1e-jigoan": [
+        "【.】：代表有1-ê任何ê字元。",
+        "【.】: Tāi-piáu ū tú-hó 1-ê jīm-hô ê jī.",
+        "【.】：代表有1個的任意字元。",
+        "【.】: Ｍatches exactly one non-space character."
+    ],
+    "1e-jigoan-le": [
+        "譬如phah 「白話字」 ê關鍵字chhōe 「p.」 ，ē-sái chhōe tio̍h 「pa」 、 「pá」 等等。Phah 「對應華文」 ê關鍵字chhōe 「豬..」 ，ē-sái chhōe tio̍h 「豬頭皮」 、 「豬血湯」 等等。",
+        "Phí-jū phah \"Pe̍h-ōe-jī\" ê koan-kiān-jī chhōe \"p.\", ē-sái chhōe tio̍h \"pa\", \"pá\" téng-téng. Phah \"Tùi-èng Hôa-bûn\" ê koan-kiān-jī chhōe \"豬..\", ē-sái chhōe tio̍h \"豬頭皮\", \"豬血湯\" téng-téng.",
+        "例如輸入 「白話字」 關鍵字查 「p.」 ，可以找到 「pa」 、 「pá」 等等。輸入 「對應華文」 關鍵字查 「豬..」 ，可以找到 「豬頭皮」 、 「豬血湯」 等等。",
+        "For example: When searching POJ with keyword \"p.\", you will find \"pa\", \"pá\", etc. When searching Chinese with keyword \"豬..\", you will find \"豬頭皮\", \"豬血湯\", etc."
+    ],
+    "hanche-khuithau": [
+        "【^】：Khǹg tī siōng頭前，ē-sái chhōe所有chit-ê開頭ê字詞。",
+        "【^】: Khǹg tī siōng thâu-chêng, ē-sái chhōe só͘-ū chit-ê khui-thâu ê jī-sû.",
+        "【^】：放在最前面，可以找到所有這個開頭的字詞。",
+        "【^】: For searching all words starting with this keyword."
+    ],
+    "hanche-khuithau-le": [
+        "請先kéng 【相關--ê】 來chhōe。譬如phah 「白話字(數字輸入)」 ê關鍵字chhōe 【^ho2】 ，ē-sái chhōe tio̍h 「hó」 、 「hó-bī」 、 「hó-chhùi-súi」 、 「hó-bâ koán-pah-ke」 等等。",
+        "Chhiáⁿ kéng \"Siong-koan--ê\" lâi chhōe. Phí-jū phah \"Pe̍h-ōe-jī(Sò͘-jī Su-ji̍p)\" ê koan-kiān-jī chhōe \"^ho2\", ē-sái chhōe tio̍h \"hó\", \"hó-bī\", \"hó-chhùi-súi\", \"hó-bâ koán-pah-ke\" téng-téng.",
+        "請先選 【模糊搜尋】 來找。例如輸入 「白話字(數字輸入)」 關鍵字查 【^ho2】 ，可以找到 「hó」 、 「hó-bī」 、 「hó-chhùi-súi」 、 「hó-bâ koán-pah-ke」 等等。",
+        "Please use with \"Fuzzy Search\". For example: When searching POJ(Number Input) with keyword \"^ho2\", you will find \"hó\", \"hó-bī\", \"hó-chhùi-súi\", \"hó-bâ koán-pah-ke\", etc."
     ], 
-    "one": [
-        "+：代表有tú好1 ê任何ê字。",
-        "+: Tāi-piáu ū tú-hó 1-ê jīm-hô ê jī.",
-        "+：代表有剛好1個的任意字元。",
-        "+: Ｍatches exactly one non-space character."
+    "hanche-kiatsok": [
+        "【$】：Khǹg tī siōng後壁，ē-sái chhōe所有chit-ê結束ê字詞。",
+        "【$】: Khǹg tī siōng āu-piah, ē-sái chhōe só͘-ū chit-ê kiat-sok ê jī-sû.",
+        "【$】：放在最後面，可以找到所有這個結束的字詞。",
+        "【$】: For searching all words ending with this keyword."
     ],
-    "one-ex": [
-        "譬如phah「白話字」ê關鍵字chhōe「p+」，ē-sái chhōe tio̍h「pa」、「pá」等等。Phah「對應華文」ê關鍵字chhōe「豬++」，ē-sái chhōe tio̍h「豬頭皮」、「豬血湯」等等。",
-        "Phí-jū phah \"Pe̍h-ōe-jī\" ê koan-kiān-jī chhōe \"p+\", ē-sái chhōe tio̍h \"pa\", \"pá\" téng-téng. Phah \"Tùi-èng Hôa-bûn\" ê koan-kiān-jī chhōe \"豬++\", ē-sái chhōe tio̍h \"豬頭皮\", \"豬血湯\" téng-téng.",
-        "例如輸入「白話字」關鍵字查「p+」，可以找到「pa」、「pá」等等。輸入「對應華文」關鍵字查「豬++」，可以找到「豬頭皮」、「豬血湯」等等。",
-        "For example: When searching POJ with keyword \"p+\", you will find \"pa\", \"pá\", etc. When searching Chinese with keyword \"豬++\", you will find \"豬頭皮\", \"豬血湯\", etc."
+    "hanche-kiatsok-le": [
+        "請先kéng 【相關--ê】 來chhōe。譬如phah 「白話字(數字輸入)」 ê關鍵字chhōe 【sin5$】 ，ē-sái chhōe tio̍h 「sîn」 、 「châi-sîn」 、 「bô-thâu-sîn」 、 「kūn-biō khi-sîn」 等等。",
+        "Chhiáⁿ kéng \"Siong-koan--ê\" lâi chhōe. Phí-jū phah \"Pe̍h-ōe-jī(Sò͘-jī Su-ji̍p)\" ê koan-kiān-jī chhōe \"sin5$\", ē-sái chhōe tio̍h \"sîn\", \"châi-sîn\", \"bô-thâu-sîn\", \"kūn-biō khi-sîn\" téng-téng.",
+        "請先選 【模糊搜尋】 來找。例如輸入 「白話字(數字輸入)」 關鍵字查 【sin5$】 ，可以找到 「sîn」 、 「châi-sîn」 、 「bô-thâu-sîn」 、 「kūn-biō khi-sîn」 等等。",
+        "Please use with \"Fuzzy Search\". For example: When searching POJ(Number Input) with keyword \"sin5$\", you will find \"sîn\", \"châi-sîn\", \"bô-thâu-sîn\", \"kūn-biō khi-sîn\", etc."
+    ],
+    "choanpoo-sianntiau": [
+        "【%】：Khǹg tī 1-ê音節ê字母後壁，ē-sái chhōe所有ê聲調。",
+        "【%】: Khǹg tī 1-ê im-chat ê jī-bó āu-piah, ē-sái chhōe só͘-ū ê siaⁿ-tiāu.",
+        "【%】：放在一個音節的字母後面，可以找到所有聲調。",
+        "【%】: For searching all different tones."
+    ],
+    "choanpoo-sianntiau-le": [
+        "譬如phah 「白話字(數字輸入)」 ê關鍵字chhōe 【tha%】 ，ē-sái chhōe tio̍h 「tha」 、 「thà」 、 「thah」 、 「tha̍k」 等等。",
+        "Phí-jū phah \"Pe̍h-ōe-jī(Sò͘-jī Su-ji̍p)\" ê koan-kiān-jī chhōe \"tha%\", ē-sái chhōe tio̍h \"tha\", \"thà\", \"thah\", \"tha̍k\" téng-téng.",
+        "例如輸入 「白話字(數字輸入)」 關鍵字查 【tha%】 ，可以找到 「tha」 、 「thà」 、 「thah」 、 「tha̍k」 等等。",
+        "For example: When searching POJ(Number Input) with keyword \"tha%\", you will find \"tha\", \"thà\", \"thah\", \"tha̍k\", etc."
+    ], 
+    "ahun-jisu": [
+        "【%$】：Khǹg tī 1-ê音節ê字母後壁，ē-sái chhōe所有押韻ê字詞。",
+        "【%$】: Khǹg tī 1-ê im-chat ê jī-bó āu-piah, ē-sái chhōe só͘-ū ê ah-ūn ê jī-sû.",
+        "【%$】：放在一個完整音節的字母後面，可以找到所有押韻的字詞。",
+        "【%$】: For searching all words with the same rhyme."
+    ],
+    "ahun-jisu-le": [
+        "請先kéng 【相關--ê】 來chhōe。譬如phah 「白話字(數字輸入)」 ê關鍵字chhōe 【ai%$】 ，ē-sái chhōe tio̍h 「chhài」 、 「an-pâi」 、 「bô-lō͘-sái」 、 「chhiò-hai-hai」 等等。",
+        "Chhiáⁿ kéng \"Siong-koan--ê\" lâi chhōe. Phí-jū phah \"Pe̍h-ōe-jī(Sò͘-jī Su-ji̍p)\" ê koan-kiān-jī chhōe \"ai%$\", ē-sái chhōe tio̍h \"chhài\", \"an-pâi\", \"bô-lō͘-sái\", \"chhiò-hai-hai\" téng-téng.",
+        "請先選 【模糊搜尋】 來找。例如輸入 「白話字(數字輸入)」 關鍵字查 【ai%$】 ，可以找到 「chhài」 、 「an-pâi」 、 「bô-lō͘-sái」 、 「chhiò-hai-hai」 等等。",
+        "Please use with \"Fuzzy Search\". For example: When searching POJ(Number Input) with keyword \"ai%$\", you will find \"chhài\", \"an-pâi\", \"bô-lō͘-sái\", \"chhiò-hai-hai\", etc."
+    ],
+    "bokang-khiunnkhau": [
+        "【(|)】：Siāng時chhōe無kâng ê組合，譬如ē-sái chhōe無kâng腔口ê拼寫。",
+        "【(|)】: Siāng-sî chhōe bô-kâng ê cho͘-ha̍p, phì-jū ē-sái chhōe bô-kâng khiuⁿ-kháu ê pheng-siá.",
+        "【(|)】：同時找不同的組合，例如可以找不同腔調的拼寫法。",
+        "【(|)】: For searching with different choices at the same time."
+    ],
+    "bokang-khiunnkhau-le": [
+        "譬如phah 「白話字(數字輸入)」 ê關鍵字chhōe 【h(oe|e)2-chhia】 ，ē-sái chhōe tio̍h 「hóe-chhia」 kap 「hé-chhia」 。",
+        "Phí-jū phah \"Pe̍h-ōe-jī(Sò͘-jī Su-ji̍p)\" ê koan-kiān-jī chhōe \"h(oe|e)2-chhia\", ē-sái chhōe tio̍h \"hóe-chhia\" kap \"hé-chhia\".",
+        "例如輸入 「白話字(數字輸入)」 關鍵字查 【h(oe|e)2-chhia】 ，可以找到 「hóe-chhia」 和 「hé-chhia」 。",
+        "For example: When searching POJ(Number Input) with keyword \"h(oe|e)2-chhia\", you will find \"hóe-chhia\" and \"hé-chhia\"."
     ],
     "contact": [
         "若以上ê說明無夠清楚，a̍h是使用有siáⁿ問題，lóng歡迎kap gún聯絡，多謝！",

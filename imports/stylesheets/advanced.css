@@ -6,8 +6,9 @@
     margin-left: auto;
     margin-right: auto;
     width: 978px;
-    padding-top: 22px;
+    padding-top: 30px;
     padding-bottom: 46px;
+    text-align: center;
 }
 
 #method-buttons-container {
@@ -43,7 +44,8 @@
 #all-field-form {
     position: relative;
     height: 319px;
-    padding-top: 165px;
+    padding-top: 50px;
+    text-align: left;
 }
 
 #all-field-search-method-container {
@@ -59,14 +61,14 @@
 }
 
 #all-field-radio-1 {
-    margin-left: 10px;
+    margin-left: 20px;
 }
 
 #all-field-radio-2 {
-    margin-left: 28px;
+    margin-left: 15px;
 }
 
-#all-field-wildcard-note-container {
+#all-field-regex-note-container {
     float: right;
 }
 
@@ -87,6 +89,7 @@
     color: #C5D1C0;
     font-weight: lighter;
     letter-spacing: 1px;
+    line-height: 20px;
 }
 
 #bg-img {
@@ -108,23 +111,24 @@
 
 #dic-buttons-container {
     display: grid;
-    width: 880px;
+    width: 930px;
     margin-left: auto;
     margin-right: auto;
-    padding-top: 30px;
+    padding-top: 20px;
     padding-bottom: 20px;
     grid-template-columns: repeat(4, 1fr);
-    grid-gap: 10px 40px;
+    grid-gap: 5px 5px;
 }
 
 .dic-button {
-    width: 190px;
-    height: 52px;
-    border-radius: 2px;
-    box-shadow: 0 4px 2px 0 rgba(0, 0, 0, 0.16);
-    font-size: 15px;
+    border-radius: 5px;
+    box-shadow: 0 2px 1px 0 rgba(0, 0, 0, 0.16);
+    font-size: 16px;
     font-weight: 500;
-    line-height: 52px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-right: 5px;
+    padding-left: 5px;
     text-align: center;
 }
 
@@ -141,6 +145,7 @@
 
 #single-dic-form-container {
     padding-bottom: 16px;
+    text-align: left;
 }
 
 #single-dic-form {
@@ -148,7 +153,7 @@
     margin-left: auto;
     margin-right: auto;
     padding-bottom: 22px;
-    width: 880px;
+    width: 930px;
     background-color: #d6e3d8;
 }
 
@@ -167,10 +172,10 @@
 }
 
 #single-dic-radio-2 {
-    margin-left: 28px;
+    margin-left: 20px;
 }
 
-#single-dic-wildcard-note-container {
+#single-dic-regex-note-container {
     float: right;
 }
 

@@ -16,6 +16,10 @@ class About extends Component {
 		};
 	}
 
+	componentDidMount() {
+        window.scrollTo(0, 0);
+    }
+
 	openGithub() {
 		window.open('https://github.com/ChhoeTaigi', '_blank')
 	}
@@ -34,8 +38,16 @@ class About extends Component {
 						<ul id='brief-ul'>
 							<li className='brief-li'><Translate id='bullet-1' /></li>
 							<li className='brief-li'><Translate id='bullet-2' /></li>
+							<li className='brief-li'>
+								<div className="brief_support_taibun_kesimi">
+                        			<label className="brief_support_taibun_kesimi_part1_label"><Translate id="support_taibun_kesimi_part1" /></label>
+                        			<a className="brief_support_taibun_kesimi_part2_a" target="_blank" href="https://www.zeczec.com/projects/taibun-kesimi"><Translate id="support_taibun_kesimi_part2" /></a>
+                       				<label className="brief_support_taibun_kesimi_part3_label"><Translate id="support_taibun_kesimi_part3" /></label>
+                    			</div>
+							</li>
 						</ul>
 					</div>
+					
 				</div>
 				<div id='feature-container'>
 					<div id='feature-title' className='about-title'><Translate id='feature' /></div>
@@ -85,10 +97,15 @@ class About extends Component {
 				</div>
 				<div id='seeking-container'>
 					<div id='seeking-title' className='about-title'><Translate id='sponsor' /></div>
-					<ol id='seeking-ol'>
+					{/* <ol id='seeking-ol'>
 						<li><Translate id='sponsor-1' /></li>
 						<li><Translate id='sponsor-2' /></li>
-					</ol>
+					</ol> */}
+					<div>
+						<a href="https://www.zeczec.com/projects/taibun-kesimi" target="_blank">
+                        	<img src='https://s3-ap-northeast-1.amazonaws.com/zeczec-prod/asset_168448_image_big.jpg?1586176499' width='800' height='290' />    
+                    	</a>
+					</div>
 				</div>
 				<div id='contact-container'>
 					<div ref={this.state.contactRef} id='contact-title' className='about-title'><Translate id='contact' /></div>
@@ -105,30 +122,30 @@ class About extends Component {
 				</div>
 				<div id='members-container' className='fix-width-center'>
 					<div id='members-title' className='about-title'><Translate id='members' /></div>
-					<div className='person-card-two-columns'>
+					<div className='person-card-three-columns'>
 						<div className='person-card'>
 							<img className='profile' src='images/hebi.png' width='120' height='120'></img>
 							<div className='name'>Hê-bí</div>
 							<div className='title'>Sàu thô͘-kha kiam kòng cheng.</div>
 							<div className='description'>Khiàn-phang ēng--ê. Lâi chú 1 tiáⁿ phang-kòng-kòng ê Tâi-gí moâi.</div>
 						</div>
+						<div className='person-card'>
+							<img className='profile' src='images/titeng.png' width='120' height='120'></img>
+							<div className='name'>Tìtêng</div>
+							<div className='title'>Hū-chek kiò ta̍k-ke hun-thâu mài loān-tàn</div>
+							<div className='description'>Jîn-seng chhiūⁿ tàu-tô͘, tàu chı̍t-pak chhit-chhái ê Tâi-gí tô͘.</div>
+						</div>
+						<div className='person-card'>
+							<img className='profile' src='images/buncheng.png' width='120' height='120'></img>
+							<div className='name'>BûnCheng</div>
+							<div className='title'>Iau-pá-chhá</div>
+							<div className='description'>Tâi-oân-lâng. Tâi-gí. To̍k-li̍p Kiàn-kok.</div>
+						</div>
 					</div>
 				</div>
 				<div id='former-members-container' className='fix-width-center'>
 					<div id='members-title' className='about-title'><Translate id='former-members' /></div>
 					<div className='former-person-card-five-columns'>
-						<div className='person-card-small'>
-							<img className='profile-small' src='images/titeng.png' width='100' height='100'></img>
-							<div className='name-small'>Tìtêng</div>
-							<div className='title-small'>Hū-chek kiò ta̍k-ke hun-thâu mài loān-tàn</div>
-							<div className='description-small'>Jîn-seng chhiūⁿ tàu-tô͘, tàu chı̍t-pak chhit-chhái ê Tâi-gí tô͘.</div>
-						</div>
-						<div className='person-card-small'>
-							<img className='profile-small' src='images/buncheng.png' width='100' height='100'></img>
-							<div className='name-small'>BûnCheng</div>
-							<div className='title-small'>Iau-pá-chhá</div>
-							<div className='description-small'>Tâi-oân-lâng. Tâi-gí. To̍k-li̍p Kiàn-kok.</div>
-						</div>
 						<div className='person-card-small'>
 							<img className='profile-small' src='images/leo.png' width='100' height='100'></img>
 							<div className='name-small'>Leo Wu</div>

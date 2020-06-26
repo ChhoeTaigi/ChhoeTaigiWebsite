@@ -8,7 +8,7 @@ Meteor.methods({
             options = processSearchMethod(options);
             options = processBasicSearchColumns(options);
             options = cleanEmptyColumns(options);
-            options = processWildcard(options);
+            options = preprocessRegex(options);
 
             if (method === 'basic') {
                 if (options.dic) {
@@ -45,16 +45,16 @@ Meteor.methods({
 
 // equals / contains
 function processSearchMethod(options) {
-    if (options.searchMethod === 'contains') {
+    if (options.searchMethod === 'equals') {
         if (options.value !== undefined) {
             // all fields
             if (/\S/.test(options.value)) {
-                options.value = '%' + options.value + '%';
+                options.value = '^' + options.value + '$';
             }
         } else if (options.columns !== undefined) {
             for (let key in options.columns) {
                 if (/\S/.test(options.columns[key])) {
-                    options.columns[key] = '%' + options.columns[key] + '%';
+                    options.columns[key] = '^' + options.columns[key] + '$';
                 }
             }
         }
@@ -87,18 +87,17 @@ function cleanEmptyColumns(options) {
     return options;
 }
 
-// wildcard
-function processWildcard(options) {
-    const reM = new RegExp('\\*', 'g');
-    const reP = new RegExp('\\+', 'g');
+// regex
+function preprocessRegex(options) {
+    const soouSianntiau = '(1|2|3|p4|p8|p|t4|t8|t|k4|k8|k|h4|h8|h|5|7)?';
+
+    const reSianntiauTaibe = new RegExp('\\%', 'g');
 
     if (options.value !== undefined) {
-        options.value = options.value.replace(reM, '%');
-        options.value = options.value.replace(reP, '_');
+        options.value = options.value.replace(reSianntiauTaibe, soouSianntiau);
     } else if (options.columns !== undefined) {
         for (let key in options.columns) {
-            options.columns[key] = options.columns[key].replace(reM, '%');
-            options.columns[key] = options.columns[key].replace(reP, '_');
+            options.columns[key] = options.columns[key].replace(reSianntiauTaibe, soouSianntiau);
         }
     }
 
@@ -107,7 +106,8 @@ function processWildcard(options) {
 
 // lowercase query
 function lowerQeury(key) {
-    return postgres.raw('LOWER(\"' + key + '\")');
+    // return postgres.raw('LOWER(\"' + key + '\")');
+    return key;
 }
 function lowerStr(str) {
     return str.toLowerCase();
@@ -338,13 +338,13 @@ function queryDonditionBasic(options) {
     for (let key in columns) {
         if (key === 'taibun') {
             if ('hanlo_taibun_poj' in dicColumns)
-                query.orWhere(lowerQeury('hanlo_taibun_poj'), 'like', lowerStr(columns[key]));
+                query.orWhere(lowerQeury('hanlo_taibun_poj'), '~*', lowerStr(columns[key]));
             if ('hanlo_taibun_kiplmj' in dicColumns)
-                query.orWhere(lowerQeury('hanlo_taibun_kiplmj'), 'like', lowerStr(columns[key]));
+                query.orWhere(lowerQeury('hanlo_taibun_kiplmj'), '~*', lowerStr(columns[key]));
             if ('hanji_taibun' in dicColumns)
-                query.orWhere(lowerQeury('hanji_taibun'), 'like', lowerStr(columns[key]));
+                query.orWhere(lowerQeury('hanji_taibun'), '~*', lowerStr(columns[key]));
         } else if (key in dicColumns) {
-            query.andWhere(lowerQeury(key), 'like',  lowerStr(columns[key]));
+            query.andWhere(lowerQeury(key), '~*',  lowerStr(columns[key]));
         }
     }
     return query;
@@ -358,7 +358,7 @@ function queryDonditionAllField(options) {
     const query = postgres.from(dic);
     for (key in columns) {
         if (key !== 'id')
-            query.orWhere(lowerQeury(key), 'like', lowerStr(options.value));
+            query.orWhere(lowerQeury(key), '~*', lowerStr(options.value));
     }
     return query;
 }
@@ -374,7 +374,7 @@ function queryDonditionSingleDic(options) {
         if (key === 'id')
             query.andWhere(key, columns[key]);
         else if (key in dicColumns)
-            query.andWhere(lowerQeury(key), 'like', lowerStr(columns[key]));
+            query.andWhere(lowerQeury(key), '~*', lowerStr(columns[key]));
     }
 
     return query;

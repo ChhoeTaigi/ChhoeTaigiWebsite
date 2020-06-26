@@ -1,6 +1,6 @@
 header {
 	position: fixed !important;
-	height: 56px;
+	height: 55px;
 	width: 100%;
 	top: 0;
 	background-color: white;
@@ -11,7 +11,7 @@ header {
 #logo {
 	position: absolute;
 	left: 23px;
-	top: 15px;
+	top: 12px;
 }
 
 #header-right {
@@ -38,6 +38,7 @@ header {
 
 .menu-text {
 	font-size: 15px;
+	line-height: 21px;
 	text-decoration: none;
 	color: #657160;
 	margin-right: 34px;
@@ -57,4 +58,20 @@ header {
 	width: 30px;
 	height: 4px;
 	background-color: #23672e;
+}
+
+.menu-item-not-select {
+	color: #23672e;
+}
+
+.menu-item-not-select::after {
+	content: "";
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+	position: relative;
+	bottom: -14px;
+	width: 30px;
+	height: 4px;
+	background-color: #23672e22;
 }

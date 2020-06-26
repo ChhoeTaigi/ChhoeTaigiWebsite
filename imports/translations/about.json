@@ -6,16 +6,34 @@
         "Introduction"
     ],
     "bullet-1": [
-        "「ChhoeTaigi 找台語」計畫是beh來整理kap數位化lán台語ê字詞資料，m̄-nā提供公開授權ê台語字詞資料庫，mā有線頂辭典網站kap手機á ê辭典app。Ǹg-bāng吸引lú來lú chē人來投入相關ê研究a̍h是開發無kâng ê應用，mā thang幫chān一般ê使用者、學習者，有koh khah利便chhiau-chhōe台語字詞ê好ke-si。",
+        "「ChhoeTaigi 找台語」計畫是beh來整理kap數位化lán台語ê字詞資料，提供公開授權ê台語字詞資料庫，koh有線頂辭典網站kap手機á ê辭典app。Ǹg-bāng吸引lú來lú chē人來投入相關ê研究a̍h是開發無kâng ê應用，mā thang幫chān一般ê使用者、學習者，有koh khah利便chhiau-chhōe台語字詞ê好ke-si。",
         "\"ChhoeTaigi 找台語\" kè-ōe sī beh lâi chéng-lí kap sò͘-ūi-hòa lán Tâi-gí ê jī-sû chu-liāu, m̄-nā thê-kiong kong-khai siū-khoân ê Tâi-gí jī-sû chu-liāu-khò͘, mā ū sòaⁿ-téng sû-tián bāng-chām kap chhiú-ki-á ê sû-tián app. Ǹg-bāng khip-ín lú-lâi-lú-chē lâng lâi tâu-ji̍p siong-koan ê gián-kiú a̍h-sī khai-hoat bô-kâng ê èng-iōng, mā thang pang-chān it-poaⁿ ê sú-iōng-chiá, ha̍k-si̍p-chiá, ū koh khah lī-piān chhiau-chhōe Tâi-gí jī-sû ê hó ke-si.",
         "「ChhoeTaigi 找台語」計畫的目標是為了整理和數位化台語的字詞資料，不只提供公開授權的台語字詞資料庫，也有辭典網站和手機辭典app，希望吸引更多人投入相關研究或開發應用，更幫助一般使用者更便利的查詢台語的字詞資料。",
         "The ChhoeTaigi project aims to build a Tâi-gí word database with open license. The data is compiled and digitalised for easier retrival of Tâi-gí words. Open licensing makes further study, development and application possible. ChhoeTaigi also provides a dictionary website and a mobile application, with access to data of Tâi-gí words in almost all existing Tâi-gí dictionaries. The tool helps enhance the learning of Tâi-gí."
     ],
     "bullet-2": [
-        "Che計畫是得tio̍h g0v tī 2018年頂半冬所提供ê獎助金，chiah thang開始進行，完成基礎ê khang-khòe。Sòa--落-來需要靠koh khah chē人來參與、tàu-saⁿ-kāng，chiah有hoat-tō͘ 繼續kiâⁿ--落-去，請ta̍k-ê chò-hóe來支持！",
-        "Che kè-ōe sī tit-tio̍h g0v tī 2018 nî téng pòaⁿ-tang só͘ thê-kiong ê chióng-chō͘-kim, chiah thang khai-sí chìn-hêng, oân-sêng ki-chhó͘ ê khang-khòe. Sòa--lo̍h-lâi su-iàu khò koh khah chē lâng lâi chham-ú, tàu-saⁿ-kāng, chiah ū hoat-tō͘ kè-sio̍k kiâⁿ--lo̍h-khì, chhiáⁿ ta̍k-ê chò-hóe lâi chi-chhî.",
-        "此計畫是獲得g0v在2018年上半年所提供的獎助金，才得以開始進行，完成階段性目標。接下來需要靠更多人的實際參與，才能繼續長遠的走下去，請大家一起來支持！",
-        "The ChhoeTaigi project started in 2018 with great support by g0v grants. We are glad that our short-term goal was achieved. We hope to keep this project running, and thus need your further support by actual participation and/or sponsorship. Thank you!"
+        "Che計畫是得tio̍h g0v tī 2018年頂半冬所提供ê獎助金，chiah thang開始進行，完成基礎ê khang-khòe。",
+        "Che kè-ōe sī tit-tio̍h g0v tī 2018 nî téng pòaⁿ-tang só͘ thê-kiong ê chióng-chō͘-kim, chiah thang khai-sí chìn-hêng, oân-sêng ki-chhó͘ ê khang-khòe.",
+        "此計畫是獲得g0v在2018年上半年所提供的獎助金，才得以開始進行，完成階段性目標。",
+        "The ChhoeTaigi project started in 2018 with great support by g0v grants. We are glad that our short-term goal was achieved."
+    ],
+    "support_taibun_kesimi_part1": [
+        "ChhoeTaigi 所有ê字詞資料數位化整理校對、網站和app ê開發維護成本lóng是靠 ",
+        "",
+        "ChhoeTaigi 所有的字詞資料數位化整理校對、網站和app的開發維護成本都是靠 ",
+        ""
+    ],
+    "support_taibun_kesimi_part2": [
+        "台文雞絲麵 Tâi-bûn Ke-si-mī",
+        "",
+        "台文雞絲麵 Tâi-bûn Ke-si-mī",
+        ""
+    ],
+    "support_taibun_kesimi_part3": [
+        " 募資計畫來維持團隊所有ê運作，邀請你做伙來捐款支持！",
+        "",
+        " 募資計畫來維持團隊所有的運作，邀請你一起來捐款支持！",
+        ""
     ],
     "feature": [
         "特色",
@@ -30,9 +48,9 @@
         "Rich Data of Tâi-gí Words"
     ],
     "feature-content-1": [
-        "整合10份ê文獻資料，有30萬thóng筆ê台語字詞",
+        "整合超過10份ê文獻資料，有30萬thóng ê台語字詞",
         "Chéng-ha̍p 10 hūn ê bûn-hiàn chu-liāu, ū 30-bān thóng pit ê Tâi-gí jī-sû.",
-        "整合10份文獻資料，超過30萬筆台語字詞",
+        "整合超過10份文獻資料，超過30萬筆台語字詞",
         "Intergrates data of 10 Tâi-gí literatures. With more than 300,000 Tâi-gí words in total."
     ],
     "feature-title-2": [
@@ -42,9 +60,9 @@
         "Normalization"
     ],
     "feature-content-2": [
-        "格式有提供歷史siōng久長、文獻siōng chē ê白話字，mā提供教育部chhui-hêng ê羅馬字，koh siāng時有Unicode kap數字輸入ê格式",
+        "格式有提供歷史siōng久長、文獻siōng chē ê白話字，mā提供教育部羅馬拼音，koh siāng時有Unicode kap數字輸入ê格式",
         "Keh-sek ū thê-kiong le̍k-sú siōng kú-tn̂g, bûn-hiàn siōng chē ê Pe̍h-ōe-jī, mā ū thê-kiong Kàu-io̍k-pō͘ chhui-hêng ê Lô-má-jī, koh siāng-sî ū Unicode kap sò͘-jī su-ji̍p ê keh-sek.",
-        "資料的顯示格式為歷史最悠久及文獻最多的白話字，也提供教育部推行之羅馬字。輸入格式可選Unicode(台語輸入法)或以數字及羅馬字輸入",
+        "資料的顯示格式為歷史最悠久及文獻最多的白話字，也提供教育部羅馬拼音。輸入格式可選Unicode(台語輸入法)或以數字輸入的格式",
         "Normalizes and displays data in POJ and MoE LMJ. Input format includes (i) Unicode, and (ii) simple numbers + Latin alphabets."
     ],
     "feature-title-3": [
@@ -84,7 +102,7 @@
         "Provides a dictionary website and a mobile application, with access to data of Tâi-gí words in almost all existing Tâi-gí dictionaries."
     ],
     "join": [
-        "做伙貢獻",
+        "鬥陣貢獻",
         "Chò-hóe Kòng-hiàn",
         "加入協作",
         "We need your contribution!"
@@ -102,15 +120,15 @@
         "Please see our contact information below."
     ],
     "join-3": [
-        "參與開源專案，tàu-saⁿ-kāng來改進產品",
+        "參與開源專案，tàu-saⁿ-kāng改進產品",
         "Chham-ú khai-goân choan-àn, tàu-saⁿ-kāng lâi kái-chìn sán-phín.",
         "參與開源專案，協助改進產品",
         "Participate in our open source projects."
     ],
     "sponsor": [
-        "Ǹg望ta̍k-ê來贊助",
-        "Ǹg-bāng Ta̍k-ê Lâi Chàn-chō͘",
-        "徵求贊助",
+        "Ǹg望ta̍k-ke實際支持贊助",
+        "Ǹg-bāng Ta̍k-ê Si̍t-chè Chàn-chō͘",
+        "拜託大家實際支持贊助",
         "Sponsor or support our project"
     ],
     "sponsor-1": [
@@ -144,9 +162,9 @@
         "Email"
     ],
     "members": [
-        "團隊成員",
+        "現此時ê團隊成員",
         "Thoân-tūi Sêng-oân",
-        "團隊成員",
+        "現在的團隊成員",
         "Team Members"
     ],
     "former-members": [

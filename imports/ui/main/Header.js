@@ -21,13 +21,15 @@ class Header extends Component {
         return (
             <header>
                 <div className='fix-width-center'>
-                    <img id='logo' src='/images/logo@2x.png' width='194' height='32' />
+                    <Link className="logo-button" to='/' >
+                        <img id='logo' src='/images/logo@2x.png' width='194' height='32' />    
+                    </Link>
                     <div id='header-right'>
-                        <a id='FB-link' className='menu-item' href='https://www.facebook.com/ChhoeTaigi/' target='_blank'></a>
-                        <Link className={'menu-text menu-item ' + (currentLocation == '/liaukai' ? 'menu-item-select' : '')} to='/liaukai'><Translate id="about" /></Link>
-                        <Link className={'menu-text menu-item ' + (currentLocation == '/app' ? 'menu-item-select' : '')} to='/app'><Translate id="app" /></Link>
-                        <Link className={'menu-text menu-item ' + (currentLocation == '/chinkai' ? 'menu-item-select' : '')} to='/chinkai'><Translate id="advanced" /></Link>
-                        <Link className={'menu-text menu-item ' + (currentLocation == '/' ? 'menu-item-select' : '')} to='/'><Translate id="basic" /></Link>
+                        <a id='FB-link' className='menu-item' href='https://www.facebook.com/ChhoeTaigi/' target='_blank' />
+                        <Link className={'menu-text menu-item ' + (currentLocation == '/liaukai' ? 'menu-item-select' : 'menu-item-not-select')} to='/liaukai'><Translate id="about" /></Link>
+                        <Link className={'menu-text menu-item ' + (currentLocation == '/app' ? 'menu-item-select' : 'menu-item-not-select')} to='/app'><Translate id="app" /></Link>
+                        <Link className={'menu-text menu-item ' + (currentLocation == '/chinkai' ? 'menu-item-select' : 'menu-item-not-select')} to='/chinkai'><Translate id="advanced" /></Link>
+                        <Link className={'menu-text menu-item ' + (currentLocation == '/' ? 'menu-item-select' : 'menu-item-not-select')} to='/'><Translate id="basic" /></Link>
                     </div>
                 </div>
             </header>

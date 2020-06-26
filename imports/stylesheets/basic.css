@@ -40,6 +40,7 @@
     background-color: #d0e3d0;
     border-radius: 0 0 5px 5px;
     overflow: auto;
+    text-align: center;
 }
 
 #search-method-container {
@@ -47,6 +48,12 @@
     padding-left: 43px;
     padding-right: 43px;
     line-height: 42px;
+    text-align: left;
+}
+
+#search-method-text-container {
+    width: 150px;
+    display: inline-block;
 }
 
 .radio > div {
@@ -71,22 +78,22 @@
 }
 
 .radio > span {
-    margin-left: 4px;
+    margin-left: 5px;
 }
 
 #radio-1 {
-    margin-left: 10px;
+    margin-left: 12px;
 }
 
 #radio-2 {
-    margin-left: 28px;
+    margin-left: 20px;
 }
 
-#wildcard-note-container {
+#regex-note-container {
     float: right;
 }
 
-#wildcard-note {
+#regex-note {
     color: #2f893d;
     text-decoration: none;
     border-bottom: 1px solid;
@@ -96,8 +103,8 @@
 
 #seperator {
     height: 2px;
-    margin-left: 43px;
-    margin-right: 26px;
+    margin-left: 35px;
+    margin-right: 35px;
     opacity: 0.3;
     background-color: #43944f;
 }
@@ -105,10 +112,12 @@
 #input-method {
     width: 874px;
     margin: 9px auto 4px auto;
+    text-align: left;
+    padding-top: 5px;
 }
 
 #input-container {
-    padding-left: 43px;
+    text-align: left;
 }
 
 #input-container {
@@ -126,12 +135,13 @@
 
 #input-container-left {
     display: inline-block;
-    width: 178px;
+    width: 118px;
+    padding-top: 10px;
 }
 
 #input-container-right {
     display: inline-block;
-    width: 650px;
+    width: 700px;
     margin-left: 6px;
 }
 
@@ -140,6 +150,8 @@
     line-height: 34px;
     position: relative;
     background-color: #eef5ef;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
 }
 
 #radio-3 {
@@ -148,26 +160,26 @@
 }
 
 #radio-4 {
-    margin-left: 26px;
+    margin-left: 20px;
     font-weight: normal;
 }
 
 #radio-5 {
-    margin-left: 26px;
+    margin-left: 20px;
     font-weight: normal;
 }
 
 #radio-6 {
-    margin-left: 26px;
+    margin-left: 20px;
     font-weight: normal;
 }
 
 #text-input-seperator {
     position: absolute;
     bottom: 0;
-    width: 600px;
+    width: 700px;
     height: 1px;
-    left: 12px;
+    left: 0px;
     opacity: 0.5;
     background-color: #657160;
 }
@@ -179,14 +191,34 @@
     text-align: right;
 }
 
+.text-input-lomaji {
+    height: 34px;
+    width: 686px;
+    border: none;
+    padding-left: 14px;
+    background-color: #eef5ef;
+    font-size: 16px;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+}
+
+.text-input-lomaji::placeholder {
+    font-size: 16px;
+    color: #C5D1C0;
+    font-weight: lighter;
+    letter-spacing: 1px;
+    line-height: 20px;
+}
+
 .text-input {
     height: 34px;
-    width: 636px;
+    width: 686px;
     border: none;
     padding: 0;
     padding-left: 14px;
     background-color: #eef5ef;
     font-size: 16px;
+    border-radius: 5px;
 }
 
 .text-input::placeholder {
@@ -194,4 +226,29 @@
     color: #C5D1C0;
     font-weight: lighter;
     letter-spacing: 1px;
+    line-height: 20px;
+}
+
+.support_taibun_kesimi {
+    padding-top: 20px;
+    padding-bottom: 20px;
+    padding-left: 135px;
+    padding-right: 135px;
+    background-color: #eef5ef;
+    line-height: 24px;
+}
+
+.support_taibun_kesimi_part1_label {
+    color: #728d88;
+    font-size: 15px;
+}
+
+.support_taibun_kesimi_part2_a {
+    color: #d19e6d;
+    font-size: 16px;
+}
+
+.support_taibun_kesimi_part3_label {
+    color: #728d88;
+    font-size: 15px;
 }

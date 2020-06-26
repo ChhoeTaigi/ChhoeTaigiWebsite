@@ -34,6 +34,7 @@ class AdvancedSearch extends Component {
 
     componentDidMount() {
         window.addEventListener('resize', this.handleResize);
+        window.scrollTo(0, 0);
     }
 
     componentWillUnmount() {
@@ -69,7 +70,7 @@ class AdvancedSearch extends Component {
             for (let idx in dicStruct) {
                 let dic = dicStruct[idx].name;
                 dicButtonsArr.push(
-                    <button className={'dic-button ' + (this.state.selectedDic === dic ? 'dic-button-selected' : 'dic-button-unselected')} key={dic} onClick={this.handleDicButton.bind(this, dic)}>{(parseInt(idx) + 1) + '. ' + dicStruct[idx].chineseName}</button>
+                    <button className={'dic-button ' + (this.state.selectedDic === dic ? 'dic-button-selected' : 'dic-button-unselected')} key={dic} onClick={this.handleDicButton.bind(this, dic)}>{dicStruct[idx].chineseName}</button>
                 );
             }
             dicButtons = <div id='dic-buttons-container'>{dicButtonsArr}</div>;
@@ -125,6 +126,10 @@ class SingleDicOptionsClass extends Component {
         }
     }
 
+    componentDidMount() {
+        window.scrollTo(0, 0);
+    }
+
     componentWillUnmount() {
         singleDicState = this.state;
     }
@@ -176,6 +181,12 @@ class SingleDicOptionsClass extends Component {
         }
     }
 
+    resetAllInput = () => {
+        this.setState({
+            columns: this.clearInput(this.props.dic)
+        });
+    }
+
     render() {
         let dic = this.props.dic;
         let columns = dicStruct.find((e) => e.name === dic).columns;
@@ -200,8 +211,8 @@ class SingleDicOptionsClass extends Component {
                     <input type="radio" name="searchMethod" value="contains" defaultChecked={this.state.searchMethod === 'contains'} onChange={this.handleInput.bind(this)} />
                     <span><Translate id="contains" /></span>
                 </label>
-                <div id='single-dic-wildcard-note-container'>
-                    <Link id='wildcard-note' to='/annachhoe'><Translate id="explanation" /></Link>
+                <div id='single-dic-regex-note-container'>
+                    <Link id='regex-note' to='/annachhoe'><Translate id="explanation" /></Link>
                 </div>
             </div>
         ];
@@ -224,7 +235,10 @@ class SingleDicOptionsClass extends Component {
                         </div>
                     </div>
                     <Translate>{({ translate }) =>
-                        <input className='find-button' type="submit" value={translate('find')} style={{marginTop: '15px'}} />
+                        <div className="search_actions">
+                            <div className="search_actions_search_button"><input className='find-button' style={{marginTop: '20px', marginBottom: '5px'}} type="submit" value={translate('find')} /></div>
+                            <div className="search_actions_clear_button"><input className='clear-button' style={{marginTop: '20px', marginBottom: '5px'}} type="button" value={translate('reset')} onClick={this.resetAllInput} /></div>
+                        </div>
                     }</Translate>
                 </form>
             </div>
@@ -280,6 +294,12 @@ class AllFieldOptionsClass extends Component {
         this.setState(state);
     }
 
+    resetAllInput = () => { 
+        this.setState({
+            value: ""
+        });
+    }
+
     render() {
         return (
             <Translate>{({ translate }) =>
@@ -296,12 +316,15 @@ class AllFieldOptionsClass extends Component {
                             <input type="radio" name="searchMethod" value="contains" defaultChecked={this.state.searchMethod === 'contains'} onChange={this.handleInput.bind(this)} />
                             <span><Translate id="contains" /></span>
                         </label>
-                        <div id='all-field-wildcard-note-container'>
-                            <Link id='wildcard-note' to='/annachhoe'><Translate id="explanation" /></Link>
+                        <div id='all-field-regex-note-container'>
+                            <Link id='regex-note' to='/annachhoe'><Translate id="explanation" /></Link>
                         </div>
                     </div>
                     <input className='all-field-text-input' type='text' placeholder={translate('keyword')} name='value' onChange={this.handleInput.bind(this)} value={this.state.value}></input>
-                    <input className='find-button' style={{marginTop: '30px'}} type="submit" value={translate('find')} />
+                    <div className="search_actions">
+                        <div className="search_actions_search_button"><input className='find-button' style={{marginTop: '20px', marginBottom: '5px'}} type="submit" value={translate('find')} /></div>
+                        <div className="search_actions_clear_button"><input className='clear-button' style={{marginTop: '20px', marginBottom: '5px'}} type="button" value={translate('reset')} onClick={this.resetAllInput} /></div>
+                    </div>
                     <div id='bg-img'></div>
                 </form>
             }</Translate>

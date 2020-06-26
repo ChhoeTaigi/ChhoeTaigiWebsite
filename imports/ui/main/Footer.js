@@ -76,7 +76,7 @@ class Footer extends Component {
                         <div><Translate id='searches' />：{clicks}</div>
                     </div>
                     <div id='locale-container'>
-                        <button className={'locale-button ' + localeButtonStyle + ' ' + (this.state.locale === 'tb' ? localeButtonSelectedStyle : '')} value='tb' onClick={this.localeChange.bind(this)}>漢羅台文</button>
+                        <button className={'locale-button ' + localeButtonStyle + ' ' + (this.state.locale === 'tb' ? localeButtonSelectedStyle : '')} value='tb' onClick={this.localeChange.bind(this)}>羅漢台文</button>
                         {/*
                         <button className={'locale-button ' + localeButtonStyle + ' ' + (this.state.locale === 'po' ? localeButtonSelectedStyle : '')} value='po' onClick={this.localeChange.bind(this)}>Pe̍h-ōe-jī</button>
                         */}

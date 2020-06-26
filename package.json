@@ -8,10 +8,11 @@
     "visualize": "meteor --production --extra-packages bundle-visualizer"
   },
   "dependencies": {
-    "@babel/runtime": "^7.1.2",
+    "@babel/runtime": "^7.10.3",
     "bcrypt": "^3.0.0",
     "csvtojson": "^2.0.8",
     "googleapis": "^42.0.0",
+    "jquery": "^3.5.1",
     "knex": "^0.15.2",
     "meteor-node-stubs": "^0.4.1",
     "pg": "^7.12.1",
@@ -21,6 +22,7 @@
     "react-dom": "^16.4.2",
     "react-facebook": "^5.0.3",
     "react-ga": "^2.5.3",
+    "react-loader-spinner": "^3.1.14",
     "react-localize-redux": "^3.4.0",
     "react-router-dom": "^4.3.1",
     "react-router-hash-link": "^1.2.0",

@@ -1,7 +1,7 @@
 #poj-container {
     margin-left: auto;
     margin-right: auto;
-    margin-top: 52px;
+    margin-top: 20px;
     width: 956px;
     height: 60px;
     padding-left: 24px;
@@ -14,7 +14,7 @@
 }
 
 #word-container {
-    margin-top: 10px;
+    margin-top: 15px;
     width: 980px;
     margin-left: auto;
     margin-right: auto;

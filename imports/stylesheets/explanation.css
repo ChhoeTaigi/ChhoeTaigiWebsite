@@ -40,7 +40,7 @@
 }
 
 .explanation-table {
-    width: 718px;
+    width: 750px;
     border-collapse: collapse;
     border-radius: 5px;
     background-color: #ededed;
@@ -57,18 +57,21 @@
 }
 
 .explanation-table > tbody > tr > th {
-    width: 144px;
+    width: 140px;
     font-size: 16px;
     font-weight: 500;
     text-align: right;
     color: #657160;
     vertical-align: top;
+    padding-left: 15px;
+    padding-bottom: 15px;
 }
 
 .explanation-table > tbody > tr > td {
     font-size: 16px;
     text-align: left;
     color: #657160;
+    padding-bottom: 15px;
 }
 
 .explanation-table > tbody > tr > td:nth-child(2) {

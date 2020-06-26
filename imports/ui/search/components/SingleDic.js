@@ -4,9 +4,11 @@ import { withLocalize } from "react-localize-redux";
 import { Translate } from "react-localize-redux";
 
 import { stringify } from '../../../api/utils/url-helper';
-import resultsTranslations from '../../../translations/results.json';
+import resultsTranslations from '../../../translations/single-dic.json';
 import dicStruct from '../../../api/dicts/dictionary-struct';
 import BriefWord from './BriefWord';
+
+import { LoadingIndicator } from './LoadingIndicator';
 
 class SingleDic extends Component {
     constructor(props) {
@@ -129,11 +131,11 @@ class SingleDic extends Component {
                     <Link id='last-page' className='page-arrow' to={lastPageUrl}></Link>
                     <div className='dic-pages' style={{gridTemplateColumns: 'repeat(' + listPageNum + ', 1fr)'}}>{pages}</div>
                     <Link id='next-page' className='page-arrow' to={nextPageUrl}></Link>
-                    <span>跳至第</span>
+                    <span><Translate id='oann-iah-part1' /></span>
                     <input type='text' onKeyPress={this.goToPage.bind(this, pageNum)}></input>
-                    <span>頁</span>
+                    <span><Translate id='oann-iah-part2' /></span>
                 </div>
-            )
+            );
 
             bottomPageView = (
                 <div id='bottom-page-container'>
@@ -149,8 +151,9 @@ class SingleDic extends Component {
                     <div id='single-dic-title'>
                         <div id='single-dic-left-container'>
                             <h1 className='dic-title'>{chineseName}</h1>
-                            <h2 className='dic-subtitle'>(共{totalNum}筆，{pageNum}頁)</h2>
+                            <h2 className='dic-subtitle'>(<Translate id='sutian-sooliong-part1' />{totalNum}<Translate id='sutian-sooliong-part2' />{pageNum}<Translate id='sutian-sooliong-part3' />)</h2>
                         </div>
+                        {!this.props.allResults && LoadingIndicator}
                         { pageView }
                     </div>
                     <BriefWord key={dic} dic={dic} words={words}/>

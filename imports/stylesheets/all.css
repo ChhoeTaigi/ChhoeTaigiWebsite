@@ -37,25 +37,28 @@
     position: sticky;
     top: 56px;
     background-color: white;
-    padding-top: 6px;
-    height: 56px;
+    padding-top: 5px;
+    padding-bottom: 5px;
     z-index: 1;
 }
 
 #all-dic-buttons-container {
     display: grid;
-    grid-template-columns: repeat(9, 1fr);
+    grid-template-columns: repeat(5, 1fr);
     margin-left: auto;
     margin-right: auto;
     width: 979px;
     height: 100%;
-    grid-column-gap: 2px;
+    grid-column-gap: 5px;
+    grid-row-gap: 5px;
 }
 
 .all-dic-button {
-    padding-left: 9px;
-    padding-right: 9px;
-    border-radius: 2px;
+    padding-left: 5px;
+    padding-right: 5px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    border-radius: 5px;
     font-size: 13px;
     font-weight: 500;
     text-align: center;
@@ -76,15 +79,11 @@
 }
 
 .all-dic-button-selected {
-    width: 89px;
-    height: 50px;
     background-color: #9cb276;
     color: white;
 }
 
 .all-dic-button-unselected {
-    width: 87px;
-    height: 48px;
     background-color: white;
     color: #657160;
     border: solid 1px #657160;

@@ -10,7 +10,7 @@
     position: absolute;
     height: 47px;
     left: 68px;
-    top: 90px;
+    top: 40px;
     font-size: 32px;
     font-weight: 500;
     line-height: 47px;
@@ -20,7 +20,8 @@
 #app-content {
     position: absolute;
     left: 68px;
-    top: 155px;
+    top: 115px;
+    padding-left: 10px;
     width: 350px;
 }
 
@@ -32,7 +33,7 @@
 
 #dic-link-group {
     position: relative;
-    top: 20px;
+    top: 40px;
     width: 370px;
     height: 280px;
 }

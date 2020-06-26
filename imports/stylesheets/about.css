@@ -1,3 +1,8 @@
+#introduction-title {
+	padding-top: 28px;
+	padding-bottom: 16px;
+}
+
 .about-title {
 	height: 41px;
 	text-align: center;
@@ -6,21 +11,17 @@
   	font-weight: 300;
 	color: #23672e;
 }
-#introduction-title {
-	padding-top: 48px;
-	padding-bottom: 16px;
-}
 
 #brief-container {
 	background-color: #5b9564;
+	padding-top: 30px;
+	padding-bottom: 10px;
 }
 
 #brief-ul {
-	width: 820px;
+	width: 750px;
 	margin-left: auto;
 	margin-right: auto;
-	padding: 0;
-	padding-top: 40px;
 }
 
 .brief-li {
@@ -39,6 +40,18 @@
 	margin-top: 10px;
 	margin-left: -16px;
 	position: absolute;
+}
+
+.brief_support_taibun_kesimi_part1_label {
+    color: #f7f7f7;
+}
+
+.brief_support_taibun_kesimi_part2_a {
+    color: #f3e7d9;
+}
+
+.brief_support_taibun_kesimi_part3_label {
+    color: #f7f7f7;
 }
 
 #feature-container {
@@ -129,7 +142,7 @@
 }
 
 #join-title {
-	padding-top: 16px;
+	padding-top: 36px;
 	padding-bottom: 16px;
 }
 
@@ -220,6 +233,8 @@
 	width: 858px;
 	border: 8px solid #82b28e;
 	border-image: url(/images/grid@2x.png) 16 round;
+	text-align: center;
+	padding-bottom: 20px;
 }
 
 #seeking-title {
@@ -337,7 +352,7 @@
 }
 
 #members-container {
-	height: 450px;
+	height: 430px;
 }
 
 #former-members-container {
@@ -467,7 +482,7 @@
 }
 
 #authorization {
-	margin-top: 225px;
+	margin-top: 150px;
 	height: 168px;
 }
 

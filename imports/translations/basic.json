@@ -6,9 +6,9 @@
         "Basic Search"
     ],
     "search-method": [
-        "1: Kéng ê方式",
-        "1: Kéng ê Hong-sek",
-        "1: 篩選條件",
+        "1. Kéng ê方式",
+        "1. Kéng ê Hong-sek",
+        "1. 篩選條件",
         "1. Search Filters"
     ],
     "equals": [
@@ -30,9 +30,9 @@
         "How to search?"
     ],
     "input-method": [
-        "2: Chhōe ê方式",
-        "2: Chhōe ê Hong-sek",
-        "2: 輸入方式",
+        "2. Chhōe ê方式",
+        "2. Chhōe ê Hong-sek",
+        "2. 輸入方式",
         "2. Search Keywords"
     ],
     "lmj-tb": [
@@ -54,21 +54,27 @@
         "POJ (Number Input)"
     ],
     "lmj": [
-        "教育部羅馬字",
+        "教育部羅馬拼音",
         "Kàu-io̍k-pō͘  LMJ",
-        "教育部羅馬字",
+        "教育部羅馬拼音",
         "MoE Roman"
     ],
     "lmj-input": [
-        "教育部羅馬字(數字輸入)",
+        "教育部羅馬拼音(數字輸入)",
         "Kàu-io̍k-pō͘  LMJ (Sò͘-jī Su-ji̍p)",
-        "教育部羅馬字(數字輸入)",
+        "教育部羅馬拼音(數字輸入)",
         "MoE Roman (Number Input)"
     ],
     "keyword": [
         "請phah beh chhōe ê字詞",
         "Chhiáⁿ phah beh chhōe ê jī-sû",
         "請輸入關鍵字",
+        "Enter keywords"
+    ],
+    "keyword_suggest_fuzzy": [
+        "請phah beh chhōe ê字詞，建議用「相關--ê」來chhōe",
+        "Chhiáⁿ phah beh chhōe ê jī-sû",
+        "請輸入關鍵字，建議用「模糊搜尋」",
         "Enter keywords"
     ],
     "corresponding-tb": [
@@ -89,10 +95,34 @@
         "對應英文",
         "English"
     ],
+    "reset": [
+        "Têng來",
+        "Têng Lâi",
+        "清除",
+        "Clear"
+    ],
     "find": [
         "開始Chhōe",
         "Khai-sí Chhōe",
         "開始找",
         "Search"
+    ],
+    "support_taibun_kesimi_part1": [
+        "ChhoeTaigi 所有ê字詞資料數位化整理校對、網站和app ê開發維護成本lóng是靠 ",
+        "",
+        "ChhoeTaigi 所有的字詞資料數位化整理校對、網站和app的開發維護成本都是靠 ",
+        ""
+    ],
+    "support_taibun_kesimi_part2": [
+        "台文雞絲麵 Tâi-bûn Ke-si-mī",
+        "",
+        "台文雞絲麵 Tâi-bûn Ke-si-mī",
+        ""
+    ],
+    "support_taibun_kesimi_part3": [
+        " 募資計畫來維持團隊所有ê運作，邀請你做伙來捐款支持！",
+        "",
+        " 募資計畫來維持團隊所有的運作，邀請你一起來捐款支持！",
+        ""
     ]
 }
