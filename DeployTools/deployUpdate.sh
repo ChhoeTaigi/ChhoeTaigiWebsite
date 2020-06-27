@@ -1,17 +1,17 @@
 # https://www.phusionpassenger.com/library/walkthroughs/deploy/meteor/
 sudo mkdir -p /var/www/ChhoeTaigi
 cd /var/www/ChhoeTaigi
-sudo chown -R shiami:dev /var/www/ChhoeTaigi
+sudo chown -R myappuser:dev /var/www/ChhoeTaigi
 sudo chmod 770 -R /var/www/ChhoeTaigi
 sudo rm -rf /var/www/ChhoeTaigi/tmp
 sudo mkdir -p /var/www/ChhoeTaigi/tmp
 cd /var/www/ChhoeTaigi/tmp
 sudo tar xzf /home/website/new_package/ChhoeTaigiWebsite.tar.gz
-sudo chown -R shiami:dev /var/www/ChhoeTaigi/tmp/bundle
+sudo chown -R myappuser:dev /var/www/ChhoeTaigi/tmp/bundle
 sudo mv /var/www/ChhoeTaigi/bundle /var/www/ChhoeTaigi/bundle.old
 sudo mv /var/www/ChhoeTaigi/tmp/bundle /var/www/ChhoeTaigi/bundle
 cd /var/www/ChhoeTaigi/bundle/programs/server
-sudo chown -R shiami:dev /var/www/ChhoeTaigi
+sudo chown -R myappuser:dev /var/www/ChhoeTaigi
 sudo chmod 770 -R /var/www/ChhoeTaigi
 npm install --production
 sudo apache2ctl restart
