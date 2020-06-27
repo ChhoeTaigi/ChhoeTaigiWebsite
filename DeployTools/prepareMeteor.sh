@@ -7,3 +7,4 @@ meteor npm install
 meteor npm update
 meteor npm install --production
 meteor npm audit fix
+cd /home/website/ChhoeTaigiWebsite/DeployTools
