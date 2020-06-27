@@ -4,7 +4,7 @@ import constants from '../constants/constants';
 let postgresDummyDatabase;
 if (Meteor.isServer) {
   postgresDummyDatabase = knex({
-    client: 'postgresql',
+    client: 'pg',
     connection: {
       host: constants.HOST,
       database: 'postgres',
