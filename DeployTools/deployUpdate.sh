@@ -15,7 +15,5 @@ sudo chown -R myappuser:dev /var/www/ChhoeTaigi
 sudo chmod 770 -R /var/www/ChhoeTaigi
 sudo passenger stop
 sudo passenger start
-# sleep 3
-# passenger-config restart-app /var/www/ChhoeTaigi/bundle
 sudo rm -rf /var/www/ChhoeTaigi/bundle.old
 cd /home/website/ChhoeTaigiWebsite/DeployTools
