@@ -82,6 +82,7 @@
     padding: 0;
     padding-left: 12px;
     font-size: 16px;
+    line-height: 40px;
 }
 
 .all-field-text-input::placeholder {
@@ -211,6 +212,7 @@
     padding: 0;
     padding-left: 12px;
     font-size: 15px;
+    line-height: 34px;
 }
 
 .single-dic-text-input::placeholder {
@@ -218,4 +220,5 @@
     color: #C5D1C0;
     font-weight: lighter;
     letter-spacing: 1px;
+    line-height: 34px;
 }

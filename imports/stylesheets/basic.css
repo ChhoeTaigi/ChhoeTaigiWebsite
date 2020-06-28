@@ -200,6 +200,7 @@
     font-size: 16px;
     border-bottom-left-radius: 5px;
     border-bottom-right-radius: 5px;
+    line-height: 34px;
 }
 
 .text-input-lomaji::placeholder {
@@ -219,6 +220,7 @@
     background-color: #eef5ef;
     font-size: 16px;
     border-radius: 5px;
+    line-height: 34px;
 }
 
 .text-input::placeholder {
