@@ -13,8 +13,9 @@ sudo mv /var/www/ChhoeTaigi/tmp/bundle /var/www/ChhoeTaigi/bundle
 cd /var/www/ChhoeTaigi/bundle/programs/server
 sudo chown -R myappuser:dev /var/www/ChhoeTaigi
 sudo chmod 770 -R /var/www/ChhoeTaigi
-npm install --production
-sudo apache2ctl restart
-passenger-config restart-app /var/www/ChhoeTaigi/bundle
+sudo passenger stop
+sudo passenger start
+# sleep 3
+# passenger-config restart-app /var/www/ChhoeTaigi/bundle
 sudo rm -rf /var/www/ChhoeTaigi/bundle.old
 cd /home/website/ChhoeTaigiWebsite/DeployTools
