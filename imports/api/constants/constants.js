@@ -7,7 +7,7 @@ const Constants = {
     // CHHOETAIGI_DATASOURCE_DICT_URL_START: '/ChhoeTaigiDatabase/20181005-005036/ChhoeTaigi_',
     CHHOETAIGI_DATASOURCE_DICT_URL_END: '.csv',
 
-    HOST: '127.0.0.1',
+    HOST: '161.35.239.72',
 
     PG_DEFAULT_DATABASE: 'dicts20190816',
     PG_USER: 'postgres',
