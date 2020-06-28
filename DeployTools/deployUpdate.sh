@@ -13,6 +13,7 @@ sudo mv /var/www/ChhoeTaigi/tmp/bundle /var/www/ChhoeTaigi/bundle
 cd /var/www/ChhoeTaigi/bundle/programs/server
 sudo chown -R myappuser:dev /var/www/ChhoeTaigi
 sudo chmod 770 -R /var/www/ChhoeTaigi
+meteor npm install --production --unsafe-perm
 sudo passenger stop
 sudo passenger start
 sudo rm -rf /var/www/ChhoeTaigi/bundle.old

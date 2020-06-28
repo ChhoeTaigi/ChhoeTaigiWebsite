@@ -1,7 +1,6 @@
 cd /home/website/ChhoeTaigiWebsite/
-# curl https://install.meteor.com/ | sh
 meteor update
-meteor npm install npm@latest -g
+node -v
 meteor npm -v
 meteor npm install
 meteor npm update
