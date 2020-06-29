@@ -1,10 +1,51 @@
+import { Minimongo } from '../../api/database/minimongo';
+
+import { Logger }     from 'meteor/ostrio:logger';
+import { LoggerConsole } from 'meteor/ostrio:loggerconsole';
+import { LoggerFile } from 'meteor/ostrio:loggerfile';
+
 const { google } = require('googleapis');
+
+const enableLogger = false;
+const enableFileLogger = false;
+
+var log;
+if (enableLogger) {
+    log = new Logger();
+    new LoggerConsole(log).enable();
+}
+if (enableLogger && enableFileLogger) {
+    if (Meteor.isProduction) {
+        new LoggerFile(log, {
+            path: '/data/logs/'
+        }).enable({
+            enable: true,
+            filter: ['*'], // Filters: 'ERROR', 'FATAL', 'WARN', 'DEBUG', 'INFO', 'TRACE', '*'
+            client: false, // Set to `false` to avoid Client to Server logs transfer
+            server: true  // Allow logging on server
+        });
+    } else {
+        new LoggerFile(log, {
+            path: './logs/'
+        }).enable({
+            enable: true,
+            filter: ['*'], // Filters: 'ERROR', 'FATAL', 'WARN', 'DEBUG', 'INFO', 'TRACE', '*'
+            client: false, // Set to `false` to avoid Client to Server logs transfer
+            server: true  // Allow logging on server
+        });
+    }
+}
 
 const scopes = 'https://www.googleapis.com/auth/analytics.readonly';
 const email = 'ga-324@chhoetaigiwebsite.iam.gserviceaccount.com';
-const jsonFile = '/chhoetaigiwebsite-22a755925ef2.json';
+var jsonFile = '';
+if (Meteor.isProduction) {
+    jsonFile = '/data/keys/chhoetaigiwebsite-25c9db3da239.json';
+} else {
+    jsonFile = '../../../../../chhoetaigiwebsite-25c9db3da239.json';
+}
 const viewID = '180234162';
-const updatePeriod = 30000; // ms
+const updatePeriod = 60000; // ms
 
 const queries = [
     {
@@ -15,8 +56,6 @@ const queries = [
         'dimensions': 'ga:eventAction',
     },
 ];
-
-import { Minimongo } from '../../api/database/minimongo';
 
 class GA {
     constructor() {
@@ -63,12 +102,23 @@ class GA {
 
         // authorize
         jwtClient.authorize()
-        .catch(error => console.log(error))
+        .catch(error => {
+            console.log(error);
+            log.error("jwtClient error: " + JSON.stringify(error));
+        })
         .then(() => {
             google.analytics('v3').data.ga.get(query)
-            .catch(error => console.log(error))
+            .catch(error => {
+                console.log(error);
+                if (enableLogger) {
+                    log.error("ga error: " + JSON.stringify(error));
+                }
+            })
             .then(result => {
-                //console.log(result.data);
+                if (enableLogger) {
+                    console.log(result.data);
+                    log.info("ga: " + JSON.stringify(result.data));
+                }
                 this.process(result.data.rows);
             });
         });
@@ -80,14 +130,21 @@ class GA {
     }
 
     process(results) {
-        //console.log(results);
         const minimongo = Minimongo.findOne();
         if (this.queryIdx === 0) {
-            const sessions = results[0][0];
-            Minimongo.update(minimongo, {$set: {sessions: sessions}}, {upsert: true});
+            const count = results[0][0];
+            if (enableLogger) {
+                console.log("visit count: "+ count);
+                log.info("visit count: "+ count);
+            }
+            Minimongo.update(minimongo, {$set: {sessions: count}}, {upsert: true});
         } else if (this.queryIdx === 1) {
-            const clicks = results.find(e => e[0] === 'Search')[1];
-            Minimongo.update(minimongo, {$set: {clicks: clicks}}, {upsert: true});
+            const count = results[1][1];
+            if (enableLogger) {
+                console.log("search count: "+ count);
+                log.info("search count: "+ count);
+            }
+            Minimongo.update(minimongo, {$set: {clicks: count}}, {upsert: true});
         }
 
         // update query index

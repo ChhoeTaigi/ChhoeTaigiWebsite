@@ -1,12 +1,9 @@
 module.exports = {
   servers: {
     one: {
-      // TODO: set host address, username, and authentication method
       host: '64.225.90.138',
       username: 'root',
       pem: "~/.ssh/digitalocean",
-      // password: 'server-password'
-      // or neither for authenticate from ssh-agent
     }
   },
 
@@ -26,8 +23,8 @@ module.exports = {
     env: {
       // TODO: Change to your app's url
       // If you are using ssl, it needs to start with https://
-      ROOT_URL: 'https://chhi.taigi.info',
-      MONGO_URL: 'mongodb://localhost/meteor',
+      ROOT_URL: 'https://chhoe.taigi.info',
+      // MONGO_URL: 'mongodb://localhost/meteor',
       // MONGO_OPLOG_URL: 'mongodb://mongodb/local'
       PORT: 80,
     },
@@ -37,6 +34,12 @@ module.exports = {
       // If you are using a different version of Meteor,
       // refer to the docs for the correct image to use.
       image: 'abernix/meteord:node-12-base',
+    },
+
+    volumes: {
+      '/data': '/data',
+      '/data/logs': '/data/logs',
+      '/data/keys': '/data/keys'
     },
 
     // Show progress bar while uploading bundle to server
@@ -60,7 +63,7 @@ module.exports = {
       one: {}
     },
 
-    domains: 'chhi.taigi.info',
+    domains: 'chhoe.taigi.info',
 
     ssl: {
       // Enable Let's Encrypt
