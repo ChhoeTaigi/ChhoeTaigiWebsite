@@ -4,9 +4,8 @@
     font-family: 'TaigiFont';
     font-style: normal;
     font-weight: 400;
-    src: local("GenWanMin TW"),
-         url(/font/GenWanMin-M1.woff2) format('woff2'),
-         url(/font/font/GenWanMin-M1.woff) format('woff');
+    src: url("/font/GenWanMin-M2.woff2") format('woff2'),
+         url("/font/GenWanMin-M2.woff") format('woff');
 }
 
 html {

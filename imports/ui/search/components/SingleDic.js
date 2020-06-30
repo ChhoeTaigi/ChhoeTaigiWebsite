@@ -73,9 +73,9 @@ class SingleDic extends Component {
 
             for (let key in columns) {
                 if (columns[key]) {
-                    const column = columns[key].replace(/\s/g, '');
+                    const column = columns[key]; //.replace(/\s/g, '');
                     if (column !== '') {
-                        keywords.push(column)
+                        keywords.push("【" + column + "】");
                     }
                 }
             }

@@ -90,14 +90,18 @@ function cleanEmptyColumns(options) {
 // regex
 function preprocessRegex(options) {
     const soouSianntiau = '(1|2|3|p4|p8|p|t4|t8|t|k4|k8|k|h4|h8|h|5|7)?';
+    const hyphenOrSpace = '[ -]';
 
-    const reSianntiauTaibe = new RegExp('\\%', 'g');
+    const regexSianntiauTaibe = new RegExp('\\%', 'g');
+    const regexHyphenOrSpace = new RegExp(' ', 'g');
 
     if (options.value !== undefined) {
-        options.value = options.value.replace(reSianntiauTaibe, soouSianntiau);
+        options.value = options.value.replace(regexSianntiauTaibe, soouSianntiau);
+        options.value = options.value.replace(regexHyphenOrSpace, hyphenOrSpace);
     } else if (options.columns !== undefined) {
         for (let key in options.columns) {
-            options.columns[key] = options.columns[key].replace(reSianntiauTaibe, soouSianntiau);
+            options.columns[key] = options.columns[key].replace(regexSianntiauTaibe, soouSianntiau);
+            options.columns[key] = options.columns[key].replace(regexHyphenOrSpace, hyphenOrSpace);
         }
     }
 
@@ -106,8 +110,7 @@ function preprocessRegex(options) {
 
 // lowercase query
 function lowerQeury(key) {
-    // return postgres.raw('LOWER(\"' + key + '\")');
-    return key;
+    return postgres.raw('LOWER(\"' + key + '\")');
 }
 function lowerStr(str) {
     return str.toLowerCase();
@@ -141,7 +144,7 @@ function basicSearch(options) {
             words: [],
         };
   
-    const query = queryDonditionBasic(options);
+    const query = queryCondictionBasic(options);
     query.select(briefArray);
 
     if (options.limit) {
@@ -207,7 +210,7 @@ function searchAllField(options) {
             words: [],
         };
 
-    const query = queryDonditionAllField(options);
+    const query = queryCondictionAllField(options);
     query.select(briefArray);
 
     if (options.limit) {
@@ -280,7 +283,7 @@ function searchSingleDic(options) {
             words: [],
         };
     
-    const query = queryDonditionSingleDic(options);
+    const query = queryCondictionSingleDic(options);
     query.select(briefArray);
 
     query.limit(options.limit);
@@ -306,7 +309,7 @@ function searchSingleDic(options) {
 
 // query result number
 function searchBasicNo(options) {
-    const query = queryDonditionBasic(options);
+    const query = queryCondictionBasic(options);
 
     query.count('id as num');
     
@@ -314,21 +317,21 @@ function searchBasicNo(options) {
 }
 
 function searchAllFieldNo(options) {
-    const query = queryDonditionAllField(options);
+    const query = queryCondictionAllField(options);
     query.count('id as num');
 
     return query;
 }
 
 function searchSingleDicNo(options) {
-    const query = queryDonditionSingleDic(options);
+    const query = queryCondictionSingleDic(options);
     query.count('id as num');
 
     return query;
 }
 
 // query condition
-function queryDonditionBasic(options) {
+function queryCondictionBasic(options) {
     const dic = options.dic;
     const struct = dicStruct.find(e => e.name === dic);
     const dicColumns = struct.columns;
@@ -350,7 +353,7 @@ function queryDonditionBasic(options) {
     return query;
 }
 
-function queryDonditionAllField(options) {
+function queryCondictionAllField(options) {
     const dic = options.dic;
     const struct = dicStruct.find(e => e.name===dic);
     const columns = struct.columns;
@@ -363,7 +366,7 @@ function queryDonditionAllField(options) {
     return query;
 }
 
-function queryDonditionSingleDic(options) {
+function queryCondictionSingleDic(options) {
     const dic = options.dic;
     const struct = dicStruct.find(e => e.name === dic);
     const dicColumns = struct.columns;
@@ -371,10 +374,12 @@ function queryDonditionSingleDic(options) {
 
     const query = postgres.from(dic);
     for (let key in columns) {
-        if (key === 'id')
-            query.andWhere(key, columns[key]);
-        else if (key in dicColumns)
+        if (key === 'id') {
+            var keyNumber = columns[key].replace(/[^\d.-]/g, '');;
+            query.andWhere(key, keyNumber);
+        } else if (key in dicColumns) {
             query.andWhere(lowerQeury(key), '~*', lowerStr(columns[key]));
+        }
     }
 
     return query;

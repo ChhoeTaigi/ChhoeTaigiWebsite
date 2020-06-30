@@ -96,16 +96,16 @@ class DictionaryList extends Component {
                 // all dics
                 for (let key in columns) {
                     if (columns[key]) {
-                        let column = columns[key].replace(/\s/g, '');
+                        let column = columns[key]; //.replace(/\s/g, '');
                         if (column !== '') {
-                            keywords.push(column)
+                            keywords.push("【" + column + "】");
                         }
                     }
                 }
                 keywords = keywords.join('，');
             } else if (options.value) {
                 // all fields
-                keywords = options.value;
+                keywords = "【" +options.value+ "】";
             }
 
             dicLen = this.props.allResults.filter(e => (e.words.length > 0)).length;
