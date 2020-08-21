@@ -54,7 +54,7 @@ class DictionaryList extends Component {
 
     handleResize() {
         this.setState({
-            background_height: window.innerHeight - 154,
+            background_height: window.innerHeight - 354,
         });
     }
 
@@ -81,6 +81,8 @@ class DictionaryList extends Component {
     }
 
     render() {
+        let DICT_COUNT = 10;
+        
         let keywords = [];
         let resultCount = [];
         let dicButtonsRow = [];
@@ -136,7 +138,7 @@ class DictionaryList extends Component {
                 }
             }
             this.refs = refs;
-            let remainingButtonNum = (9 - (allResults.filter(e => e).length % 9)) % 9;
+            let remainingButtonNum = (DICT_COUNT - (allResults.filter(e => e).length % DICT_COUNT)) % DICT_COUNT;
             for (let i = 0; i < remainingButtonNum; ++i) {
                 dicButtonsRow.push(
                     <span className='all-dic-empty' key={'empty' + i}></span>

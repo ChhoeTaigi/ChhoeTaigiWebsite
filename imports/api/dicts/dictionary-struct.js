@@ -203,6 +203,33 @@ module.exports = [
         }
     },
     {
+        name: 'TJTaigiPehoeSiosutian',
+        chineseName: '2009 TJ台語白話小詞典',
+        brief: {
+            poj_unicode: '白話字',
+            poj_unicode_dialect: '白話字(其他講法)',
+            page_number: '原冊頁數',
+        },
+        briefWidth: {
+            poj_unicode: '304px',
+            poj_unicode_dialect: '304px',
+            page_number: '304px',
+        },
+        columns: {
+            id: '編號',
+            poj_unicode: '白話字',
+            poj_unicode_dialect: '白話字(其他講法)',
+            poj_input: '白話字輸入',
+            poj_input_dialect: '白話字輸入(其他講法)',
+            kiplmj_unicode: '教育部羅馬拼音',
+            kiplmj_unicode_dialect: '教育部羅馬拼音(其他講法)',
+            kiplmj_input: '教育部羅馬拼音輸入',
+            kiplmj_input_dialect: '教育部羅馬拼音輸入(其他講法)',
+            page_number: '原冊頁數',
+            store_link: '來去買冊',
+        }
+    },
+    {
         name: 'KauiokpooTaigiSutian',
         chineseName: '2011+ 教育部台語辭典',
         brief: {

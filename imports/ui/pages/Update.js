@@ -146,55 +146,62 @@ class Update extends Component {
                     CreateTB
                </button>
                 {/*  */}
-                <h1>新增 台文華文線頂辭典</h1>
+
+                <h1>新增 1913 甘字典</h1>
                 <button onClick={this.UpdateDistinct.bind(this, 0)} className="Mbutton">
-                    Update 台文華文線頂辭典(TaibunHoabunSoanntengSutian)
-            </button>
+                    Update
+                </button>
 
-                <h1>新增 台日大辭典(台文譯本)</h1>
+                <h1>新增 1928 台灣植物名彙</h1>
                 <button onClick={this.UpdateDistinct.bind(this, 1)} className="Mbutton">
-                    Update 台日大辭典(台文譯本)(TaijitToaSutian)
-            </button>
+                    Update
+                </button>
 
-                <h1>新增 Maryknoll台英辭典</h1>
+                <h1>新增 1932 台日大辭典(台譯版)</h1>
                 <button onClick={this.UpdateDistinct.bind(this, 2)} className="Mbutton">
-                    Update Maryknoll台英辭典(MaryknollTaiengSutian)
-            </button>
+                    Update
+                </button>
 
-                <h1>新增 Embree台語辭典</h1>
+                <h1>新增 1956 台灣白話基礎語句</h1>
                 <button onClick={this.UpdateDistinct.bind(this, 3)} className="Mbutton">
-                    Update Embree台語辭典(EmbreeTaigiSutian)
-            </button>
+                    Update
+                </button>
 
 
-                <h1>新增 教育部台語辭典</h1>
+                <h1>新增 1973 Embree台英辭典</h1>
                 <button onClick={this.UpdateDistinct.bind(this, 4)} className="Mbutton">
-                    Update 教育部台語辭典(KauiokpooTaigiSutian)
-            </button>
+                    Update
+                </button>
 
 
-                <h1>新增 甘字典</h1>
+                <h1>新增 1976 Maryknoll台英辭典</h1>
                 <button onClick={this.UpdateDistinct.bind(this, 5)} className="Mbutton">
-                    Update 甘字典(KamJitian)
-            </button>
+                    Update
+                </button>
 
 
-                <h1>新增 iTaigi華台辭典</h1>
+                <h1>新增 2002+ 台華線頂對照典</h1>
                 <button onClick={this.UpdateDistinct.bind(this, 6)} className="Mbutton">
-                    Update iTaigi華台辭典(iTaigiHoataiSutian)
-            </button>
+                    Update
+                </button>
 
 
-                <h1>新增 台灣白話基礎語句</h1>
+                <h1>新增 2009 TJ台語白話小辭典</h1>
                 <button onClick={this.UpdateDistinct.bind(this, 7)} className="Mbutton">
-                    Update 台灣白話基礎語句(TaioanPehoeKichhooGiku)
-            </button>
+                    Update
+                </button>
 
 
-                <h1>新增 台灣植物名彙</h1>
+                <h1>新增 2011+ 教育部台語辭典</h1>
                 <button onClick={this.UpdateDistinct.bind(this, 8)} className="Mbutton">
-                    Update 台灣植物名彙(TaioanSitbutMialui)
-            </button>
+                    Update
+                </button>
+
+
+                <h1>新增 2016+ iTaigi華台對照典</h1>
+                <button onClick={this.UpdateDistinct.bind(this, 9)} className="Mbutton">
+                    Update
+                </button>
 
                 {/*  */}
 
@@ -203,7 +210,7 @@ class Update extends Component {
                 <h2>主要辭典</h2>
                 {dicRow}
                 <hr />
-                <h2>搜尋辭典(lomaji_search_table)</h2>
+                {/* <h2>搜尋辭典(lomaji_search_table)</h2> */}
                 {/* {searchDicRow}
                 <button onClick={this.update.bind(this)} className="Mbutton">
                     Import all
@@ -250,7 +257,7 @@ class DicRow extends Component {
         //     importButton = <button onClick={this.importSearch.bind(this, this.props.name)} className='Mbutton'>import</button>;
         // } else {
             deleteButton = <button onClick={this.delete.bind(this, this.props.name)} className='Mbutton'>delete</button>;
-            importButton = <button onClick={this.import.bind(this, this.props.name)} className='Mbutton'>import</button>;
+            // importButton = <button onClick={this.import.bind(this, this.props.name)} className='Mbutton'>import</button>;
         // }
 
         return (

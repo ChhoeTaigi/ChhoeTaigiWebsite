@@ -23,8 +23,22 @@ export default class Word extends Component {
                     }
                 }
             }
+        } else if (dicString === 'TJTaigiPehoeSiosutian') {
+            linkHtml = pageString + "（本冊kan-na提供索引資料，nā有需要請ka-tī買冊，支持台文出版品，感謝！）";
         } else {
             linkHtml.push(<a href={originalScannedCopy(dicString, pageString)} target='_blank'>{pageString}</a>);
+        }
+
+        return linkHtml
+    }
+
+    generateStoreLink = (dicString) => {
+        let linkHtml = []
+
+        if (dicString === 'TJTaigiPehoeSiosutian') {
+            linkHtml.push(<a href='https://www.pcstore.com.tw/haiang/M19279123.htm' target='_blank'>亞細亞國際傳播社：TJ台語白話小詞典</a>);
+        } else {
+            linkHtml.push("");
         }
 
         return linkHtml
@@ -39,6 +53,10 @@ export default class Word extends Component {
                 content = this.generateGoanChhehLink(this.props.dic, columns[key])
             } else {
                 content = columns[key];
+            }
+
+            if (key === '來去買冊') {
+                content = this.generateStoreLink(this.props.dic)
             }
 
             contents.push(
