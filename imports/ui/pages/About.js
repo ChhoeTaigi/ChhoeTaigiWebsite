@@ -124,19 +124,27 @@ class About extends Component {
 					<div id='members-title' className='about-title'><Translate id='members' /></div>
 					<div className='person-card-three-columns'>
 						<div className='person-card'>
-							<img className='profile' src='images/hebi.png' width='120' height='120'></img>
+							<img className='profile' src='images/teammember_hebi.png' width='120' height='120'></img>
 							<div className='name'>Hê-bí</div>
 							<div className='title'>Sàu thô͘-kha kiam kòng cheng.</div>
 							<div className='description'>Khiàn-phang ēng--ê. Lâi chú 1 tiáⁿ phang-kòng-kòng ê Tâi-gí moâi.</div>
 						</div>
 						<div className='person-card'>
-							<img className='profile' src='images/titeng.png' width='120' height='120'></img>
+							<img className='profile' src='images/teammember_titeng.png' width='120' height='120'></img>
 							<div className='name'>Tìtêng</div>
 							<div className='title'>Hū-chek kiò ta̍k-ke hun-thâu mài loān-tàn</div>
 							<div className='description'>Jîn-seng chhiūⁿ tàu-tô͘, tàu chı̍t-pak chhit-chhái ê Tâi-gí tô͘.</div>
 						</div>
 						<div className='person-card'>
-							<img className='profile' src='images/buncheng.png' width='120' height='120'></img>
+							<img className='profile' src='images/teammember_aiong.png' width='120' height='120'></img>
+							<div className='name'>A'ióng</div>
+							<div className='title'>阿勇台語 A'ióng Tâi-gí</div>
+							<div className='description'>Bí-kok lâi ê Tâi-oân sin-chū-bîn. Nńg-thé kang-têng-su. Ū-êng teh chhui-sak Tâi-gí.</div>
+						</div>
+					</div>
+					<div className='person-card-three-columns'>
+						<div className='person-card'>
+							<img className='profile' src='images/teammember_buncheng.png' width='120' height='120'></img>
 							<div className='name'>BûnCheng</div>
 							<div className='title'>Iau-pá-chhá</div>
 							<div className='description'>Tâi-oân-lâng. Tâi-gí. To̍k-li̍p Kiàn-kok.</div>
@@ -147,13 +155,13 @@ class About extends Component {
 					<div id='members-title' className='about-title'><Translate id='former-members' /></div>
 					<div className='former-person-card-five-columns'>
 						<div className='person-card-small'>
-							<img className='profile-small' src='images/leo.png' width='100' height='100'></img>
+							<img className='profile-small' src='images/teammember_leo.png' width='100' height='100'></img>
 							<div className='name-small'>Leo Wu</div>
 							<div className='title-small'>網頁前後端</div>
 							<div className='description-small'>台語用羅馬字拼音更有趣</div>
 						</div>
 						<div className='person-card-small'>
-							<img className='profile-small' src='images/eyes.png' width='100' height='100'></img>
+							<img className='profile-small' src='images/teammember_eyes.png' width='100' height='100'></img>
 							<div className='name-small'>Eyes</div>
 							<div className='title-small'>網頁設計</div>
 							<div className='description-small'>小時候講台語大人還聽得懂，長大後卻被唸聽無(Thiaⁿ bô)...</div>

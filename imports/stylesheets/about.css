@@ -352,20 +352,20 @@
 }
 
 #members-container {
-	height: 430px;
+	height: 700px;
 }
 
 #former-members-container {
-	height: 300px;
-	width: 820px;
+	height: 350px;
 }
 
 #members-title {
+	padding-top: 50px;
 	padding-bottom: 29px;
 }
 
 .person-card-three-columns {
-	position: relative;
+	position: center;
 	width: 1020px;
 	height: 305px;
 	margin-left: auto;
@@ -373,7 +373,7 @@
 }
 
 .person-card-two-columns {
-	position: relative;
+	position: center;
 	width: 680px;
 	height: 305px;
 	margin-left: auto;
@@ -381,7 +381,7 @@
 }
 
 .former-person-card-five-columns {
-	position: relative;
+	position: center;
 	height: 305px;
 	margin-left: auto;
 	margin-right: auto;

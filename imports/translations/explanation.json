@@ -114,10 +114,10 @@
         "【.*】: Matches zero or more non-space characters."
     ],
     "jimho-jigoan-le1": [
-        "1. 譬如phah 「白話字(數字輸入)」 ê關鍵字chhōe 【.*png5】 ，ē-sái chhōe tio̍h 「âng-tāu-pn̄g」 、 「be̍h-á-pn̄g」 、 「chhài-pn̄g」 、 「pn̄g」 等等。",
-        "1. Phí-jū phah \"Pe̍h-ōe-jī(Sò͘-jī Su-ji̍p)\" ê koan-kiān-jī chhōe \".*png5\", ē-sái chhōe tio̍h \"âng-tāu-pn̄g\", \"be̍h-á-pn̄g\", \"chhài-pn̄g\", \"pn̄g\" téng-téng.",
-        "1. 例如輸入 「白話字(數字輸入)」 關鍵字查 【.*png5】 ，可以找到 「âng-tāu-pn̄g」 、 「be̍h-á-pn̄g」 、 「chhài-pn̄g」 、 「pn̄g」 等等。",
-        "1. For example: When searching POJ(Number Input) with keyword \".*png5\", you will find \"âng-tāu-pn̄g\", \"be̍h-á-pn̄g\", \"chhài-pn̄g\", \"pn̄g\", etc."
+        "1. 譬如phah 「白話字(數字輸入)」 ê關鍵字chhōe 【.*png7】 ，ē-sái chhōe tio̍h 「âng-tāu-pn̄g」 、 「be̍h-á-pn̄g」 、 「chhài-pn̄g」 、 「pn̄g」 等等。",
+        "1. Phí-jū phah \"Pe̍h-ōe-jī(Sò͘-jī Su-ji̍p)\" ê koan-kiān-jī chhōe \".*png7\", ē-sái chhōe tio̍h \"âng-tāu-pn̄g\", \"be̍h-á-pn̄g\", \"chhài-pn̄g\", \"pn̄g\" téng-téng.",
+        "1. 例如輸入 「白話字(數字輸入)」 關鍵字查 【.*png7】 ，可以找到 「âng-tāu-pn̄g」 、 「be̍h-á-pn̄g」 、 「chhài-pn̄g」 、 「pn̄g」 等等。",
+        "1. For example: When searching POJ(Number Input) with keyword \".*png7\", you will find \"âng-tāu-pn̄g\", \"be̍h-á-pn̄g\", \"chhài-pn̄g\", \"pn̄g\", etc."
     ],
     "jimho-jigoan-le2": [
         "2. 譬如beh chhōe 【sat-ba̍k-hî】 soah bē曉拼字，kan-na知影開頭ê字母，phah 「白話字(數字輸入)」 ê關鍵字chhōe 【s.*-b.*-h.*】 就chhōe有。",
