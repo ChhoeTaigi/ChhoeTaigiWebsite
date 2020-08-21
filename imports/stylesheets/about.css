@@ -483,7 +483,7 @@
 
 #authorization {
 	margin-top: 150px;
-	height: 168px;
+	height: 200px;
 }
 
 #authorization-title-container {
@@ -511,7 +511,7 @@
 #authorization-left-bg {
 	position: relative;
 	float: left;
-	width: 50%;
+	width: 60%;
 	height: 100%;
 	background-color: #E8EEDB;
 }
@@ -519,7 +519,7 @@
 #authorization-right-bg {
 	position: relative;
 	float: left;
-	width: 50%;
+	width: 40%;
 	height: 100%;
 	background-color: #D8E3C3;
 }
@@ -534,14 +534,24 @@
 	width: 1024px;
 	margin-left: auto;
 	margin-right: auto;
-	height: 168px;
+	height: 100%;
 }
 
-.authorization-block {
+.authorization-block-left {
 	display: block;
 	position: absolute;
-	width: 350px;
+	width: 500px;
 	height: 100px;
+	left: 150px;
+	top: 46px;
+}
+
+.authorization-block-right {
+	display: block;
+	position: absolute;
+	width: 200px;
+	height: 100px;
+	right: 60px;
 	top: 46px;
 }
 

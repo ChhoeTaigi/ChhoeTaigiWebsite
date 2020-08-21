@@ -176,11 +176,12 @@ class About extends Component {
 					<div id='authorization-right-bg'></div>
 					<div id='authorization-content-center'>
 						<div id='authorization-content'>
-							<div className='authorization-block' style={{left: '100px'}}>
+							<div className='authorization-block-left'>
 								<div className='authorization-title'><Translate id='authorization-1' /></div>
-								<a className='authorization-link' href='https://github.com/ChhoeTaigi/ChhoeTaigiDatabase' target='_blank'>ChhoeTaigi 找台語：台語字詞資料庫</a>
+									<div><a className='authorization-link' href='https://github.com/ChhoeTaigi/ChhoeTaigiDatabase' target='_blank'>ChhoeTaigi 找台語：台語字詞資料庫</a></div>
+									<div><a className='authorization-link' href='https://www.pcstore.com.tw/haiang/M19279123.htm' target='_blank'>TJ台語白話小詞典</a>（索引）：<a className='authorization-link' href='http://www.atsiu.com/' target='_blank'>亞細亞國際傳播社</a></div>
 							</div>
-							<div className='authorization-block' style={{right: '62px'}}>
+							<div className='authorization-block-right'>
 								<div className='authorization-title'><Translate id='authorization-2' /></div>
 								<a className='authorization-link' href='http://ip194097.ntcu.edu.tw/memory/tgb/MoWT.asp' target='_blank'>台語文記憶</a>
 							</div>
