@@ -85,6 +85,9 @@ class Footer extends Component {
                         <button className={'locale-button ' + localeButtonStyle + ' ' + (this.state.locale === 'en' ? localeButtonSelectedStyle : '')} value='en' onClick={this.localeChange.bind(this)}>English</button>
                         */}
                     </div>
+                    <div id='since-container'>
+                        <div><Translate id='since' /></div>
+                    </div>
                 </div>
                 
                 <footer className={this.state.background}>
