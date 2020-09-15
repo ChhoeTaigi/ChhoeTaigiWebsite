@@ -39,8 +39,8 @@ class Main extends Component {
                 <div className="fb-customerchat"
                     page_id="198185797612542"
                     theme_color="#67b868"
-                    greeting_dialog_display="fade"
-                    greeting_dialog_delay="30"
+                    greeting_dialog_display="hide"
+                    greeting_dialog_delay="60"
                     logged_in_greeting="平安，請問kám有問題a̍h是建議？歡迎來留話！請支持「台文雞絲麵」募資計畫，幫贊阮長期維護開發 ChhoeTaigi，感謝！"
                     logged_out_greeting="平安，請問kám有問題a̍h是建議？歡迎來留話！請支持「台文雞絲麵」募資計畫，幫贊阮長期維護開發 ChhoeTaigi，感謝！">
                 </div>
