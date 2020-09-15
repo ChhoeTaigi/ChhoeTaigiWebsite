@@ -4,7 +4,8 @@
     font-family: 'TaigiFont';
     font-style: normal;
     font-weight: 400;
-    src: url("/font/GenWanMin-M2.woff2") format('woff2');
+    font-display: swap;
+    src: url("/font/GenWanMinTW-M3.woff2") format('woff2');
 }
 
 html {
