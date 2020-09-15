@@ -91,7 +91,7 @@ function processSearchMethod(options) {
                 if (/\S/.test(options.columns[key])) {
                     if (key === "spelling" || key === "poj_input" || key === "poj_input_dialect" || key === "kiplmj_input" || key === "kiplmj_input_dialect" || key === "poj_unicode" || key === "poj_unicode_dialect" || key === "kiplmj_unicode" || key === "kiplmj_unicode_dialect") {
                         // https://dbfiddle.uk/?rdbms=postgres_12&fiddle=a5ebaac76c8b43fefcc0e8cbe01ee261
-                        options.columns[key] = '(^|.*(\\(.*\\))?/)' + options.columns[key] + '(\\(.*\\))?(/.*(\\(.*)\\)?|$)+$';
+                        options.columns[key] = '(^|.*(\\(.*\\))?/)' + options.columns[key] + '(\\(.*\\))?(/.*(\\(.*\\))?|$)+$';
                     } else {
                         options.columns[key] = '^' + options.columns[key] + '$';
                     }
