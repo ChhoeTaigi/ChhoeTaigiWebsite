@@ -40,7 +40,7 @@ footer {
 #visit-container {
     position: absolute;
     height: 20px;
-    top: 0px;
+    margin-top: 15px;
 }
 
 #visit-container > div {
@@ -62,7 +62,7 @@ footer {
     height: 20px;
     margin-left: auto;
     margin-right: auto;
-    padding-top: 8px;
+    padding-top: 15px;
 }
 
 .locale-button {
@@ -93,8 +93,14 @@ footer {
 
 #since-container {
     position: absolute;
-    height: 20px;
-    top: 21px;
+    height: 30px;
+    top: 0px;
     right: 0px;
     font-size: 13px;
+    text-align: right;
+}
+
+#since-container > * {
+    display: block;
+    margin-top: 6px;
 }

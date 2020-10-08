@@ -86,6 +86,8 @@ class Footer extends Component {
                         */}
                     </div>
                     <div id='since-container'>
+                        <div><Translate id='word_count_desc' /></div>
+                        <div><Translate id='book_index_desc' /></div>
                         <div><Translate id='since' /></div>
                     </div>
                 </div>

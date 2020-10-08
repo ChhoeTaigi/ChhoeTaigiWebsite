@@ -4,7 +4,6 @@ import postgres from "../database/postgres";
 import postgresDummyDatabase from "../database/postgresDummyDatabase";
 import DicStruct from "./../../api/dicts/dictionary-struct";
 import constants from "../constants/constants";
-// import searchDicStruct from '../dicts/dictionary-struct-lomaji-search';
 import { createTB as recreateTB } from "../database/createTable";
 
 Meteor.methods({

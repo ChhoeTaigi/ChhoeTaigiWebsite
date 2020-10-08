@@ -30,8 +30,8 @@ export const stringify = (options) => {
         if (columns.hoabun)
             query.hoabun = columns.hoabun;
     
-        if (columns.english_descriptions)
-            query.english_descriptions = columns.english_descriptions;
+        if (columns.english)
+            query.english = columns.english;
     } else if (options.method === 'all-field') {
         if (options.dic)
             query.dic = options.dic;
@@ -85,7 +85,7 @@ export const parse = (search) => {
                 spelling: query.spelling,
                 taibun: query.taibun,
                 hoabun: query.hoabun,
-                english_descriptions: query.english_descriptions,
+                english: query.english,
             },
         }
     } else if (query.method === 'all-field') {

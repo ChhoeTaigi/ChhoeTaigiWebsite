@@ -89,7 +89,7 @@ function processSearchMethod(options) {
         } else if (options.columns !== undefined) {
             for (let key in options.columns) {
                 if (/\S/.test(options.columns[key])) {
-                    if (key === "spelling" || key === "poj_input" || key === "poj_input_dialect" || key === "kiplmj_input" || key === "kiplmj_input_dialect" || key === "poj_unicode" || key === "poj_unicode_dialect" || key === "kiplmj_unicode" || key === "kiplmj_unicode_dialect") {
+                    if (key === "spelling" || key === "poj_input" || key === "poj_input_dialect" || key === "kip_input" || key === "kip_input_dialect" || key === "poj_unicode" || key === "poj_unicode_dialect" || key === "kip_unicode" || key === "kip_unicode_dialect") {
                         // https://dbfiddle.uk/?rdbms=postgres_12&fiddle=a5ebaac76c8b43fefcc0e8cbe01ee261
                         options.columns[key] = '(^|.*(\\(.*\\))?/)' + options.columns[key] + '(\\(.*\\))?(/.*(\\(.*\\))?|$)+$';
                     } else {
@@ -141,10 +141,10 @@ function preprocessRegex(options) {
 
     } else if (options.columns !== undefined) {
         for (let key in options.columns) {
-            if (key === "poj_input" || key === "poj_input_dialect" || key === "kiplmj_input" || key === "kiplmj_input_dialect") {
+            if (key === "poj_input" || key === "poj_input_dialect" || key === "kip_input" || key === "kip_input_dialect") {
                 options.columns[key] = options.columns[key].replace(regexSianntiauTaibe, soouSianntiau);
                 options.columns[key] = options.columns[key].replace(regexHyphenOrSpace, hyphenOrSpace);
-            } else if (key === "poj_unicode" || key === "poj_unicode_dialect" || key === "kiplmj_unicode" || key === "kiplmj_unicode_dialect") {
+            } else if (key === "poj_unicode" || key === "poj_unicode_dialect" || key === "kip_unicode" || key === "kip_unicode_dialect") {
                 options.columns[key] = options.columns[key].replace(regexHyphenOrSpace, hyphenOrSpace);
             }
         }
@@ -176,7 +176,7 @@ function basicSearch(options) {
     // check valid columns
     let valid = false;
     for (let key in columns) {
-        if ((key in dicColumns) || ((key === 'taibun') && (('hanlo_taibun_poj' in dicColumns) || ('hanlo_taibun_kiplmj' in dicColumns) || ('hanji_taibun' in dicColumns)))) {
+        if ((key in dicColumns) || ((key === 'taibun') && (('hanlo_taibun_poj' in dicColumns) || ('hanlo_taibun_kip' in dicColumns) || ('hanji_taibun' in dicColumns)))) {
             valid = true;
             break;
         }
@@ -389,8 +389,8 @@ function queryCondictionBasic(options) {
         if (key === 'taibun') {
             if ('hanlo_taibun_poj' in dicColumns)
                 query.orWhere(lowerQeury('hanlo_taibun_poj'), '~*', lowerStr(columns[key]));
-            if ('hanlo_taibun_kiplmj' in dicColumns)
-                query.orWhere(lowerQeury('hanlo_taibun_kiplmj'), '~*', lowerStr(columns[key]));
+            if ('hanlo_taibun_kip' in dicColumns)
+                query.orWhere(lowerQeury('hanlo_taibun_kip'), '~*', lowerStr(columns[key]));
             if ('hanji_taibun' in dicColumns)
                 query.orWhere(lowerQeury('hanji_taibun'), '~*', lowerStr(columns[key]));
         } else if (key === "poj_input" && 'poj_input_dialect' in dicColumns) {
@@ -398,18 +398,18 @@ function queryCondictionBasic(options) {
             query.andWhere(function() {
                 this.where(lowerQeury('poj_input'), '~*',  lowerStr(columns[key])).orWhere(lowerQeury('poj_input_dialect'), '~*',  lowerStr(columns[key]));
             });
-        } else if (key === "kiplmj_input" && 'kiplmj_input_dialect' in dicColumns) {
+        } else if (key === "kip_input" && 'kip_input_dialect' in dicColumns) {
             query.andWhere(function() {
-                this.where(lowerQeury('kiplmj_input'), '~*',  lowerStr(columns[key])).orWhere(lowerQeury('kiplmj_input_dialect'), '~*',  lowerStr(columns[key]));
+                this.where(lowerQeury('kip_input'), '~*',  lowerStr(columns[key])).orWhere(lowerQeury('kip_input_dialect'), '~*',  lowerStr(columns[key]));
             });
         } else if (key === "poj_unicode" && 'poj_unicode_dialect' in dicColumns) {
             if ('hanlo_taibun_poj' in dicColumns) {}
             query.andWhere(function() {
                 this.where(lowerQeury('poj_unicode'), '~*',  lowerStr(columns[key])).orWhere(lowerQeury('poj_unicode_dialect'), '~*',  lowerStr(columns[key]));
             });
-        } else if (key === "kiplmj_unicode" && 'kiplmj_unicode_dialect' in dicColumns) {
+        } else if (key === "kip_unicode" && 'kip_unicode_dialect' in dicColumns) {
             query.andWhere(function() {
-                this.where(lowerQeury('kiplmj_unicode'), '~*',  lowerStr(columns[key])).orWhere(lowerQeury('kiplmj_unicode_dialect'), '~*',  lowerStr(columns[key]));
+                this.where(lowerQeury('kip_unicode'), '~*',  lowerStr(columns[key])).orWhere(lowerQeury('kip_unicode_dialect'), '~*',  lowerStr(columns[key]));
             });
         } else {
             query.andWhere(lowerQeury(key), '~*',  lowerStr(columns[key]));

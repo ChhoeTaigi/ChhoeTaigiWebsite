@@ -12,7 +12,7 @@ let state = {
     spelling: '',
     taibun: '',
     hoabun: '',
-    english_descriptions: '',
+    english: '',
     background_height: window.innerHeight - 360,
 };
 
@@ -58,7 +58,7 @@ class BasicSearch extends Component {
                 spelling: this.state.spelling,
                 taibun: this.state.taibun,
                 hoabun: this.state.hoabun,
-                english_descriptions: this.state.english_descriptions,
+                english: this.state.english,
             },
         }
 
@@ -83,7 +83,7 @@ class BasicSearch extends Component {
             spelling: "",
             taibun: "",
             hoabun: "",
-            english_descriptions: ""
+            english: ""
         });
     }
 
@@ -121,7 +121,7 @@ class BasicSearch extends Component {
                                     <span className='text-height'></span>
                                     <label className='input-title top-space' htmlFor="taibun"><Translate id="corresponding-tb" /></label>
                                     <label className='input-title top-space' htmlFor="hoabun"><Translate id="corresponding-hb" /></label>
-                                    <label className='input-title top-space' htmlFor="english_descriptions"><Translate id="corresponding-en" /></label>
+                                    <label className='input-title top-space' htmlFor="english"><Translate id="corresponding-en" /></label>
                                 </div>
                                 <div id='input-container-right'>
                                     <div id='large-input-top'>
@@ -131,8 +131,8 @@ class BasicSearch extends Component {
                                             <span><Translate id="poj-input" /></span>
                                         </label>
                                         <label id='radio-4' className='radio'>
-                                            <div className={this.state.spellingMethod === 'kiplmj_input' ? 'checked' : 'unchecked'}></div>
-                                            <input type="radio" name="spellingMethod" value="kiplmj_input" defaultChecked={this.state.spellingMethod === 'kiplmj_input'} onChange={this.handleInput.bind(this)} />
+                                            <div className={this.state.spellingMethod === 'kip_input' ? 'checked' : 'unchecked'}></div>
+                                            <input type="radio" name="spellingMethod" value="kip_input" defaultChecked={this.state.spellingMethod === 'kip_input'} onChange={this.handleInput.bind(this)} />
                                             <span><Translate id="lmj-input" /></span>
                                         </label>
                                         <label id='radio-5' className='radio'>
@@ -141,8 +141,8 @@ class BasicSearch extends Component {
                                             <span><Translate id="poj" /></span>
                                         </label>
                                         <label id='radio-6' className='radio'>
-                                            <div className={this.state.spellingMethod === 'kiplmj_unicode' ? 'checked' : 'unchecked'}></div>
-                                            <input type="radio" name="spellingMethod" value="kiplmj_unicode" defaultChecked={this.state.spellingMethod === 'kiplmj_unicode'} onChange={this.handleInput.bind(this)} />
+                                            <div className={this.state.spellingMethod === 'kip_unicode' ? 'checked' : 'unchecked'}></div>
+                                            <input type="radio" name="spellingMethod" value="kip_unicode" defaultChecked={this.state.spellingMethod === 'kip_unicode'} onChange={this.handleInput.bind(this)} />
                                             <span><Translate id="lmj" /></span>
                                         </label>
                                         <div id='text-input-seperator'></div>
@@ -152,7 +152,7 @@ class BasicSearch extends Component {
                                             <input className='text-input-lomaji' type="text" name="spelling" placeholder={translate('keyword')} value={this.state.spelling} onChange={this.handleInput.bind(this)} />
                                             <input className='text-input top-space' type="text" name="taibun" placeholder={translate('keyword')} value={this.state.taibun} onChange={this.handleInput.bind(this)} />
                                             <input className='text-input top-space' type="text" name="hoabun" placeholder={translate('keyword_suggest_fuzzy')} value={this.state.hoabun} onChange={this.handleInput.bind(this)} />
-                                            <input className='text-input top-space' type="text" name="english_descriptions" placeholder={translate('keyword_suggest_fuzzy')} value={this.state.english_descriptions} onChange={this.handleInput.bind(this)} />
+                                            <input className='text-input top-space' type="text" name="english" placeholder={translate('keyword_suggest_fuzzy')} value={this.state.english} onChange={this.handleInput.bind(this)} />
                                         </div>
                                     }</Translate>
                                 </div>

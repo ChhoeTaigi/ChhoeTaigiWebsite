@@ -49,7 +49,7 @@ class Main extends Component {
 
         return (
             <main>
-                {facebookChat}
+                {/* {facebookChat} */}
                 <Switch>
                     {additionalRoute}
                     <Route exact path='/account' component={Account} />

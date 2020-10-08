@@ -11,18 +11,31 @@ module.exports = {
       cmd.push(
         knex.schema.createTable(dicName, table => {
           table.integer("id").notNullable();
+
           for (let key in columns) {
-            if (key === "english_descriptions")
-              table.string(key, 511).nullable();
-            else if (
-              key === "descriptions" ||
-              key === "hanlo_taibun_kaisoeh_poj" ||
-              key === "hanlo_taibun_kaisoeh_kiplmj" ||
-              key === "hanlo_taibun_leku_poj" ||
-              key === "hanlo_taibun_leku_kiplmj"
-            )
-              table.string(key, 1023).nullable();
-            else table.string(key).nullable();
+            if (// TaijitToaSutian
+                key === "hanlo_taibun_kaisoeh_poj" ||
+                key === "hanlo_taibun_kaisoeh_kip" ||
+                key === "hanlo_taibun_leku_poj" ||
+                key === "hanlo_taibun_leku_kip" ||
+                // TaioanPehoeKichhooGiku
+                key === "english" ||
+                key === "english_soatbeng" ||
+                key === "example_su" ||
+                key === "example_ku_taibun_poj" ||
+                key === "example_ku_english" ||
+                key === "example_ku_hoabun" ||
+                // EmbreeTaiengSutian, MaryknollTaiengSutian
+                key === "english" ||
+                // KauiokpooTaigiSutian
+                key === "descriptions_poj" ||
+                key === "descriptions_kip" ||
+                key === "dialects_poj" ||
+                key === "dialects_kip")
+              table.string(key, 2048).nullable();
+            else {
+              table.string(key).nullable();
+            }
           }
         })
       );

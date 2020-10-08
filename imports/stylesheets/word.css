@@ -27,4 +27,5 @@ table.detail-word > tbody > tr > td {
     padding: 0;
     text-align: left;
     padding-left: 15px;
+    line-height: 25px;
 }

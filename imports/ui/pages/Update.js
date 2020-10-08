@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import { withRouter } from 'react-router-dom';
 
 import dicStruct from '../../api/dicts/dictionary-struct';
-// import searchDicStruct from '../../api/dicts/dictionary-struct-lomaji-search';
 
 import '../../api/methods/update';
 
@@ -210,11 +209,6 @@ class Update extends Component {
                 <h2>主要辭典</h2>
                 {dicRow}
                 <hr />
-                {/* <h2>搜尋辭典(lomaji_search_table)</h2> */}
-                {/* {searchDicRow}
-                <button onClick={this.update.bind(this)} className="Mbutton">
-                    Import all
-                 </button> */}
             </div>
         );
     }
