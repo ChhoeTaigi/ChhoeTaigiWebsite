@@ -8,7 +8,7 @@
     "visualize": "meteor --production --extra-packages bundle-visualizer"
   },
   "dependencies": {
-    "@babel/runtime": "^7.11.2",
+    "@babel/runtime": "^7.12.1",
     "bcrypt": "^5.0.0",
     "bcrypt-nodejs": "0.0.3",
     "csvtojson": "^2.0.8",
@@ -19,11 +19,11 @@
     "node-fetch": "^2.6.1",
     "pg": "^7.12.1",
     "query-string": "^6.13.5",
-    "react": "^16.4.2",
+    "react": "^16.14.0",
     "react-cookie": "^3.0.4",
-    "react-dom": "^16.4.2",
+    "react-dom": "^16.14.0",
     "react-facebook": "^5.0.3",
-    "react-ga": "^3.1.2",
+    "react-ga": "^3.2.0",
     "react-loader-spinner": "^3.1.14",
     "react-localize-redux": "^3.5.3",
     "react-router-dom": "^4.3.1",
