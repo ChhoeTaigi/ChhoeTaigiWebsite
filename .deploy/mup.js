@@ -1,7 +1,7 @@
 module.exports = {
   servers: {
     one: {
-      host: '64.225.90.138',
+      host: '163.47.9.2',
       username: 'root',
       pem: "~/.ssh/digitalocean",
     }

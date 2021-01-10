@@ -11,6 +11,8 @@ export default originalPage = (dic, page) => {
         link = parseTaioanPehoeKichhooGiku(page);
     else if (dic === 'TaioanSitbutMialui')
         link = parseTaioanSitbutMialui(page);
+    else if (dic === 'EmbreeTaiengSutian')
+        link = parseEmbreeTaiengSutian(page);
     return link;
 }
 
@@ -55,6 +57,14 @@ function parseTaioanSitbutMialui(page) {
     page = parseInt(page) + 44;
     const baseUrl1 = 'http://ip194097.ntcu.edu.tw/memory/tgb/data/TOSBBL/TOSBBL_%E9%A0%81%E9%9D%A2_';
     const baseUrl2 = '.png';
+    const url = baseUrl1 + pad(page, 3) + baseUrl2;
+    return url;
+}
+
+function parseEmbreeTaiengSutian(page) {
+    page = parseInt(page) + 46;
+    const baseUrl1 = 'http://ip194097.ntcu.edu.tw/memory/tgb/data/embree/embree_%E9%A0%81%E9%9D%A2_';
+    const baseUrl2 = '.jpg';
     const url = baseUrl1 + pad(page, 3) + baseUrl2;
     return url;
 }

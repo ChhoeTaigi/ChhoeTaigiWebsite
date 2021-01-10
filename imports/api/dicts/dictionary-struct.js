@@ -156,7 +156,7 @@ module.exports = [
             english: '英文解說',
             synonym: 'Kāng義詞',
             cf: '參照',
-            page_number: '原冊頁數(暫時無)',
+            page_number: '原冊頁數',
         }
     },
     {
