@@ -43,10 +43,11 @@ class DictionaryList extends Component {
     handleScroll() {
         const sticky = document.getElementById('all-dic-buttons-background');
         let isSticky;
-        if (sticky.offsetTop > 141)
+        if (sticky.offsetTop > 200) {
             isSticky = true;
-        else
+        } else {
             isSticky = false;
+        }
         this.setState({
             isSticky: isSticky,
         });
@@ -71,7 +72,7 @@ class DictionaryList extends Component {
 
     handleButtonClicked(dic, event) {
         const domNode = ReactDOM.findDOMNode(this.refs[dic].current);
-        window.scrollTo(0, domNode.offsetTop - 150);
+        window.scrollTo(0, domNode.offsetTop - 160);
 
         this.setState({
             selectedDic: dic,

@@ -30,8 +30,17 @@ module.exports = {
                 // KauiokpooTaigiSutian
                 key === "descriptions_poj" ||
                 key === "descriptions_kip" ||
-                key === "dialects_poj" ||
-                key === "dialects_kip")
+                key === "dialects_kip" ||
+                // BanglooMuitheSekinSutian
+                key === "poj_unicode" ||
+                key === "poj_input" ||
+                key === "kip_unicode" ||
+                key === "kip_input" ||
+                key === "hanlo_taibun_poj" ||
+                key === "hanlo_taibun_kip" ||
+                key === "hoabun" ||
+                key === "english" ||
+                key === "poochhiong_chuliau")
               table.string(key, 2048).nullable();
             else {
               table.string(key).nullable();

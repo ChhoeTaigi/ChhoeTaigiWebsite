@@ -44,6 +44,18 @@ export default class Word extends Component {
         return linkHtml
     }
 
+    generateWebsiteLink = (dicString, pageString) => {
+        let linkHtml = []
+
+        if (dicString === 'BanglooMuitheSekinSutian') {
+            linkHtml.push(<a href={pageString} target='_blank'>{pageString}</a>);
+        } else {
+            linkHtml.push("");
+        }
+
+        return linkHtml
+    }
+
     render() {
         const columns = this.props.columns;
         const contents = [];
@@ -51,12 +63,12 @@ export default class Word extends Component {
             let content;
             if (key === '原冊頁數') {
                 content = this.generateGoanChhehLink(this.props.dic, columns[key])
+            } else if (key === '來去買冊') {
+                content = this.generateStoreLink(this.props.dic)
+            } else if (key === '媒體網址') {
+                content = this.generateWebsiteLink(this.props.dic, columns[key])
             } else {
                 content = columns[key];
-            }
-
-            if (key === '來去買冊') {
-                content = this.generateStoreLink(this.props.dic)
             }
 
             contents.push(

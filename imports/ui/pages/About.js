@@ -130,24 +130,24 @@ class About extends Component {
 							<div className='description'>Khiàn-phang ēng--ê. Lâi chú 1 tiáⁿ phang-kòng-kòng ê Tâi-gí moâi.</div>
 						</div>
 						<div className='person-card'>
-							<img className='profile' src='images/teammember_titeng.png' width='120' height='120'></img>
-							<div className='name'>Tìtêng</div>
-							<div className='title'>Hū-chek kiò ta̍k-ke hun-thâu mài loān-tàn</div>
-							<div className='description'>Jîn-seng chhiūⁿ tàu-tô͘, tàu chı̍t-pak chhit-chhái ê Tâi-gí tô͘.</div>
+							<img className='profile' src='images/teammember_itbin.png' width='120' height='120'></img>
+							<div className='name'>I̍tBîn·BuLùSuh</div>
+							<div className='title'>Kò͘ tōa-iā ê cha̍p-chhe-á</div>
+							<div className='description'>Ǹg-bāng chhiâⁿ-chòe Tâi-gí ê hó kang-lâng kap sim-lêng-siōng ê a-sià.</div>
 						</div>
-						<div className='person-card'>
-							<img className='profile' src='images/teammember_aiong.png' width='120' height='120'></img>
-							<div className='name'>A'ióng</div>
-							<div className='title'>阿勇台語 A'ióng Tâi-gí</div>
-							<div className='description'>Bí-kok lâi ê Tâi-oân sin-chū-bîn. Nńg-thé kang-têng-su. Ū-êng teh chhui-sak Tâi-gí.</div>
-						</div>
-					</div>
-					<div className='person-card-three-columns'>
 						<div className='person-card'>
 							<img className='profile' src='images/teammember_buncheng.png' width='120' height='120'></img>
 							<div className='name'>BûnCheng</div>
 							<div className='title'>Iau-pá-chhá</div>
 							<div className='description'>Tâi-oân-lâng. Tâi-gí. To̍k-li̍p Kiàn-kok.</div>
+						</div>
+					</div>
+					<div className='person-card-three-columns'>
+						<div className='person-card'>
+							<img className='profile' src='images/teammember_hoanteng.png' width='120' height='120'></img>
+							<div className='name'>Hoàn-têng</div>
+							<div className='title'>Chò sóaⁿ-kang--ê</div>
+							<div className='description'>Tâi-oân-lâng ài chai-iáⁿ ka-tī ê le̍k-sú kap bûn-hòa. Ǹg-bāng ta̍k-ke chò-hóe lâi phah-piàⁿ.</div>
 						</div>
 					</div>
 				</div>
@@ -165,6 +165,18 @@ class About extends Component {
 							<div className='name-small'>Eyes</div>
 							<div className='title-small'>網頁設計</div>
 							<div className='description-small'>小時候講台語大人還聽得懂，長大後卻被唸聽無(Thiaⁿ bô)...</div>
+						</div>
+						<div className='person-card-small'>
+							<img className='profile-small' src='images/teammember_titeng.png' width='100' height='100'></img>
+							<div className='name-small'>Tìtêng</div>
+							<div className='title-small'>Hū-chek kiò ta̍k-ke hun-thâu mài loān-tàn</div>
+							<div className='description-small'>Jîn-seng chhiūⁿ tàu-tô͘, tàu chı̍t-pak chhit-chhái ê Tâi-gí tô͘.</div>
+						</div>
+						<div className='person-card-small'>
+							<img className='profile-small' src='images/teammember_hoanteng.png' width='100' height='100'></img>
+							<div className='name-small'>A'ióng</div>
+							<div className='title-small'>阿勇台語 A'ióng Tâi-gí</div>
+							<div className='description-small'>Bí-kok lâi ê Tâi-oân sin-chū-bîn. Nńg-thé kang-têng-su. Ū-êng teh chhui-sak Tâi-gí.</div>
 						</div>
 					</div>
 				</div>
