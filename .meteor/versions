@@ -1,5 +1,5 @@
 accounts-base@1.9.0
-accounts-password@1.7.0
+accounts-password@1.7.1
 accounts-ui@1.3.2
 accounts-ui-unstyled@1.4.3
 allow-deny@1.1.0
@@ -17,10 +17,10 @@ caching-html-compiler@1.2.0
 callback-hook@1.3.0
 check@1.3.1
 ddp@1.4.0
-ddp-client@2.4.0
+ddp-client@2.4.1
 ddp-common@1.4.0
 ddp-rate-limiter@1.0.9
-ddp-server@2.3.2
+ddp-server@2.3.3
 diff-sequence@1.1.1
 dynamic-import@0.6.0
 ecmascript@0.15.1
@@ -45,7 +45,7 @@ localstorage@1.2.0
 logging@1.2.0
 meteor@1.9.3
 meteor-base@1.4.0
-minifier-css@1.5.3
+minifier-css@1.5.4
 minifier-js@2.6.0
 minimongo@1.6.2
 mobile-experience@1.1.0
@@ -53,10 +53,10 @@ mobile-status-bar@1.1.0
 modern-browsers@0.1.5
 modules@0.16.0
 modules-runtime@0.12.0
-mongo@1.11.0
+mongo@1.11.1
 mongo-decimal@0.1.2
 mongo-dev-server@1.1.0
-mongo-id@1.0.7
+mongo-id@1.0.8
 npm-bcrypt@0.9.3
 npm-mongo@3.9.0
 observe-sequence@1.0.16
@@ -68,8 +68,8 @@ ostrio:meteor-root@1.0.8
 promise@0.11.2
 random@1.2.0
 rate-limit@1.0.9
-react-fast-refresh@0.1.0
-react-meteor-data@2.2.2
+react-fast-refresh@0.1.1
+react-meteor-data@2.3.1
 reactive-dict@1.3.0
 reactive-var@1.0.11
 reload@1.3.1
@@ -79,7 +79,7 @@ service-configuration@1.0.11
 session@1.2.0
 sha@1.0.9
 shell-server@0.5.0
-socket-stream-client@0.3.1
+socket-stream-client@0.3.2
 spacebars@1.1.0
 spacebars-compiler@1.2.1
 srp@1.1.0

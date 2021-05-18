@@ -144,10 +144,22 @@ class About extends Component {
 					</div>
 					<div className='person-card-three-columns'>
 						<div className='person-card'>
+							<img className='profile' src='images/teammember_khengiong.png' width='120' height='120'></img>
+							<div className='name'>Tân Khèng-iông</div>
+							<div className='title'>Pòaⁿ-tháng sai-á ê hoan-e̍k</div>
+							<div className='description'>Tòa tī Pat-kòa-soaⁿ kha ê Ko-hiông lâng. Ū-êng tō ke-kiám-á tha̍k kóa tē-tô͘ kap gí-giân-ha̍k.</div>
+						</div>
+						<div className='person-card'>
 							<img className='profile' src='images/teammember_hoanteng.png' width='120' height='120'></img>
 							<div className='name'>Hoàn-têng</div>
 							<div className='title'>Chò sóaⁿ-kang--ê</div>
 							<div className='description'>Tâi-oân-lâng ài chai-iáⁿ ka-tī ê le̍k-sú kap bûn-hòa. Ǹg-bāng ta̍k-ke chò-hóe lâi phah-piàⁿ.</div>
+						</div>
+						<div className='person-card'>
+							<img className='profile' src='images/teammember_gansu.png' width='120' height='120'></img>
+							<div className='name'>Koa Gān-sū</div>
+							<div className='title'>Tàu-kha-chhiú--ê</div>
+							<div className='description'>Kàu 30 gōa hòe chiah thiat-té  kak-chhíⁿ ê Tâi-oân-lâng.</div>
 						</div>
 					</div>
 				</div>
@@ -173,7 +185,7 @@ class About extends Component {
 							<div className='description-small'>Jîn-seng chhiūⁿ tàu-tô͘, tàu chı̍t-pak chhit-chhái ê Tâi-gí tô͘.</div>
 						</div>
 						<div className='person-card-small'>
-							<img className='profile-small' src='images/teammember_hoanteng.png' width='100' height='100'></img>
+							<img className='profile-small' src='images/teammember_aiong.png' width='100' height='100'></img>
 							<div className='name-small'>A'ióng</div>
 							<div className='title-small'>阿勇台語 A'ióng Tâi-gí</div>
 							<div className='description-small'>Bí-kok lâi ê Tâi-oân sin-chū-bîn. Nńg-thé kang-têng-su. Ū-êng teh chhui-sak Tâi-gí.</div>
