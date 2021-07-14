@@ -129,15 +129,17 @@ function cleanEmptyColumns(options) {
 
 // regex
 function preprocessRegex(options) {
-    const soouSianntiau = '(？:1|2|3|p4|p8|p|t4|t8|t|k4|k8|k|h4|h8|h|5|7)?';
+    const soouSianntiau = '(？:2|3|p8|p|t8|t|k8|k|h8|h|5|7)?';
     const imchat = '(?:(?![ -]).)+';
     const hyphenOrSpace = '(?: |--|-)';
 
+    const regexRedundantSianntiau = new RegExp('(?:1|4)', 'g');
     const regexSianntiauTaibe = new RegExp('\\%', 'g');
     const regexImchatTaibe = new RegExp('~', 'g');
     const regexHyphenOrSpace = new RegExp(' ', 'g');
 
     if (options.value !== undefined) {
+        options.value = options.value.replace(regexRedundantSianntiau, '');
         options.value = options.value.replace(regexHyphenOrSpace, hyphenOrSpace);
         options.value = options.value.replace(regexSianntiauTaibe, soouSianntiau);
         options.value = options.value.replace(regexImchatTaibe, imchat);
@@ -145,10 +147,12 @@ function preprocessRegex(options) {
     } else if (options.columns !== undefined) {
         for (let key in options.columns) {
             if (key === "poj_input" || key === "poj_input_other" || key === "kip_input" || key === "kip_input_other") {
+                options.columns[key] = options.columns[key].replace(regexRedundantSianntiau, '');
                 options.columns[key] = options.columns[key].replace(regexHyphenOrSpace, hyphenOrSpace);
                 options.columns[key] = options.columns[key].replace(regexSianntiauTaibe, soouSianntiau);
                 options.columns[key] = options.columns[key].replace(regexImchatTaibe, imchat);
             } else if (key === "poj_unicode" || key === "poj_unicode_other" || key === "kip_unicode" || key === "kip_unicode_other") {
+                options.columns[key] = options.columns[key].replace(regexRedundantSianntiau, '');
                 options.columns[key] = options.columns[key].replace(regexHyphenOrSpace, hyphenOrSpace);
                 options.columns[key] = options.columns[key].replace(regexImchatTaibe, imchat);
             }

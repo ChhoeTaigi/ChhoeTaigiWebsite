@@ -93,7 +93,7 @@ class Footer extends Component {
                 </div>
                 
                 <footer className={this.state.background}>
-                    <Link id='footer-image' to='https://grants.g0v.tw/power/' target='_blank'></Link>
+                    <Link id='footer-image' to={{pathname:'https://grants.g0v.tw/power/'}} target='_blank' />
                 </footer>
             </div>
         );
