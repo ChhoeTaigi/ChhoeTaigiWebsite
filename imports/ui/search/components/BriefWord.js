@@ -36,7 +36,7 @@ export default class Word extends Component {
                     if (key in headerTitle)
                         row.push(<td key={key + idx} style={{width: columnWidth[key]}}>{word[key]}</td>);
                 }
-                const linkUri = '/' + dic + '/' + word.id;
+                const linkUri = '/' + dic + '/' + word.DictWordID;
                 row.push(<td key={'detail' + idx} className='detail-td'><Link to={linkUri}><Translate id='more' /></Link></td>)
                 rows.push(<tr className='content-row' key={idx}>{row}</tr>);
             }

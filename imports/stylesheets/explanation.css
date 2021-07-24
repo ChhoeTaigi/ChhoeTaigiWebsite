@@ -65,6 +65,7 @@
     vertical-align: top;
     padding-left: 15px;
     padding-bottom: 15px;
+    line-height: 25px;
 }
 
 .explanation-table > tbody > tr > td {
@@ -72,6 +73,9 @@
     text-align: left;
     color: #657160;
     padding-bottom: 15px;
+    line-height: 25px;
+    vertical-align: top;
+    top: 12px;
 }
 
 .explanation-table > tbody > tr > td:nth-child(2) {
@@ -84,16 +88,76 @@
     position: absolute;
     width: 16px;
     height: 1px;
-    left: 7px;
-    top: 16px;
+    left: 5px;
     background-color: #657160;
 }
 
 .explanation-table > tbody > tr:first-child > td:nth-child(2)::after {
-    top: 26px;
+    margin-top: 0px;
 }
 
 .explanation-table > tbody > tr > td:last-child {
+    padding-right: 27px;
+}
+
+.explanation-table-2 {
+    width: 750px;
+    border-collapse: collapse;
+    border-radius: 5px;
+    background-color: #ededed;
+    margin-top: 4px;
+    margin-bottom: 13px;
+}
+
+.explanation-table-2 > tbody > tr:first-child > td, .explanation-table-2 > tbody > tr:first-child > th {
+    padding-top: 10px;
+}
+
+.explanation-table-2 > tbody > tr:last-child > td, .explanation-table-2 > tbody > tr:last-child > th {
+    padding-bottom: 10px;
+}
+
+.explanation-table-2 > tbody > tr > th {
+    width: 140px;
+    font-size: 16px;
+    font-weight: 500;
+    text-align: right;
+    color: #657160;
+    vertical-align: top;
+    padding-left: 15px;
+    padding-bottom: 15px;
+    line-height: 25px;
+}
+
+.explanation-table-2 > tbody > tr > td {
+    font-size: 16px;
+    text-align: left;
+    color: #657160;
+    padding-bottom: 15px;
+    line-height: 25px;
+    vertical-align: top;
+    top: 12px;
+}
+
+.explanation-table-2 > tbody > tr > td:nth-child(2) {
+    position: relative;
+    width: 30px;
+}
+
+.explanation-table-2 > tbody > tr > td:nth-child(2)::after {
+    content: "";
+    position: absolute;
+    width: 16px;
+    height: 1px;
+    left: 5px;
+    background-color: #657160;
+}
+
+.explanation-table-2 > tbody > tr:first-child > td:nth-child(2)::after {
+    margin-top: 0px;
+}
+
+.explanation-table-2 > tbody > tr > td:last-child {
     padding-right: 27px;
 }
 
@@ -118,7 +182,7 @@
     position: relative;
     width: 648px;
     left: 94px;
-    font-size: 18px;
+    font-size: 16px;
     line-height: 27px;
     color: #657160;
 }

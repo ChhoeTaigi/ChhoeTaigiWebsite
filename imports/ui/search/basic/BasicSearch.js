@@ -8,7 +8,7 @@ import basicTranslations from '../../../translations/basic.json';
 
 let state = {
     searchMethod: 'equals',
-    spellingMethod: 'poj_input',
+    spellingMethod: 'PojInput',
     spelling: '',
     taibun: '',
     hoabun: '',
@@ -126,23 +126,23 @@ class BasicSearch extends Component {
                                 <div id='input-container-right'>
                                     <div id='large-input-top'>
                                         <label id='radio-3' className='radio'>
-                                            <div className={this.state.spellingMethod === 'poj_input' ? 'checked' : 'unchecked'}></div>
-                                            <input type="radio" name="spellingMethod" value="poj_input" defaultChecked={this.state.spellingMethod === 'poj_input'} onChange={this.handleInput.bind(this)} />
+                                            <div className={this.state.spellingMethod === 'PojInput' ? 'checked' : 'unchecked'}></div>
+                                            <input type="radio" name="spellingMethod" value="PojInput" defaultChecked={this.state.spellingMethod === 'PojInput'} onChange={this.handleInput.bind(this)} />
                                             <span><Translate id="poj-input" /></span>
                                         </label>
                                         <label id='radio-4' className='radio'>
-                                            <div className={this.state.spellingMethod === 'kip_input' ? 'checked' : 'unchecked'}></div>
-                                            <input type="radio" name="spellingMethod" value="kip_input" defaultChecked={this.state.spellingMethod === 'kip_input'} onChange={this.handleInput.bind(this)} />
+                                            <div className={this.state.spellingMethod === 'KipInput' ? 'checked' : 'unchecked'}></div>
+                                            <input type="radio" name="spellingMethod" value="KipInput" defaultChecked={this.state.spellingMethod === 'KipInput'} onChange={this.handleInput.bind(this)} />
                                             <span><Translate id="lmj-input" /></span>
                                         </label>
                                         <label id='radio-5' className='radio'>
-                                            <div className={this.state.spellingMethod === 'poj_unicode' ? 'checked' : 'unchecked'}></div>
-                                            <input type="radio" name="spellingMethod" value="poj_unicode" defaultChecked={this.state.spellingMethod === 'poj_unicode'} onChange={this.handleInput.bind(this)} />
+                                            <div className={this.state.spellingMethod === 'PojUnicode' ? 'checked' : 'unchecked'}></div>
+                                            <input type="radio" name="spellingMethod" value="PojUnicode" defaultChecked={this.state.spellingMethod === 'PojUnicode'} onChange={this.handleInput.bind(this)} />
                                             <span><Translate id="poj" /></span>
                                         </label>
                                         <label id='radio-6' className='radio'>
-                                            <div className={this.state.spellingMethod === 'kip_unicode' ? 'checked' : 'unchecked'}></div>
-                                            <input type="radio" name="spellingMethod" value="kip_unicode" defaultChecked={this.state.spellingMethod === 'kip_unicode'} onChange={this.handleInput.bind(this)} />
+                                            <div className={this.state.spellingMethod === 'KipUnicode' ? 'checked' : 'unchecked'}></div>
+                                            <input type="radio" name="spellingMethod" value="KipUnicode" defaultChecked={this.state.spellingMethod === 'KipUnicode'} onChange={this.handleInput.bind(this)} />
                                             <span><Translate id="lmj" /></span>
                                         </label>
                                         <div id='text-input-seperator'></div>
