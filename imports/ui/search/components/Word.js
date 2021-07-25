@@ -62,8 +62,8 @@ export default class Word extends Component {
         if (dicString === 'TaijitToaSutian') {
             linkHtml.push(
                 <ul>
-                    <li><a href='https://chhoetaigi.github.io/TaijitToaSutianWebsite/pdf/%E5%8F%B0%E6%97%A5%E5%A4%A7%E8%BE%AD%E5%85%B8%E8%AA%AA%E6%98%8E%E2%80%94%E2%80%94%E5%8F%B0%E7%81%A3%E8%AA%9E%C3%AA%E7%99%BC%E9%9F%B3%2020210724.pdf' target='_blank'>台灣語ê發音</a></li>
                     <li><a href='https://chhoetaigi.github.io/TaijitToaSutianWebsite/pdf/%E5%8F%B0%E6%97%A5%E5%A4%A7%E8%BE%AD%E5%85%B8%E8%AA%AA%E6%98%8E%E2%80%94%E2%80%94%E5%87%A1%E4%BE%8B%2020210724.pdf' target='_blank'>凡例</a></li>
+                    <li><a href='https://chhoetaigi.github.io/TaijitToaSutianWebsite/pdf/%E5%8F%B0%E6%97%A5%E5%A4%A7%E8%BE%AD%E5%85%B8%E8%AA%AA%E6%98%8E%E2%80%94%E2%80%94%E5%8F%B0%E7%81%A3%E8%AA%9E%C3%AA%E7%99%BC%E9%9F%B3%2020210724.pdf' target='_blank'>台灣語ê發音</a></li>
                     <li><a href='https://chhoetaigi.github.io/TaijitToaSutianWebsite/pdf/%E5%8F%B0%E6%97%A5%E5%A4%A7%E8%BE%AD%E5%85%B8%E8%AA%AA%E6%98%8E%E2%80%94%E2%80%94%E3%80%8C%E5%8F%B0%E7%81%A3%E8%AA%9E%E4%BB%AE%E5%90%8D-%E7%99%BD%E8%A9%B1%E5%AD%97%E3%80%8D%E5%B0%8D%E7%85%A7%E8%A1%A8%2020210505.pdf' target='_blank'>「台灣語仮名-白話字」對照表</a></li>
                     <li><a href='https://chhoetaigi.github.io/TaijitToaSutianWebsite/pdf/%E5%8F%B0%E6%97%A5%E5%A4%A7%E8%BE%AD%E5%85%B8%E8%AA%AA%E6%98%8E%E2%80%94%E2%80%94%E3%80%8C%E7%99%BD%E8%A9%B1%E5%AD%97-%E5%8F%B0%E7%81%A3%E8%AA%9E%E4%BB%AE%E5%90%8D%E3%80%8D%E5%B0%8D%E7%85%A7%E8%A1%A8%2020210505.pdf' target='_blank'>「白話字-台灣語仮名」對照表</a></li>
                 </ul>

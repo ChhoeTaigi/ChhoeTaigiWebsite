@@ -129,7 +129,7 @@ function cleanEmptyColumns(options) {
 
 // regex
 function preprocessRegex(options) {
-    const soouSianntiau = '(？:2|3|p8|p|t8|t|k8|k|h8|h|5|7)?';
+    const soouSianntiau = '(?:2|3|p8|p|t8|t|k8|k|h8|h|5|7)?';
     const imchat = '(?:(?![ -]).)+';
     const hyphenOrSpace = '(?: |--|-)';
 
