@@ -2,3 +2,28 @@
   max-width: 1024px;
   margin: 0 auto;
 }
+
+// sticky footer
+html, body, #render-target, .content-wrapper {
+  height: 100%;
+}
+
+.content-wrapper {
+  display: flex;
+  flex-direction: column;
+  > main {
+    flex: 1 0 auto;
+  }
+  .site-footer {
+    flex-shrink: 0;
+  }
+}
+
+// set <main> color while stretch for sticky footer
+main.bg--darkgreen {
+  background-color: $color--fade-main;
+}
+
+main.bg--lightgreen {
+  background-color: $color--light-main;
+}

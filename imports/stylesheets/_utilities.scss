@@ -1,3 +1,94 @@
+.btn {
+  height: 48px;
+  padding: 0 20px;
+  border-radius: 2px;
+  box-shadow: $shadow--basic;
+  background-color: white;
+  border: solid 1px $color--main;
+  font-size: 18px;
+  font-weight: normal;
+  line-height: 48px;
+  color: $color--main;
+  &--search, &--clear {
+    background-repeat: no-repeat;
+    background-size: 22px 18px;
+    background-position: right 14px center;
+    padding-right: 44px;
+  }
+  &--search {
+    background-image: url(/images/magnifier@2x.png);
+  }
+  &--clear {
+    background-image: url(/images/clear@2x.png);
+    color: #808380;
+  }
+}
+
+.radio-simulated {
+  position: relative;
+  padding-left: 20px;
+  &__hidden {
+    position: absolute;
+    left: 0;
+    z-index: -1;
+    width: 1rem;
+    height: 1.25rem;
+    opacity: 0;
+    &:checked ~ .radio-simulated__text::before {
+      background-image: url(/images/checkbox_select@2x.png);
+    }
+  }
+  &__text {
+    &::before {
+      content: "";
+			display: block;
+			position: absolute;
+			top: 50%;
+      left: 0;
+			width: 16px;
+			height: 16px;
+			background-size: 16px 16px;
+      margin-top: -8px;
+      background-image: url(/images/checkbox@2x.png);
+    }
+  }
+}
+
+.search-block {
+  display: flex;
+  width: 100%;
+  margin-bottom: 12px;
+  &__left {
+    flex: 0 0 150px;
+    text-align: right;
+    padding-right: 10px;
+    line-height: 34px;
+  }
+  &__right {
+    flex-grow: 1;
+  }
+  input[type='text'] {
+    height: 34px;
+    line-height: 34px;
+    width: 100%;
+    border: none;
+    padding: 0 15px;
+    background-color: $color--fade-light-main;
+    border-radius: 5px;
+    &::placeholder {
+      color: $color--gray-light-main;
+      font-weight: lighter;
+    }
+    &:focus {
+      outline-color: $color--fade-main;
+    }
+  }
+}
+
+
+
+
+// old
 .fix-width-center {
 	position: relative;
 	width: 1024px;

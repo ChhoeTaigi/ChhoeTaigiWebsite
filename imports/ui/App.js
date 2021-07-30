@@ -43,7 +43,7 @@ class App extends Component {
 
     render() {
         return (
-            <div>
+            <div class="content-wrapper">
                 <Header />
                 <Main />
                 <Footer />
