@@ -1,72 +1,3 @@
-@import "normalize";
-@import url(https://tauhu.tw/tauhu-oo.css);
-
-@font-face {
-    font-family: 'TaigiFont';
-    font-style: normal;
-    font-weight: 400;
-    font-display: swap;
-    src: url("/font/GenWanMinTW-M3.woff2") format('woff2');
-}
-
-html {
-	height: 100%;
-}
-
-html, body {
-	margin: 0;
-	padding: 0;
-	min-width: 1024px;
-}
-
-body {
-	position: relative;
-	overflow-y: scroll;
-	letter-spacing: 1px;
-	padding-bottom: 40px;
-}
-
-body, input, button {
-    font-family: 'TaigiFont', tauhu-oo, PingFangTC-Regular, "Microsoft JhengHei", sans-serif;
-    background-color: transparent;
-}
-
-main {
-	padding-top: 56px;
-}
-
-button {
-    border: 0;
-    padding: 0;
-    cursor: pointer;
-}
-
-input {
-    margin: 0;
-    padding: 0;
-}
-
-ul, ol {
-    margin: 0;
-}
-
-h1, h2, h3 {
-    margin: 0;
-}
-
-th, td {
-    margin: 0;
-    padding: 0;
-}
-
-.fix-width-center {
-	position: relative;
-	width: 1024px;
-	height: 100%;
-	margin-left: auto;
-	margin-right: auto;
-}
-
 .search_actions {
     margin-top: 7px;
     margin-bottom: 6px;
@@ -90,13 +21,13 @@ th, td {
     margin-right: auto;
     padding: 0;
     border-radius: 2px;
-    box-shadow: 0 4px 2px 0 rgba(0, 0, 0, 0.16);
+    box-shadow: $shadow--basic;
     background-color: white;
     background-image: url(/images/clear@2x.png);
     background-repeat: no-repeat;
     background-size: 22px 18px;
     background-position: 114px center; 
-    border: solid 1px #43944f;
+    border: solid 1px $color--main;
     font-size: 18px;
     font-weight: normal;
     line-height: 48px;
@@ -108,7 +39,7 @@ th, td {
 
 .clear-button:active {
 	background-image: url(/images/clear_w@2x.png);
-    background-color: #43944f;
+    background-color: $color--main;
     box-shadow: none;
     color: white;
 }
@@ -119,17 +50,17 @@ th, td {
     margin-right: 20px;
     padding: 0;
     border-radius: 2px;
-    box-shadow: 0 4px 2px 0 rgba(0, 0, 0, 0.16);
+    box-shadow: $shadow--basic;
     background-color: white;
     background-image: url(/images/magnifier@2x.png);
     background-repeat: no-repeat;
     background-size: 22px 18px;
     background-position: 114px center; 
-    border: solid 1px #43944f;
+    border: solid 1px $color--main;
     font-size: 18px;
     font-weight: normal;
     line-height: 48px;
-    color: #43944f;
+    color: $color--main;
     padding-left: 20px;
     padding-right: 44px;
     background-position: right 14px center;
@@ -137,7 +68,7 @@ th, td {
 
 .find-button:active {
 	background-image: url(/images/magnifier_w@2x.png);
-    background-color: #43944f;
+    background-color: $color--main;
     box-shadow: none;
     color: white;
 }
