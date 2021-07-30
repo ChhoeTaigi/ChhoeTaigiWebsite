@@ -41,7 +41,7 @@
 		font-size: 15px;
 		padding: 0 10px;
 		position: relative;
-		color: $color--darkmain;
+		color: $color--dark-main;
 	}
 	a:not(#FB-link)::after {
 		content: "";
@@ -51,11 +51,11 @@
 		margin-left: -15px;
 		width: 30px;
 		height: 4px;
-		background-color: rgba($color--darkmain, 0.13);
+		background-color: rgba($color--dark-main, 0.13);
 		transition: background-color .3s ease-in;
 	}
 	a:not(#FB-link).active::after, a:not(#FB-link):hover::after {
-		background-color: $color--darkmain;
+		background-color: $color--dark-main;
 	}
 }
 
