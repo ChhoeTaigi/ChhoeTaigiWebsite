@@ -1,17 +1,17 @@
-import './about.css';
-import './advanced.css';
-import './all.css';
-import './app.css';
-import './basic.css';
-import './brief-word.css';
-import './detail.css';
-import './explanation.css';
-import './footer.css';
-import './global.css';
-import './header.css';
-import './landing.css';
-import './single.css';
-import './word.css'
+import './about.scss';
+import './advanced.scss';
+import './all.scss';
+import './app.scss';
+import './basic.scss';
+import './brief-word.scss';
+import './detail.scss';
+import './explanation.scss';
+import './footer.scss';
+import './global.scss';
+import './header.scss';
+import './landing.scss';
+import './single.scss';
+import './word.scss'
 
 if (Meteor.userId()) {
     import './manage.css';
