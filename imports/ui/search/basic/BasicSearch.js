@@ -106,8 +106,8 @@ class BasicSearch extends Component {
                                 <h3><Translate id="input-method" /></h3>
                                 <div className='search-block'>
                                     <label className='search-block__left' htmlFor='spelling'><Translate id="lmj-tb" /></label>
-                                    <div className='search-block__right search-block__latin'>
-                                        <div className='search-block__latin-top'>
+                                    <div className='search-block__right search-block__lmj'>
+                                        <div className='search-block__lmj-top'>
                                             <label className='radio-simulated'>
                                                 <input type="radio" className='radio-simulated__hidden' name="spellingMethod" value="poj_input" defaultChecked={this.state.spellingMethod === 'poj_input'} onChange={this.handleInput.bind(this)} />
                                                 <span className='radio-simulated__text'><Translate id="poj-input" /></span>
@@ -125,7 +125,7 @@ class BasicSearch extends Component {
                                                 <span className='radio-simulated__text'><Translate id="lmj" /></span>
                                             </label>
                                         </div>
-                                        <div className='search-block__latin-bottom'>
+                                        <div className='search-block__lmj-bottom'>
                                             <input type="text" name="spelling" placeholder={this.props.translate('keyword')} value={this.state.spelling} onChange={this.handleInput.bind(this)} />
                                         </div>
                                     </div>
