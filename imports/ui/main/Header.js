@@ -19,18 +19,30 @@ class Header extends Component {
             currentLocation = '/';
 
         return (
-            <header>
-                <div className='fix-width-center'>
-                    <Link className="logo-button" to='/' >
-                        <img id='logo' src='/images/logo@2x.png' width='194' height='32' />    
+            <header className='site-header'>
+                <div className='container'>
+                    <Link to='/' >
+                        <img className='logo' src='/images/logo@2x.png' width='194' height='32' />    
                     </Link>
-                    <div id='header-right'>
-                        <a id='FB-link' className='menu-item' href='https://www.facebook.com/ChhoeTaigi/' target='_blank' />
-                        <Link className={'menu-text menu-item ' + (currentLocation == '/liaukai' ? 'menu-item-select' : 'menu-item-not-select')} to='/liaukai'><Translate id="about" /></Link>
-                        <Link className={'menu-text menu-item ' + (currentLocation == '/app' ? 'menu-item-select' : 'menu-item-not-select')} to='/app'><Translate id="app" /></Link>
-                        <Link className={'menu-text menu-item ' + (currentLocation == '/chinkai' ? 'menu-item-select' : 'menu-item-not-select')} to='/chinkai'><Translate id="advanced" /></Link>
-                        <Link className={'menu-text menu-item ' + (currentLocation == '/' ? 'menu-item-select' : 'menu-item-not-select')} to='/'><Translate id="basic" /></Link>
-                    </div>
+                    <nav className='site-nav'>
+                        <ul>
+                            <li>
+                                <Link className={currentLocation == '/' ? 'active' : ''} to='/'><Translate id="basic" /></Link>
+                            </li>
+                            <li>
+                                <Link className={currentLocation == '/chinkai' ? 'active' : ''} to='/chinkai'><Translate id="advanced" /></Link>
+                            </li>
+                            <li>
+                                <Link className={currentLocation == '/app' ? 'active' : ''} to='/app'><Translate id="app" /></Link>
+                            </li>
+                            <li>
+                                <Link className={currentLocation == '/liaukai' ? 'active' : ''} to='/liaukai'><Translate id="about" /></Link>
+                            </li>
+                            <li>
+                                <Link id='FB-link' className='menu-item' to={{pathname:'https://www.facebook.com/ChhoeTaigi/'}} target='_blank'><span className='sr-only'>ChhoeTaigi Facebook</span></Link>
+                            </li>
+                        </ul>                     
+                    </nav>
                 </div>
             </header>
         );

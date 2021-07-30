@@ -1,77 +1,69 @@
-header {
-	position: fixed !important;
+.site-header {
+	position: fixed;
 	height: 55px;
 	width: 100%;
 	top: 0;
 	background-color: white;
 	border-bottom: 1px solid #BEC2BC;
 	z-index: 999;
+	.container {
+		height: 100%;
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+	}
+	.logo {
+		margin-right: auto;
+	}
 }
 
-#logo {
-	position: absolute;
-	left: 23px;
-	top: 12px;
-}
-
-#header-right {
-	display: inline-block;
-	position: absolute;
-	right: 23px;
+.site-nav {
 	height: 100%;
+	ul {
+		@extend %plain-list;
+		height: 100%;
+		display: flex;
+		align-items: stretch;
+	}
+	li {
+		margin-left: 14px;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+	}
+	a {
+		text-decoration: none;
+		display: flex;
+		align-items: center;
+	}
+	a:not(#FB-link) {
+		height: 100%;
+		font-size: 15px;
+		padding: 0 10px;
+		position: relative;
+		color: $color--darkmain;
+	}
+	a:not(#FB-link)::after {
+		content: "";
+		position: absolute;
+		bottom: 0;
+		left: 50%;
+		margin-left: -15px;
+		width: 30px;
+		height: 4px;
+		background-color: rgba($color--darkmain, 0.13);
+		transition: background-color .3s ease-in;
+	}
+	a:not(#FB-link).active::after, a:not(#FB-link):hover::after {
+		background-color: $color--darkmain;
+	}
 }
 
 #FB-link {
+	display: block;
 	background-image: url(/images/fb@2x.png);
 	background-size: 22px 22px;
 	height: 22px;
 	width: 22px;
-}
-
-.menu-item {
-	position: relative;
-	float: right;
-	height: 22px;
-	top: 50%;
-	margin-top: -11px;
-}
-
-.menu-text {
-	font-size: 15px;
-	line-height: 21px;
-	text-decoration: none;
-	color: #657160;
-	margin-right: 34px;
-}
-
-.menu-item-select {
-	color: #23672e;
-}
-
-.menu-item-select::after {
-	content: "";
-	display: block;
-	margin-left: auto;
-	margin-right: auto;
-	position: relative;
-	bottom: -14px;
-	width: 30px;
-	height: 4px;
-	background-color: #23672e;
-}
-
-.menu-item-not-select {
-	color: #23672e;
-}
-
-.menu-item-not-select::after {
-	content: "";
-	display: block;
-	margin-left: auto;
-	margin-right: auto;
-	position: relative;
-	bottom: -14px;
-	width: 30px;
-	height: 4px;
-	background-color: #23672e22;
+	margin-left: 20px;
 }

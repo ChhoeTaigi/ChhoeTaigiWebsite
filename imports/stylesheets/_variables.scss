@@ -1,2 +1,9 @@
 $color--main: #43944f;
+$color--darkmain: #23672e;
 $shadow--basic: 0 4px 2px 0 rgba(0, 0, 0, 0.16);
+
+%plain-list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}

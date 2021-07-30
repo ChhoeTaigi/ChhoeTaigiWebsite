@@ -6,6 +6,10 @@
   src: url("/font/GenWanMinTW-M3.woff2") format('woff2');
 }
 
+*, *::before, *::after {
+  //box-sizing: border-box;  // wait
+}
+
 html {
 	height: 100%;
 }
@@ -30,7 +34,11 @@ body, input, button {
 }
 
 main {
-padding-top: 56px;
+  padding-top: 56px;
+}
+
+img {
+  display: block;
 }
 
 button {
