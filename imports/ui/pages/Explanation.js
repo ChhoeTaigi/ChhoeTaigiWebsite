@@ -10,93 +10,101 @@ class Explanation extends Component {
         super(props);
 
         props.addTranslation(explanationTranslations);
-
-        this.state = {
-            background_height: window.innerHeight - 96,
-        };
-
-        this.handleResize = this.handleResize.bind(this);
     }
 
-    handleResize() {
-        this.setState({
-            background_height: window.innerHeight - 96,
-        });
-    }
-
-    componentDidMount() {
-        window.addEventListener('resize', this.handleResize);
-    }
-
-    componentWillUnmount() {
-        window.removeEventListener('resize', this.handleResize);
-    }
 
     render() {
         return (
-            <div id='explanation-container' style={{minHeight: this.state.background_height + 'px'}}>
-                <h1 id='explanation-title'><Translate id='explanation' /></h1>
-                <div id='explanation-sec-1'>
-                    <h2 className='explanation-subtitle'><Translate id='method' /></h2>
-                    <ul>
-                        <li className='explanation-li'><Translate id='equals' /></li>
-                        <li className='explanation-li'><Translate id='contains' /></li>
+            <div className='container explanation'>
+                <h1><Translate id='explanation' /></h1>
+                <section>
+                    <h2><Translate id='method' /></h2>
+                    <ul className='explanation__ul'>
+                        <li><Translate id='equals' /></li>
+                        <li><Translate id='contains' /></li>
                     </ul>
-                </div>
-                <div id='explanation-sec-2'>
-                    <h2 className='explanation-subtitle'><Translate id='condition' /></h2>
-                    <ul>
-                        <li className='explanation-li'><Translate id='lmj-tb' />
-                            <table className='explanation-table'>
-                                <tbody>
-                                    <tr>
-                                        <th><Translate id='poj-input' /></th>
-                                        <td></td>
-                                        <td><Translate id='poj-num' /></td>
-                                    </tr>
-                                    <tr>
-                                        <th><Translate id='lmj-input' /></th>
-                                        <td></td>
-                                        <td><Translate id='lmj-num' /></td>
-                                    </tr>
-                                    <tr>
-                                        <th><Translate id='poj' /></th>
-                                        <td></td>
-                                        <td><Translate id='poj-unicode' /></td>
-                                    </tr>
-                                    <tr>
-                                        <th><Translate id='lmj' /></th>
-                                        <td></td>
-                                        <td><Translate id='lmj-unicode' /></td>
-                                    </tr>
-                                    
-                                </tbody>
-                            </table>
+                </section>
+                <section>
+                    <h2><Translate id='condition' /></h2>
+                    <ul className='explanation__ul'>
+                        <li><Translate id='lmj-tb' />
+                            <ul className='lmj-note'>
+                                <li>
+                                    <h3><Translate id='poj-input' /></h3>
+                                    <div><Translate id='poj-num' /></div>
+                                </li>
+                                <li>
+                                    <h3><Translate id='lmj-input' /></h3>
+                                    <div><Translate id='lmj-num' /></div>
+                                </li>
+                                <li>
+                                    <h3><Translate id='poj' /></h3>
+                                    <div><Translate id='poj-unicode' /></div>
+                                </li>
+                                <li>
+                                    <h3><Translate id='lmj' /></h3>
+                                    <div><Translate id='lmj-unicode' /></div>
+                                </li>
+                            </ul>
                         </li>
-                        <li className='explanation-li'><Translate id='tb' /></li>
-                        <li className='explanation-li'><Translate id='hb' /></li>
-                        <li className='explanation-li'><Translate id='en' /></li>
+                        <li><Translate id='tb' /></li>
+                        <li><Translate id='hb' /></li>
+                        <li><Translate id='en' /></li>
                     </ul>
+                </section>
+                <section>
+                    <h2><Translate id='regex' /></h2>
+                    <ul className="regex-note">
+                        <li>
+                            <h3><Translate id='jimho-jigoan' /></h3>
+                            <div className='regex-note__content'>
+                                <ol>
+                                    <li><Translate id='jimho-jigoan-le1' /></li>
+                                    <li><Translate id='jimho-jigoan-le2' /></li>
+                                </ol>
+                            </div>
+                        </li>
+                        <li>
+                            <h3><Translate id='1e-jigoan' /></h3>
+                            <div className='regex-note__content'>
+                                <Translate id='1e-jigoan-le' />
+                            </div>
+                        </li>
+                        <li>
+                            <h3><Translate id='hanche-khuithau' /></h3>
+                            <div className='regex-note__content'>
+                                <Translate id='hanche-khuithau-le' />
+                            </div>
+                        </li>
+                        <li>
+                            <h3><Translate id='hanche-kiatsok' /></h3>
+                            <div className='regex-note__content'>
+                                <Translate id='hanche-kiatsok-le' />
+                            </div>
+                        </li>
+                        <li>
+                            <h3><Translate id='choanpoo-sianntiau' /></h3>
+                            <div className='regex-note__content'>
+                                <Translate id='choanpoo-sianntiau-le' />
+                            </div>
+                        </li>
+                        <li>
+                            <h3><Translate id='ahun-jisu' /></h3>
+                            <div className='regex-note__content'>
+                                <Translate id='ahun-jisu-le' />
+                            </div>
+                        </li>
+                        <li>
+                            <h3><Translate id='bokang-khiunnkhau' /></h3>
+                            <div className='regex-note__content'>
+                                <Translate id='bokang-khiunnkhau-le' />
+                            </div>
+                        </li>
+                    </ul>
+                </section>
+                <div className='explanation__note'>
+                    <Translate id='contact' />
                 </div>
-                <div id='explanation-sec-3'>
-                    <h2 className='explanation-subtitle'><Translate id='regex' /></h2>
-                    <h3 className='explanation-subtitle2'><Translate id='jimho-jigoan' /></h3>
-                    <span className='explanation-content'><Translate id='jimho-jigoan-le1' /></span>
-                    <span className='explanation-content'><Translate id='jimho-jigoan-le2' /></span>
-                    <h3 className='explanation-subtitle2'><Translate id='1e-jigoan' /></h3>
-                    <span className='explanation-content'><Translate id='1e-jigoan-le' /></span>
-                    <h3 className='explanation-subtitle2'><Translate id='hanche-khuithau' /></h3>
-                    <span className='explanation-content'><Translate id='hanche-khuithau-le' /></span>
-                    <h3 className='explanation-subtitle2'><Translate id='hanche-kiatsok' /></h3>
-                    <span className='explanation-content'><Translate id='hanche-kiatsok-le' /></span>
-                    <h3 className='explanation-subtitle2'><Translate id='choanpoo-sianntiau' /></h3>
-                    <span className='explanation-content'><Translate id='choanpoo-sianntiau-le' /></span>
-                    <h3 className='explanation-subtitle2'><Translate id='ahun-jisu' /></h3>
-                    <span className='explanation-content'><Translate id='ahun-jisu-le' /></span>
-                    <h3 className='explanation-subtitle2'><Translate id='bokang-khiunnkhau' /></h3>
-                    <span className='explanation-content'><Translate id='bokang-khiunnkhau-le' /></span>
-                </div>
-                <div id='explanation-note'><Translate id='contact' /></div>
             </div>
         );
     }
