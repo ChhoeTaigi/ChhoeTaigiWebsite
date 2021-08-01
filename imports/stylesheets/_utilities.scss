@@ -9,6 +9,7 @@
   font-weight: normal;
   line-height: 48px;
   color: $color--main;
+  text-decoration: none;
   &--search, &--clear {
     background-repeat: no-repeat;
     background-size: 22px 18px;
@@ -21,6 +22,56 @@
   &--clear {
     background-image: url(/images/clear@2x.png);
     color: #808380;
+  }
+  &--contact {
+    box-shadow: none;
+    border-color: #babfb7;
+    cursor: pointer;
+    background-repeat: no-repeat;
+    font-size: 26px;
+    font-weight: 500;
+    color: #babfb7;
+    height: 168px;
+    line-height: 168px;
+    background-image: url(/images/arrow@2x.png);
+	  background-size: 61px 16px;
+    background-position: center right 60px;
+    text-align: center;
+    position: relative;
+    display: flex;
+    align-items: center;
+    &:hover {
+      box-shadow: $shadow--basic;
+      border-color: $color--main;
+      color: #43944f;
+      background-image: url(/images/arrow_g@2x.png);
+    }
+  }
+  &--contact-msg, &--contact-mail {
+    &::before {
+      content: "";
+      display: block;
+      background-repeat: no-repeat;
+      margin: 0 60px 0 40px;
+    }
+  }
+  &--contact-msg::before {
+    width: 70px;
+    height: 60px;
+    background-image: url(/images/chat_normal@2x.png);
+    background-size: 70px 60px;
+  }
+  &--contact-msg:hover::before {
+    background-image: url(/images/chat_click@2x.png);
+  }
+  &--contact-mail::before {
+    width: 70px;
+    height: 52px;
+    background-image: url(/images/mail_normal@2x.png);
+    background-size: 70px 52px;
+  }
+  &--contact-mail:hover::before {
+    background-image: url(/images/mail_click@2x.png);
   }
 }
 
