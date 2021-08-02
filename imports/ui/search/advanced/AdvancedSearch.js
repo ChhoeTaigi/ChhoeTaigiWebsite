@@ -238,7 +238,7 @@ class SingleDicOptionsClass extends Component {
             </label>,
         ];
         for (let key in columns) {
-            if (key !== "StoreLink" && 
+            if (key !== "StoreLink" &&
                 key !== "GoanchhehPoochhiongChuliau") {
                 labels.push(
                     <label
@@ -296,20 +296,23 @@ class SingleDicOptionsClass extends Component {
             </div>,
         ];
         for (let key in columns) {
-            inputs.push(
-                <Translate key={key + "-input"}>
-                    {({ translate }) => (
-                        <input
-                            className="single-dic-text-input"
-                            type="text"
-                            placeholder={translate("keyword")}
-                            name={key}
-                            onChange={this.handleInput.bind(this)}
-                            value={this.state.columns[key]}
-                        ></input>
-                    )}
-                </Translate>
-            );
+            if (key !== "StoreLink" &&
+                key !== "GoanchhehPoochhiongChuliau") {
+                inputs.push(
+                    <Translate key={key + "-input"}>
+                        {({ translate }) => (
+                            <input
+                                className="single-dic-text-input"
+                                type="text"
+                                placeholder={translate("keyword")}
+                                name={key}
+                                onChange={this.handleInput.bind(this)}
+                                value={this.state.columns[key]}
+                            ></input>
+                        )}
+                    </Translate>
+                );
+            }
         }
         return (
             <div id="single-dic-form-container">

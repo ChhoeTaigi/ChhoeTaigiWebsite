@@ -1,7 +1,7 @@
 import postgres from '../database/postgres';
 import dicStruct from '../dicts/dictionary-struct';
 
-import { Logger }     from 'meteor/ostrio:logger';
+import { Logger } from 'meteor/ostrio:logger';
 import { LoggerConsole } from 'meteor/ostrio:loggerconsole';
 import { LoggerFile } from 'meteor/ostrio:loggerfile';
 
@@ -50,17 +50,18 @@ Meteor.methods({
                     options.limit = limit;
                     options.offset = ((options.page || 1) - 1) * limit;
                     return basicSearch(options);
-                } else
+                } else {
                     return basicSearches(options);
+                }
             } else if (method === 'all-field') {
                 if (options.dic) {
                     const limit = 30;
                     options.limit = limit;
                     options.offset = ((options.page || 1) - 1) * limit;
                     return searchAllField(options);
-                } 
-                else
+                } else {
                     return searchAllFields(options);
+                }
             } else if (method === 'single-dic') {
                 const limit = 30;
                 options.limit = limit;
@@ -72,7 +73,7 @@ Meteor.methods({
 
     'search.dicAndId'(dic, id) {
         if (Meteor.isServer) {
-            return postgres(dic).select('*').where({DictWordID: id}).limit(1);
+            return postgres(dic).select('*').where({ DictWordID: id }).limit(1);
         }
     },
 });
@@ -83,14 +84,14 @@ function processSearchMethod(options) {
         if (options.value !== undefined) {
             // all fields
             if (/\S/.test(options.value)) {
-                options.value = '(?:^|.*\/)' + options.value + '(?:\\(?:.*\\))?(?:\/.*|$)';
+                options.value = '(?:^|.*\/)' + options.value + '(?:\\(.*\\))?(?:\/.*|$)';
             }
         } else if (options.columns !== undefined) {
             for (let key in options.columns) {
                 if (/\S/.test(options.columns[key])) {
                     console.log(key);
                     if (key === "spelling" || key === "PojInput" || key === "PojInputOthers" || key === "KipInput" || key === "KipInputOthers" || key === "PojUnicode" || key === "PojUnicodeOthers" || key === "KipUnicode" || key === "KipUnicodeOthers") {
-                        options.columns[key] = '(?:^|.*\/)' + options.columns[key] + '(?:\\(?:.*\\))?(?:\/.*|$)';
+                        options.columns[key] = '(?:^|.*\/)' + options.columns[key] + '(?:\\(.*\\))?(?:\/.*|$)';
                         console.log(options.columns[key]);
                     } else {
                         options.columns[key] = '^' + options.columns[key] + '$';
@@ -135,7 +136,7 @@ function preprocessRegex(options) {
 
     const regexRedundantSianntiau = new RegExp('(?<!\\\\)(?:1|4)', 'g');
     const regexHyphenOrSpace = new RegExp('[ -]', 'g');
-    const regexSianntiauTaibe = new RegExp('\\%', 'g');
+    const regexSianntiauTaibe = new RegExp('%', 'g');
     const regexImchatTaibe = new RegExp('~', 'g');
 
     if (options.value !== undefined) {
@@ -143,7 +144,6 @@ function preprocessRegex(options) {
         options.value = options.value.replace(regexHyphenOrSpace, hyphenOrSpace);
         options.value = options.value.replace(regexSianntiauTaibe, soouSianntiau);
         options.value = options.value.replace(regexImchatTaibe, imchat);
-
     } else if (options.columns !== undefined) {
         for (let key in options.columns) {
             if (key === "PojInput" || key === "PojInputOthers" || key === "KipInput" || key === "KipInputOthers") {
@@ -180,7 +180,7 @@ function basicSearch(options) {
     for (let key in brief) {
         briefArray.push(key);
     }
-    
+
     const columns = options.columns;
     // check valid columns
     let valid = false;
@@ -202,7 +202,7 @@ function basicSearch(options) {
             words: [],
         };
     }
-  
+
     const query = queryCondictionBasic(options);
     query.select(briefArray);
 
@@ -217,15 +217,15 @@ function basicSearch(options) {
 
     return new Promise((resolve, reject) => {
         Promise.all([queryNo, query])
-        .catch(error => reject(error))
-        .then(results => {
-            rtn = {
-                dic: dic,
-                num: results[0][0].num,
-                words: results[1],
-            };
-            resolve(rtn);
-        });
+            .catch(error => reject(error))
+            .then(results => {
+                rtn = {
+                    dic: dic,
+                    num: results[0][0].num,
+                    words: results[1],
+                };
+                resolve(rtn);
+            });
     });
 }
 
@@ -243,17 +243,17 @@ function basicSearches(options) {
 
     return new Promise((resolve, reject) => {
         Promise.all(querys)
-        .catch(error => reject(error))
-        .then(results => {
-            resolve(results);
-        });
+            .catch(error => reject(error))
+            .then(results => {
+                resolve(results);
+            });
     });
 }
 
 // all field search
 function searchAllField(options) {
     const dic = options.dic;
-    const struct = dicStruct.find(e => e.name===dic);
+    const struct = dicStruct.find(e => e.name === dic);
     const columns = struct.columns;
     const brief = struct.brief;
     const briefArray = ['DictWordID'];
@@ -282,15 +282,15 @@ function searchAllField(options) {
     const queryNo = searchAllFieldNo(options);
     return new Promise((resolve, reject) => {
         Promise.all([queryNo, query])
-        .catch(error => reject(error))
-        .then(results => {
-            rtn = {
-                dic: dic,
-                num: results[0][0].num,
-                words: results[1],
-            };
-            resolve(rtn);
-        });
+            .catch(error => reject(error))
+            .then(results => {
+                rtn = {
+                    dic: dic,
+                    num: results[0][0].num,
+                    words: results[1],
+                };
+                resolve(rtn);
+            });
     });
 }
 
@@ -308,10 +308,10 @@ function searchAllFields(options) {
 
     return new Promise((resolve, reject) => {
         Promise.all(querys)
-        .catch(error => reject(error))
-        .then(results => {
-            resolve(results);
-        });
+            .catch(error => reject(error))
+            .then(results => {
+                resolve(results);
+            });
     });
 }
 
@@ -325,7 +325,7 @@ function searchSingleDic(options) {
     for (let key in brief) {
         briefArray.push(key);
     }
-    
+
     const columns = options.columns;
     // check valid columns
     let valid = false;
@@ -341,7 +341,7 @@ function searchSingleDic(options) {
             num: 0,
             words: [],
         };
-    
+
     const query = queryCondictionSingleDic(options);
     query.select(briefArray);
 
@@ -354,15 +354,15 @@ function searchSingleDic(options) {
 
     return new Promise((resolve, reject) => {
         Promise.all([queryNo, query])
-        .catch(error => reject(error))
-        .then(results => {
-            rtn = {
-                dic: dic,
-                num: results[0][0].num,
-                words: results[1],
-            };
-            resolve(rtn);
-        });
+            .catch(error => reject(error))
+            .then(results => {
+                rtn = {
+                    dic: dic,
+                    num: results[0][0].num,
+                    words: results[1],
+                };
+                resolve(rtn);
+            });
     });
 }
 
@@ -371,7 +371,7 @@ function searchBasicNo(options) {
     const query = queryCondictionBasic(options);
 
     query.count('DictWordID as num');
-    
+
     return query;
 }
 
@@ -396,34 +396,34 @@ function queryCondictionBasic(options) {
     const dicColumns = struct.columns;
     const columns = options.columns;
 
-    console.log("queryCondictionBasic: "+ dic);
+    console.log("queryCondictionBasic: " + dic);
 
     const query = postgres.from(dic);
     for (let key in columns) {
-        console.log("key = "+key+", columns[key] = "+columns[key]);
+        console.log("key = " + key + ", columns[key] = " + columns[key]);
 
         if (key === 'taibun') {
-            if ('HanLoTaibunPoj' in dicColumns)
-                query.orWhere(lowerQeury('HanLoTaibunPoj'), '~*', lowerStr(columns[key]));
-            if ('HanLoTaibunKip' in dicColumns)
-                query.orWhere(lowerQeury('HanLoTaibunKip'), '~*', lowerStr(columns[key]));
+            if ('HanLoTaibunPoj' in dicColumns) {
+                query.andWhere(lowerQeury('HanLoTaibunPoj'), '~*', lowerStr(columns[key]));
+            }
+            if ('HanLoTaibunKip' in dicColumns) {
+                query.andWhere(lowerQeury('HanLoTaibunKip'), '~*', lowerStr(columns[key]));
+            }
         } else if (key === "PojInput" && 'PojInputOthers' in dicColumns) {
-            // if ('HanLoTaibunPoj' in dicColumns) {}
-            query.andWhere(function() {
-                this.where(lowerQeury('PojInput'), '~*',  lowerStr(columns[key])).orWhere(lowerQeury('PojInputOthers'), '~*',  lowerStr(columns[key]));
+            query.andWhere(function () {
+                this.where(lowerQeury('PojInput'), '~*', lowerStr(columns[key])).orWhere(lowerQeury('PojInputOthers'), '~*', lowerStr(columns[key]));
             });
         } else if (key === "KipInput" && 'KipInputOthers' in dicColumns) {
-            query.andWhere(function() {
-                this.where(lowerQeury('KipInput'), '~*',  lowerStr(columns[key])).orWhere(lowerQeury('KipInputOthers'), '~*',  lowerStr(columns[key]));
+            query.andWhere(function () {
+                this.where(lowerQeury('KipInput'), '~*', lowerStr(columns[key])).orWhere(lowerQeury('KipInputOthers'), '~*', lowerStr(columns[key]));
             });
         } else if (key === "PojUnicode" && 'PojUnicodeOthers' in dicColumns) {
-            // if ('HanLoTaibunPoj' in dicColumns) {}
-            query.andWhere(function() {
-                this.where(lowerQeury('PojUnicode'), '~*',  lowerStr(columns[key])).orWhere(lowerQeury('PojUnicodeOthers'), '~*',  lowerStr(columns[key]));
+            query.andWhere(function () {
+                this.where(lowerQeury('PojUnicode'), '~*', lowerStr(columns[key])).orWhere(lowerQeury('PojUnicodeOthers'), '~*', lowerStr(columns[key]));
             });
         } else if (key === "KipUnicode" && 'KipUnicodeOthers' in dicColumns) {
-            query.andWhere(function() {
-                this.where(lowerQeury('KipUnicode'), '~*',  lowerStr(columns[key])).orWhere(lowerQeury('KipUnicodeOthers'), '~*',  lowerStr(columns[key]));
+            query.andWhere(function () {
+                this.where(lowerQeury('KipUnicode'), '~*', lowerStr(columns[key])).orWhere(lowerQeury('KipUnicodeOthers'), '~*', lowerStr(columns[key]));
             });
         } else if (key === 'english') {
             if ('EngBun' in dicColumns) {
@@ -436,7 +436,7 @@ function queryCondictionBasic(options) {
                 console.log("queryCondictionBasic: HoaBun");
             }
         } else {
-            query.andWhere(lowerQeury(key), '~*',  lowerStr(columns[key]));
+            query.andWhere(lowerQeury(key), '~*', lowerStr(columns[key]));
             console.log("queryCondictionBasic: else");
         }
     }
@@ -445,15 +445,18 @@ function queryCondictionBasic(options) {
 
 function queryCondictionAllField(options) {
     const dic = options.dic;
-    const struct = dicStruct.find(e => e.name===dic);
+    const struct = dicStruct.find(e => e.name === dic);
     const columns = struct.columns;
+
+    console.log("queryCondictionAllField: " + dic);
 
     const query = postgres.from(dic);
     for (key in columns) {
         if (key !== 'DictWordID'
             && key !== 'StoreLink'
-            && key !== 'GoanchhehPoochhiongChuliau')
+            && key !== 'GoanchhehPoochhiongChuliau') {
             query.orWhere(lowerQeury(key), '~*', lowerStr(options.value));
+        }
     }
     return query;
 }
@@ -464,15 +467,18 @@ function queryCondictionSingleDic(options) {
     const dicColumns = struct.columns;
     const columns = options.columns;
 
+    console.log("queryCondictionSingleDic: " + dic);
+
     const query = postgres.from(dic);
     for (let key in columns) {
-        if (key === 'DictWordID'
-            && key !== 'StoreLink'
-            && key !== 'GoanchhehPoochhiongChuliau') {
+        if (key === 'DictWordID') {
             var keyNumber = columns[key].replace(/[^\d.-]/g, '');;
             query.andWhere(key, keyNumber);
         } else if (key in dicColumns) {
-            query.andWhere(lowerQeury(key), '~*', lowerStr(columns[key]));
+            if (key !== 'StoreLink' &&
+                key !== 'GoanchhehPoochhiongChuliau') {
+                query.andWhere(lowerQeury(key), '~*', lowerStr(columns[key]));
+            }
         }
     }
 
