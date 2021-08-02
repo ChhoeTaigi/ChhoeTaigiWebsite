@@ -149,7 +149,7 @@ class BasicSearch extends Component {
 									</div>
 								</div>
 							</div>
-							<div className='basic-search__actions'>
+							<div className='basic-search__actions search-actions'>
 								<input className='btn btn--search' type="submit" value={this.props.translate('find')} />
 								<input className='btn btn--clear' type="button" value={this.props.translate('reset')} onClick={this.resetAllInput} />
 							</div>

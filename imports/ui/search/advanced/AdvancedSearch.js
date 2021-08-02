@@ -11,8 +11,7 @@ import { isEmpty } from '../../../api/utils/utils';
 
 let state = {
     method: 'allField',
-    selectedDic: undefined,
-    background_height: window.innerHeight - 154,
+    selectedDic: undefined
 };
 
 class AdvancedSearch extends Component {
@@ -20,25 +19,14 @@ class AdvancedSearch extends Component {
         super(props);
 
         props.addTranslation(advancedTranslations);
-
         this.state = state;
-
-        this.handleResize = this.handleResize.bind(this);
-    }
-
-    handleResize() {
-        this.setState({
-            background_height: window.innerHeight - 154,
-        });
     }
 
     componentDidMount() {
-        window.addEventListener('resize', this.handleResize);
         window.scrollTo(0, 0);
     }
 
     componentWillUnmount() {
-        window.removeEventListener('resize', this.handleResize);
         state = this.state;
     }
 
@@ -59,8 +47,8 @@ class AdvancedSearch extends Component {
     render() {
         // method buttons
         let methodButtons = [
-            <button className={'method-button ' + (this.state.method === 'allField' ? 'method-button-selected' : 'method-button-unselected')} key='allField' onClick={this.handleMethodButton.bind(this, 'allField')}><Translate id='all-field' /></button>,
-            <button className={'method-button ' + (this.state.method === 'singleDic' ? 'method-button-selected' : 'method-button-unselected')} key='singleDic' onClick={this.handleMethodButton.bind(this, 'singleDic')}><Translate id='by-dic' /></button>
+            <button className={this.state.method === 'allField' ? 'active' : ''} key='allField' onClick={this.handleMethodButton.bind(this, 'allField')}><Translate id='all-field' /></button>,
+            <button className={this.state.method === 'singleDic' ? 'active' : ''} key='singleDic' onClick={this.handleMethodButton.bind(this, 'singleDic')}><Translate id='by-dic' /></button>
         ];
 
         // dictionary buttons
@@ -70,10 +58,10 @@ class AdvancedSearch extends Component {
             for (let idx in dicStruct) {
                 let dic = dicStruct[idx].name;
                 dicButtonsArr.push(
-                    <button className={'dic-button ' + (this.state.selectedDic === dic ? 'dic-button-selected' : 'dic-button-unselected')} key={dic} onClick={this.handleDicButton.bind(this, dic)}>{dicStruct[idx].chineseName}</button>
+                    <button className={'btn ' + (this.state.selectedDic === dic ? 'active' : '')} key={dic} onClick={this.handleDicButton.bind(this, dic)}>{dicStruct[idx].chineseName}</button>
                 );
             }
-            dicButtons = <div id='dic-buttons-container'>{dicButtonsArr}</div>;
+            dicButtons = <div className='dic-list'>{dicButtonsArr}</div>;
         }
 
         // search options
@@ -89,14 +77,14 @@ class AdvancedSearch extends Component {
 
         // view
         return (
-            <div className='green-background' style={{minHeight: this.state.background_height + 'px'}}>
-                <div id='advanced-container'>
-                    <div id='method-buttons-container'>{methodButtons}</div>
-                    <div id='option-container'>
-                        {dicButtons}
-                        {searchOptions}
-                    </div>
-                </div>
+            <div className='adv-search'>
+				<div className="container">
+					<div className='adv-search__tabs'>{methodButtons}</div>
+					<div className='adv-search__content'>
+						{dicButtons}
+						{searchOptions}
+					</div>
+				</div>
             </div>
         );
     }
@@ -190,54 +178,43 @@ class SingleDicOptionsClass extends Component {
     render() {
         let dic = this.props.dic;
         let columns = dicStruct.find((e) => e.name === dic).columns;
-        let labels = [
-            <label key='search-method-label' className='single-dic-label' id='search-method'><Translate id='search-method' /></label>
-        ];
-        for (let key in columns) {
-            labels.push(
-                <label className='single-dic-label' key={key + '-label'} htmlFor={key}>{columns[key]}</label>
-            );
-        }
-
-        let inputs = [
-            <div key='search-method-radio' id='single-dic-search-method-container'>
-                <label className='radio'>
-                    <div className={this.state.searchMethod === 'equals' ? 'checked' : 'unchecked'}></div>
-                    <input type="radio" name="searchMethod" value="equals" defaultChecked={this.state.searchMethod === 'equals'} onChange={this.handleInput.bind(this)} />
-                    <span><Translate id="equals" /></span>
-                </label>
-                <label id='single-dic-radio-2' className='radio'>
-                    <div className={this.state.searchMethod === 'contains' ? 'checked' : 'unchecked'}></div>
-                    <input type="radio" name="searchMethod" value="contains" defaultChecked={this.state.searchMethod === 'contains'} onChange={this.handleInput.bind(this)} />
-                    <span><Translate id="contains" /></span>
-                </label>
-                <div id='single-dic-regex-note-container'>
-                    <Link id='regex-note' to='/annachhoe'><Translate id="explanation" /></Link>
-                </div>
-            </div>
-        ];
-        for (let key in columns) {
-            inputs.push(
-                <Translate key={key + '-input'}>{({ translate }) =>
-                    <input className='single-dic-text-input' type='text' placeholder={translate('keyword')} name={key} onChange={this.handleInput.bind(this)} value={this.state.columns[key]}></input>
-                }</Translate>
-            )
-        }
+		let searchBlocks = [];
+		for (let key in columns) {
+			searchBlocks.push(
+				<div className='search-block'>
+					<label className='search-block__left' key={key + '-label'} htmlFor={key}>{columns[key]}</label>
+					<div className='search-block__right'>
+					<Translate key={key + '-input'}>{({ translate }) =>
+						<input type='text' placeholder={translate('keyword')} name={key} onChange={this.handleInput.bind(this)} value={this.state.columns[key]}></input>
+					}</Translate>
+					</div>
+				</div>
+			);
+		}
         return (
-            <div id='single-dic-form-container'>
-                <form id='single-dic-form' onSubmit={this.handleSubmit.bind(this)} autoComplete='off'>
-                    <div>
-                        <div id='labels-container'>
-                            {labels}
-                        </div>
-                        <div id='inputs-container'>
-                            {inputs}
-                        </div>
-                    </div>
+            <div className='single-dic-search'>
+                <form onSubmit={this.handleSubmit.bind(this)} autoComplete='off'>
+					<div className='single-dic-search__top'>
+						<div className='single-dic-search__mode'>
+							<label className='single-dic-search__mode-title' key='search-method-label'><Translate id='search-method' /></label>
+							<label className='radio-simulated'>
+                    		    <input type="radio" className='radio-simulated__hidden' name="searchMethod" value="equals" defaultChecked={this.state.searchMethod === 'equals'} onChange={this.handleInput.bind(this)} />
+                    			<span className='radio-simulated__text'><Translate id="equals" /></span>
+                			</label>
+                			<label className='radio-simulated'>
+                    			<input type="radio" className='radio-simulated__hidden' name="searchMethod" value="contains" defaultChecked={this.state.searchMethod === 'contains'} onChange={this.handleInput.bind(this)} />
+                    			<span className='radio-simulated__text'><Translate id="contains" /></span>
+                			</label>
+                    	</div>
+						<div className='single-dic-search__note'>
+							<Link id='regex-note' to='/annachhoe'><Translate id="explanation" /></Link>
+						</div>
+					</div>
+					{searchBlocks}
                     <Translate>{({ translate }) =>
-                        <div className="search_actions">
-                            <div className="search_actions_search_button"><input className='find-button' style={{marginTop: '20px', marginBottom: '5px'}} type="submit" value={translate('find')} /></div>
-                            <div className="search_actions_clear_button"><input className='clear-button' style={{marginTop: '20px', marginBottom: '5px'}} type="button" value={translate('reset')} onClick={this.resetAllInput} /></div>
+                        <div className="search-actions single-dic-search__actions">
+                            <input className='btn btn--search' type="submit" value={translate('find')} />
+                            <input className='btn btn--clear' type="button" value={translate('reset')} onClick={this.resetAllInput} />
                         </div>
                     }</Translate>
                 </form>
@@ -303,29 +280,28 @@ class AllFieldOptionsClass extends Component {
     render() {
         return (
             <Translate>{({ translate }) =>
-                <form id='all-field-form' onSubmit={this.handleSubmit.bind(this)} autoComplete='off'>
-                    <div id='all-field-search-method-container'>
-                        <span><Translate id="search-method" /></span>
-                        <label id='all-field-radio-1' className='radio'>
-                            <div className={this.state.searchMethod === 'equals' ? 'checked' : 'unchecked'}></div>
-                            <input type="radio" name="searchMethod" value="equals" defaultChecked={this.state.searchMethod === 'equals'} onChange={this.handleInput.bind(this)} />
-                            <span><Translate id="equals" /></span>
-                        </label>
-                        <label id='all-field-radio-2' className='radio'>
-                            <div className={this.state.searchMethod === 'contains' ? 'checked' : 'unchecked'}></div>
-                            <input type="radio" name="searchMethod" value="contains" defaultChecked={this.state.searchMethod === 'contains'} onChange={this.handleInput.bind(this)} />
-                            <span><Translate id="contains" /></span>
-                        </label>
-                        <div id='all-field-regex-note-container'>
-                            <Link id='regex-note' to='/annachhoe'><Translate id="explanation" /></Link>
+                <form className='all-field-search' onSubmit={this.handleSubmit.bind(this)} autoComplete='off'>
+                    <div className='all-field-search__top'>
+						<div className='all-field-search__mode'>
+							<h3><Translate id="search-method" /></h3>
+							<label className='radio-simulated'>
+								<input type="radio" className='radio-simulated__hidden' name="searchMethod" value="equals" defaultChecked={this.state.searchMethod === 'equals'} onChange={this.handleInput.bind(this)} />
+								<span className='radio-simulated__text'><Translate id="equals" /></span>
+							</label>
+							<label className='radio-simulated'>
+								<input type="radio" className='radio-simulated__hidden' name="searchMethod" value="contains" defaultChecked={this.state.searchMethod === 'contains'} onChange={this.handleInput.bind(this)} />
+								<span className='radio-simulated__text'><Translate id="contains" /></span>
+							</label>
+						</div>
+                        <div className='all-field-search__note'>
+                            <Link to='/annachhoe'><Translate id="explanation" /></Link>
                         </div>
                     </div>
-                    <input className='all-field-text-input' type='text' placeholder={translate('keyword')} name='value' onChange={this.handleInput.bind(this)} value={this.state.value}></input>
-                    <div className="search_actions">
-                        <div className="search_actions_search_button"><input className='find-button' style={{marginTop: '20px', marginBottom: '5px'}} type="submit" value={translate('find')} /></div>
-                        <div className="search_actions_clear_button"><input className='clear-button' style={{marginTop: '20px', marginBottom: '5px'}} type="button" value={translate('reset')} onClick={this.resetAllInput} /></div>
+                    <input className='all-field-search__input' type='text' placeholder={translate('keyword')} name='value' onChange={this.handleInput.bind(this)} value={this.state.value}></input>
+                    <div className="all-field-search__actions search-actions">
+                        <input className='btn btn--search' type="submit" value={translate('find')} />
+                        <input className='btn btn--clear' type="button" value={translate('reset')} onClick={this.resetAllInput} />
                     </div>
-                    <div id='bg-img'></div>
                 </form>
             }</Translate>
         );

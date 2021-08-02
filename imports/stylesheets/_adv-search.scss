@@ -1,0 +1,142 @@
+.adv-search {
+  padding-top: 30px;
+	&__tabs {
+		display: flex;
+		button {
+			height: 36px;
+			padding: 0 20px;
+			text-align: center;
+			font-weight: 400;
+			background-color: #85937f;
+			color: #fff;
+			min-width: 200px;
+		}
+		button.active {
+			background-color: #fff;
+  		color: $color--main;
+  		font-weight: 500;
+  		border-top: 2px solid $color--main;
+		}
+	}
+	&__content {
+		background-color: #fff;
+		padding-bottom: 20px;
+	}
+}
+
+.all-field-search {
+	position: relative;
+	color: $color--fade-dark-main;
+	font-weight: 500;
+	line-height: 24px;
+	padding: 50px 200px 120px;
+	&::after {
+		content: "";
+    display: block;
+    position: absolute;
+    width: 224px;
+    height: 155px;
+    left: 49px;
+    bottom: -28px;
+    background-image: url(/images/pic@2x.png);
+    background-size: 224px 155px;
+    z-index: 1;
+	}
+	h3 {
+		font-size: 16px;
+		font-weight: 500;
+		margin-right: 20px;
+	}
+	&__top {
+		display: flex;
+		justify-content: space-between;
+		margin-bottom: 20px;
+	}
+	&__note a {
+		color: $color--dark-main;
+		font-weight: normal;
+    font-size: 15px;
+	}
+	&__mode {
+		display: flex;
+		margin-right: auto;
+		> label {
+			margin-right: 20px;
+		}
+	}
+	&__input {
+		margin-bottom: 40px;
+	}
+	input[type='text'] {
+		border-radius: 0;
+	}
+}
+
+.dic-list {
+	padding: 20px;
+	display: grid;
+	grid-template-columns: repeat(4, 1fr);
+	gap: 5px 5px;
+	.btn {
+		border-radius: 5px;
+		font-weight: 500;
+		padding: 10px 5px;
+		text-align: center;
+		box-shadow: 0 2px 1px 0 rgba(0, 0, 0, 0.16);
+		border: solid 1px #b7b7b7;
+		color: $color--fade-dark-main;
+		font-size: 16px;
+		line-height: 1em;
+		height: auto;
+		&.active {
+			background-color: $color--main;
+			color: #fff;
+		}
+	}
+}
+
+.single-dic-search {
+	background-color: #d6e3d8;
+	margin: 0 20px;
+	padding: 20px 80px 20px 20px;
+	color: $color--fade-dark-main;
+	&__top {
+		display: flex;
+		line-height: 34px;
+		margin-bottom: 12px;
+	}
+	&__mode {
+		display: flex;
+		margin-right: auto;
+		label {
+			white-space: nowrap;
+		}
+		label:not(.single-dic-search__mode-title) {
+			margin-right: 20px;
+		}
+	}
+	&__mode-title {
+		flex: 0 0 270px;
+		text-align: right;
+		padding-right: 10px;
+	}
+	&__note a {
+		color: $color--dark-main;
+		font-weight: normal;
+    font-size: 15px;
+	}
+	&__actions {
+		margin: 30px 0;
+	}
+	.search-block {
+		&__left {
+			flex: 0 0 270px;
+			padding-right: 10px;
+			font-size: 15px;
+		}
+	}
+	input[type='text'] {
+		border-radius: 0;
+		background-color: #fff;
+	}
+}

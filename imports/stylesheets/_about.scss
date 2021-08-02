@@ -151,7 +151,8 @@
 	&__ex-members {
 		margin-bottom: 100px;
 		.members {
-			grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+			grid-template-columns: repeat(5, 1fr);
+			gap: 40px 20px;
 			&__img {
 				width: 102px;
 				height: 102px;
@@ -259,9 +260,8 @@
 .members {
 	@extend %plain-list;
 	display: grid;
-	grid-template-columns: 1fr 1fr 1fr;
-	column-gap: 50px;
-	row-gap: 60px;
+	grid-template-columns: repeat(3, 1fr);
+	gap: 60px 50px;
 	margin: 30px 0 60px;
 	> li {
 		text-align: center;

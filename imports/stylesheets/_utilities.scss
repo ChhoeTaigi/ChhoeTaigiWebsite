@@ -118,24 +118,15 @@
   &__right {
     flex-grow: 1;
   }
-  input[type='text'] {
-    height: 34px;
-    line-height: 34px;
-    width: 100%;
-    border: none;
-    padding: 0 15px;
-    background-color: $color--fade-light-main;
-    border-radius: 5px;
-    &::placeholder {
-      color: $color--gray-light-main;
-      font-weight: lighter;
-    }
-    &:focus {
-      outline-color: $color--fade-main;
-    }
-  }
 }
 
+.search-actions {
+  display: flex;
+  justify-content: center;
+  .btn {
+    margin: 0 20px;
+  }
+}
 
 
 
