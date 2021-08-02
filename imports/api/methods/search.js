@@ -83,7 +83,7 @@ function processSearchMethod(options) {
         if (options.value !== undefined) {
             // all fields
             if (/\S/.test(options.value)) {
-                options.value = '(?:^|.*\/)' + options.value + '(?:\\(?:.*\\))?(?:\/.*|$)?';
+                options.value = '(?:^|.*\/)' + options.value + '(?:\\(?:.*\\))?(?:\/.*|$)';
             }
         } else if (options.columns !== undefined) {
             for (let key in options.columns) {
@@ -466,7 +466,9 @@ function queryCondictionSingleDic(options) {
 
     const query = postgres.from(dic);
     for (let key in columns) {
-        if (key === 'DictWordID') {
+        if (key === 'DictWordID'
+            && key !== 'StoreLink'
+            && key !== 'GoanchhehPoochhiongChuliau') {
             var keyNumber = columns[key].replace(/[^\d.-]/g, '');;
             query.andWhere(key, keyNumber);
         } else if (key in dicColumns) {

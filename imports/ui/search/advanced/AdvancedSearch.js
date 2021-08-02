@@ -1,16 +1,16 @@
-import React, { Component } from 'react';
-import { withRouter, Link } from 'react-router-dom';
+import React, { Component } from "react";
+import { withRouter, Link } from "react-router-dom";
 import { withLocalize } from "react-localize-redux";
 import { Translate } from "react-localize-redux";
-import ReactGA from 'react-ga';
+import ReactGA from "react-ga";
 
-import { stringify } from '../../../api/utils/url-helper';
-import dicStruct from '../../../api/dicts/dictionary-struct';
-import advancedTranslations from '../../../translations/advanced.json';
-import { isEmpty } from '../../../api/utils/utils';
+import { stringify } from "../../../api/utils/url-helper";
+import dicStruct from "../../../api/dicts/dictionary-struct";
+import advancedTranslations from "../../../translations/advanced.json";
+import { isEmpty } from "../../../api/utils/utils";
 
 let state = {
-    method: 'allField',
+    method: "allField",
     selectedDic: undefined,
     background_height: window.innerHeight - 154,
 };
@@ -33,12 +33,12 @@ class AdvancedSearch extends Component {
     }
 
     componentDidMount() {
-        window.addEventListener('resize', this.handleResize);
+        window.addEventListener("resize", this.handleResize);
         window.scrollTo(0, 0);
     }
 
     componentWillUnmount() {
-        window.removeEventListener('resize', this.handleResize);
+        window.removeEventListener("resize", this.handleResize);
         state = this.state;
     }
 
@@ -53,46 +53,84 @@ class AdvancedSearch extends Component {
         this.setState({
             selectedDic: dic,
             results: undefined,
-        })
+        });
     }
 
     render() {
         // method buttons
         let methodButtons = [
-            <button className={'method-button ' + (this.state.method === 'allField' ? 'method-button-selected' : 'method-button-unselected')} key='allField' onClick={this.handleMethodButton.bind(this, 'allField')}><Translate id='all-field' /></button>,
-            <button className={'method-button ' + (this.state.method === 'singleDic' ? 'method-button-selected' : 'method-button-unselected')} key='singleDic' onClick={this.handleMethodButton.bind(this, 'singleDic')}><Translate id='by-dic' /></button>
+            <button
+                className={
+                    "method-button " +
+                    (this.state.method === "allField"
+                        ? "method-button-selected"
+                        : "method-button-unselected")
+                }
+                key="allField"
+                onClick={this.handleMethodButton.bind(this, "allField")}
+            >
+                <Translate id="all-field" />
+            </button>,
+            <button
+                className={
+                    "method-button " +
+                    (this.state.method === "singleDic"
+                        ? "method-button-selected"
+                        : "method-button-unselected")
+                }
+                key="singleDic"
+                onClick={this.handleMethodButton.bind(this, "singleDic")}
+            >
+                <Translate id="by-dic" />
+            </button>,
         ];
 
         // dictionary buttons
         let dicButtonsArr = [];
         let dicButtons;
-        if (this.state.method === 'singleDic') {
+        if (this.state.method === "singleDic") {
             for (let idx in dicStruct) {
                 let dic = dicStruct[idx].name;
                 dicButtonsArr.push(
-                    <button className={'dic-button ' + (this.state.selectedDic === dic ? 'dic-button-selected' : 'dic-button-unselected')} key={dic} onClick={this.handleDicButton.bind(this, dic)}>{dicStruct[idx].chineseName}</button>
+                    <button
+                        className={
+                            "dic-button " +
+                            (this.state.selectedDic === dic
+                                ? "dic-button-selected"
+                                : "dic-button-unselected")
+                        }
+                        key={dic}
+                        onClick={this.handleDicButton.bind(this, dic)}
+                    >
+                        {dicStruct[idx].chineseName}
+                    </button>
                 );
             }
-            dicButtons = <div id='dic-buttons-container'>{dicButtonsArr}</div>;
+            dicButtons = <div id="dic-buttons-container">{dicButtonsArr}</div>;
         }
 
         // search options
         let searchOptions;
-        if (this.state.method === 'singleDic') {
+        if (this.state.method === "singleDic") {
             let selectedDic = this.state.selectedDic;
             if (selectedDic) {
-                searchOptions = <SingleDicOptions key='singleDicOptions' dic={selectedDic} />;
+                searchOptions = (
+                    <SingleDicOptions key="singleDicOptions" dic={selectedDic} />
+                );
             }
         } else {
-            searchOptions = <AllFieldOptions key='allFieldOptions' />;
+            searchOptions = <AllFieldOptions key="allFieldOptions" />;
         }
 
         // view
         return (
-            <div className='green-background' style={{minHeight: this.state.background_height + 'px'}}>
-                <div id='advanced-container'>
-                    <div id='method-buttons-container'>{methodButtons}</div>
-                    <div id='option-container'>
+            <div
+                className="green-background"
+                style={{ minHeight: this.state.background_height + "px" }}
+            >
+                <div id="advanced-container">
+                    <div id="method-buttons-container">{methodButtons}</div>
+                    <div id="option-container">
                         {dicButtons}
                         {searchOptions}
                     </div>
@@ -112,7 +150,7 @@ class SingleDicOptionsClass extends Component {
         if (isEmpty(singleDicState)) {
             this.state = {
                 columns: this.clearInput(this.props.dic),
-                searchMethod: 'equals',
+                searchMethod: "equals",
             };
         } else {
             this.state = singleDicState;
@@ -138,27 +176,27 @@ class SingleDicOptionsClass extends Component {
         let dicColumns = dicStruct.find((e) => e.name === dic).columns;
         let columns = {};
         for (let key in dicColumns) {
-            columns[key] = '';
+            columns[key] = "";
         }
         return columns;
     }
 
     handleSubmit(event) {
         ReactGA.event({
-            category: 'user',
-            action: 'search',
-            label: 'single-dic'
+            category: "user",
+            action: "search",
+            label: "single-dic",
         });
 
         let options = {
-            method: 'single-dic',
+            method: "single-dic",
             dic: this.props.dic,
             searchMethod: this.state.searchMethod,
             columns: this.state.columns,
         };
-        
+
         this.props.history.push({
-            pathname: 'search', 
+            pathname: "search",
             search: stringify(options),
         });
 
@@ -168,7 +206,7 @@ class SingleDicOptionsClass extends Component {
     handleInput(event) {
         let key = event.target.name;
         let value = event.target.value;
-        if (key === 'searchMethod') {
+        if (key === "searchMethod") {
             this.setState({
                 searchMethod: value,
             });
@@ -183,76 +221,141 @@ class SingleDicOptionsClass extends Component {
 
     resetAllInput = () => {
         this.setState({
-            columns: this.clearInput(this.props.dic)
+            columns: this.clearInput(this.props.dic),
         });
-    }
+    };
 
     render() {
         let dic = this.props.dic;
         let columns = dicStruct.find((e) => e.name === dic).columns;
         let labels = [
-            <label key='search-method-label' className='single-dic-label' id='search-method'><Translate id='search-method' /></label>
+            <label
+                key="search-method-label"
+                className="single-dic-label"
+                id="search-method"
+            >
+                <Translate id="search-method" />
+            </label>,
         ];
         for (let key in columns) {
-            labels.push(
-                <label className='single-dic-label' key={key + '-label'} htmlFor={key}>{columns[key]}</label>
-            );
+            if (key !== "StoreLink" && 
+                key !== "GoanchhehPoochhiongChuliau") {
+                labels.push(
+                    <label
+                        className="single-dic-label"
+                        key={key + "-label"}
+                        htmlFor={key}
+                    >
+                        {columns[key]}
+                    </label>
+                );
+            }
         }
 
         let inputs = [
-            <div key='search-method-radio' id='single-dic-search-method-container'>
-                <label className='radio'>
-                    <div className={this.state.searchMethod === 'equals' ? 'checked' : 'unchecked'}></div>
-                    <input type="radio" name="searchMethod" value="equals" defaultChecked={this.state.searchMethod === 'equals'} onChange={this.handleInput.bind(this)} />
-                    <span><Translate id="equals" /></span>
+            <div key="search-method-radio" id="single-dic-search-method-container">
+                <label className="radio">
+                    <div
+                        className={
+                            this.state.searchMethod === "equals" ? "checked" : "unchecked"
+                        }
+                    ></div>
+                    <input
+                        type="radio"
+                        name="searchMethod"
+                        value="equals"
+                        defaultChecked={this.state.searchMethod === "equals"}
+                        onChange={this.handleInput.bind(this)}
+                    />
+                    <span>
+                        <Translate id="equals" />
+                    </span>
                 </label>
-                <label id='single-dic-radio-2' className='radio'>
-                    <div className={this.state.searchMethod === 'contains' ? 'checked' : 'unchecked'}></div>
-                    <input type="radio" name="searchMethod" value="contains" defaultChecked={this.state.searchMethod === 'contains'} onChange={this.handleInput.bind(this)} />
-                    <span><Translate id="contains" /></span>
+                <label id="single-dic-radio-2" className="radio">
+                    <div
+                        className={
+                            this.state.searchMethod === "contains" ? "checked" : "unchecked"
+                        }
+                    ></div>
+                    <input
+                        type="radio"
+                        name="searchMethod"
+                        value="contains"
+                        defaultChecked={this.state.searchMethod === "contains"}
+                        onChange={this.handleInput.bind(this)}
+                    />
+                    <span>
+                        <Translate id="contains" />
+                    </span>
                 </label>
-                <div id='single-dic-regex-note-container'>
-                    <Link id='regex-note' to='/annachhoe'><Translate id="explanation" /></Link>
+                <div id="single-dic-regex-note-container">
+                    <Link id="regex-note" to="/annachhoe">
+                        <Translate id="explanation" />
+                    </Link>
                 </div>
-            </div>
+            </div>,
         ];
         for (let key in columns) {
             inputs.push(
-                <Translate key={key + '-input'}>{({ translate }) =>
-                    <input className='single-dic-text-input' type='text' placeholder={translate('keyword')} name={key} onChange={this.handleInput.bind(this)} value={this.state.columns[key]}></input>
-                }</Translate>
-            )
+                <Translate key={key + "-input"}>
+                    {({ translate }) => (
+                        <input
+                            className="single-dic-text-input"
+                            type="text"
+                            placeholder={translate("keyword")}
+                            name={key}
+                            onChange={this.handleInput.bind(this)}
+                            value={this.state.columns[key]}
+                        ></input>
+                    )}
+                </Translate>
+            );
         }
         return (
-            <div id='single-dic-form-container'>
-                <form id='single-dic-form' onSubmit={this.handleSubmit.bind(this)} autoComplete='off'>
+            <div id="single-dic-form-container">
+                <form
+                    id="single-dic-form"
+                    onSubmit={this.handleSubmit.bind(this)}
+                    autoComplete="off"
+                >
                     <div>
-                        <div id='labels-container'>
-                            {labels}
-                        </div>
-                        <div id='inputs-container'>
-                            {inputs}
-                        </div>
+                        <div id="labels-container">{labels}</div>
+                        <div id="inputs-container">{inputs}</div>
                     </div>
-                    <Translate>{({ translate }) =>
-                        <div className="search_actions">
-                            <div className="search_actions_search_button"><input className='find-button' style={{marginTop: '20px', marginBottom: '5px'}} type="submit" value={translate('find')} /></div>
-                            <div className="search_actions_clear_button"><input className='clear-button' style={{marginTop: '20px', marginBottom: '5px'}} type="button" value={translate('reset')} onClick={this.resetAllInput} /></div>
-                        </div>
-                    }</Translate>
+                    <Translate>
+                        {({ translate }) => (
+                            <div className="search_actions">
+                                <div className="search_actions_search_button">
+                                    <input
+                                        className="find-button"
+                                        style={{ marginTop: "20px", marginBottom: "5px" }}
+                                        type="submit"
+                                        value={translate("find")}
+                                    />
+                                </div>
+                                <div className="search_actions_clear_button">
+                                    <input
+                                        className="clear-button"
+                                        style={{ marginTop: "20px", marginBottom: "5px" }}
+                                        type="button"
+                                        value={translate("reset")}
+                                        onClick={this.resetAllInput}
+                                    />
+                                </div>
+                            </div>
+                        )}
+                    </Translate>
                 </form>
             </div>
-            
         );
     }
 }
 
 const SingleDicOptions = withRouter(SingleDicOptionsClass);
 
-
 let allFieldState = {
-    searchMethod: 'equals',
-    value: '',
+    searchMethod: "equals",
+    value: "",
 };
 
 class AllFieldOptionsClass extends Component {
@@ -267,19 +370,19 @@ class AllFieldOptionsClass extends Component {
 
     handleSubmit(event) {
         ReactGA.event({
-            category: 'user',
-            action: 'search',
-            label: 'all-field'
+            category: "user",
+            action: "search",
+            label: "all-field",
         });
 
         let options = {
-            method: 'all-field',
+            method: "all-field",
             searchMethod: this.state.searchMethod,
             value: this.state.value,
         };
-        
+
         this.props.history.push({
-            pathname: 'search', 
+            pathname: "search",
             search: stringify(options),
         });
 
@@ -294,40 +397,100 @@ class AllFieldOptionsClass extends Component {
         this.setState(state);
     }
 
-    resetAllInput = () => { 
+    resetAllInput = () => {
         this.setState({
-            value: ""
+            value: "",
         });
-    }
+    };
 
     render() {
         return (
-            <Translate>{({ translate }) =>
-                <form id='all-field-form' onSubmit={this.handleSubmit.bind(this)} autoComplete='off'>
-                    <div id='all-field-search-method-container'>
-                        <span><Translate id="search-method" /></span>
-                        <label id='all-field-radio-1' className='radio'>
-                            <div className={this.state.searchMethod === 'equals' ? 'checked' : 'unchecked'}></div>
-                            <input type="radio" name="searchMethod" value="equals" defaultChecked={this.state.searchMethod === 'equals'} onChange={this.handleInput.bind(this)} />
-                            <span><Translate id="equals" /></span>
-                        </label>
-                        <label id='all-field-radio-2' className='radio'>
-                            <div className={this.state.searchMethod === 'contains' ? 'checked' : 'unchecked'}></div>
-                            <input type="radio" name="searchMethod" value="contains" defaultChecked={this.state.searchMethod === 'contains'} onChange={this.handleInput.bind(this)} />
-                            <span><Translate id="contains" /></span>
-                        </label>
-                        <div id='all-field-regex-note-container'>
-                            <Link id='regex-note' to='/annachhoe'><Translate id="explanation" /></Link>
+            <Translate>
+                {({ translate }) => (
+                    <form
+                        id="all-field-form"
+                        onSubmit={this.handleSubmit.bind(this)}
+                        autoComplete="off"
+                    >
+                        <div id="all-field-search-method-container">
+                            <span>
+                                <Translate id="search-method" />
+                            </span>
+                            <label id="all-field-radio-1" className="radio">
+                                <div
+                                    className={
+                                        this.state.searchMethod === "equals"
+                                            ? "checked"
+                                            : "unchecked"
+                                    }
+                                ></div>
+                                <input
+                                    type="radio"
+                                    name="searchMethod"
+                                    value="equals"
+                                    defaultChecked={this.state.searchMethod === "equals"}
+                                    onChange={this.handleInput.bind(this)}
+                                />
+                                <span>
+                                    <Translate id="equals" />
+                                </span>
+                            </label>
+                            <label id="all-field-radio-2" className="radio">
+                                <div
+                                    className={
+                                        this.state.searchMethod === "contains"
+                                            ? "checked"
+                                            : "unchecked"
+                                    }
+                                ></div>
+                                <input
+                                    type="radio"
+                                    name="searchMethod"
+                                    value="contains"
+                                    defaultChecked={this.state.searchMethod === "contains"}
+                                    onChange={this.handleInput.bind(this)}
+                                />
+                                <span>
+                                    <Translate id="contains" />
+                                </span>
+                            </label>
+                            <div id="all-field-regex-note-container">
+                                <Link id="regex-note" to="/annachhoe">
+                                    <Translate id="explanation" />
+                                </Link>
+                            </div>
                         </div>
-                    </div>
-                    <input className='all-field-text-input' type='text' placeholder={translate('keyword')} name='value' onChange={this.handleInput.bind(this)} value={this.state.value}></input>
-                    <div className="search_actions">
-                        <div className="search_actions_search_button"><input className='find-button' style={{marginTop: '20px', marginBottom: '5px'}} type="submit" value={translate('find')} /></div>
-                        <div className="search_actions_clear_button"><input className='clear-button' style={{marginTop: '20px', marginBottom: '5px'}} type="button" value={translate('reset')} onClick={this.resetAllInput} /></div>
-                    </div>
-                    <div id='bg-img'></div>
-                </form>
-            }</Translate>
+                        <input
+                            className="all-field-text-input"
+                            type="text"
+                            placeholder={translate("keyword")}
+                            name="value"
+                            onChange={this.handleInput.bind(this)}
+                            value={this.state.value}
+                        ></input>
+                        <div className="search_actions">
+                            <div className="search_actions_search_button">
+                                <input
+                                    className="find-button"
+                                    style={{ marginTop: "20px", marginBottom: "5px" }}
+                                    type="submit"
+                                    value={translate("find")}
+                                />
+                            </div>
+                            <div className="search_actions_clear_button">
+                                <input
+                                    className="clear-button"
+                                    style={{ marginTop: "20px", marginBottom: "5px" }}
+                                    type="button"
+                                    value={translate("reset")}
+                                    onClick={this.resetAllInput}
+                                />
+                            </div>
+                        </div>
+                        <div id="bg-img"></div>
+                    </form>
+                )}
+            </Translate>
         );
     }
 }
