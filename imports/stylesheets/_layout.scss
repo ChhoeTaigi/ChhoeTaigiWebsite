@@ -4,8 +4,12 @@
 }
 
 // sticky footer
-html, body, #render-target, .content-wrapper {
+html { 
   height: 100%;
+}
+
+body, #render-target, .content-wrapper {
+  min-height: 100%;
 }
 
 .content-wrapper {

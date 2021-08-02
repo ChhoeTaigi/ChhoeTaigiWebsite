@@ -80,7 +80,7 @@ class Footer extends Component {
                     </ul>
                 </div>
                 <div className='g0v'>
-                    <Link className='g0v-logo' to='https://grants.g0v.tw/power/' target='_blank'><span className='sr-only'>Powered by G0V</span></Link>
+                    <Link className='g0v-logo' to={{pathname:'https://grants.g0v.tw/power/'}} target='_blank'><span className='sr-only'>Powered by G0V</span></Link>
                 </div>
             </footer>
         );

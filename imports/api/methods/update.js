@@ -157,82 +157,83 @@ Meteor.methods({
     }
   },
 
-  // 個別新增
-  "updateDistinct.import"(value) {
-    if (Meteor.isClient) {
-      let dictionaryUri =
-        constants.CHHOETAIGI_DATASOURCE_MASTER_CURRENT +
-        DicStruct[value].name +
-        constants.CHHOETAIGI_DATASOURCE_DICT_URL_END;
+//   // 個別新增
+//   "updateDistinct.import"(value) {
+//     if (Meteor.isClient) {
+//       let dictionaryUri =
+//         constants.CHHOETAIGI_DATASOURCE_MASTER_CURRENT +
+//         DicStruct[value].name +
+//         constants.CHHOETAIGI_DATASOURCE_DICT_URL_END;
 
-      console.log("GItURL:" + dictionaryUri);
-      new Promise((resolve, reject) => {
-        let jsonArray = [];
-        csv()
-          .fromStream(request.get(dictionaryUri))
-          .subscribe(
-            json => {
-              jsonArray.push(json);
-            },
-            error => {
-              console.log("GItURLErr:" + error);
-            },
-            () => {
-              Meteor.call(
-                "update.save",
-                DicStruct[value].name,
-                jsonArray,
-                (error, result) => {
-                  if (error) {
-                    reject(error);
-                    console.log("updateErr:" + error);
-                  }
-                  resolve(result);
-                  console.log("result result");
-                }
-              );
-            }
-          );
-      });
-    }
-  },
+//       console.log("GItURL:" + dictionaryUri);
+//       new Promise((resolve, reject) => {
+//         let jsonArray = [];
+//         csv()
+//           .fromStream(request.get(dictionaryUri))
+//           .subscribe(
+//             json => {
+//               jsonArray.push(json);
+//             },
+//             error => {
+//               console.log("GItURLErr:" + error);
+//             },
+//             () => {
+//               Meteor.call(
+//                 "update.save",
+//                 DicStruct[value].name,
+//                 jsonArray,
+//                 (error, result) => {
+//                   if (error) {
+//                     reject(error);
+//                     console.log("updateErr:" + error);
+//                   }
+//                   resolve(result);
+//                   console.log("result result");
+//                 }
+//               );
+//             }
+//           );
+//       });
+//     }
+//   },
 
-  // 新增所有資料
-  "updateALL.import"() {
-    if (Meteor.isClient) {
-      for (let idx in DicStruct) {
-        let dictionaryUri =
-          constants.CHHOETAIGI_DATASOURCE_MASTER_CURRENT +
-          DicStruct[idx].name +
-          constants.CHHOETAIGI_DATASOURCE_DICT_URL_END;
+//   // 新增所有資料
+//   "updateALL.import"() {
+//     if (Meteor.isClient) {
+//       for (let idx in DicStruct) {
+//         let dictionaryUri =
+//           constants.CHHOETAIGI_DATASOURCE_MASTER_CURRENT +
+//           DicStruct[idx].name +
+//           constants.CHHOETAIGI_DATASOURCE_DICT_URL_END;
 
-        console.log("GItURL:" + dictionaryUri);
-        new Promise((resolve, reject) => {
-          let jsonArray = [];
-          csv()
-            .fromStream(request.get(dictionaryUri))
-            .subscribe(
-              json => {
-                jsonArray.push(json);
-              },
-              error => {},
-              () => {
-                Meteor.call(
-                  "update.save",
-                  DicStruct[idx].name,
-                  jsonArray,
-                  (error, result) => {
-                    if (error) reject(error);
-                    resolve(result);
-                    console.log("result result");
-                  }
-                );
-              }
-            );
-        });
-      }
-    }
-  }
+//         console.log("GItURL:" + dictionaryUri);
+//         new Promise((resolve, reject) => {
+//           let jsonArray = [];
+//           csv()
+//             .fromStream(request.get(dictionaryUri))
+//             .subscribe(
+//               json => {
+//                 jsonArray.push(json);
+//               },
+//               error => {},
+//               () => {
+//                 Meteor.call(
+//                   "update.save",
+//                   DicStruct[idx].name,
+//                   jsonArray,
+//                   (error, result) => {
+//                     if (error) reject(error);
+//                     resolve(result);
+//                     console.log("result result");
+//                   }
+//                 );
+//               }
+//             );
+//         });
+//       }
+//     }
+//   }
+// 
 });
 
 function createDatabaseWithOwner() {

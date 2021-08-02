@@ -45,12 +45,14 @@
 	margin: 0 0 15px;
 	padding: 10px 20px;
 	border-radius: 5px;
+	font-size: 16px;
+	line-height: 25px;
 	> li {
 		display: flex;
 		margin-bottom: 15px;
 		h3 {
 			font-size: 1em;
-			flex: 0 0 183px;
+			flex: 0 0 168px;
 			text-align: right;
 			padding-right: 33px;
 			position: relative;
@@ -79,6 +81,13 @@
 	}
 	ol {
 		padding-left: 26px;
+		> li {
+			counter-increment: list;
+			margin-bottom: 5px;
+		}
+		> li::marker {
+			content: "(" counter(list) ")\a0";
+		}
 	}
 	&__content {
 		padding-left: 80px;

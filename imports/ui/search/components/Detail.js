@@ -13,7 +13,7 @@ class Detail extends Component {
         Meteor.call('search.dicAndId', dic, id, (error, result) => {
             if (error) throw new Meteor.Error(error);
             const word = result[0];
-            const title = word.poj_unicode;
+            const title = word.PojUnicode;
             const columnName = this.state.struct.columns;
             for (let key in word) {
                 word[columnName[key]] = word[key];

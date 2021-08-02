@@ -30,10 +30,9 @@ module.exports = {
     },
 
     docker: {
-      // abernix/meteord:node-12-base works with Meteor 1.9 - 1.10
-      // If you are using a different version of Meteor,
-      // refer to the docs for the correct image to use.
-      image: 'abernix/meteord:node-12-base',
+      // Change the image to 'kadirahq/meteord' if you
+      // are using Meteor 1.3 or older
+      image: 'zodern/meteor:latest',
     },
 
     volumes: {

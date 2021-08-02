@@ -72,7 +72,7 @@ Meteor.methods({
 
     'search.dicAndId'(dic, id) {
         if (Meteor.isServer) {
-            return postgres(dic).select('*').where({id: id}).limit(1);
+            return postgres(dic).select('*').where({DictWordID: id}).limit(1);
         }
     },
 });
@@ -83,14 +83,14 @@ function processSearchMethod(options) {
         if (options.value !== undefined) {
             // all fields
             if (/\S/.test(options.value)) {
-                options.value = '(^|.*\/)' + options.value + '(\\(.*\\))?(\/.*|$)';
+                options.value = '(?:^|.*\/)' + options.value + '(?:\\(?:.*\\))?(?:\/.*|$)?';
             }
         } else if (options.columns !== undefined) {
             for (let key in options.columns) {
                 if (/\S/.test(options.columns[key])) {
                     console.log(key);
-                    if (key === "spelling" || key === "poj_input" || key === "poj_input_other" || key === "kip_input" || key === "kip_input_other" || key === "poj_unicode" || key === "poj_unicode_other" || key === "kip_unicode" || key === "kip_unicode_other") {
-                        options.columns[key] = '(^|.*\/)' + options.columns[key] + '(\\(.*\\))?(\/.*|$)';
+                    if (key === "spelling" || key === "PojInput" || key === "PojInputOthers" || key === "KipInput" || key === "KipInputOthers" || key === "PojUnicode" || key === "PojUnicodeOthers" || key === "KipUnicode" || key === "KipUnicodeOthers") {
+                        options.columns[key] = '(?:^|.*\/)' + options.columns[key] + '(?:\\(?:.*\\))?(?:\/.*|$)';
                         console.log(options.columns[key]);
                     } else {
                         options.columns[key] = '^' + options.columns[key] + '$';
@@ -129,23 +129,32 @@ function cleanEmptyColumns(options) {
 
 // regex
 function preprocessRegex(options) {
-    const soouSianntiau = '(1|2|3|p4|p8|p|t4|t8|t|k4|k8|k|h4|h8|h|5|7)?';
-    const hyphenOrSpace = '( |--|-)';
+    const soouSianntiau = '(?:2|3|p8|p|t8|t|k8|k|h8|h|5|7)?';
+    const imchat = '(?:(?![ -\/]).)+';
+    const hyphenOrSpace = '(?: |--|-)';
 
+    const regexRedundantSianntiau = new RegExp('(?<!\\\\)(?:1|4)', 'g');
+    const regexHyphenOrSpace = new RegExp('[ -]', 'g');
     const regexSianntiauTaibe = new RegExp('\\%', 'g');
-    const regexHyphenOrSpace = new RegExp(' ', 'g');
+    const regexImchatTaibe = new RegExp('~', 'g');
 
     if (options.value !== undefined) {
-        options.value = options.value.replace(regexSianntiauTaibe, soouSianntiau);
+        options.value = options.value.replace(regexRedundantSianntiau, '');
         options.value = options.value.replace(regexHyphenOrSpace, hyphenOrSpace);
+        options.value = options.value.replace(regexSianntiauTaibe, soouSianntiau);
+        options.value = options.value.replace(regexImchatTaibe, imchat);
 
     } else if (options.columns !== undefined) {
         for (let key in options.columns) {
-            if (key === "poj_input" || key === "poj_input_other" || key === "kip_input" || key === "kip_input_other") {
+            if (key === "PojInput" || key === "PojInputOthers" || key === "KipInput" || key === "KipInputOthers") {
+                options.columns[key] = options.columns[key].replace(regexRedundantSianntiau, '');
+                options.columns[key] = options.columns[key].replace(regexHyphenOrSpace, hyphenOrSpace);
                 options.columns[key] = options.columns[key].replace(regexSianntiauTaibe, soouSianntiau);
+                options.columns[key] = options.columns[key].replace(regexImchatTaibe, imchat);
+            } else if (key === "PojUnicode" || key === "PojUnicodeOthers" || key === "KipUnicode" || key === "KipUnicodeOthers") {
+                options.columns[key] = options.columns[key].replace(regexRedundantSianntiau, '');
                 options.columns[key] = options.columns[key].replace(regexHyphenOrSpace, hyphenOrSpace);
-            } else if (key === "poj_unicode" || key === "poj_unicode_other" || key === "kip_unicode" || key === "kip_unicode_other") {
-                options.columns[key] = options.columns[key].replace(regexHyphenOrSpace, hyphenOrSpace);
+                options.columns[key] = options.columns[key].replace(regexImchatTaibe, imchat);
             }
         }
     }
@@ -167,7 +176,7 @@ function basicSearch(options) {
     const struct = dicStruct.find(e => e.name === dic);
     const dicColumns = struct.columns;
     const brief = struct.brief;
-    const briefArray = ['id'];
+    const briefArray = ['DictWordID'];
     for (let key in brief) {
         briefArray.push(key);
     }
@@ -176,18 +185,23 @@ function basicSearch(options) {
     // check valid columns
     let valid = false;
     for (let key in columns) {
-        if ((key in dicColumns) || ((key === 'taibun') && (('hanlo_taibun_poj' in dicColumns) || ('hanlo_taibun_kip' in dicColumns) || ('hanji_taibun' in dicColumns)))) {
+        if ((key in dicColumns)
+            || (key === 'hoabun' && 'HoaBun' in dicColumns)
+            || (key === 'english' && 'EngBun' in dicColumns)
+            || ((key === 'taibun') && (('HanLoTaibunPoj' in dicColumns) || ('HanLoTaibunKip' in dicColumns)))) {
             valid = true;
             break;
         }
     }
 
-    if (!valid)
+    if (!valid) {
+        console.log("basicSearch invalid");
         return {
             dic: dic,
             num: 0,
             words: [],
         };
+    }
   
     const query = queryCondictionBasic(options);
     query.select(briefArray);
@@ -242,7 +256,7 @@ function searchAllField(options) {
     const struct = dicStruct.find(e => e.name===dic);
     const columns = struct.columns;
     const brief = struct.brief;
-    const briefArray = ['id'];
+    const briefArray = ['DictWordID'];
     for (let key in brief) {
         briefArray.push(key);
     }
@@ -307,7 +321,7 @@ function searchSingleDic(options) {
     const struct = dicStruct.find(e => e.name === dic);
     const dicColumns = struct.columns;
     const brief = struct.brief;
-    const briefArray = ['id'];
+    const briefArray = ['DictWordID'];
     for (let key in brief) {
         briefArray.push(key);
     }
@@ -356,21 +370,21 @@ function searchSingleDic(options) {
 function searchBasicNo(options) {
     const query = queryCondictionBasic(options);
 
-    query.count('id as num');
+    query.count('DictWordID as num');
     
     return query;
 }
 
 function searchAllFieldNo(options) {
     const query = queryCondictionAllField(options);
-    query.count('id as num');
+    query.count('DictWordID as num');
 
     return query;
 }
 
 function searchSingleDicNo(options) {
     const query = queryCondictionSingleDic(options);
-    query.count('id as num');
+    query.count('DictWordID as num');
 
     return query;
 }
@@ -382,37 +396,48 @@ function queryCondictionBasic(options) {
     const dicColumns = struct.columns;
     const columns = options.columns;
 
+    console.log("queryCondictionBasic: "+ dic);
+
     const query = postgres.from(dic);
     for (let key in columns) {
         console.log("key = "+key+", columns[key] = "+columns[key]);
 
         if (key === 'taibun') {
-            if ('hanlo_taibun_poj' in dicColumns)
-                query.orWhere(lowerQeury('hanlo_taibun_poj'), '~*', lowerStr(columns[key]));
-            if ('hanlo_taibun_kip' in dicColumns)
-                query.orWhere(lowerQeury('hanlo_taibun_kip'), '~*', lowerStr(columns[key]));
-            if ('hanji_taibun' in dicColumns)
-                query.orWhere(lowerQeury('hanji_taibun'), '~*', lowerStr(columns[key]));
-        } else if (key === "poj_input" && 'poj_input_other' in dicColumns) {
-            // if ('hanlo_taibun_poj' in dicColumns) {}
+            if ('HanLoTaibunPoj' in dicColumns)
+                query.orWhere(lowerQeury('HanLoTaibunPoj'), '~*', lowerStr(columns[key]));
+            if ('HanLoTaibunKip' in dicColumns)
+                query.orWhere(lowerQeury('HanLoTaibunKip'), '~*', lowerStr(columns[key]));
+        } else if (key === "PojInput" && 'PojInputOthers' in dicColumns) {
+            // if ('HanLoTaibunPoj' in dicColumns) {}
             query.andWhere(function() {
-                this.where(lowerQeury('poj_input'), '~*',  lowerStr(columns[key])).orWhere(lowerQeury('poj_input_other'), '~*',  lowerStr(columns[key]));
+                this.where(lowerQeury('PojInput'), '~*',  lowerStr(columns[key])).orWhere(lowerQeury('PojInputOthers'), '~*',  lowerStr(columns[key]));
             });
-        } else if (key === "kip_input" && 'kip_input_other' in dicColumns) {
+        } else if (key === "KipInput" && 'KipInputOthers' in dicColumns) {
             query.andWhere(function() {
-                this.where(lowerQeury('kip_input'), '~*',  lowerStr(columns[key])).orWhere(lowerQeury('kip_input_other'), '~*',  lowerStr(columns[key]));
+                this.where(lowerQeury('KipInput'), '~*',  lowerStr(columns[key])).orWhere(lowerQeury('KipInputOthers'), '~*',  lowerStr(columns[key]));
             });
-        } else if (key === "poj_unicode" && 'poj_unicode_other' in dicColumns) {
-            // if ('hanlo_taibun_poj' in dicColumns) {}
+        } else if (key === "PojUnicode" && 'PojUnicodeOthers' in dicColumns) {
+            // if ('HanLoTaibunPoj' in dicColumns) {}
             query.andWhere(function() {
-                this.where(lowerQeury('poj_unicode'), '~*',  lowerStr(columns[key])).orWhere(lowerQeury('poj_unicode_other'), '~*',  lowerStr(columns[key]));
+                this.where(lowerQeury('PojUnicode'), '~*',  lowerStr(columns[key])).orWhere(lowerQeury('PojUnicodeOthers'), '~*',  lowerStr(columns[key]));
             });
-        } else if (key === "kip_unicode" && 'kip_unicode_other' in dicColumns) {
+        } else if (key === "KipUnicode" && 'KipUnicodeOthers' in dicColumns) {
             query.andWhere(function() {
-                this.where(lowerQeury('kip_unicode'), '~*',  lowerStr(columns[key])).orWhere(lowerQeury('kip_unicode_other'), '~*',  lowerStr(columns[key]));
+                this.where(lowerQeury('KipUnicode'), '~*',  lowerStr(columns[key])).orWhere(lowerQeury('KipUnicodeOthers'), '~*',  lowerStr(columns[key]));
             });
+        } else if (key === 'english') {
+            if ('EngBun' in dicColumns) {
+                query.andWhere(lowerQeury('EngBun'), '~*', lowerStr(columns[key]));
+                console.log("queryCondictionBasic: Engbun");
+            }
+        } else if (key === 'hoabun') {
+            if ('HoaBun' in dicColumns) {
+                query.andWhere(lowerQeury('HoaBun'), '~*', lowerStr(columns[key]));
+                console.log("queryCondictionBasic: HoaBun");
+            }
         } else {
             query.andWhere(lowerQeury(key), '~*',  lowerStr(columns[key]));
+            console.log("queryCondictionBasic: else");
         }
     }
     return query;
@@ -425,7 +450,9 @@ function queryCondictionAllField(options) {
 
     const query = postgres.from(dic);
     for (key in columns) {
-        if (key !== 'id')
+        if (key !== 'DictWordID'
+            && key !== 'StoreLink'
+            && key !== 'GoanchhehPoochhiongChuliau')
             query.orWhere(lowerQeury(key), '~*', lowerStr(options.value));
     }
     return query;
@@ -439,7 +466,7 @@ function queryCondictionSingleDic(options) {
 
     const query = postgres.from(dic);
     for (let key in columns) {
-        if (key === 'id') {
+        if (key === 'DictWordID') {
             var keyNumber = columns[key].replace(/[^\d.-]/g, '');;
             query.andWhere(key, keyNumber);
         } else if (key in dicColumns) {

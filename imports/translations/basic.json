@@ -30,9 +30,9 @@
         "How to search?"
     ],
     "input-method": [
-        "2. Chhōe ê方式",
-        "2. Chhōe ê Hong-sek",
-        "2. 輸入方式",
+        "2. Chhōe ê內容",
+        "2. Chhōe ê Lōe-iông",
+        "2. 搜尋內容",
         "2. Search Keywords"
     ],
     "lmj-tb": [
@@ -48,10 +48,10 @@
         "POJ"
     ],
     "poj-input": [
-        "白話字(數字輸入)",
-        "POJ (Sò͘-jī Su-ji̍p)",
-        "白話字(數字輸入)",
-        "POJ (Number Input)"
+        "白話字(輸入式)",
+        "POJ (Su-ji̍p-sek)",
+        "白話字(輸入格式)",
+        "POJ (Input format)"
     ],
     "lmj": [
         "教育部羅馬拼音",
@@ -60,10 +60,10 @@
         "MoE Roman"
     ],
     "lmj-input": [
-        "教育部羅馬拼音(數字輸入)",
-        "Kàu-io̍k-pō͘  LMJ (Sò͘-jī Su-ji̍p)",
-        "教育部羅馬拼音(數字輸入)",
-        "MoE Roman (Number Input)"
+        "教育部羅馬拼音(輸入式)",
+        "Kàu-io̍k-pō͘  LMJ (Su-ji̍p-sek)",
+        "教育部羅馬拼音(輸入格式)",
+        "MoE Roman (Input format)"
     ],
     "keyword": [
         "請phah beh chhōe ê字詞",
