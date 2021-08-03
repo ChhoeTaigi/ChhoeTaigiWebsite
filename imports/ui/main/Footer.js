@@ -69,11 +69,11 @@ class Footer extends Component {
                     </ul>
                 </div>
                 <div className='container site-footer__status'>
-                    <ul className='visit-status'>
+                    <ul className='site-footer__status-visit'>
                         <li><Translate id='visitors' />：{sessions}</li>
                         <li><Translate id='searches' />：{clicks}</li>
                     </ul>
-                    <ul className='site-status'>
+                    <ul className='site-footer__status-site'>
                         <li><Translate id='word_count_desc' /></li>
                         <li><Translate id='book_index_desc' /></li>
                         <li><Translate id='since' /></li>
