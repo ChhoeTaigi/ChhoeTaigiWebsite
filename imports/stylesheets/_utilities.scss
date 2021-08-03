@@ -129,6 +129,18 @@
   }
 }
 
+.loading-indicator {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 30vh;
+  width: 100%;
+  svg {
+    width: 100px;
+    height: 100px;
+    fill: #8bbe56;
+  }
+}
 
 
 // old
