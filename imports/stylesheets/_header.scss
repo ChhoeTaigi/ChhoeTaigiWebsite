@@ -70,6 +70,11 @@
 	}
 }
 
+// related to header height
+main {
+  padding-top: 56px;
+}
+
 #FB-link {
 	display: block;
 	background-image: url(/images/fb@2x.png);
@@ -81,13 +86,16 @@
 
 @media screen and (max-width: 980px) {
 	.site-header {
-		height: auto;
+		height: 91px;
 		h1 {
 			padding-top: 10px;
 		}
 		.container {
 			flex-direction: column;
 		}
+	}
+	main {
+		padding-top: 91px;
 	}
 }
 
@@ -139,5 +147,8 @@
 			left: 5%;
 			margin-left: 0;
 		}
+	}
+	main {
+		padding-top: 56px;
 	}
 }

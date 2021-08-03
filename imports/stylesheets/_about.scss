@@ -40,7 +40,7 @@
 			justify-content: center;
 		}
 		li {
-			flex: 0 0 30%;
+			flex: 0 0 33.33%;
 			padding: 0 30px;
 			text-align: center;
 			margin-bottom: 60px;
@@ -53,13 +53,11 @@
 		h3 {
 			font-size: 24px;
 			font-weight: 500;
-			line-height: 36px;
 			color: $color--fade-main;
 			margin-bottom: 20px;
 		}
 		li div {
 			font-size: 15px;
-  		line-height: 23px;
 			color: $color--gray-main;
 		}
 	}
@@ -67,38 +65,39 @@
 		background-color: #e9efdf;
 		padding-bottom: 30px;
 		&-img {
-			flex: 0 0 auto;
+			flex: 1 1 auto;
 		}
 	}
 	&__advise, &__open-source {
 		background-color: #fff;
 		display: flex;
+		align-items: center;
 		margin: 0 0 10px;
 		border-radius: 5px;
-		padding: 40px 100px;
+		padding: 30px 8%;
+		p {
+			margin-top: 0;
+		}
 		img {
-			width: auto;
-			align-self: flex-end;
+			height: auto;
 		}
 		> div {
 			flex-grow: 1;
 			font-size: 22px;
 			font-weight: 500;
-			line-height: 33px;
 			color: $color--fade-dark-main;
 		}
 	}
 	&__advise {
-		padding-bottom: 0;
 		img {
-			height: 170px;
+			width: 205px;
+			padding-right: 30px;
 		}
 		button {
 			color: $color--gray-main;
 			font-size: 15px;
 			font-weight: normal;
 			cursor: pointer;
-			margin-top: 20px;
 		}
 		button::before {
 			content: "";
@@ -114,7 +113,8 @@
 	&__open-source {
 		flex-direction: row-reverse;
 		img {
-			height: 150px;
+			width: 286px;
+			padding-left: 30px;
 		}
 		.btn {
 			padding-left: 60px;
@@ -129,14 +129,16 @@
 			background-color: #fff;
 			margin: -28px auto 10px;
 			padding: 0 30px;
+			max-width: 80%;
 		}
 		.container {
 			border: 8px solid #82b28e;
 			border-image: url(/images/grid@2x.png) 16 round;
+			padding-bottom: 20px;
 		}
 	}
 	&__contact {
-		margin: 40px;
+		margin: 40px 0;
 		h2 {
 			margin-bottom: 20px;
 		}
@@ -152,7 +154,7 @@
 		margin-bottom: 100px;
 		.members {
 			grid-template-columns: repeat(5, 1fr);
-			gap: 40px 20px;
+			gap: 40px 2%;
 			&__img {
 				width: 102px;
 				height: 102px;
@@ -160,17 +162,16 @@
 			}
 			&__name {
 				font-size: 18px;
-  			line-height: 36px;
+				padding: 2px 0;
 				margin-bottom: 5px;
 			}
 			&__title {
 				font-size: 12px;
-  			line-height: 20px;
+				padding: 2px 0;
 				margin-bottom: 10px;
 			}
 			&__desc {
 				font-size: 12px;
-				line-height: 21px;
 			}
 		}
 	}
@@ -180,18 +181,17 @@
 		background: linear-gradient(90deg, #E8EEDB 0%, #E8EEDB 50%, #D8E3C3 50%, #D8E3C3 100%);
 		h2 {
 			position: absolute;
-			display: table;
+			min-width: 350px;
 			background-color: #93ac64;
 			color: #fff;
 			border-radius: 2px;
 			font-size: 22px;
-  		line-height: 50px;
 			text-align: center;
-			padding: 0 100px;
+			padding: 8px 20px;
 			margin: 0;
-			top: -25px;
+			top: 0;
 			left: 50%;
-			transform: translate(-50%, 0);
+			transform: translate(-50%, -50%);
 		}
 		.container {
 			display: flex;
@@ -253,6 +253,7 @@
 			line-height: 26px;
 			color: $color--fade-dark-main;
 			text-underline-offset: 1px;
+			word-break: break-all;
 		}
 	}
 }
@@ -261,7 +262,7 @@
 	@extend %plain-list;
 	display: grid;
 	grid-template-columns: repeat(3, 1fr);
-	gap: 60px 50px;
+	gap: 60px 5%;
 	margin: 30px 0 60px;
 	> li {
 		text-align: center;
@@ -276,18 +277,121 @@
 	&__name {
 		font-size: 24px;
 		font-weight: 500;
-		line-height: 36px;
 		color: $color--fade-dark-main;
 		margin-bottom: 5px;
 	}
 	&__title {
 		font-size: 14px;
-		line-height: 34px;
+		padding: 5px 0;
+		margin-bottom: 10px;
 		color: $color--fade-dark-main;
 	}
 	&__desc {
 		font-size: 14px;
-		line-height: 21px;
 		color: #707070;
+	}
+}
+
+@media screen and (max-width: 920px) {
+	.about {
+		&__feature li {
+			padding: 0 10px;
+		}
+		&__ex-members .members {
+			grid-template-columns: repeat(4, 1fr);
+		}
+	}
+}
+
+@media screen and (max-width: 767px) {
+	.about {
+		&__feature li {
+			flex: 0 0 50%;
+			padding: 0 20px;
+		}
+		&__advise, &__open-source {
+			padding: 20px 5%;
+		}
+		&__advise img {
+			padding-right: 20px;
+		}
+		&__open-source img {
+			padding-left: 20px;
+		}
+		&__contact-btns {
+			flex-direction: column;
+			.btn {
+				flex: 0 0 auto;
+				margin-bottom: 10px;
+				height: 100px;
+			}
+		}
+		&__ex-members .members {
+			grid-template-columns: repeat(3, 1fr);
+		}
+		&__auth {
+			background: #E8EEDB;
+			.container {
+				flex-direction: column;
+				padding: 40px 0 20px;
+			}
+		}
+		&__data, &__scan {
+			background: #E8EEDB;
+			padding: 0;
+			margin-bottom: 20px;
+		}
+	}
+	.members {
+		grid-template-columns: repeat(2, 1fr);
+	}
+}
+
+@media screen and (max-width: 540px) {
+	.about {
+		h2 {
+			font-size: 24px;
+		}
+		&__brief ul {
+			padding-left: 22px;
+		}
+		&__feature ul {
+			flex-direction: column;
+		}
+		&__feature li {
+			flex: 0 0 auto;
+		}
+		&__advise, &__open-source {
+			padding: 10px 5%;
+			text-align: center;
+			> div {
+				font-size: 18px;
+			}
+		}
+		&__join-img {
+			display: none;
+		}
+		&__contact-btns .btn {
+			background-image: none;
+			padding-right: 10%;
+		}
+		&__ex-members .members {
+			grid-template-columns: repeat(2, 1fr);
+		}
+		&__auth {
+			h2 {
+				min-width: 0;
+				width: 90%;
+			}
+		}
+	}
+	.members {
+		grid-template-columns: 1fr;
+	}
+}
+
+@media screen and (max-width: 420px) {
+	.about__ex-members .members {
+		grid-template-columns: 1fr;
 	}
 }

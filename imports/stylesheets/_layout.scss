@@ -10,9 +10,6 @@ html, body, #render-target {
 
 .content-wrapper {
   min-height: 100%;
-}
-
-.content-wrapper {
   display: flex;
   flex-direction: column;
   > main {

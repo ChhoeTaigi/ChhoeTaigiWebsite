@@ -33,10 +33,10 @@
     font-weight: 500;
     color: #babfb7;
     height: 168px;
-    line-height: 168px;
+    padding: 0 calc(10% + 70px) 0 0;
     background-image: url(/images/arrow@2x.png);
 	  background-size: 61px 16px;
-    background-position: center right 60px;
+    background-position: center right 10%;
     text-align: center;
     position: relative;
     display: flex;
@@ -53,7 +53,8 @@
       content: "";
       display: block;
       background-repeat: no-repeat;
-      margin: 0 60px 0 40px;
+      margin: 0 10% 0 10%;
+      flex-shrink: 0;
     }
   }
   &--contact-msg::before {

@@ -239,8 +239,10 @@ class About extends Component {
 					</div>
 				</section>
 				<div className='about__feedback'>
-					<h2><Translate id='opinion' /></h2>
-					<a id='feedback-email' href='mailto:ngoohebi+chhoetaigi@gmail.com'>ngoohebi+chhoetaigi@gmail.com</a>
+					<div className='container'>
+						<h2><Translate id='opinion' /></h2>
+						<a id='feedback-email' href='mailto:ngoohebi+chhoetaigi@gmail.com'>ngoohebi+chhoetaigi@gmail.com</a>
+					</div>
 				</div>
 			</div>
 		);
