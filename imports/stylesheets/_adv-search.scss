@@ -47,6 +47,28 @@
 		font-weight: 500;
 		margin-right: 20px;
 	}
+	&__dic-list {
+		padding: 20px;
+		display: grid;
+		grid-template-columns: repeat(4, 1fr);
+		gap: 5px 5px;
+		.btn {
+			border-radius: 5px;
+			font-weight: 500;
+			padding: 10px 5px;
+			text-align: center;
+			box-shadow: 0 2px 1px 0 rgba(0, 0, 0, 0.16);
+			border: solid 1px #b7b7b7;
+			color: $color--fade-dark-main;
+			font-size: 16px;
+			line-height: 1em;
+			height: auto;
+			&.active {
+				background-color: $color--main;
+				color: #fff;
+			}
+		}
+	}
 	&__top {
 		display: flex;
 		justify-content: space-between;
@@ -69,29 +91,6 @@
 	}
 	input[type='text'] {
 		border-radius: 0;
-	}
-}
-
-.dic-list {
-	padding: 20px;
-	display: grid;
-	grid-template-columns: repeat(4, 1fr);
-	gap: 5px 5px;
-	.btn {
-		border-radius: 5px;
-		font-weight: 500;
-		padding: 10px 5px;
-		text-align: center;
-		box-shadow: 0 2px 1px 0 rgba(0, 0, 0, 0.16);
-		border: solid 1px #b7b7b7;
-		color: $color--fade-dark-main;
-		font-size: 16px;
-		line-height: 1em;
-		height: auto;
-		&.active {
-			background-color: $color--main;
-			color: #fff;
-		}
 	}
 }
 

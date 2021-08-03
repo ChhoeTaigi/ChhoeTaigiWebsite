@@ -18,13 +18,10 @@ class DictionaryList extends Component {
         props.addTranslation(resultsTranslations);
         
         this.state = {
-            background_height: window.innerHeight - 154,
-            gotResult: false,
-            isSticky: false,
+            gotResult: false
         };
 
         this.handleScroll = this.handleScroll.bind(this);
-        this.handleResize = this.handleResize.bind(this);
     }
 
     componentWillReceiveProps(props) {
@@ -41,38 +38,30 @@ class DictionaryList extends Component {
     }
 
     handleScroll() {
-        const sticky = document.getElementById('all-dic-buttons-background');
-        let isSticky;
-        if (sticky.offsetTop > 200) {
-            isSticky = true;
-        } else {
-            isSticky = false;
+        const sticky = document.getElementsByClassName('search-result__dic-list')[0];
+        const stickyYPosition = parseInt(getComputedStyle(sticky).top.replace('px', ''));
+        if (sticky.getBoundingClientRect().top === stickyYPosition) {
+            sticky.classList.add('pinned');
         }
-        this.setState({
-            isSticky: isSticky,
-        });
-    }
-
-    handleResize() {
-        this.setState({
-            background_height: window.innerHeight - 354,
-        });
+        else {
+            sticky.classList.remove('pinned');
+        }
     }
 
     componentDidMount() {
         window.scrollTo(0, 0);
         window.addEventListener('scroll', this.handleScroll);
-        window.addEventListener('resize', this.handleResize);
     }
 
     componentWillUnmount() {
         window.removeEventListener('scroll', this.handleScroll);
-        window.removeEventListener('resize', this.handleResize);
     }
 
     handleButtonClicked(dic, event) {
         const domNode = ReactDOM.findDOMNode(this.refs[dic].current);
-        window.scrollTo(0, domNode.offsetTop - 160);
+        const topPosition = document.getElementsByClassName('site-header')[0].offsetHeight + document.getElementsByClassName('search-result__dic-list')[0].offsetHeight + 30;
+        console.log(topPosition);
+        window.scrollTo(0, domNode.offsetTop - topPosition);
 
         this.setState({
             selectedDic: dic,
@@ -124,9 +113,9 @@ class DictionaryList extends Component {
                     const rowNum = parseInt(allResults[idx].num);
         
                     dicButtonsRow.push(
-                        <a className={'all-dic-button ' + (this.state.selectedDic === dic ? 'all-dic-button-selected' : 'all-dic-button-unselected')} key={dic} onClick={this.handleButtonClicked.bind(this, dic)}>
-                            <div><span>{chineseName}</span></div>
-                        </a>
+                        <button className={'btn ' + (this.state.selectedDic === dic ? 'active' : '')} key={dic} onClick={this.handleButtonClicked.bind(this, dic)}>
+                            {chineseName}
+                        </button>
                     )
         
                     let thisRef = React.createRef();
@@ -139,33 +128,30 @@ class DictionaryList extends Component {
                 }
             }
             this.refs = refs;
-            let remainingButtonNum = (DICT_COUNT - (allResults.filter(e => e).length % DICT_COUNT)) % DICT_COUNT;
-            for (let i = 0; i < remainingButtonNum; ++i) {
-                dicButtonsRow.push(
-                    <span className='all-dic-empty' key={'empty' + i}></span>
-                );
-            }
-
             if (this.state.gotResult) {
                 let thisRef = React.createRef();
                 resultCount.push(
-                    <div id='all-dic-result-num'><Translate id='all-result-1' />{dicLen}<Translate id='all-result-2' />{totalNum}<Translate id='all-result-3' /></div>
+                    <div key='resultCount' className='search-result__counts'><Translate id='all-result-1' />{dicLen}<Translate id='all-result-2' />{totalNum}<Translate id='all-result-3' /></div>
                 )
             }
         } 
 
         return (
-            <div id='all-dic-container' style={{minHeight: this.state.background_height + 'px'}}>
-                <div id='all-dic-keywords'><Translate id='keyowrd' />：{keywords}</div>
-                {resultCount}
-                {!this.props.allResults && LoadingIndicator}
-                <div id='all-dic-buttons-background' style={this.state.isSticky ? {boxShadow: '0 3px 6px 0 rgba(0, 0, 0, 0.16)'} : {}}>
-                    <div id='all-dic-buttons-container'>
+            <div className='search-result'>
+                <div className='container'>
+                    <div className='search-result__query'><Translate id='keyowrd' />：{keywords}</div>
+                    {resultCount}
+                    {!this.props.allResults && LoadingIndicator}
+                </div>
+                <div className='search-result__dic-list'>
+                    <div className='container'>
                         {dicButtonsRow}
                     </div>
                 </div>
-                <div id='brief-result-container'>
-                    {dicBriefs}
+                <div className='search-result__brief'>
+                    <div className='container'>
+                        {dicBriefs}
+                    </div>
                 </div>
             </div>
         );
@@ -198,12 +184,14 @@ class DictionaryBrief extends Component {
 
     render() {
         return (
-            <div className='dic-container'>
-                <h1 className='dic-title' id='all-dic-title'>{this.state.chineseName}</h1>
-                <h2 className='dic-subtitle'>(<Translate id='result-1' />{this.state.totalNum}<Translate id='result-2' />)</h2>
-                <div className='dic-content-container'>
-                    <BriefWord key={this.state.dic} dic={this.state.dic} words={this.state.words} width960 />
-                    {this.props.showMoreButton ? <Link className='show-more-button' to={this.state.url}><Translate id='mroe-results' /></Link> : ''}
+            <div className='dic-block'>
+                <header className='dic-block__header'>
+                    <h2 className='dic-block__title'>{this.state.chineseName}</h2>
+                    <h3 className='dic-block__counts'>(<Translate id='result-1' />{this.state.totalNum}<Translate id='result-2' />)</h3>
+                </header>
+                <div className='dic-block__content'>
+                    <BriefWord key={this.state.dic} dic={this.state.dic} words={this.state.words} />
+                    {this.props.showMoreButton ? <Link className='btn dic-block__more' to={this.state.url}><Translate id='mroe-results' /></Link> : ''}
                 </div>
             </div>
         );
