@@ -8,7 +8,6 @@
 		color: $color--dark-main;
   }
 	h2 {
-    height: 36px;
     margin-bottom: 12px;
     font-size: 24px;
     font-weight: 500;
@@ -31,9 +30,8 @@
 		background-color: #ead994;
 		font-size: 18px;
 		font-weight: 500;
-		line-height: 42px;
+		padding: 12px 30px;
 		color: $color--gray-main;
-		padding: 0 30px;
 		text-align: center;
 		margin: 0 auto 60px;
 	}
@@ -93,5 +91,41 @@
 		padding-left: 80px;
 		color: $color--gray-main;
 		line-height: 27px;
+	}
+}
+
+@media screen and (max-width: 767px) {
+	.lmj-note {
+		li {
+			flex-direction: column;
+			h3 {
+				flex: 0 0 auto;
+				text-align: left;
+				font-weight: 800;
+				color: $color--fade-dark-main;
+			}
+			h3::after {
+				position: relative;
+			}
+		}
+	}
+}
+
+@media screen and (max-width: 540px) {
+	.explanation {
+		&__ul {
+			padding-left: 22px;
+		}
+	}
+	.lmj-note {
+		padding: 10px;
+	}
+	.regex-note {
+		li h3, &__content {
+			padding-left: 0;	
+		}
+		> li {
+			margin-bottom: 20px;
+		}
 	}
 }
