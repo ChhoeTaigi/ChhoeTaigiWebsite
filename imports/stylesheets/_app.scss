@@ -5,9 +5,9 @@
 		justify-content: space-between;
 	}
 	&__text {
-		min-width: none;
+		min-width: 0;
 		flex: 0 0 460px;
-		padding-right: 60px;
+		padding-right: 6%;
 		h1 {
 			font-size: 32px;
   		font-weight: 500;
@@ -19,6 +19,10 @@
 	}
 	&__img {
 		align-self: flex-end;
+		img {
+			width: Min(580px, 100%);  // capitalize to avoid Sass bug
+			margin: 0 auto;
+		}
 	}
 	&__desc {
 		font-size: 15px;
@@ -29,6 +33,7 @@
 	&__links {
 		@extend %plain-list;
 		display: flex;
+		justify-content: center;
 		h2 {
 			margin: 0;
 			font-size: 16px;
@@ -69,5 +74,24 @@
 		white-space: pre-wrap;
 		border: #eee 1px solid;
 		padding: 0 10px;
+	}
+}
+
+@media screen and (max-width: 1120px) {
+	.app {
+		&__img {
+			align-self: center;
+		}
+	}
+}
+
+@media screen and (max-width: 920px) {
+	.app {
+		&__wrapper {
+			flex-direction: column;
+		}
+		&__text {
+			padding-right: 0;
+		}
 	}
 }

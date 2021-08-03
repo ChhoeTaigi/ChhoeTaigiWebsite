@@ -181,7 +181,7 @@
 		background: linear-gradient(90deg, #E8EEDB 0%, #E8EEDB 50%, #D8E3C3 50%, #D8E3C3 100%);
 		h2 {
 			position: absolute;
-			min-width: 350px;
+			width: Min(350px, 90%);  // capitalize to avoid Sass bug
 			background-color: #93ac64;
 			color: #fff;
 			border-radius: 2px;
@@ -377,12 +377,6 @@
 		}
 		&__ex-members .members {
 			grid-template-columns: repeat(2, 1fr);
-		}
-		&__auth {
-			h2 {
-				min-width: 0;
-				width: 90%;
-			}
 		}
 	}
 	.members {
