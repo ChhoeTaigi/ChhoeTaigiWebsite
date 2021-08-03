@@ -147,3 +147,28 @@
     fill: #8bbe56;
   }
 }
+
+@media screen and (max-width: 767px) {
+  .search-block {
+    flex-direction: column;
+    &__left {
+      flex: 0 0 auto;
+      text-align: left;
+    }
+  }
+}
+
+@media screen and (max-width: 540px) {
+	.search-actions {
+    .btn {
+      margin: 0 5px;
+    }
+  }
+}
+
+@media screen and (max-width: 420px) {
+  .btn--search, .btn--clear {
+    background-image: none;
+    padding: 0 20px;
+  }
+}

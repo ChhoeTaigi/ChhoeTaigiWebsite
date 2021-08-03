@@ -79,9 +79,16 @@ class BasicSearch extends Component {
 	render() {
 		return (
 			<div>
-				<div id='site-banner'>
+				<div className='site-banner'>
 					<div className='container'>
-						<img src='images/home_image@2x.png' />
+						<div className='site-banner__wrapper'>
+							<div className='site-banner__text'>
+								<img src='images/home_image_text@2x.png' alt="ChhoeTaigi 找台語 台語辭典 / 字詞資料庫" />
+							</div>
+							<div className='site-banner__bg'>
+								<img src='images/home_image_bg@2x.png' />
+							</div>
+						</div>
 					</div>
 				</div>
 				<div className='basic-search'>
