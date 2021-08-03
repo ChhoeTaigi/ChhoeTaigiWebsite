@@ -148,6 +148,40 @@
   }
 }
 
+.result-detail {
+  &__query {
+    display: flex;
+    background-color: $color--light-gray;
+    font-size: 22px;
+    font-weight: 500;
+    padding: 12px;
+    color: $color--fade-dark-main;
+    border-radius: 5px;
+    margin: 20px 0;
+  }
+}
+
+.word-detail-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-weight: 400;
+  color: $color--fade-dark-main;
+  margin-bottom: 40px;
+  td, th {
+    padding: 5px 12px;
+    border: 1px solid $color--table-border;
+  }
+  th {
+    background-color: #ebf3e6;
+    font-weight: 500;
+    text-align: right;
+    width: 30%;
+  }
+  ul {
+    padding-left: 22px;
+  }
+}
+
 .pagination {
   display: flex;
   justify-content: flex-end;
