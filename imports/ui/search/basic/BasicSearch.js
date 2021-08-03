@@ -80,7 +80,9 @@ class BasicSearch extends Component {
 		return (
 			<div>
 				<div id='site-banner'>
-					<img src='images/home_image@2x.png' />
+					<div className='container'>
+						<img src='images/home_image@2x.png' />
+					</div>
 				</div>
 				<div className='basic-search'>
 					<form id='basic-form' className='container' onSubmit={this.handleSubmit.bind(this)} autoComplete='off'>

@@ -30,6 +30,10 @@ a {
   color: $color--dark-main;
 }
 
+*:focus {
+  outline-color: $color--fade-main;
+}
+
 main {
   padding-top: 56px;
 }

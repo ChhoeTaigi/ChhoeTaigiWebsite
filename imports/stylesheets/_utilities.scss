@@ -77,8 +77,8 @@
 }
 
 .radio-simulated {
-  position: relative;
-  padding-left: 20px;
+  display: inline-flex;
+  align-items: center;
   &__hidden {
     position: absolute;
     left: 0;
@@ -87,21 +87,26 @@
     height: 1.25rem;
     opacity: 0;
     &:checked ~ .radio-simulated__text::before {
-      background-image: url(/images/checkbox_select@2x.png);
+      background-image: url(/images/radio_checked@2x.png);
+    }
+    &:checked:focus ~ .radio-simulated__text::before {
+      background-image: url(/images/radio_checked_focus@2x.png);
+    }
+    &:focus ~ .radio-simulated__text::before {
+      background-image: url(/images/radio_focus@2x.png);
     }
   }
   &__text {
+    display: flex;
+    align-items: center;
     &::before {
       content: "";
 			display: block;
-			position: absolute;
-			top: 50%;
-      left: 0;
-			width: 16px;
-			height: 16px;
-			background-size: 16px 16px;
-      margin-top: -8px;
-      background-image: url(/images/checkbox@2x.png);
+			width: 18px;
+			height: 18px;
+			background-size: 18px 18px;
+      background-image: url(/images/radio@2x.png);
+      margin-right: 5px;
     }
   }
 }
