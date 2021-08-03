@@ -11,6 +11,30 @@ class Header extends Component {
         super(props);
 
         props.addTranslation(headerTranslations);
+        this.wrapperRef = React.createRef();
+        this.handleClickOutside = this.handleClickOutside.bind(this);
+    }
+
+    componentDidMount() {
+        document.addEventListener('mousedown', this.handleClickOutside);
+    }
+
+    componentWillUnmount() {
+        document.removeEventListener('mousedown', this.handleClickOutside);
+    }
+
+    handleClickOutside(event) {
+        if (this.wrapperRef && !this.wrapperRef.current.contains(event.target)) {
+            this.closeMenu();
+        }
+    }
+
+    toggleMenu() {
+        document.getElementById('site-nav-list').classList.toggle('active');
+    }
+
+    closeMenu() {
+        document.getElementById('site-nav-list').classList.remove('active');
     }
 
     render() {
@@ -21,27 +45,30 @@ class Header extends Component {
         return (
             <header className='site-header'>
                 <div className='container'>
-                    <Link to='/' >
-                        <img className='logo' src='/images/logo@2x.png' width='194' height='32' />    
-                    </Link>
+                    <h1>
+                        <Link to='/' >
+                            <img className='logo' src='/images/logo@2x.png' alt='ChhoeTaigi 找台語' />    
+                        </Link>
+                    </h1>
                     <nav className='site-nav'>
-                        <ul>
+                        <button className='site-nav__menu-toggle' onClick={this.toggleMenu}>
+                            <span className='sr-only'>Toggle menu</span>
+                        </button>
+                        <ul id='site-nav-list' ref={this.wrapperRef}>
                             <li>
-                                <Link className={currentLocation == '/' ? 'active' : ''} to='/'><Translate id="basic" /></Link>
+                                <Link className={currentLocation == '/' ? 'active' : ''} to='/' onClick={this.closeMenu}><Translate id="basic" /></Link>
                             </li>
                             <li>
-                                <Link className={currentLocation == '/chinkai' ? 'active' : ''} to='/chinkai'><Translate id="advanced" /></Link>
+                                <Link className={currentLocation == '/chinkai' ? 'active' : ''} to='/chinkai' onClick={this.closeMenu}><Translate id="advanced" /></Link>
                             </li>
                             <li>
-                                <Link className={currentLocation == '/app' ? 'active' : ''} to='/app'><Translate id="app" /></Link>
+                                <Link className={currentLocation == '/app' ? 'active' : ''} to='/app' onClick={this.closeMenu}><Translate id="app" /></Link>
                             </li>
                             <li>
-                                <Link className={currentLocation == '/liaukai' ? 'active' : ''} to='/liaukai'><Translate id="about" /></Link>
+                                <Link className={currentLocation == '/liaukai' ? 'active' : ''} to='/liaukai' onClick={this.closeMenu}><Translate id="about" /></Link>
                             </li>
-                            <li>
-                                <Link id='FB-link' className='menu-item' to={{pathname:'https://www.facebook.com/ChhoeTaigi/'}} target='_blank'><span className='sr-only'>ChhoeTaigi Facebook</span></Link>
-                            </li>
-                        </ul>                     
+                        </ul>
+                        <Link id='FB-link' className='menu-item' to={{pathname:'https://www.facebook.com/ChhoeTaigi/'}} target='_blank'><span className='sr-only'>ChhoeTaigi Facebook</span></Link>
                     </nav>
                 </div>
             </header>

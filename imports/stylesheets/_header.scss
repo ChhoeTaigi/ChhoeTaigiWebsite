@@ -12,13 +12,25 @@
 		justify-content: space-between;
 		align-items: center;
 	}
+	h1 {
+		margin: 0;
+	}
 	.logo {
 		margin-right: auto;
+		height: 32px;
+		width: auto;
 	}
 }
 
 .site-nav {
 	height: 100%;
+	display: flex;
+	align-items: center;
+	a {
+		text-decoration: none;
+		display: flex;
+		align-items: center;
+	}
 	ul {
 		@extend %plain-list;
 		height: 100%;
@@ -30,32 +42,31 @@
 		display: flex;
 		justify-content: center;
 		align-items: center;
+		a {
+			height: 100%;
+			font-size: 15px;
+			padding: 0 10px;
+			position: relative;
+			color: $color--dark-main;
+			min-height: 48px;
+		}
+		a::after {
+			content: "";
+			position: absolute;
+			bottom: 0;
+			left: 50%;
+			margin-left: -15px;
+			width: 30px;
+			height: 4px;
+			background-color: rgba($color--dark-main, 0.13);
+			transition: background-color .3s ease-in;
+		}
+		a.active::after, a:hover::after {
+			background-color: $color--dark-main;
+		}
 	}
-	a {
-		text-decoration: none;
-		display: flex;
-		align-items: center;
-	}
-	a:not(#FB-link) {
-		height: 100%;
-		font-size: 15px;
-		padding: 0 10px;
-		position: relative;
-		color: $color--dark-main;
-	}
-	a:not(#FB-link)::after {
-		content: "";
-		position: absolute;
-		bottom: 0;
-		left: 50%;
-		margin-left: -15px;
-		width: 30px;
-		height: 4px;
-		background-color: rgba($color--dark-main, 0.13);
-		transition: background-color .3s ease-in;
-	}
-	a:not(#FB-link).active::after, a:not(#FB-link):hover::after {
-		background-color: $color--dark-main;
+	&__menu-toggle {
+		display: none;
 	}
 }
 
@@ -66,4 +77,68 @@
 	height: 22px;
 	width: 22px;
 	margin-left: 20px;
+}
+
+@media screen and (max-width: 980px) {
+	.site-header {
+		height: auto;
+		h1 {
+			padding-top: 10px;
+		}
+		.container {
+			flex-direction: column;
+		}
+	}
+}
+
+@media screen and (max-width: 680px) {
+	.site-header {
+		height: 56px;
+		h1 {
+			padding: 0;
+		}
+		.container {
+			flex-direction: row;
+		}
+	}
+	.site-nav {
+		&__menu-toggle {
+			display: flex;
+			width: 22px;
+			height: 22px;
+			background: url(/images/icon_hamburger@2x.png) no-repeat;
+			background-size: 22px 22px;
+			margin-right: 10px;
+		}
+		ul {
+			position: absolute;
+			flex-direction: column;
+			width: 100%;
+			background: rgba(#fff, 0.95);
+			top: calc(100% + 1px);
+			left: 0;
+			height: auto;
+			max-height: 0;
+			overflow: hidden;
+			transition: none;
+		}
+		ul.active {
+			max-height: 200px;
+			transition: max-height .2s ease-in;
+		}
+		li {
+			margin-left: 0;
+		}
+		li a {
+			width: 100%;
+			padding: 0 0 0 calc(5% + 18px);
+		}
+		li a::after {
+			height: 60%;
+			bottom: 20%;
+			width: 10px;
+			left: 5%;
+			margin-left: 0;
+		}
+	}
 }
