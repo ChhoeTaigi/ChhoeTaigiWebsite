@@ -7,6 +7,9 @@
     background-color: #ebebe7;
     font-size: 18px;
     padding: 5px 12px;
+    + .dic-block {
+      margin-top: 40px;
+    }
   }
   &__counts {
     padding: 5px 12px;
@@ -133,7 +136,8 @@
     }
   }
   &__detail {
-    width: 54px;
+    min-width: 54px;
+    text-align: center;
     a {
       white-space: nowrap;
       text-decoration: none;
@@ -141,5 +145,60 @@
       font-weight: 500;
       color: $color--main;
     }
+  }
+}
+
+.pagination {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  font-size: 14px;
+  font-weight: 500;
+  color: $color--gray-main;
+  margin: 5px 0;
+  &__arrow {
+    display: block;
+    width: 26px;
+    height: 30px;
+    background-size: 26px 30px;
+  }
+  &__arrow--prev {
+    background-image: url(images/s_arrow_L@2x.png);
+  }
+  &__arrow--next {
+    background-image: url(images/s_arrow_R@2x.png);
+  }
+  &__pages {
+    display: flex;
+  }
+  &__page {
+    display: block;
+    text-align: center;
+    width: 26px;
+    text-decoration: none;
+    margin: 0 1px;
+    position: relative;
+    &.active::after {
+      content: "";
+      width: 16px;
+      border-bottom: $color--gray-main 2px solid;
+      position: absolute;
+      left: 50%;
+      margin-left: -8px;
+      bottom: 0;
+    }
+  }
+  &__goto {
+    margin-left: 20px;
+  }
+  input[type='number'] {
+    width: 32px;
+    height: 24px;
+    line-height: 24px;
+    border-radius: 2px;
+    background: #fff;
+    border: #ddd 1px solid;
+    margin: 0 5px;
+    padding: 0 4px;
   }
 }

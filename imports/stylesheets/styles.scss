@@ -14,15 +14,14 @@
 // pages
 @import "basic-search.scss";
 @import "adv-search.scss";
-@import "search-result.scss";
 @import "explanation.scss";
 @import "app.scss";
 @import "about.scss";
 
+// search result (dictionary list, single dictionary, detail)
+@import "search-result.scss";
 
-@import "dic.scss";
-@import "brief-word.scss";
+
 @import "detail.scss";
 @import "landing.scss";
-@import "single.scss";
 @import "word.scss";

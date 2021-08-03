@@ -139,7 +139,9 @@ class DictionaryList extends Component {
         return (
             <div className='search-result'>
                 <div className='container'>
-                    <div className='search-result__query'><Translate id='keyowrd' />：{keywords}</div>
+                    <div className='search-result__query'>
+                        <Translate id='keyowrd' />：{keywords}
+                    </div>
                     {resultCount}
                     {!this.props.allResults && LoadingIndicator}
                 </div>
