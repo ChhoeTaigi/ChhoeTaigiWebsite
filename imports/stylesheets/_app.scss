@@ -11,7 +11,6 @@
 		h1 {
 			font-size: 32px;
   		font-weight: 500;
-  		line-height: 47px;
   		color: $color--dark-main;
 			text-align: center;
 			margin-bottom: 40px;
@@ -26,7 +25,7 @@
 	}
 	&__desc {
 		font-size: 15px;
-		line-height: 28px;
+		line-height: 1.8em;
 		color: $color--gray-main;
 		margin-bottom: 40px;
 	}
@@ -38,7 +37,6 @@
 			margin: 0;
 			font-size: 16px;
 			font-weight: 500;
-			line-height: 24px;
 			color: $color--dark-main;
 		}
 		li {
@@ -68,7 +66,6 @@
 		background-color: #879e5a;
 		color: #fff;
 		font-size: 15px;
-  	line-height: 24px;
 		border-radius: 8px;
 		height: 50px;
 		white-space: pre-wrap;

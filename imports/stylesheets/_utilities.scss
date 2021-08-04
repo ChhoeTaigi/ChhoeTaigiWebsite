@@ -1,13 +1,11 @@
 .btn {
-  height: 48px;
-  padding: 0 20px;
+  padding: 13px 20px;
   border-radius: 2px;
   box-shadow: $shadow--basic;
   background-color: white;
   border: solid 1px $color--main;
   font-size: 18px;
   font-weight: normal;
-  line-height: 48px;
   color: $color--main;
   text-decoration: none;
   white-space: nowrap;
@@ -169,7 +167,7 @@
 @media screen and (max-width: 420px) {
   .btn--search, .btn--clear {
     background-image: none;
-    padding: 0 15px;
+    padding: 8px 15px;
   }
   .search-actions {
     flex-direction: column;

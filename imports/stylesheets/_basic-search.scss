@@ -47,10 +47,10 @@
 	}
 	&__top {
 		height: 42px;
-		line-height: 42px;
 		margin: 0 var(--content-padding);
 		display: flex;
 		justify-content: space-between;
+		align-items: center;
 		border-bottom: rgba($color--main, 0.3) 2px solid;
 		h3 {
 			flex: 0 0 150px;
@@ -78,7 +78,7 @@
 		}
 	}
 	&__actions {
-		margin: 20px 0;
+		margin: 20px var(--content-padding);
 	}
 	&__kesimi {
 		padding: 20px var(--content-padding);
@@ -139,7 +139,9 @@
 		--content-padding: 4%;
 		&__top {
 			flex-direction: column;
+			align-items: stretch;
 			height: auto;
+			padding: 5px 0;
 		}
 		&__mode {
 			order: 2;

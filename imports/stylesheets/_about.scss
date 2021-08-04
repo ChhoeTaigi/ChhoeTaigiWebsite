@@ -12,7 +12,7 @@
 		color: #f7f7f7;
 		font-size: 18px;
   	font-weight: lighter;
-		line-height: 28px;
+		line-height: 1.6em;
 		margin-bottom: 20px;
 		.container {
 			max-width: 750px;
@@ -204,7 +204,7 @@
 		h3 {
   		font-size: 18px;
   		font-weight: 500;
-  		line-height: 36px;
+  		padding: 4px 0;
   		color: $color--fade-dark-main;
 		}
 		h3::before {
@@ -220,9 +220,11 @@
 			margin-left: 24px;
 			font-size: 18px;
 			font-weight: 500;
-			line-height: 36px;
 			letter-spacing: 0;
 			color: $color--fade-dark-main;
+		}
+		li {
+			margin-bottom: 8px;
 		}
 		a {
 			color: $color--fade-dark-main;
@@ -244,13 +246,11 @@
 		margin-bottom: 100px;
 		h2 {
 			padding-top: 72px;
-			line-height: 33px;
 			color: #93ac64;
 			font-size: 22px;
 			font-weight: 500;
 		}
 		a {
-			line-height: 26px;
 			color: $color--fade-dark-main;
 			text-underline-offset: 1px;
 			word-break: break-all;
