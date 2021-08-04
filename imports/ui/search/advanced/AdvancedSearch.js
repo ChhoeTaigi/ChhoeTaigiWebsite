@@ -1,13 +1,13 @@
-import React, { Component } from 'react';
-import { withRouter, Link } from 'react-router-dom';
+import React, { Component } from "react";
+import { withRouter, Link } from "react-router-dom";
 import { withLocalize } from "react-localize-redux";
 import { Translate } from "react-localize-redux";
-import ReactGA from 'react-ga';
+import ReactGA from "react-ga";
 
-import { stringify } from '../../../api/utils/url-helper';
-import dicStruct from '../../../api/dicts/dictionary-struct';
-import advancedTranslations from '../../../translations/advanced.json';
-import { isEmpty } from '../../../api/utils/utils';
+import { stringify } from "../../../api/utils/url-helper";
+import dicStruct from "../../../api/dicts/dictionary-struct";
+import advancedTranslations from "../../../translations/advanced.json";
+import { isEmpty } from "../../../api/utils/utils";
 
 let state = {
     method: 'allField',
@@ -41,7 +41,7 @@ class AdvancedSearch extends Component {
         this.setState({
             selectedDic: dic,
             results: undefined,
-        })
+        });
     }
 
     render() {
@@ -54,7 +54,7 @@ class AdvancedSearch extends Component {
         // dictionary buttons
         let dicButtonsArr = [];
         let dicButtons;
-        if (this.state.method === 'singleDic') {
+        if (this.state.method === "singleDic") {
             for (let idx in dicStruct) {
                 let dic = dicStruct[idx].name;
                 dicButtonsArr.push(
@@ -66,13 +66,15 @@ class AdvancedSearch extends Component {
 
         // search options
         let searchOptions;
-        if (this.state.method === 'singleDic') {
+        if (this.state.method === "singleDic") {
             let selectedDic = this.state.selectedDic;
             if (selectedDic) {
-                searchOptions = <SingleDicOptions key='singleDicOptions' dic={selectedDic} />;
+                searchOptions = (
+                    <SingleDicOptions key="singleDicOptions" dic={selectedDic} />
+                );
             }
         } else {
-            searchOptions = <AllFieldOptions key='allFieldOptions' />;
+            searchOptions = <AllFieldOptions key="allFieldOptions" />;
         }
 
         // view
@@ -100,7 +102,7 @@ class SingleDicOptionsClass extends Component {
         if (isEmpty(singleDicState)) {
             this.state = {
                 columns: this.clearInput(this.props.dic),
-                searchMethod: 'equals',
+                searchMethod: "equals",
             };
         } else {
             this.state = singleDicState;
@@ -126,27 +128,27 @@ class SingleDicOptionsClass extends Component {
         let dicColumns = dicStruct.find((e) => e.name === dic).columns;
         let columns = {};
         for (let key in dicColumns) {
-            columns[key] = '';
+            columns[key] = "";
         }
         return columns;
     }
 
     handleSubmit(event) {
         ReactGA.event({
-            category: 'user',
-            action: 'search',
-            label: 'single-dic'
+            category: "user",
+            action: "search",
+            label: "single-dic",
         });
 
         let options = {
-            method: 'single-dic',
+            method: "single-dic",
             dic: this.props.dic,
             searchMethod: this.state.searchMethod,
             columns: this.state.columns,
         };
-        
+
         this.props.history.push({
-            pathname: 'search', 
+            pathname: "search",
             search: stringify(options),
         });
 
@@ -156,7 +158,7 @@ class SingleDicOptionsClass extends Component {
     handleInput(event) {
         let key = event.target.name;
         let value = event.target.value;
-        if (key === 'searchMethod') {
+        if (key === "searchMethod") {
             this.setState({
                 searchMethod: value,
             });
@@ -171,25 +173,29 @@ class SingleDicOptionsClass extends Component {
 
     resetAllInput = () => {
         this.setState({
-            columns: this.clearInput(this.props.dic)
+            columns: this.clearInput(this.props.dic),
         });
-    }
+    };
 
     render() {
         let dic = this.props.dic;
         let columns = dicStruct.find((e) => e.name === dic).columns;
-		let searchBlocks = [];
+
+        let searchBlocks = [];
 		for (let key in columns) {
-			searchBlocks.push(
-				<div className='search-block'>
-					<label className='search-block__left' key={key + '-label'} htmlFor={key}>{columns[key]}</label>
-					<div className='search-block__right'>
-					<Translate key={key + '-input'}>{({ translate }) =>
-						<input type='text' placeholder={translate('keyword')} name={key} onChange={this.handleInput.bind(this)} value={this.state.columns[key]}></input>
-					}</Translate>
-					</div>
-				</div>
-			);
+            if (key !== "StoreLink" &&
+            key !== "GoanchhehPoochhiongChuliau") {
+                searchBlocks.push(
+                    <div className='search-block'>
+                        <label className='search-block__left' key={key + '-label'} htmlFor={key}>{columns[key]}</label>
+                        <div className='search-block__right'>
+                        <Translate key={key + '-input'}>{({ translate }) =>
+                            <input type='text' placeholder={translate('keyword')} name={key} onChange={this.handleInput.bind(this)} value={this.state.columns[key]}></input>
+                        }</Translate>
+                        </div>
+                    </div>
+                );
+            }
 		}
         return (
             <div className='single-dic-search'>
@@ -219,17 +225,15 @@ class SingleDicOptionsClass extends Component {
                     }</Translate>
                 </form>
             </div>
-            
         );
     }
 }
 
 const SingleDicOptions = withRouter(SingleDicOptionsClass);
 
-
 let allFieldState = {
-    searchMethod: 'equals',
-    value: '',
+    searchMethod: "equals",
+    value: "",
 };
 
 class AllFieldOptionsClass extends Component {
@@ -244,19 +248,19 @@ class AllFieldOptionsClass extends Component {
 
     handleSubmit(event) {
         ReactGA.event({
-            category: 'user',
-            action: 'search',
-            label: 'all-field'
+            category: "user",
+            action: "search",
+            label: "all-field",
         });
 
         let options = {
-            method: 'all-field',
+            method: "all-field",
             searchMethod: this.state.searchMethod,
             value: this.state.value,
         };
-        
+
         this.props.history.push({
-            pathname: 'search', 
+            pathname: "search",
             search: stringify(options),
         });
 
@@ -271,11 +275,11 @@ class AllFieldOptionsClass extends Component {
         this.setState(state);
     }
 
-    resetAllInput = () => { 
+    resetAllInput = () => {
         this.setState({
-            value: ""
+            value: "",
         });
-    }
+    };
 
     render() {
         return (
