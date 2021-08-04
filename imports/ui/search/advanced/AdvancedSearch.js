@@ -61,7 +61,7 @@ class AdvancedSearch extends Component {
                     <button className={'btn ' + (this.state.selectedDic === dic ? 'active' : '')} key={dic} onClick={this.handleDicButton.bind(this, dic)}>{dicStruct[idx].chineseName}</button>
                 );
             }
-            dicButtons = <div className='all-field-search__dic-list'>{dicButtonsArr}</div>;
+            dicButtons = <div className='adv-search__dic-list'>{dicButtonsArr}</div>;
         }
 
         // search options

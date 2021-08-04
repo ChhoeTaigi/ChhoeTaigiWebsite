@@ -169,6 +169,12 @@
 @media screen and (max-width: 420px) {
   .btn--search, .btn--clear {
     background-image: none;
-    padding: 0 20px;
+    padding: 0 15px;
+  }
+  .search-actions {
+    flex-direction: column;
+    .btn {
+      margin: 0 0 10px;
+    }
   }
 }
