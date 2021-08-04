@@ -32,20 +32,23 @@ export default class Word extends Component {
                 const word = words[idx];
                 const row = [];
                 for (let key in word) {
-                    if (key in headerTitle)
-                        row.push(<td key={key + idx}>{word[key]}</td>);
+                    if (key in headerTitle) {
+                        row.push(<td key={key + idx}><span className='brief-table__narrow-title'>{headerTitle[key]}：</span><span className='brief-table__text'>{word[key]}</span></td>);
+                    }
                 }
                 const linkUri = '/' + dic + '/' + word.DictWordID;
                 row.push(<td key={'detail' + idx} className='brief-table__detail'><Link to={linkUri}><Translate id='more' /></Link></td>)
                 rows.push(<tbody key={idx}><tr>{row}</tr></tbody>);
             }
             return (
-                <table className='brief-table'>
-                    <thead>
-                        <tr>{header}</tr>
-                    </thead>
-                    {rows}
-                </table>
+                <div className='brief-table__wrapper'>
+                    <table className='brief-table'>
+                        <thead>
+                            <tr>{header}</tr>
+                        </thead>
+                        {rows}
+                    </table>
+                </div>
             );
         }
     }

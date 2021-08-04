@@ -70,11 +70,6 @@
 	}
 }
 
-// related to header height
-main {
-  padding-top: 56px;
-}
-
 #FB-link {
 	display: block;
 	background-image: url(/images/fb@2x.png);
@@ -82,6 +77,14 @@ main {
 	height: 22px;
 	width: 22px;
 	margin-left: 20px;
+}
+
+// related to header height
+main {
+  padding-top: 56px;
+}
+.search-result__dic-list {
+	top: 56px;
 }
 
 @media screen and (max-width: 980px) {
@@ -94,6 +97,7 @@ main {
 			flex-direction: column;
 		}
 	}
+	// related to header height
 	main {
 		padding-top: 91px;
 	}

@@ -60,7 +60,6 @@ class DictionaryList extends Component {
     handleButtonClicked(dic, event) {
         const domNode = ReactDOM.findDOMNode(this.refs[dic].current);
         const topPosition = document.getElementsByClassName('site-header')[0].offsetHeight + document.getElementsByClassName('search-result__dic-list')[0].offsetHeight + 30;
-        console.log(topPosition);
         window.scrollTo(0, domNode.offsetTop - topPosition);
 
         this.setState({
@@ -137,7 +136,7 @@ class DictionaryList extends Component {
         } 
 
         return (
-            <div className='search-result'>
+            <div className='search-result search-result--list'>
                 <div className='container'>
                     <div className='search-result__query'>
                         <Translate id='keyowrd' />：{keywords}
@@ -184,16 +183,31 @@ class DictionaryBrief extends Component {
         };
     }
 
+    toggleDicContent(event) {
+        let currentHeader = event.currentTarget;
+        if (window.getComputedStyle(currentHeader).display === 'flex') {
+            if (currentHeader.classList.contains('active')) {
+                currentHeader.classList.remove('active');
+            }
+            else {
+                document.querySelectorAll('.dic-block__header').forEach(function(el) {
+                    el.classList.remove('active');
+                });
+                currentHeader.classList.add('active');
+            }
+        }
+    }
+
     render() {
         return (
             <div className='dic-block'>
-                <header className='dic-block__header'>
+                <header className='dic-block__header' onClick={this.toggleDicContent}>
                     <h2 className='dic-block__title'>{this.state.chineseName}</h2>
                     <h3 className='dic-block__counts'>(<Translate id='result-1' />{this.state.totalNum}<Translate id='result-2' />)</h3>
                 </header>
                 <div className='dic-block__content'>
                     <BriefWord key={this.state.dic} dic={this.state.dic} words={this.state.words} />
-                    {this.props.showMoreButton ? <Link className='btn dic-block__more' to={this.state.url}><Translate id='mroe-results' /></Link> : ''}
+                    {this.props.showMoreButton ? <div className='dic-block__append'><Link className='btn dic-block__more' to={this.state.url}><Translate id='mroe-results' /></Link></div> : ''}
                 </div>
             </div>
         );
