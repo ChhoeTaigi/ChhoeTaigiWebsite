@@ -34,20 +34,12 @@ class Detail extends Component {
             struct: struct,
             path: path,
             dic: dic,
-            chineseName: chineseName,
-            background_height: window.innerHeight - 154,
+            chineseName: chineseName
         };
-
-        this.handleResize = this.handleResize.bind(this);
     }
 
     componentDidMount() {
         window.scrollTo(0, 0);
-        window.addEventListener('resize', this.handleResize);
-    }
-
-    componentWillUnmount() {
-        window.removeEventListener('resize', this.handleResize);
     }
 
     componentDidUpdate() {
@@ -55,25 +47,28 @@ class Detail extends Component {
             window.FB.XFBML.parse();
     }
 
-    handleResize() {
-        this.setState({
-            background_height: window.innerHeight - 154,
-        });
-    }
-
     render() {
         return (
-            <div style={{minHeight: this.state.background_height}}>
-                <div id='fb-root'></div>
-                <div id='script'></div>
-                <div id='poj-container'>{this.state.chineseName}：{this.state.title}</div>
-                <div id='word-container'>
-                    <Word columns={this.state.word} dic={this.state.dic}></Word>
-                </div>
-                <div id='fb-comments'>
-                    <FacebookProvider appId='306448440105903'>
-                        <Comments href={this.state.path} width='100%' />
-                    </FacebookProvider>
+            <div class='result-detail'>
+                <div class='container'>
+                    <div id='fb-root'></div>
+                    <div id='script'></div>
+                    <div className='result-detail__query'>
+                        <div className='result-detail__query-dic'>
+                            {this.state.chineseName}：
+                        </div>
+                        <div className='result-detail__query-text'>
+                            {this.state.title}
+                        </div>
+                    </div>
+                    <div className='result-detail__table'>
+                        <Word columns={this.state.word} dic={this.state.dic}></Word>
+                    </div>
+                    <div className='fb-comments'>
+                        <FacebookProvider appId='306448440105903'>
+                            <Comments href={this.state.path} width='100%' />
+                        </FacebookProvider>
+                    </div>
                 </div>
             </div>
         );

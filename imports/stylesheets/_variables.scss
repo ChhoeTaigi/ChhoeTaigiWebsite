@@ -1,0 +1,18 @@
+$color--main: #43944f;
+$color--fade-main: #5b9564;
+$color--dark-main: #23672e;
+$color--gray-main: #657160;
+$color--fade-dark-main: #3F4D38;
+$color--light-main: #d0e3d0;
+$color--fade-light-main: #eef5ef;
+$color--gray-light-main: #C5D1C0;
+$color--orange: #d19e6d;
+$color--light-gray: #ededed;
+$color--table-border: #99c799;
+$shadow--basic: 0 4px 2px 0 rgba(0, 0, 0, 0.16);
+
+%plain-list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}

@@ -15,6 +15,17 @@ import Account from '../pages/Account';
 // formal
 class Main extends Component {
     render() {
+        const currentLocation = this.props.location.pathname;
+        let bgType;
+        if (currentLocation === '/') {
+            bgType = 'bg--darkgreen';
+        }
+        else if (currentLocation === '/chinkai') {
+            bgType = 'bg--lightgreen';
+        }
+        else {
+            bgType = '';
+        }
         const detailPath = getDetailPath();
         let additionalRoute = [
             <Route key='basic' exact path='/' component={BasicSearch} />,
@@ -48,7 +59,7 @@ class Main extends Component {
         }
 
         return (
-            <main>
+            <main className={bgType}>
                 {/* {facebookChat} */}
                 <Switch>
                     {additionalRoute}

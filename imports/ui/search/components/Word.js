@@ -102,7 +102,7 @@ export default class Word extends Component {
             );
         }
         return (
-            <table className='detail-word'>
+            <table className='word-detail-table'>
                 <tbody>
                     {contents}
                 </tbody>

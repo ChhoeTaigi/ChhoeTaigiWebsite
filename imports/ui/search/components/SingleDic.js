@@ -15,27 +15,12 @@ class SingleDic extends Component {
         super(props);
 
         props.addTranslation(resultsTranslations);
-
-        this.state = {
-            background_height: window.innerHeight - 154,
-        };
         
-        this.handleResize = this.handleResize.bind(this);
     }
 
-    handleResize() {
-        this.setState({
-            background_height: window.innerHeight - 154,
-        });
-    }
 
     componentDidMount() {
         window.scrollTo(0, 0);
-        window.addEventListener('resize', this.handleResize);
-    }
-
-    componentWillUnmount() {
-        window.removeEventListener('resize', this.handleResize);
     }
 
     goToPage(pageNum, event) {
@@ -113,7 +98,7 @@ class SingleDic extends Component {
             for (let i = pageFrom; i <= pageTo; ++i) {
                 options.page = i;
                 const pageUrl = '/search?' + stringify(options);
-                pages.push(<Link key={i} className={'page-button ' + (thisPage === i ? 'page-button-selected' : '')} to={pageUrl}>{i}</Link>);
+                pages.push(<Link key={i} className={'pagination__page ' + (thisPage === i ? 'active' : '')} to={pageUrl}>{i}</Link>);
             }
             
             let lastPage = thisPage - 1;
@@ -127,37 +112,43 @@ class SingleDic extends Component {
             const nextPageUrl = '/search?' + stringify(options);
 
             pageView = (
-                <div id='single-dic-right-container'>
-                    <Link id='last-page' className='page-arrow' to={lastPageUrl}></Link>
-                    <div className='dic-pages' style={{gridTemplateColumns: 'repeat(' + listPageNum + ', 1fr)'}}>{pages}</div>
-                    <Link id='next-page' className='page-arrow' to={nextPageUrl}></Link>
-                    <span><Translate id='oann-iah-part1' /></span>
-                    <input type='text' onKeyPress={this.goToPage.bind(this, pageNum)}></input>
-                    <span><Translate id='oann-iah-part2' /></span>
+                <div className='pagination'>
+                    <Link className='pagination__arrow pagination__arrow--prev' to={lastPageUrl}><span className="sr-only">Prev</span></Link>
+                    <div className='pagination__pages'>{pages}</div>
+                    <Link className='pagination__arrow pagination__arrow--next' to={nextPageUrl}><span className="sr-only">Next</span></Link>
+                    <div className='pagination__goto'>
+                        <span><Translate id='oann-iah-part1' /></span>
+                        <input type='number' className='pagination__input' onKeyPress={this.goToPage.bind(this, pageNum)}></input>
+                        <span><Translate id='oann-iah-part2' /></span>
+                    </div>
                 </div>
             );
 
             bottomPageView = (
-                <div id='bottom-page-container'>
+                <div className='search-result__bottom'>
                     { pageView }
                 </div>
             );
         }
         
         return (
-            <div id='single-dic-container' style={{minHeight: this.state.background_height}}>
-                <div id='keywords'><Translate id='keyowrd' />：{keywords}</div>
-                <div id='single-dic-content-container'>
-                    <div id='single-dic-title'>
-                        <div id='single-dic-left-container'>
-                            <h1 className='dic-title'>{chineseName}</h1>
-                            <h2 className='dic-subtitle'>(<Translate id='sutian-sooliong-part1' />{totalNum}<Translate id='sutian-sooliong-part2' />{pageNum}<Translate id='sutian-sooliong-part3' />)</h2>
-                        </div>
-                        {!this.props.allResults && LoadingIndicator}
-                        { pageView }
+            <div className='search-result'>
+                <div className='container'>
+                    <div className='search-result__query'>
+                        <Translate id='keyowrd' />：{keywords}
                     </div>
-                    <BriefWord key={dic} dic={dic} words={words}/>
-                    { bottomPageView }
+                    <div className='dic-block'>
+                        <header className='dic-block__header'>
+                            <h2 className='dic-block__title'>{chineseName}</h2>
+                            <h3 className='dic-block__counts'>(<Translate id='sutian-sooliong-part1' />{totalNum}<Translate id='sutian-sooliong-part2' />{pageNum}<Translate id='sutian-sooliong-part3' />)</h3>
+                            {!this.props.allResults && LoadingIndicator}
+                            { pageView }
+                        </header>
+                        <div className='dic-block__content'>
+                            <BriefWord key={dic} dic={dic} words={words}/>
+                        </div>
+                        { bottomPageView }
+                    </div>
                 </div>
             </div>
         );

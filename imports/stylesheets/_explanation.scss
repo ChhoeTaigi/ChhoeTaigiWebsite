@@ -1,0 +1,129 @@
+.explanation {
+  h1 {
+    margin-top: 48px;
+    margin-bottom: 36px;
+		font-size: 28px;
+		font-weight: 300;
+		text-align: center;
+		color: $color--dark-main;
+  }
+	h2 {
+    margin-bottom: 12px;
+    font-size: 24px;
+    font-weight: 500;
+		color: $color--dark-main;
+	}
+	section {
+		margin-bottom: 40px;
+	}
+	&__ul {
+		> li {
+			font-size: 18px;
+			font-weight: 500;
+			color: $color--gray-main;
+			margin-bottom: 6px;
+		}
+	}
+	&__note {
+		display: table;
+		border-radius: 21px;
+		background-color: #ead994;
+		font-size: 18px;
+		font-weight: 500;
+		padding: 7px 30px;
+		color: $color--gray-main;
+		text-align: center;
+		margin: 0 auto 60px;
+	}
+}
+
+.lmj-note {
+	@extend %plain-list;
+	background-color: $color--light-gray;
+	margin: 0 0 15px;
+	padding: 10px 20px;
+	border-radius: 5px;
+	font-size: 16px;
+	> li {
+		display: flex;
+		margin-bottom: 15px;
+		h3 {
+			font-size: 1em;
+			flex: 0 0 168px;
+			text-align: right;
+			padding-right: 33px;
+			position: relative;
+		}
+		h3::after {
+			content: '—';
+			position: absolute;
+			right: 0;
+			top: 0;
+			padding: 0 10px;
+		}
+	}
+}
+
+.regex-note {
+	@extend %plain-list;
+	> li {
+		margin-bottom: 10px;
+	}
+	h3 {
+		color: $color--fade-main;
+		font-size: 18px;
+    font-weight: 500;
+		padding: 4px 0 4px 20px;
+	}
+	ol {
+		padding-left: 28px;
+		> li {
+			counter-increment: list;
+			margin-bottom: 5px;
+		}
+		> li::marker {
+			content: "(" counter(list) ")\a0";
+		}
+	}
+	&__content {
+		padding-left: 70px;
+		color: $color--gray-main;
+		line-height: 1.7em;
+	}
+}
+
+@media screen and (max-width: 767px) {
+	.lmj-note {
+		li {
+			flex-direction: column;
+			h3 {
+				flex: 0 0 auto;
+				text-align: left;
+				font-weight: 800;
+				color: $color--fade-dark-main;
+			}
+			h3::after {
+				position: relative;
+			}
+		}
+	}
+}
+
+@media screen and (max-width: 540px) {
+	.explanation {
+		&__ul {
+			padding-left: 22px;
+		}
+	}
+	.lmj-note {
+		padding: 10px;
+	}
+	.regex-note {
+		li h3, &__content {
+			padding-left: 0;	
+		}
+		> li {
+			margin-bottom: 20px;
+		}
+	}
+}

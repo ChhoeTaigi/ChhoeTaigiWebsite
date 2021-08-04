@@ -24,29 +24,31 @@ export default class Word extends Component {
             for (let key in headerTitle) {
                 header.push(<th key={key}>{headerTitle[key]}</th>);
             }
-            header.push(<th key='detail' className='detail-td'></th>);
+            header.push(<th key='detail' className='brief-table__detail'></th>);
 
             // rows
-            const columnWidth = struct.briefWidth;
             const rows = []
             for (let idx in words) {
                 const word = words[idx];
                 const row = [];
                 for (let key in word) {
-                    if (key in headerTitle)
-                        row.push(<td key={key + idx} style={{width: columnWidth[key]}}>{word[key]}</td>);
+                    if (key in headerTitle) {
+                        row.push(<td key={key + idx}><span className='brief-table__narrow-title'>{headerTitle[key]}：</span><span className='brief-table__text'>{word[key]}</span></td>);
+                    }
                 }
                 const linkUri = '/' + dic + '/' + word.DictWordID;
-                row.push(<td key={'detail' + idx} className='detail-td'><Link to={linkUri}><Translate id='more' /></Link></td>)
-                rows.push(<tr className='content-row' key={idx}>{row}</tr>);
+                row.push(<td key={'detail' + idx} className='brief-table__detail'><Link to={linkUri}><Translate id='more' /></Link></td>)
+                rows.push(<tbody key={idx}><tr>{row}</tr></tbody>);
             }
             return (
-                <table className={'brief-word ' + (this.props.width960 ? 'brief-word-960' : '')}>
-                    <tbody>
-                        <tr className='header-row'>{header}</tr>
+                <div className='brief-table__wrapper'>
+                    <table className='brief-table'>
+                        <thead>
+                            <tr>{header}</tr>
+                        </thead>
                         {rows}
-                    </tbody>
-                </table>
+                    </table>
+                </div>
             );
         }
     }

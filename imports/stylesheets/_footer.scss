@@ -1,0 +1,74 @@
+.site-footer {
+	padding: 15px 0 10px;
+	background-color: #fff;
+	color: $color--fade-dark-main;
+}
+
+.site-footer--darkgreen {
+	background-color: $color--fade-main;
+	color: $color--light-main;
+	.langs__btn {
+		color: #fff;
+		&.active, &:hover {
+			border-radius: 2px;
+			border: solid 1px #fff;
+		}
+	}
+}
+
+.site-footer--lightgreen {
+	background-color: $color--light-main;
+	color: $color--fade-dark-main;
+}
+
+.langs {
+	@extend %plain-list;
+	display: flex;
+	justify-content: center;
+	li {
+		margin: 0 5px;
+	}
+	&__btn {
+		height: 30px;
+    font-size: 14px;
+		padding: 0 10px;
+		text-align: center;
+		color: $color--fade-dark-main;
+		border: transparent 1px solid;
+		transition: border-color .3s ease-in;
+		&.active, &:hover {
+			border-radius: 2px;
+			border: solid 1px $color--fade-dark-main;
+		}
+	}
+}
+
+.site-footer__status {
+	display: flex;
+	justify-content: space-between;
+	font-size: 13px;
+	padding: 15px 0 10px;
+	> ul {
+		@extend %plain-list;
+	}
+}
+
+.g0v-logo {
+	background-image: url(/images/poweredby-long-i@2x.png);
+	background-size: 208px 26px;
+	display: block;
+	width: 208px;
+	height: 26px;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+@media screen and (max-width: 680px) {
+	.site-footer__status {
+		flex-direction: column;
+		text-align: center;
+		> ul:first-of-type {
+			margin-bottom: 5px;
+		}
+	}
+}

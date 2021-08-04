@@ -1,0 +1,94 @@
+.app {
+	margin: 40px 0 80px;
+	&__wrapper {
+		display: flex;
+		justify-content: space-between;
+	}
+	&__text {
+		min-width: 0;
+		flex: 0 0 460px;
+		padding-right: 6%;
+		h1 {
+			font-size: 32px;
+  		font-weight: 500;
+  		color: $color--dark-main;
+			text-align: center;
+			margin-bottom: 40px;
+		}
+	}
+	&__img {
+		align-self: flex-end;
+		img {
+			width: Min(580px, 100%);  // capitalize to avoid Sass bug
+			margin: 0 auto;
+		}
+	}
+	&__desc {
+		font-size: 15px;
+		line-height: 1.8em;
+		color: $color--gray-main;
+		margin-bottom: 40px;
+	}
+	&__links {
+		@extend %plain-list;
+		display: flex;
+		justify-content: center;
+		h2 {
+			margin: 0;
+			font-size: 16px;
+			font-weight: 500;
+			color: $color--dark-main;
+		}
+		li {
+			text-align: center;
+		}
+		a > img {
+			height: 50px;
+			margin: 0 auto;
+		}
+	}
+	&__ios {
+		margin-right: 20px;
+	}
+	&__android {
+		flex-basis: 240px;
+		.app__qr {
+			padding: 6px;
+		}
+	}
+	&__qr {
+		width: 100px;
+		margin: 0 auto 10px;
+	}
+	&__kesimi {
+		display: block;
+		text-decoration: none;
+		background-color: #879e5a;
+		color: #fff;
+		font-size: 15px;
+		border-radius: 8px;
+		height: 50px;
+		white-space: pre-wrap;
+		border: #eee 1px solid;
+		padding: 0 10px;
+	}
+}
+
+@media screen and (max-width: 1120px) {
+	.app {
+		&__img {
+			align-self: center;
+		}
+	}
+}
+
+@media screen and (max-width: 920px) {
+	.app {
+		&__wrapper {
+			flex-direction: column;
+		}
+		&__text {
+			padding-right: 0;
+		}
+	}
+}
