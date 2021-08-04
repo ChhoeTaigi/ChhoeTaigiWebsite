@@ -207,7 +207,7 @@ class DictionaryBrief extends Component {
                 </header>
                 <div className='dic-block__content'>
                     <BriefWord key={this.state.dic} dic={this.state.dic} words={this.state.words} />
-                    {this.props.showMoreButton ? <div className='dic-block__append'><Link className='btn dic-block__more' to={this.state.url}><Translate id='mroe-results' /></Link></div> : ''}
+                    {this.props.showMoreButton ? <div className='dic-block__append'><Link className='btn dic-block__more' to={this.state.url}><Translate id='more-results' /></Link></div> : ''}
                 </div>
             </div>
         );
