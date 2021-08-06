@@ -13,23 +13,23 @@ export const stringify = (options) => {
 
         if (options.page)
             query.page = options.page;
-    
+
         if (options.searchMethod)
             query.searchMethod = options.searchMethod;
-            
+
         if (options.spellingMethod)
             query.spellingMethod = options.spellingMethod;
-    
+
         const columns = options.columns;
         if (columns.spelling)
             query.spelling = columns.spelling;
-            
+
         if (columns.taibun)
             query.taibun = columns.taibun;
-    
+
         if (columns.hoabun)
             query.hoabun = columns.hoabun;
-    
+
         if (columns.english)
             query.english = columns.english;
     } else if (options.method === 'all-field') {
@@ -53,7 +53,7 @@ export const stringify = (options) => {
 
         if (options.searchMethod)
             query.searchMethod = options.searchMethod;
-        
+
         const columns = options.columns;
         if (columns) {
             const struct = dicStruct.find(e => e.name === options.dic)
@@ -67,7 +67,7 @@ export const stringify = (options) => {
     }
 
     return queryString.stringify(query);
-    
+
 }
 
 export const parse = (search) => {
@@ -75,6 +75,22 @@ export const parse = (search) => {
 
     let options = {};
     if (query.method === 'basic') {
+        // parse old query strings
+        switch (query.spellingMethod) {
+            case "poj_unicode":
+                query.spellingMethod = "PojUnicode";
+                break;
+            case "poj_input":
+                query.spellingMethod = "PojInput";
+                break;
+            case "kiplmj_unicode":
+                query.spellingMethod = "KipUnicode";
+                break;
+            case "kiplmj_input":
+                query.spellingMethod = "KipInput";
+                break;
+        }
+
         options = {
             method: query.method,
             dic: query.dic,
@@ -87,7 +103,7 @@ export const parse = (search) => {
                 hoabun: query.hoabun,
                 english: query.english,
             },
-        }
+        };
     } else if (query.method === 'all-field') {
         options = {
             method: query.method,
