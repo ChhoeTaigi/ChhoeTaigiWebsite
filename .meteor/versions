@@ -57,7 +57,7 @@ mongo@1.12.0
 mongo-decimal@0.1.2
 mongo-dev-server@1.1.0
 mongo-id@1.0.8
-npm-mongo@3.9.0
+npm-mongo@3.9.1
 observe-sequence@1.0.19
 ordered-dict@1.1.0
 ostrio:logger@2.0.8
