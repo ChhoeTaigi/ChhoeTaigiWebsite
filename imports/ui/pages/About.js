@@ -134,7 +134,7 @@ class About extends Component {
 							<a className='btn btn--contact btn--contact-msg' href='http://chat.taigi.info/' target='_blank'>
 								<Translate id='contact-1' />
 							</a>
-							<a className='btn btn--contact btn--contact-mail' href='mailto:ngoohebi+chhoetaigi@gmail.com' target='_blank'>
+							<a className='btn btn--contact btn--contact-mail' href='mailto:taibunkesimi@gmail.com' target='_blank'>
 								<Translate id='contact-2' />
 							</a>
 						</div>
@@ -241,7 +241,7 @@ class About extends Component {
 				<div className='about__feedback'>
 					<div className='container'>
 						<h2><Translate id='opinion' /></h2>
-						<a id='feedback-email' href='mailto:ngoohebi+chhoetaigi@gmail.com'>ngoohebi+chhoetaigi@gmail.com</a>
+						<a id='feedback-email' href='mailto:taibunkesimi@gmail.com'>taibunkesimi@gmail.com</a>
 					</div>
 				</div>
 			</div>
