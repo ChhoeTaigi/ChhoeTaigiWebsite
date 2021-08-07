@@ -1,5 +1,5 @@
 {
-  "name": "ChhoeTaigi",
+  "name": "chhoetaigi",
   "private": true,
   "scripts": {
     "start": "meteor run",
@@ -37,5 +37,23 @@
       "server": "server/main.js"
     },
     "testModule": "tests/main.js"
-  }
+  },
+  "description": "## 軟體需求 1. Node 2. Meteor 3. PostgreSQL 4. MongoDB",
+  "version": "1.0.0",
+  "main": "index.js",
+  "directories": {
+    "test": "tests"
+  },
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/miau715/ChhoeTaigiWebsite.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/miau715/ChhoeTaigiWebsite/issues"
+  },
+  "homepage": "https://github.com/miau715/ChhoeTaigiWebsite#readme"
 }

@@ -1,0 +1,91 @@
+@font-face {
+  font-family: 'TaigiFont';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("/font/GenWanMinTW-M3.woff2") format('woff2');
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+html, body {
+  font-family: 'TaigiFont', tauhu-oo, PingFangTC-Regular, "Microsoft JhengHei", sans-serif;
+  line-height: 1.6;
+  margin: 0;
+  padding: 0;
+  scroll-behavior: smooth;
+}
+
+body {
+	letter-spacing: 1px;
+}
+
+body, input, button {
+  background-color: transparent;
+}
+
+a {
+  color: $color--dark-main;
+}
+
+*:focus {
+  outline-color: $color--fade-main;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
+
+button {
+  border: 0;
+  padding: 0;
+  cursor: pointer;
+}
+
+input {
+  margin: 0;
+  padding: 0;
+}
+
+input[type='text'], input[type='number'] {
+  height: 34px;
+  line-height: 34px;
+  width: 100%;
+  border: none;
+  padding: 0 15px;
+  background-color: $color--fade-light-main;
+  border-radius: 5px;
+  &::placeholder {
+    color: $color--gray-light-main;
+    font-weight: lighter;
+  }
+  &:focus {
+    outline-color: $color--fade-main;
+  }
+}
+
+input[type='number']::-webkit-outer-spin-button,
+input[type='number']::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+input[type='number'] {
+    -moz-appearance: textfield;
+}
+
+ul, ol {
+  margin: 0;
+}
+
+h1, h2, h3 {
+  margin: 0;
+}
+
+th, td {
+  margin: 0;
+  padding: 0;
+}

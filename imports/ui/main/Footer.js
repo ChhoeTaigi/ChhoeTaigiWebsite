@@ -35,11 +35,11 @@ class Footer extends Component {
     }
 
     footerBackground(pathname) {
-        let background = 'footer-bg1';
+        let background = '';
         if (pathname === '/') {
-            background = 'footer-bg2';
+            background = 'site-footer--darkgreen';
         } else if (pathname === '/chinkai') {
-            background = 'footer-bg3';
+            background = 'site-footer--lightgreen';
         }
 
         return background;
@@ -55,47 +55,34 @@ class Footer extends Component {
     }
 
     render() {
-        const pathname = this.props.location.pathname;
-        let localeButtonStyle = 'locale-button-g';
-        let localeButtonSelectedStyle = 'locale-button-selected-g';
-        let visitContainerStyle = 'visit-container-b';
-        if (pathname === '/') {
-            localeButtonStyle = 'locale-button-w';
-            localeButtonSelectedStyle = 'locale-button-selected';
-            visitContainerStyle = 'visit-container-w';
-        }
-
         const sessions = commafy(this.props.sessions);
         const clicks = commafy(this.props.clicks);
 
         return (
-            <div className={this.state.background}>
-                <div id='footer-top-container' className={visitContainerStyle}>
-                    <div id='visit-container'>
-                        <div><Translate id='visitors' />：{sessions}</div>
-                        <div><Translate id='searches' />：{clicks}</div>
-                    </div>
-                    <div id='locale-container'>
-                        <button className={'locale-button ' + localeButtonStyle + ' ' + (this.state.locale === 'tb' ? localeButtonSelectedStyle : '')} value='tb' onClick={this.localeChange.bind(this)}>羅漢台文</button>
-                        {/*
-                        <button className={'locale-button ' + localeButtonStyle + ' ' + (this.state.locale === 'po' ? localeButtonSelectedStyle : '')} value='po' onClick={this.localeChange.bind(this)}>Pe̍h-ōe-jī</button>
-                        */}
-                        <button className={'locale-button ' + localeButtonStyle + ' ' + (this.state.locale === 'hb' ? localeButtonSelectedStyle : '')} value='hb' onClick={this.localeChange.bind(this)}>華文</button>
-                        {/*
-                        <button className={'locale-button ' + localeButtonStyle + ' ' + (this.state.locale === 'en' ? localeButtonSelectedStyle : '')} value='en' onClick={this.localeChange.bind(this)}>English</button>
-                        */}
-                    </div>
-                    <div id='since-container'>
-                        <div><Translate id='word_count_desc' /></div>
-                        <div><Translate id='book_index_desc' /></div>
-                        <div><Translate id='since' /></div>
-                    </div>
+            <footer className={'site-footer ' + this.state.background}>
+                <div className='container'>
+                    <ul className='langs'>
+                        <li><button className={'langs__btn ' + (this.state.locale === 'tb' ? 'active' : '')} value='tb' onClick={this.localeChange.bind(this)}>羅漢台文</button></li>
+                        {/*<li><button className={'langs__btn ' + (this.state.locale === 'po' ? 'active' : '')} value='po' onClick={this.localeChange.bind(this)}>Pe̍h-ōe-jī</button></li>*/}
+                        <li><button className={'langs__btn ' + (this.state.locale === 'hb' ? 'active' : '')} value='hb' onClick={this.localeChange.bind(this)}>華文</button></li>
+                        {/*<li><button className={'langs__btn ' + (this.state.locale === 'en' ? 'active' : '')} value='en' onClick={this.localeChange.bind(this)}>English</button></li>*/}
+                    </ul>
                 </div>
-                
-                <footer className={this.state.background}>
-                    <Link id='footer-image' to={{pathname:'https://grants.g0v.tw/power/'}} target='_blank' />
-                </footer>
-            </div>
+                <div className='container site-footer__status'>
+                    <ul className='site-footer__status-visit'>
+                        <li><Translate id='visitors' />：{sessions}</li>
+                        <li><Translate id='searches' />：{clicks}</li>
+                    </ul>
+                    <ul className='site-footer__status-site'>
+                        <li><Translate id='word_count_desc' /></li>
+                        <li><Translate id='book_index_desc' /></li>
+                        <li><Translate id='since' /></li>
+                    </ul>
+                </div>
+                <div className='g0v'>
+                    <Link className='g0v-logo' to={{pathname:'https://grants.g0v.tw/power/'}} target='_blank'><span className='sr-only'>Powered by G0V</span></Link>
+                </div>
+            </footer>
         );
     }
 }

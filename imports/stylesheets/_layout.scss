@@ -1,0 +1,30 @@
+.container {
+  width: clamp(290px, 90%, 1024px);
+  margin: 0 auto;
+}
+
+// sticky footer
+html, body, #render-target { 
+  height: 100%;
+}
+
+.content-wrapper {
+  min-height: 100%;
+  display: flex;
+  flex-direction: column;
+  > main {
+    flex: 1 0 auto;
+  }
+  .site-footer {
+    flex-shrink: 0;
+  }
+}
+
+// set <main> color while stretch for sticky footer
+main.bg--darkgreen {
+  background-color: $color--fade-main;
+}
+
+main.bg--lightgreen {
+  background-color: $color--light-main;
+}

@@ -1,0 +1,158 @@
+.site-header {
+	position: fixed;
+	height: 56px;
+	width: 100%;
+	top: 0;
+	background-color: white;
+	border-bottom: 1px solid #BEC2BC;
+	z-index: 999;
+	.container {
+		height: 100%;
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+	}
+	h1 {
+		margin: 0;
+	}
+	.logo {
+		margin-right: auto;
+		height: 32px;
+		width: auto;
+	}
+}
+
+.site-nav {
+	height: 100%;
+	display: flex;
+	align-items: center;
+	a {
+		text-decoration: none;
+		display: flex;
+		align-items: center;
+	}
+	ul {
+		@extend %plain-list;
+		height: 100%;
+		display: flex;
+		align-items: stretch;
+	}
+	li {
+		margin-left: 14px;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		a {
+			height: 100%;
+			font-size: 15px;
+			padding: 0 10px;
+			position: relative;
+			color: $color--dark-main;
+			min-height: 48px;
+		}
+		a::after {
+			content: "";
+			position: absolute;
+			bottom: 0;
+			left: 50%;
+			margin-left: -15px;
+			width: 30px;
+			height: 4px;
+			background-color: rgba($color--dark-main, 0.13);
+			transition: background-color .3s ease-in;
+		}
+		a.active::after, a:hover::after {
+			background-color: $color--dark-main;
+		}
+	}
+	&__menu-toggle {
+		display: none;
+	}
+}
+
+#FB-link {
+	display: block;
+	background-image: url(/images/fb@2x.png);
+	background-size: 22px 22px;
+	height: 22px;
+	width: 22px;
+	margin-left: 20px;
+}
+
+// related to header height
+main {
+  padding-top: 56px;
+}
+.search-result__dic-list {
+	top: 56px;
+}
+
+@media screen and (max-width: 980px) {
+	.site-header {
+		height: 91px;
+		h1 {
+			padding-top: 10px;
+		}
+		.container {
+			flex-direction: column;
+		}
+	}
+	// related to header height
+	main {
+		padding-top: 91px;
+	}
+}
+
+@media screen and (max-width: 680px) {
+	.site-header {
+		height: 56px;
+		h1 {
+			padding: 0;
+		}
+		.container {
+			flex-direction: row;
+		}
+	}
+	.site-nav {
+		&__menu-toggle {
+			display: flex;
+			width: 22px;
+			height: 22px;
+			background: url(/images/icon_hamburger@2x.png) no-repeat;
+			background-size: 22px 22px;
+		}
+		ul {
+			position: absolute;
+			flex-direction: column;
+			width: 100%;
+			background: rgba(#fff, 0.95);
+			top: calc(100% + 1px);
+			left: 0;
+			height: auto;
+			max-height: 0;
+			overflow: hidden;
+			transition: none;
+		}
+		ul.active {
+			max-height: 200px;
+			transition: max-height .2s ease-in;
+		}
+		li {
+			margin-left: 0;
+		}
+		li a {
+			width: 100%;
+			padding: 0 0 0 calc(5% + 18px);
+		}
+		li a::after {
+			height: 60%;
+			bottom: 20%;
+			width: 10px;
+			left: 5%;
+			margin-left: 0;
+		}
+	}
+	main {
+		padding-top: 56px;
+	}
+}

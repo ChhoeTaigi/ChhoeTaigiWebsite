@@ -7,173 +7,172 @@ import { stringify } from '../../../api/utils/url-helper';
 import basicTranslations from '../../../translations/basic.json';
 
 let state = {
-    searchMethod: 'equals',
-    spellingMethod: 'PojInput',
-    spelling: '',
-    taibun: '',
-    hoabun: '',
-    english: '',
-    background_height: window.innerHeight - 360,
+	searchMethod: 'equals',
+	spellingMethod: 'PojInput',
+	spelling: '',
+	taibun: '',
+	hoabun: '',
+	english: '',
 };
 
 class BasicSearch extends Component {
-    constructor(props) {
-        super(props);
+	constructor(props) {
+		super(props);
 
-        props.addTranslation(basicTranslations);
+		props.addTranslation(basicTranslations);
 
-        this.state = state;
+		this.state = state;
+	}
 
-        this.handleResize = this.handleResize.bind(this);
-    }
+	componentDidMount() {
+		window.scrollTo(0, 0)
+	}
 
-    handleResize() {
-        this.setState({
-            background_height: window.innerHeight - 360,
-        });
-    }
+	componentWillUnmount() {
+		state = this.state;
+	}
 
-    componentDidMount() {
-        window.addEventListener('resize', this.handleResize);
-        window.scrollTo(0, 0)
-    }
+	handleSubmit(event) {
+		ReactGA.event({
+			category: 'user',
+			action: 'search',
+			label: 'basic'
+		});
 
-    componentWillUnmount() {
-        window.removeEventListener('resize', this.handleResize);
-        state = this.state;
-    }
+		const options = {
+			method: 'basic',
+			searchMethod: this.state.searchMethod,
+			spellingMethod: this.state.spellingMethod,
+			columns: {
+				spelling: this.state.spelling,
+				taibun: this.state.taibun,
+				hoabun: this.state.hoabun,
+				english: this.state.english,
+			},
+		}
 
-    handleSubmit(event) {
-        ReactGA.event({
-            category: 'user',
-            action: 'search',
-            label: 'basic'
-        });
+		this.props.history.push({
+			pathname: 'search',
+			search: stringify(options),
+		});
 
-        const options = {
-            method: 'basic',
-            searchMethod: this.state.searchMethod,
-            spellingMethod: this.state.spellingMethod,
-            columns: {
-                spelling: this.state.spelling,
-                taibun: this.state.taibun,
-                hoabun: this.state.hoabun,
-                english: this.state.english,
-            },
-        }
+		event.preventDefault();
+	}
 
-        this.props.history.push({
-            pathname: 'search', 
-            search: stringify(options),
-        });
-        
-        event.preventDefault();
-    }
+	handleInput(event) {
+		let key = event.target.name;
+		let value = event.target.value;
+		let state = [];
+		state[key] = value;
+		this.setState(state);
+	}
 
-    handleInput(event) {
-        let key = event.target.name;
-        let value = event.target.value;
-        let state = [];
-        state[key] = value;
-        this.setState(state);
-    }
+	resetAllInput = () => {
+		this.setState({
+			spelling: "",
+			taibun: "",
+			hoabun: "",
+			english: ""
+		});
+	}
 
-    resetAllInput = () => { 
-        this.setState({
-            spelling: "",
-            taibun: "",
-            hoabun: "",
-            english: ""
-        });
-    }
-
-    render() {
-        return (
-            <div>
-                <div id='banner-container'>
-                    <img id='banner' src='images/home_image@2x.png' width='730' height='200'></img>
-                </div>
-                <div id='form-background'  style={{minHeight: this.state.background_height + 'px'}}>
-                    <form id='basic-form' onSubmit={this.handleSubmit.bind(this)} autoComplete='off'>
-                        <div id='search-title'><Translate id="basic" /></div>
-                        <div id='form-container'>
-                            <div id='search-method-container'>
-                                <span id='search-method-text-container'><Translate id="search-method" /></span>
-                                <label id='radio-1' className='radio'>
-                                    <div className={this.state.searchMethod === 'equals' ? 'checked' : 'unchecked'}></div>
-                                    <input type="radio" name="searchMethod" value="equals" defaultChecked={this.state.searchMethod === 'equals'} onChange={this.handleInput.bind(this)} />
-                                    <span><Translate id="equals" /></span>
-                                </label>
-                                <label id='radio-2' className='radio'>
-                                    <div className={this.state.searchMethod === 'contains' ? 'checked' : 'unchecked'}></div>
-                                    <input type="radio" name="searchMethod" value="contains" defaultChecked={this.state.searchMethod === 'contains'} onChange={this.handleInput.bind(this)} />
-                                    <span><Translate id="contains" /></span>
-                                </label>
-                                <div id='regex-note-container'>
-                                    <Link id='regex-note' to='/annachhoe'><Translate id="explanation" /></Link>
-                                </div>
-                            </div>
-                            <div id='seperator'></div>
-                            <div id='input-method'><Translate id="input-method" /></div>
-                            <div id='input-container'>
-                                <div id='input-container-left'>
-                                    <label className='input-title' htmlFor='spelling'><Translate id="lmj-tb" /></label>
-                                    <span className='text-height'></span>
-                                    <label className='input-title top-space' htmlFor="taibun"><Translate id="corresponding-tb" /></label>
-                                    <label className='input-title top-space' htmlFor="hoabun"><Translate id="corresponding-hb" /></label>
-                                    <label className='input-title top-space' htmlFor="english"><Translate id="corresponding-en" /></label>
-                                </div>
-                                <div id='input-container-right'>
-                                    <div id='large-input-top'>
-                                        <label id='radio-3' className='radio'>
-                                            <div className={this.state.spellingMethod === 'PojInput' ? 'checked' : 'unchecked'}></div>
-                                            <input type="radio" name="spellingMethod" value="PojInput" defaultChecked={this.state.spellingMethod === 'PojInput'} onChange={this.handleInput.bind(this)} />
-                                            <span><Translate id="poj-input" /></span>
-                                        </label>
-                                        <label id='radio-4' className='radio'>
-                                            <div className={this.state.spellingMethod === 'KipInput' ? 'checked' : 'unchecked'}></div>
-                                            <input type="radio" name="spellingMethod" value="KipInput" defaultChecked={this.state.spellingMethod === 'KipInput'} onChange={this.handleInput.bind(this)} />
-                                            <span><Translate id="lmj-input" /></span>
-                                        </label>
-                                        <label id='radio-5' className='radio'>
-                                            <div className={this.state.spellingMethod === 'PojUnicode' ? 'checked' : 'unchecked'}></div>
-                                            <input type="radio" name="spellingMethod" value="PojUnicode" defaultChecked={this.state.spellingMethod === 'PojUnicode'} onChange={this.handleInput.bind(this)} />
-                                            <span><Translate id="poj" /></span>
-                                        </label>
-                                        <label id='radio-6' className='radio'>
-                                            <div className={this.state.spellingMethod === 'KipUnicode' ? 'checked' : 'unchecked'}></div>
-                                            <input type="radio" name="spellingMethod" value="KipUnicode" defaultChecked={this.state.spellingMethod === 'KipUnicode'} onChange={this.handleInput.bind(this)} />
-                                            <span><Translate id="lmj" /></span>
-                                        </label>
-                                        <div id='text-input-seperator'></div>
-                                    </div>
-                                    <Translate>{({ translate }) =>
-                                        <div>
-                                            <input className='text-input-lomaji' type="text" name="spelling" placeholder={translate('keyword')} value={this.state.spelling} onChange={this.handleInput.bind(this)} />
-                                            <input className='text-input top-space' type="text" name="taibun" placeholder={translate('keyword')} value={this.state.taibun} onChange={this.handleInput.bind(this)} />
-                                            <input className='text-input top-space' type="text" name="hoabun" placeholder={translate('keyword_suggest_fuzzy')} value={this.state.hoabun} onChange={this.handleInput.bind(this)} />
-                                            <input className='text-input top-space' type="text" name="english" placeholder={translate('keyword_suggest_fuzzy')} value={this.state.english} onChange={this.handleInput.bind(this)} />
-                                        </div>
-                                    }</Translate>
-                                </div>
-                            </div>
-                            <Translate>{({ translate }) =>
-                                <div className="search_actions">
-                                    <div className="search_actions_search_button"><input className='find-button' style={{marginTop: '12px', marginBottom: '20px'}} type="submit" value={translate('find')} /></div>
-                                    <div className="search_actions_clear_button"><input className='clear-button' style={{marginTop: '12px', marginBottom: '20px'}} type="button" value={translate('reset')} onClick={this.resetAllInput} /></div>
-                                </div>
-                            }</Translate>
-                            <div className="support_taibun_kesimi">
-                                <label className="support_taibun_kesimi_part1_label"><Translate id="support_taibun_kesimi_part1" /></label>
-                                <a className="support_taibun_kesimi_part2_a" target="_blank" href="https://www.zeczec.com/projects/taibun-kesimi"><Translate id="support_taibun_kesimi_part2" /></a>
-                                <label className="support_taibun_kesimi_part3_label"><Translate id="support_taibun_kesimi_part3" /></label>
-                            </div>
-                        </div>
-                    </form>
-                </div>
-            </div>
-        );
-    }
+	render() {
+		return (
+			<div>
+				<div className='site-banner'>
+					<div className='container'>
+						<div className='site-banner__wrapper'>
+							<div className='site-banner__text'>
+								<img src='images/home_image_text@2x.png' alt="ChhoeTaigi 找台語 台語辭典 / 字詞資料庫" />
+							</div>
+							<div className='site-banner__bg'>
+								<img src='images/home_image_bg@2x.png' />
+							</div>
+						</div>
+					</div>
+				</div>
+				<div className='basic-search'>
+					<form id='basic-form' className='container' onSubmit={this.handleSubmit.bind(this)} autoComplete='off'>
+						<h2><Translate id="basic" /></h2>
+						<div className='basic-search__form-wrapper'>
+							<div className='basic-search__top'>
+								<div className='basic-search__mode'>
+									<h3><Translate id="search-method" /></h3>
+									<label className='radio-simulated'>
+										<input type="radio" className='radio-simulated__hidden' name="searchMethod" value="equals" defaultChecked={this.state.searchMethod === 'equals'} onChange={this.handleInput.bind(this)} />
+										<span className='radio-simulated__text'><Translate id="equals" /></span>
+									</label>
+									<label className='radio-simulated'>
+										<input type="radio" className='radio-simulated__hidden' name="searchMethod" value="contains" defaultChecked={this.state.searchMethod === 'contains'} onChange={this.handleInput.bind(this)} />
+										<span className='radio-simulated__text'><Translate id="contains" /></span>
+									</label>
+								</div>
+								<div className='basic-search__note'>
+									<Link to='/annachhoe'><Translate id="explanation" /></Link>
+								</div>
+							</div>
+							<div className='basic-search__bottom'>
+								<h3><Translate id="input-method" /></h3>
+								<div className='search-block'>
+									<label className='search-block__left' htmlFor='spelling'><Translate id="lmj-tb" /></label>
+									<div className='search-block__right search-block__lmj'>
+										<div className='search-block__lmj-top'>
+											<label className='radio-simulated'>
+												<input type="radio" className="radio-simulated__hidden" name="spellingMethod" value="PojInput" defaultChecked={this.state.spellingMethod === 'PojInput'} onChange={this.handleInput.bind(this)} />
+												<span className='radio-simulated__text'><Translate id="poj-input" /></span>
+											</label>
+											<label className='radio-simulated'>
+												<input type="radio" className="radio-simulated__hidden" name="spellingMethod" value="KipInput" defaultChecked={this.state.spellingMethod === 'KipInput'} onChange={this.handleInput.bind(this)} />
+												<span className='radio-simulated__text'><Translate id="lmj-input" /></span>
+											</label>
+											<label className='radio-simulated'>
+												<input type="radio" className="radio-simulated__hidden" name="spellingMethod" value="PojUnicode" defaultChecked={this.state.spellingMethod === 'PojUnicode'} onChange={this.handleInput.bind(this)} />
+												<span className='radio-simulated__text'><Translate id="poj" /></span>
+											</label>
+											<label className='radio-simulated'>
+												<input type="radio" className="radio-simulated__hidden" name="spellingMethod" value="KipUnicode" defaultChecked={this.state.spellingMethod === 'KipUnicode'} onChange={this.handleInput.bind(this)} />
+												<span className='radio-simulated__text'><Translate id="lmj" /></span>
+											</label>
+										</div>
+										<div className='search-block__lmj-bottom'>
+											<input type="text" name="spelling" placeholder={this.props.translate('keyword')} value={this.state.spelling} onChange={this.handleInput.bind(this)} />
+										</div>
+									</div>
+								</div>
+								<div className='search-block'>
+									<label className='search-block__left' htmlFor="taibun"><Translate id="corresponding-tb" /></label>
+									<div className='search-block__right'>
+										<input type="text" name="taibun" placeholder={this.props.translate('keyword')} value={this.state.taibun} onChange={this.handleInput.bind(this)} />
+									</div>
+								</div>
+								<div className='search-block'>
+									<label className='search-block__left' htmlFor="hoabun"><Translate id="corresponding-hb" /></label>
+									<div className='search-block__right'>
+										<input type="text" name="hoabun" placeholder={this.props.translate('keyword_suggest_fuzzy')} value={this.state.hoabun} onChange={this.handleInput.bind(this)} />
+									</div>
+								</div>
+								<div className='search-block'>
+									<label className='search-block__left' htmlFor="english"><Translate id="corresponding-en" /></label>
+									<div className='search-block__right'>
+										<input type="text" name="english" placeholder={this.props.translate('keyword_suggest_fuzzy')} value={this.state.english} onChange={this.handleInput.bind(this)} />
+									</div>
+								</div>
+							</div>
+							<div className='basic-search__actions search-actions'>
+								<input className='btn btn--search' type="submit" value={this.props.translate('find')} />
+								<input className='btn btn--clear' type="button" value={this.props.translate('reset')} onClick={this.resetAllInput} />
+							</div>
+							<footer className="basic-search__kesimi">
+								<Translate id="support_taibun_kesimi_part1" />
+								<a target="_blank" href="https://www.zeczec.com/projects/taibun-kesimi"><Translate id="support_taibun_kesimi_part2" /></a>
+								<Translate id="support_taibun_kesimi_part3" />
+							</footer>
+						</div>
+					</form>
+				</div>
+			</div>
+		);
+	}
 }
 
 export default withLocalize(withRouter(BasicSearch));

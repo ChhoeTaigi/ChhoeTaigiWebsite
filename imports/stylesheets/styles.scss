@@ -1,0 +1,26 @@
+@import "variables.scss";
+
+@import "lib/normalize";
+@import "lib/sr-only";
+@import url(https://tauhu.tw/tauhu-oo.css);
+
+@import "base.scss";
+@import "layout.scss";
+@import "utilities.scss";
+
+@import "header.scss";
+@import "footer.scss";
+
+// pages
+@import "basic-search.scss";
+@import "adv-search.scss";
+@import "explanation.scss";
+@import "app.scss";
+@import "about.scss";
+
+// search result (dictionary list, single dictionary, detail)
+@import "search-result.scss";
+
+
+// old
+@import "landing.scss";
