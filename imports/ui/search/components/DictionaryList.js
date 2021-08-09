@@ -213,15 +213,7 @@ class DictionaryBrief extends Component {
     toggleDicContent(event) {
         let currentHeader = event.currentTarget;
         if (window.getComputedStyle(currentHeader).display === 'flex') {
-            if (currentHeader.classList.contains('active')) {
-                currentHeader.classList.remove('active');
-            }
-            else {
-                document.querySelectorAll('.dic-block__header').forEach(function(el) {
-                    el.classList.remove('active');
-                });
-                currentHeader.classList.add('active');
-            }
+            currentHeader.classList.toggle('active');
         }
     }
 
