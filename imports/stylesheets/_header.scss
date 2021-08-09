@@ -90,6 +90,8 @@ main {
 @media screen and (max-width: 980px) {
 	.site-header {
 		height: 91px;
+		display: flex;
+		justify-content: center;
 		h1 {
 			padding-top: 10px;
 		}

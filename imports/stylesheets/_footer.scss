@@ -71,6 +71,9 @@
 	.site-footer__status {
 		flex-direction: column;
 		text-align: center;
+		> ul {
+			text-align: center;
+		}
 		> ul:first-of-type {
 			margin-bottom: 5px;
 		}
