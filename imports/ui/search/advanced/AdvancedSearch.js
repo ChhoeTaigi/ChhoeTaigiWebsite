@@ -164,7 +164,7 @@ class SingleDicOptionsClass extends Component {
             });
         } else {
             let columns = this.state.columns;
-            columns[key] = value;
+            columns[key] = value.normalize("NFC");
             this.setState({
                 columns: columns,
             });
@@ -256,7 +256,7 @@ class AllFieldOptionsClass extends Component {
         let options = {
             method: "all-field",
             searchMethod: this.state.searchMethod,
-            value: this.state.value,
+            value: this.state.value.normalize("NFC"),
         };
 
         this.props.history.push({

@@ -44,10 +44,10 @@ class BasicSearch extends Component {
 			searchMethod: this.state.searchMethod,
 			spellingMethod: this.state.spellingMethod,
 			columns: {
-				spelling: this.state.spelling,
-				taibun: this.state.taibun,
-				hoabun: this.state.hoabun,
-				english: this.state.english,
+				spelling: this.state.spelling.normalize("NFC"),
+				taibun: this.state.taibun.normalize("NFC"),
+				hoabun: this.state.hoabun.normalize("NFC"),
+				english: this.state.english.normalize("NFC"),
 			},
 		}
 
