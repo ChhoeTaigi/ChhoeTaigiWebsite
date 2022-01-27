@@ -53,10 +53,6 @@
 	}
 }
 
-.site-footer__status-site {
-	text-align: right;
-}
-
 .g0v-logo {
 	background-image: url(/images/poweredby-long-i@2x.png);
 	background-size: 208px 26px;
@@ -65,6 +61,12 @@
 	height: 26px;
 	margin-left: auto;
 	margin-right: auto;
+}
+
+@media screen and (min-width: 680px) {
+	.site-footer__status-site {
+		text-align: right;
+	}
 }
 
 @media screen and (max-width: 680px) {
