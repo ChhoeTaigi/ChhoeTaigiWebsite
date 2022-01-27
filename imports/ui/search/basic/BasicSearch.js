@@ -122,12 +122,12 @@ class BasicSearch extends Component {
 												<span className='radio-simulated__text'><Translate id="poj-input" /></span>
 											</label>
 											<label className='radio-simulated'>
-												<input type="radio" className="radio-simulated__hidden" name="spellingMethod" value="KipInput" defaultChecked={this.state.spellingMethod === 'KipInput'} onChange={this.handleInput.bind(this)} />
-												<span className='radio-simulated__text'><Translate id="lmj-input" /></span>
-											</label>
-											<label className='radio-simulated'>
 												<input type="radio" className="radio-simulated__hidden" name="spellingMethod" value="PojUnicode" defaultChecked={this.state.spellingMethod === 'PojUnicode'} onChange={this.handleInput.bind(this)} />
 												<span className='radio-simulated__text'><Translate id="poj" /></span>
+											</label>
+											<label className='radio-simulated'>
+												<input type="radio" className="radio-simulated__hidden" name="spellingMethod" value="KipInput" defaultChecked={this.state.spellingMethod === 'KipInput'} onChange={this.handleInput.bind(this)} />
+												<span className='radio-simulated__text'><Translate id="lmj-input" /></span>
 											</label>
 											<label className='radio-simulated'>
 												<input type="radio" className="radio-simulated__hidden" name="spellingMethod" value="KipUnicode" defaultChecked={this.state.spellingMethod === 'KipUnicode'} onChange={this.handleInput.bind(this)} />

@@ -48,10 +48,13 @@
 		}
 	}
 	&__ios {
-		margin-right: 20px;
+		flex-basis: 200px;
+		.app__qr {
+			padding: 6px;
+		}
 	}
 	&__android {
-		flex-basis: 240px;
+		flex-basis: 200px;
 		.app__qr {
 			padding: 6px;
 		}
@@ -71,6 +74,7 @@
 		white-space: pre-wrap;
 		border: #eee 1px solid;
 		padding: 0 10px;
+		margin: 20px;
 	}
 }
 

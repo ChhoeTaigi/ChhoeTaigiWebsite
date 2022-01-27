@@ -60,9 +60,9 @@
         "Normalization"
     ],
     "feature-content-2": [
-        "格式有提供歷史siōng久長、文獻siōng chē ê白話字，mā提供教育部羅馬拼音，koh siāng時有Unicode kap數字輸入ê格式",
+        "格式有提供歷史siōng久長、文獻siōng chē ê白話字，mā提供教育部拼音，koh siāng時有Unicode kap數字輸入ê格式",
         "Keh-sek ū thê-kiong le̍k-sú siōng kú-tn̂g, bûn-hiàn siōng chē ê Pe̍h-ōe-jī, mā ū thê-kiong Kàu-io̍k-pō͘ chhui-hêng ê Lô-má-jī, koh siāng-sî ū Unicode kap sò͘-jī su-ji̍p ê keh-sek.",
-        "資料的顯示格式為歷史最悠久及文獻最多的白話字，也提供教育部羅馬拼音。輸入格式可選Unicode(台語輸入法)或以數字輸入的格式",
+        "資料的顯示格式為歷史最悠久及文獻最多的白話字，也提供教育部拼音。輸入格式可選Unicode(台語輸入法)或以數字輸入的格式",
         "Normalizes and displays data in POJ and MoE LMJ. Input format includes (i) Unicode, and (ii) simple numbers + Latin alphabets."
     ],
     "feature-title-3": [

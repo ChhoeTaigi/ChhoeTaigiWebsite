@@ -23,14 +23,14 @@ class DicApp extends Component {
               </div>
               <ul className='app__links'>
                 <li className='app__ios'>
-                  <h2>iOS版</h2>
-                  <img className='app__qr' src='images/iOS_QR@2x.png' />
-                  <a href='https://itunes.apple.com/tw/app/chhoetaigi-%E5%8F%B0%E8%AA%9E%E8%BE%AD%E5%85%B8-taigi-dict/id1437125209' target='_blank'>
-                    <img src='images/iOS@2x.png'></img>
+                  <h2>Android版</h2>
+                  <img className='app__qr' src='images/android@2x.png' />
+                  <a className='app__kesimi' target="_blank" href="https://www.zeczec.com/projects/taibun-kesimi">
+                    <Translate id='sponsor' />
                   </a>
                 </li>
                 <li className='app__android'>
-                  <h2>Android版</h2>
+                  <h2>iOS版</h2>
                   <img className='app__qr' src='images/android@2x.png' />
                   <a className='app__kesimi' target="_blank" href="https://www.zeczec.com/projects/taibun-kesimi">
                     <Translate id='sponsor' />
