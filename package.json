@@ -22,7 +22,6 @@
     "react": "^16.14.0",
     "react-cookie": "^3.0.4",
     "react-dom": "^16.14.0",
-    "react-facebook": "^5.0.3",
     "react-ga": "^3.3.0",
     "react-loader-spinner": "^3.1.14",
     "react-localize-redux": "^3.5.3",

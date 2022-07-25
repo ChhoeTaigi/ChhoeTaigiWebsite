@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { withRouter } from 'react-router-dom';
-import { FacebookProvider, Comments } from 'react-facebook';
 
 import dicStruct from '../../../api/dicts/dictionary-struct';
 import Word from "./Word";
@@ -43,15 +42,12 @@ class Detail extends Component {
     }
 
     componentDidUpdate() {
-        if (window.FB)
-            window.FB.XFBML.parse();
     }
 
     render() {
         return (
             <div class='result-detail'>
                 <div class='container'>
-                    <div id='fb-root'></div>
                     <div id='script'></div>
                     <div className='result-detail__query'>
                         <div className='result-detail__query-dic'>
@@ -63,11 +59,6 @@ class Detail extends Component {
                     </div>
                     <div className='result-detail__table'>
                         <Word columns={this.state.word} dic={this.state.dic}></Word>
-                    </div>
-                    <div className='fb-comments'>
-                        <FacebookProvider appId='306448440105903'>
-                            <Comments href={this.state.path} width='100%' />
-                        </FacebookProvider>
                     </div>
                 </div>
             </div>
