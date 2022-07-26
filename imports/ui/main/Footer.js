@@ -78,6 +78,7 @@ class Footer extends Component {
                         <li><Translate id='word_count_desc' /></li>
                         <li><Translate id='book_index_desc' /></li>
                         <li><Translate id='web_index_desc' /></li>
+                        <li><Translate id='bunhaktuchok_index_desc' /></li>
                     </ul>
                 </div>
                 <div className='g0v'>

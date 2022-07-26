@@ -145,15 +145,16 @@ Meteor.methods({
   "createTB.import"(dicName) {
     console.log("createTB.import");
     if (Meteor.isServer) {
-      postgres
-        .raw(
-          "DROP SCHEMA public CASCADE; CREATE SCHEMA public; GRANT ALL ON SCHEMA public TO " +
-            constants.PG_USER +
-            ";"
-        )
-        .then(function() {
+      // postgres
+      //   .raw(
+          // "DROP SCHEMA public CASCADE; CREATE SCHEMA public; GRANT ALL ON SCHEMA public TO " +
+          //   constants.PG_USER +
+          //   ";"
+        // )
+        // .then(function() {
+          console.log("createTB.import 2");
           recreateTB(postgres);
-        });
+        // });
     }
   },
 

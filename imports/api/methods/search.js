@@ -130,9 +130,13 @@ function cleanEmptyColumns(options) {
 
 // regex
 function preprocessRegex(options) {
-    const soouSianntiau = '(?:2|3|p8|p|t8|t|k8|k|h8|h|5|7)?';
+    console.log("preprocessRegex()");
+    const soouSianntiau = '(?:2|3|p8|p|t8|t|k8|k|h8|h|5|7|8)?';
     const imchat = '(?:(?![ -\/]).)+';
     const hyphenOrSpace = '(?: |--|-)';
+
+    const ahUnPrefix = '.*(?:(?<![aiueo]))';
+    const ahUnPostfix =  '(?:nn)?(?:2|3|h8|h|5|7|8)?$';
 
     const regexRedundantSianntiau = new RegExp('(?<!\\\\)(?:1|4)', 'g');
     const regexHyphenOrSpace = new RegExp('[ -]', 'g');
@@ -151,6 +155,15 @@ function preprocessRegex(options) {
                 options.columns[key] = options.columns[key].replace(regexHyphenOrSpace, hyphenOrSpace);
                 options.columns[key] = options.columns[key].replace(regexSianntiauTaibe, soouSianntiau);
                 options.columns[key] = options.columns[key].replace(regexImchatTaibe, imchat);
+
+                if (options.columns[key].includes("@")) {
+                    if (options.columns[key].endsWith("@")) {
+                        un7bo2 = options.columns[key].replace('@', '');
+                        options.columns[key] = ahUnPrefix + un7bo2 + ahUnPostfix;
+                    } else {
+                        options.columns[key] = options.columns[key].replace("@", ahUnPostfix);
+                    }
+                }
             } else if (key === "PojUnicode" || key === "PojUnicodeOthers" || key === "KipUnicode" || key === "KipUnicodeOthers") {
                 options.columns[key] = options.columns[key].replace(regexRedundantSianntiau, '');
                 options.columns[key] = options.columns[key].replace(regexHyphenOrSpace, hyphenOrSpace);

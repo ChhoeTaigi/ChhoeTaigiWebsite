@@ -12,21 +12,27 @@
       "Searches"
     ],
     "word_count_desc": [
-      "ChhoeTaigi 台語字詞總數：355076",
-      "ChhoeTaigi jī-sû chóng-sò͘: 355076",
-      "ChhoeTaigi 台語字詞總數：355076",
-      "ChhoeTaigi total amount: 355076"
+      "ChhoeTaigi 台語字詞總數：434510",
+      "ChhoeTaigi jī-sû chóng-sò͘: 434510",
+      "ChhoeTaigi 台語字詞總數：434510",
+      "ChhoeTaigi total amount: 434510"
     ],
     "book_index_desc": [
-      "包括紙本辭典：1本。索引總數：21251",
+      "內底有紙本辭典索引：1本。總數：21251",
       "Pau-koat chóa-pún: 1. Sek-ín: 21251",
-      "包括紙本辭典：1本。索引總數：21251",
+      "裡面有紙本辭典索引：1本。索引總數：21251",
       "Include book: 1. Index amount: 21251"
     ],
     "web_index_desc": [
-      "包括線頂媒體：2-ê。索引總數：4948",
+      "內底有線頂媒體索引：3款。總數：7735",
       "Pau-koat Sòaⁿ-téng: 2-ê. Sek-ín: 4948",
-      "包括線上媒體：2個。索引總數：4948",
+      "裡面有線上媒體索引：3款。總數：7735",
+      "Include web: 2. Index amount: 4948"
+    ],
+    "bunhaktuchok_index_desc": [
+      "內底有文學著作索引：1本。總數：6298",
+      "Pau-koat Sòaⁿ-téng: 2-ê. Sek-ín: 4948",
+      "裡面有文學著作索引：1本。總數：6298",
       "Include web: 2. Index amount: 4948"
     ],
     "since": [

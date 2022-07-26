@@ -18,7 +18,7 @@
         "Exact Search: Search data that have the exact keywords."
     ],
     "contains": [
-        "相關--ê：Chhōe內底有kauh beh chhōe ê字詞--ê。",
+        "相關--ê：Chhōe內底有kauh beh chhōe ê詞--ê。",
         "Siong-koan--ê: Chhōe lāi-té ū kauh beh chhōe ê jī-sû--ê.",
         "模糊搜尋：搜尋有包含關鍵字的資料。",
         "Fuzzy Search: Search data contains the keywords."
@@ -90,7 +90,7 @@
         "\"Hyphen (-)\""
     ],
     "lmj-lianoeh-kaisoeh": [
-        "Ē-sái用連oe̍h（-）a̍h是1-ê半形ê空白來chhōe tio̍h辭典內底有連oe̍h、無連oe̍h、kap雙連oe̍h ê詞。譬喻m̄管是「au7 jit8」、「au7-jit8」攏thang chhōe tio̍h「āu-ji̍t」、「āu--ji̍t」。譬喻m̄管是「te7 tang7」、「te7-tang7」lóng thang chhōe tio̍h「tē tāng」、「tē-tāng」。用輸入式（au7-jit8）a̍h是文字式（āu-ji̍t）來chhōe攏ē做--得。（看無mā無要緊，橫直就是hō͘你khah好chhōe niâ。）",
+        "Ē-sái用連oe̍h（-）a̍h是1 ê半形ê空白來chhōe tio̍h辭典內底有連oe̍h、無連oe̍h、kap雙連oe̍h ê詞。譬喻m̄管是「au7 jit8」、「au7-jit8」攏thang chhōe tio̍h「āu-ji̍t」、「āu--ji̍t」。譬喻m̄管是「te7 tang7」、「te7-tang7」lóng thang chhōe tio̍h「tē tāng」、「tē-tāng」。用輸入式（au7-jit8）a̍h是文字式（āu-ji̍t）來chhōe攏ē做--得。（看無mā無要緊，橫直就是hō͘你khah好chhōe niâ。）",
         "",
         "可以用連詞符號（-）或是一個半形空白來搜尋詞典內有連詞符號、無連詞符號、和有輕聲符號的詞。譬喻無論是「au7-jit8」、「au7 jit8」都找得到「āu-ji̍t」、「āu--ji̍t」。譬喻無論是「te7 tang7」、「te7-tang7」都找得到「tē tāng」、「tē-tāng」。用輸入格式（au7-jit8）a̍h是文字格式（āu-ji̍t）來找都可以。（看不懂沒關係，反正就是讓你比較好找而已。）",
         ""
@@ -132,8 +132,8 @@
         "3. Search with REGEX"
     ],
     "jimho-jigoan": [
-        "【.*】：代表有1-ê以上任何ê字元，a̍h是無半ê字元。",
-        "【.*】: Tāi-piáu ū 1-ê í-siōng jīm-hô ê jī-goân, a̍h-sī bô pòaⁿ ê jī-goân.",
+        "【.*】：代表有1 ê以上任何ê字元，a̍h是無半ê字元。",
+        "【.*】: Tāi-piáu ū 1 ê í-siōng jīm-hô ê jī-goân, a̍h-sī bô pòaⁿ ê jī-goân.",
         "【.*】：代表有0或1個以上的任意字元。",
         "【.*】: Matches zero or more non-space characters."
     ],
@@ -144,8 +144,8 @@
         "For example: When searching POJ(Number Input) with keyword \".*png7\", you will find \"âng-tāu-pn̄g\", \"be̍h-á-pn̄g\", \"chhài-pn̄g\", \"pn̄g\", etc."
     ],
     "1e-jigoan": [
-        "【.】：代表有1-ê任何ê字元。",
-        "【.】: Tāi-piáu ū tú-hó 1-ê jīm-hô ê jī.",
+        "【.】：代表有1 ê任何ê字元。",
+        "【.】: Tāi-piáu ū tú-hó 1 ê jīm-hô ê jī.",
         "【.】：代表有1個的任意字元。",
         "【.】: Ｍatches exactly one non-space character."
     ],
@@ -156,7 +156,7 @@
         "For example: When searching POJ with keyword \"p.\", you will find \"pa\", \"pá\", etc. When searching Chinese with keyword \"豬..\", you will find \"豬頭皮\", \"豬血湯\", etc."
     ],
     "1e-imchat": [
-        "【~】：Ē-sái代表1-ê任何ê音節，a̍h是1-ê音節任何ê元素。",
+        "【~】：Ē-sái代表1 ê任何ê音節，a̍h是1 ê音節任何ê元素。",
         "",
         "【~】：可以代表有1個的任意音節，或是一個音節任意的元素。",
         ""
@@ -168,15 +168,15 @@
         ""
     ],
     "1e-imchat-le2": [
-        "Nā是kap其他ê字母、聲調數字黏做伙（無hō͘空白拆分開），代表黏做伙ê部份是1-ê音節，「~」代表kāng 1-ê音節ê任何字母、聲調數字。譬喻beh chhōe 3-ê音節ê詞【sat-ba̍k-hî】 soah bē曉拼字，kan-na知影開頭ê字母，chhōe【s~ b~ h~】 就chhōe ē tio̍h所有3-ê音節ê詞，而且3-ê音節ê頭1-ê字母是「s、b、h」--ê。譬喻「san3 ~ia~」ē-sái chhōe tio̍h「sàn-chia̍h」、「sàn-chhiah」等等。",
+        "Nā是kap其他ê字母、聲調數字黏做伙（無hō͘空白拆分開），代表黏做伙ê部份是1 ê音節，「~」代表kāng 1 ê音節ê任何字母、聲調數字。譬喻beh chhōe 3-ê音節ê詞【sat-ba̍k-hî】 soah bē曉拼字，kan-na知影開頭ê字母，chhōe【s~ b~ h~】 就chhōe ē tio̍h所有3-ê音節ê詞，而且3-ê音節ê頭1 ê字母是「s、b、h」--ê。譬喻「san3 ~ia~」ē-sái chhōe tio̍h「sàn-chia̍h」、「sàn-chhiah」等等。",
         "",
         "如果是和其他的字母、聲調數字黏在一起（沒被空白拆開），代表黏在一起的部份是1個音節，「~」代表同1個音節的任何字母、聲調數字。例如要找3個音節ê詞【sat-ba̍k-hî】 卻不會拼字，只知道開頭的字母，搜尋【s~ b~ h~】 就找得到所有3個音節的詞，而且3個音節的頭1個字母是「s、b、h」。例如「san3 ~ia~」可以找到「sàn-chia̍h」、「sàn-chhiah」等等。",
         ""
     ],
     "hanche-khuithau": [
-        "【^】：Khǹg tī siōng頭前，ē-sái chhōe所有chit-ê開頭ê字詞。",
+        "【^】：Khǹg tī siōng頭前，ē-sái chhōe所有chit-ê開頭ê詞。",
         "【^】: Khǹg tī siōng thâu-chêng, ē-sái chhōe só͘-ū chit-ê khui-thâu ê jī-sû.",
-        "【^】：放在最前面，可以找到所有這個開頭的字詞。",
+        "【^】：放在最前面，可以找到所有這個開頭的詞。",
         "【^】: For searching all words starting with this keyword."
     ],
     "hanche-khuithau-le": [
@@ -186,9 +186,9 @@
         "Please use with \"Fuzzy Search\". For example: When searching POJ(Number Input) with keyword \"^ho2\", you will find \"hó\", \"hó-bī\", \"hó-chhùi-súi\", \"hó-bâ koán-pah-ke\", etc."
     ],
     "hanche-kiatsok": [
-        "【$】：Khǹg tī siōng後壁，ē-sái chhōe所有chit-ê結束ê字詞。",
+        "【$】：Khǹg tī siōng後壁，ē-sái chhōe所有chit-ê結束ê詞。",
         "【$】: Khǹg tī siōng āu-piah, ē-sái chhōe só͘-ū chit-ê kiat-sok ê jī-sû.",
-        "【$】：放在最後面，可以找到所有這個結束的字詞。",
+        "【$】：放在最後面，可以找到所有這個結束的詞。",
         "【$】: For searching all words ending with this keyword."
     ],
     "hanche-kiatsok-le": [
@@ -198,8 +198,8 @@
         "Please use with \"Fuzzy Search\". For example: When searching POJ(Number Input) with keyword \"sin5$\", you will find \"sîn\", \"châi-sîn\", \"bô-thâu-sîn\", \"kūn-biō khi-sîn\", etc."
     ],
     "choanpoo-sianntiau": [
-        "【%】：Khǹg tī 1-ê音節ê字母後壁，ē-sái chhōe所有ê聲調。",
-        "【%】: Khǹg tī 1-ê im-chat ê jī-bó āu-piah, ē-sái chhōe só͘-ū ê siaⁿ-tiāu.",
+        "【%】：Khǹg tī 1 ê音節ê字母後壁，ē-sái chhōe所有ê聲調。",
+        "【%】: Khǹg tī 1 ê im-chat ê jī-bó āu-piah, ē-sái chhōe só͘-ū ê siaⁿ-tiāu.",
         "【%】：放在一個音節的字母後面，可以找到所有聲調。",
         "【%】: For searching all different tones."
     ],
@@ -210,16 +210,16 @@
         "For example: When searching POJ(Number Input) with keyword \"tha%\", you will find \"tha\", \"thà\", \"thah\", \"tha̍k\", etc."
     ],
     "ahun-jisu": [
-        "【%$】：Khǹg tī 1-ê音節ê字母後壁，ē-sái chhōe所有押韻ê字詞。",
-        "【%$】: Khǹg tī 1-ê im-chat ê jī-bó āu-piah, ē-sái chhōe só͘-ū ê ah-ūn ê jī-sû.",
-        "【%$】：放在一個完整音節的字母後面，可以找到所有押韻的字詞。",
-        "【%$】: For searching all words with the same rhyme."
+        "【@】：Khǹg tī 1 ê音節ê字母後壁，ē-sái chhōe所有押韻ê詞。特別設計來幫chān你寫鬥句、歌仔冊用--ê。",
+        "【@】: Khǹg tī 1 ê im-chat ê jī-bó āu-piah, ē-sái chhōe só͘-ū ê ah-ūn ê jī-sû.",
+        "【@】：放在一個完整音節的字母後面，可以找到所有押韻的詞。特別設計來幫忙你寫鬥句、歌仔冊所使用。",
+        "【@】: For searching all words with the same rhyme."
     ],
     "ahun-jisu-le": [
-        "請先kéng 【相關--ê】 來chhōe。譬喻phah 「白話字(輸入式)」 ê關鍵字chhōe 【ai%$】 ，ē-sái chhōe tio̍h 「chhài」 、 「an-pâi」 、 「bô-lō͘-sái」 、 「chhiò-hai-hai」 等等。",
-        "Chhiáⁿ kéng \"Siong-koan--ê\" lâi chhōe. Phí-jū phah \"Pe̍h-ōe-jī(Sò͘-jī Su-ji̍p)\" ê koan-kiān-jī chhōe \"ai%$\", ē-sái chhōe tio̍h \"chhài\", \"an-pâi\", \"bô-lō͘-sái\", \"chhiò-hai-hai\" téng-téng.",
-        "請先選 【模糊搜尋】 來找。例如輸入 「白話字(輸入式)」 關鍵字查 【ai%$】 ，可以找到 「chhài」 、 「an-pâi」 、 「bô-lō͘-sái」 、 「chhiò-hai-hai」 等等。",
-        "Please use with \"Fuzzy Search\". For example: When searching POJ(Number Input) with keyword \"ai%$\", you will find \"chhài\", \"an-pâi\", \"bô-lō͘-sái\", \"chhiò-hai-hai\", etc."
+        "請先kéng 【相關--ê】 來chhōe。譬喻phah 「白話字(輸入式)」 ê關鍵字chhōe 【ai@】 ，ē-sái chhōe tio̍h 「chhài」 、 「an-pâi」 、 「bô-lō͘-sái」 、 「chhiò-hai-hai」 等等。",
+        "Chhiáⁿ kéng \"Siong-koan--ê\" lâi chhōe. Phí-jū phah \"Pe̍h-ōe-jī(Sò͘-jī Su-ji̍p)\" ê koan-kiān-jī chhōe \"ai@\", ē-sái chhōe tio̍h \"chhài\", \"an-pâi\", \"bô-lō͘-sái\", \"chhiò-hai-hai\" téng-téng.",
+        "請先選 【模糊搜尋】 來找。例如輸入 「白話字(輸入式)」 關鍵字查 【ai@】 ，可以找到 「chhài」 、 「an-pâi」 、 「bô-lō͘-sái」 、 「chhiò-hai-hai」 等等。",
+        "Please use with \"Fuzzy Search\". For example: When searching POJ(Number Input) with keyword \"ai@\", you will find \"chhài\", \"an-pâi\", \"bô-lō͘-sái\", \"chhiò-hai-hai\", etc."
     ],
     "bokang-khiunnkhau": [
         "【(|)】：Siāng時chhōe無kâng ê組合，譬喻ē-sái chhōe無kāng腔口ê拼寫。",
@@ -234,7 +234,7 @@
         "For example: When searching POJ(Number Input) with keyword \"h(oe|e)2-chhia\", you will find \"hóe-chhia\" and \"hé-chhia\"."
     ],
     "tionghok-e": [
-        "【() \\1】：Ē-sái用括號「()」去kho͘ 1-ê範圍，去chhōe有重複ê內容。",
+        "【() \\1】：Ē-sái用括號「()」去kho͘ 1 ê範圍，去chhōe有重複ê內容。",
         "【() \\1】: ",
         "【() \\1】：可以用括號「()」選取1個範圍，找出有重複的內容。",
         "【() \\1】: "
@@ -246,7 +246,7 @@
         ""
     ],
     "tionghok-e-le2": [
-        "每1組「()」kho͘--ê對應1-ê「\\N」，N代表kho͘--tio̍h ê順序號碼。譬喻ē-sái chhōe「AABB」組合ê詞，chhōe「(~) \\1 (~) \\2」ē chhōe tio̍h「hoaⁿ-hoaⁿ-hí-hí」、「kú-kú tn̂g-tn̂g」等等。譬喻ē-sái chhōe「ABAB」組合ê詞，chhōe「(~) (~) \\1 \\2」ē chhōe tio̍h「bô-ì-bô-ì」、「chi̍t-ê chi̍t-ê」等等。",
+        "每1組「()」kho͘--ê對應1 ê「\\N」，N代表kho͘--tio̍h ê順序號碼。譬喻ē-sái chhōe「AABB」組合ê詞，chhōe「(~) \\1 (~) \\2」ē chhōe tio̍h「hoaⁿ-hoaⁿ-hí-hí」、「kú-kú tn̂g-tn̂g」等等。譬喻ē-sái chhōe「ABAB」組合ê詞，chhōe「(~) (~) \\1 \\2」ē chhōe tio̍h「bô-ì-bô-ì」、「chi̍t-ê chi̍t-ê」等等。",
         "",
         "圈選每1組「()」會對應1個「\\N」，N代表圈選的順序號碼。例如可以找「AABB」組合詞，搜尋「(~) \\1 (~) \\2」可以找到「hoaⁿ-hoaⁿ-hí-hí」、「kú-kú tn̂g-tn̂g」等等。例如可以找「ABAB」組合詞，搜尋「(~) (~) \\1 \\2」可以找到「bô-ì-bô-ì」、「chi̍t-ê chi̍t-ê」等等。",
         ""

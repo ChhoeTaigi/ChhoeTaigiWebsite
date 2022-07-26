@@ -44,6 +44,14 @@ export default class Word extends Component {
         return linkHtml
     }
 
+    generateBunhakTuchokStoreLink = (pageString) => {
+        let linkHtml = [];
+
+        linkHtml.push(<a href={pageString} target='_blank'>{pageString}</a>);
+
+        return linkHtml
+    }
+
     generateWebsiteLink = (dicString, pageString) => {
         let linkHtml = []
 
@@ -85,7 +93,11 @@ export default class Word extends Component {
             if (key === '原冊頁數') {
                 content = this.generateGoanChhehLink(this.props.dic, columns[key]);
             } else if (key === '來去買冊') {
-                content = this.generateStoreLink(this.props.dic);
+                if (this.props.dic === 'BunhakTuchokSekin') {
+                    content = this.generateBunhakTuchokStoreLink(columns[key]);
+                } else {
+                    content = this.generateStoreLink(this.props.dic);
+                }
             } else if (key === '媒體網址') {
                 content = this.generateWebsiteLink(this.props.dic, columns[key]);
             } else if (key === '原冊補充資料') {
