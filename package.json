@@ -37,7 +37,7 @@
     },
     "testModule": "tests/main.js"
   },
-  "description": "## 軟體需求 1. Node 2. Meteor 3. PostgreSQL 4. MongoDB",
+  "description": "",
   "version": "1.0.0",
   "main": "index.js",
   "directories": {
@@ -45,13 +45,13 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/miau715/ChhoeTaigiWebsite.git"
+    "url": "git+https://github.com/ChhoeTaigi/ChhoeTaigiWebsite.git"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/miau715/ChhoeTaigiWebsite/issues"
+    "url": "https://github.com/ChhoeTaigi/ChhoeTaigiWebsite/issues"
   },
-  "homepage": "https://github.com/miau715/ChhoeTaigiWebsite#readme"
+  "homepage": "https://github.com/ChhoeTaigi/ChhoeTaigiWebsite#readme"
 }
