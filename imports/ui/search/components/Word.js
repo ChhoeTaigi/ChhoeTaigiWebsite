@@ -98,7 +98,7 @@ export default class Word extends Component {
                 } else {
                     content = this.generateStoreLink(this.props.dic);
                 }
-            } else if (key === '媒體網址') {
+            } else if (key === '網址') {
                 content = this.generateWebsiteLink(this.props.dic, columns[key]);
             } else if (key === '原冊補充資料') {
                 content = this.generateGoanchhehPoochhoingChuliauWebsiteLink(this.props.dic);

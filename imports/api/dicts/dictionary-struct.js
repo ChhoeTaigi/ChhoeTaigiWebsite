@@ -82,10 +82,10 @@ module.exports = [
             KipInput: '教育部拼音輸入式',
             KipInputOthers: '教育部拼音輸入(其他講法)',
             HanLoTaibunPoj: '漢羅台文',
-            KaisoehHanLoPoj: '日文解說',
-            KaisoehJitbunPoj: '漢羅台文解說',
+            KaisoehHanLoPoj: '漢羅台文解說',
+            KaisoehJitbunPoj: '日文解說',
             LekuHanLoPoj: '漢羅台文例句',
-            LekuJitbunPoj: '日文解說例句',
+            LekuJitbunPoj: '日文例句',
             KahToo: 'Kah圖',
             PageNumber: '原冊頁數',
             SuBe: '詞碼',
@@ -188,7 +188,7 @@ module.exports = [
             EngBun: '對應英文',
             HoaBun: '對應華文',
             ChhoetaigiPhianChu: 'ChhoeTaigi編註',
-            PageNumber: '原冊頁數',
+            PageNumber: '原冊頁數(暫時iáu bô原冊掃頁)',
         }
     },
     {
@@ -216,7 +216,7 @@ module.exports = [
             Confer: '參照',
             HoaBun: '對應華文',
             ChhoetaigiPhianChu: 'ChhoeTaigi編註',
-            PageNumber: '原冊頁數',
+            PageNumber: '原冊頁數(暫時iáu bô原冊掃頁)',
         }
     },
     {
