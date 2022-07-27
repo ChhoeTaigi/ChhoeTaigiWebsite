@@ -1,5 +1,5 @@
 import request from "request";
-import csv from "csvtojson";
+// import csv from "csvtojson";
 import postgres from "../database/postgres";
 import postgresDummyDatabase from "../database/postgresDummyDatabase";
 import DicStruct from "./../../api/dicts/dictionary-struct";

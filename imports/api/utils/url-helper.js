@@ -1,4 +1,4 @@
-import queryString from 'query-string'
+import queryString from 'query-string';
 
 import dicStruct from '../dicts/dictionary-struct';
 
