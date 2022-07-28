@@ -1,7 +1,7 @@
 module.exports = {
   servers: {
     one: {
-      host: '163.47.9.2',
+      host: '146.190.195.32',
       username: 'root',
       pem: "~/.ssh/digitalocean",
     }
@@ -47,7 +47,7 @@ module.exports = {
   },
 
   mongo: {
-    version: '3.4.1',
+    version: '5.0.9',
     servers: {
       one: {}
     }
