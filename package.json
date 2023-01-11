@@ -11,7 +11,7 @@
     "bcryptjs": "^2.4.3",
     "googleapis": "^105.0.0",
     "jquery": "^3.6.0",
-    "knex": "^2.2.0",
+    "knex": "^2.4.0",
     "pg": "^8.7.3",
     "meteor-node-stubs": "^1.1.0",
     "query-string": "^7.1.1",
