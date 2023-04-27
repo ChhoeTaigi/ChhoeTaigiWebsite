@@ -67,6 +67,9 @@ class Header extends Component {
                             <li>
                                 <Link className={currentLocation == '/liaukai' ? 'active' : ''} to='/liaukai' onClick={this.closeMenu}><Translate id="about" /></Link>
                             </li>
+                            <li>
+                                <Link className='koankhoan-link' to={{pathname:'https://r.zecz.ec/vpKd'}} target='_blank'><Translate id="koankhoan" /></Link>
+                            </li>
                         </ul>
                         <Link id='FB-link' className='menu-item' to={{pathname:'https://www.facebook.com/ChhoeTaigi/'}} target='_blank'><span className='sr-only'>ChhoeTaigi Facebook</span></Link>
                     </nav>

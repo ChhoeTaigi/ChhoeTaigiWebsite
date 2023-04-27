@@ -64,6 +64,12 @@
 		a.active::after, a:hover::after {
 			background-color: $color--dark-main;
 		}
+		a.koankhoan-link {
+			color: $color--orange;
+		}
+		a.koankhoan-link::after {
+			background-color: $color--orange;
+		}
 	}
 	&__menu-toggle {
 		display: none;

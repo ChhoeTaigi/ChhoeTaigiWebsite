@@ -149,13 +149,13 @@ function preprocessRegex(options) {
     console.log("preprocessRegex()");
 
     if (options.value !== undefined) {
-        console.log("preprocessRegex() - options.value");
+        // console.log("preprocessRegex() - options.value");
 
         options.value = options.value.replace(regexpRedundantSianntiau, '');
         options.value = options.value.replace(regexpSianntiauTaibe, regexStringSouSianntiau);
 
-        if (options.columns[key].startsWith("{") && options.columns[key].endsWith("}")) {
-            options.columns[key] = options.columns[key].replace('{', regexStringKootengImchatPrefix).replace('}', regexStringKootengImchatPosfix);
+        if (options.value.startsWith("{") && value.endsWith("}")) {
+            options.value = options.value.replace('{', regexStringKootengImchatPrefix).replace('}', regexStringKootengImchatPosfix);
         }
 
         // Sūn-sū bē-tàng ōaⁿ
