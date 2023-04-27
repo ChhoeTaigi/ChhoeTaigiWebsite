@@ -33,12 +33,12 @@ class Explanation extends Component {
                       <div><Translate id="poj-num" /></div>
                   </li>
                   <li>
-                      <h3><Translate id="lmj-input" /></h3>
-                      <div><Translate id="lmj-num" /></div>
-                  </li>
-                  <li>
                       <h3><Translate id="poj" /></h3>
                       <div><Translate id="poj-unicode" /></div>
+                  </li>
+                  <li>
+                      <h3><Translate id="lmj-input" /></h3>
+                      <div><Translate id="lmj-num" /></div>
                   </li>
                   <li>
                       <h3><Translate id="lmj" /></h3>
@@ -65,6 +65,21 @@ class Explanation extends Component {
           <h2><Translate id='regex' /></h2>
           <ul className="regex-note">
             <li>
+              <h3><Translate id='choanpoo-sianntiau' /></h3>
+              <div className='regex-note__content'>
+                <Translate id='choanpoo-sianntiau-le' />
+              </div>
+            </li>
+            <li>
+              <h3><Translate id='1e-imchat' /></h3>
+              <div className='regex-note__content'>
+                <ol>
+                  <li><Translate id="1e-imchat-le" /></li>
+                  <li><Translate id="1e-imchat-le2" /></li>
+                </ol>
+              </div>
+            </li>
+            <li>
               <h3><Translate id="jimho-jigoan" /></h3>
               <div className='regex-note__content'>
                 <Translate id='jimho-jigoan-le1' />
@@ -77,11 +92,11 @@ class Explanation extends Component {
               </div>
             </li>
             <li>
-              <h3><Translate id='1e-imchat' /></h3>
+              <h3><Translate id='kooteng-imchat' /></h3>
               <div className='regex-note__content'>
                 <ol>
-                  <li><Translate id="1e-imchat-le" /></li>
-                  <li><Translate id="1e-imchat-le2" /></li>
+                  <li><Translate id="kooteng-imchat-le" /></li>
+                  <li><Translate id="kooteng-imchat-le2" /></li>
                 </ol>
               </div>
             </li>
@@ -95,12 +110,6 @@ class Explanation extends Component {
               <h3><Translate id='hanche-kiatsok' /></h3>
               <div className='regex-note__content'>
                 <Translate id='hanche-kiatsok-le' />
-              </div>
-            </li>
-            <li>
-              <h3><Translate id='choanpoo-sianntiau' /></h3>
-              <div className='regex-note__content'>
-                <Translate id='choanpoo-sianntiau-le' />
               </div>
             </li>
             <li>
