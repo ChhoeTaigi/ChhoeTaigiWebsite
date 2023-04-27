@@ -39,10 +39,10 @@ Meteor.methods({
     'search'(options) {
         if (Meteor.isServer) {
             let method = options.method;
-            options = processSearchMethod(options);
             options = processBasicSearchColumns(options);
             options = cleanEmptyColumns(options);
             options = preprocessRegex(options);
+            options = processSearchMethod(options);
 
             if (method === 'basic') {
                 if (options.dic) {
@@ -80,16 +80,18 @@ Meteor.methods({
 
 // equals / contains
 function processSearchMethod(options) {
-    if (options.searchMethod === 'equals') {
+    console.log("processSearchMethod()");
+
+    if (options.searchMethod === 'equals') { // equals
         if (options.value !== undefined) {
             // all fields
             if (/\S/.test(options.value)) {
                 options.value = '(?:^|.*\/)' + options.value + '(?:\\(.*\\))?(?:\/.*|$)';
             }
-        } else if (options.columns !== undefined) {
+        } else if (options.columns !== undefined) { // contains
             for (let key in options.columns) {
                 if (/\S/.test(options.columns[key])) {
-                    console.log(key);
+                    console.log("processSearchMethod() - options.columns - key: " + key);
                     if (key === "spelling" || key === "PojInput" || key === "PojInputOthers" || key === "KipInput" || key === "KipInputOthers" || key === "PojUnicode" || key === "PojUnicodeOthers" || key === "KipUnicode" || key === "KipUnicodeOthers") {
                         options.columns[key] = '(?:^|.*\/)' + options.columns[key] + '(?:\\(.*\\))?(?:\/.*|$)';
                         console.log(options.columns[key]);
@@ -129,50 +131,87 @@ function cleanEmptyColumns(options) {
 }
 
 // regex
+const regexStringSouSianntiau = '(?:2|3|p8|p|t8|t|k8|k|h8|h|5|7|8)?';
+const regexStringKooImchat = '(?:(?![ -\/]).)+';
+const regexStringHyphenOrSpace = '(?: |--|-)';
+
+const regexStringAhUnPrefix = '.*(?:(?<![aiueo]))';
+const regexStringAhUnPostfix =  '(?:nn)?(?:2|3|h8|h|5|7|8)?$';
+const regexStringKootengImchatPrefix = '(.* |^)';
+const regexStringKootengImchatPosfix = '( .*|$)';
+
+const regexpRedundantSianntiau = new RegExp('(?<!\\\\)(?:1|4)', 'g');
+const regexpHyphenOrSpace = new RegExp('[ -]', 'g');
+const regexpSianntiauTaibe = new RegExp('%', 'g');
+const regexpImchatTaibe = new RegExp('~', 'g');
+
 function preprocessRegex(options) {
     console.log("preprocessRegex()");
-    const soouSianntiau = '(?:2|3|p8|p|t8|t|k8|k|h8|h|5|7|8)?';
-    const imchat = '(?:(?![ -\/]).)+';
-    const hyphenOrSpace = '(?: |--|-)';
-
-    const ahUnPrefix = '.*(?:(?<![aiueo]))';
-    const ahUnPostfix =  '(?:nn)?(?:2|3|h8|h|5|7|8)?$';
-
-    const regexRedundantSianntiau = new RegExp('(?<!\\\\)(?:1|4)', 'g');
-    const regexHyphenOrSpace = new RegExp('[ -]', 'g');
-    const regexSianntiauTaibe = new RegExp('%', 'g');
-    const regexImchatTaibe = new RegExp('~', 'g');
 
     if (options.value !== undefined) {
-        options.value = options.value.replace(regexRedundantSianntiau, '');
-        options.value = options.value.replace(regexHyphenOrSpace, hyphenOrSpace);
-        options.value = options.value.replace(regexSianntiauTaibe, soouSianntiau);
-        options.value = options.value.replace(regexImchatTaibe, imchat);
-    } else if (options.columns !== undefined) {
-        for (let key in options.columns) {
-            if (key === "PojInput" || key === "PojInputOthers" || key === "KipInput" || key === "KipInputOthers") {
-                options.columns[key] = options.columns[key].replace(regexRedundantSianntiau, '');
-                options.columns[key] = options.columns[key].replace(regexHyphenOrSpace, hyphenOrSpace);
-                options.columns[key] = options.columns[key].replace(regexSianntiauTaibe, soouSianntiau);
-                options.columns[key] = options.columns[key].replace(regexImchatTaibe, imchat);
+        console.log("preprocessRegex() - options.value");
 
-                if (options.columns[key].includes("@")) {
-                    if (options.columns[key].endsWith("@")) {
-                        un7bo2 = options.columns[key].replace('@', '');
-                        options.columns[key] = ahUnPrefix + un7bo2 + ahUnPostfix;
-                    } else {
-                        options.columns[key] = options.columns[key].replace("@", ahUnPostfix);
+        options.value = options.value.replace(regexpRedundantSianntiau, '');
+        options.value = options.value.replace(regexpSianntiauTaibe, regexStringSouSianntiau);
+
+        if (options.columns[key].startsWith("{") && options.columns[key].endsWith("}")) {
+            options.columns[key] = options.columns[key].replace('{', regexStringKootengImchatPrefix).replace('}', regexStringKootengImchatPosfix);
+        }
+
+        // Sūn-sū bē-tàng ōaⁿ
+        options.value = options.value.replace(regexpHyphenOrSpace, regexStringHyphenOrSpace);
+        options.value = options.value.replace(regexpImchatTaibe, regexStringKooImchat);
+    } else if (options.columns !== undefined) {
+        // console.log("preprocessRegex() - options.columns");
+
+        for (let key in options.columns) {
+            if (/\S/.test(options.columns[key])) {
+                // console.log("preprocessRegex() - options.columns - key:" + key);
+                // console.log("preprocessRegex() - options.columns[key]:" + options.columns[key]);
+
+                if (key === "PojInput" || key === "PojInputOthers" || key === "KipInput" || key === "KipInputOthers") {
+                    options.columns[key] = options.columns[key].replace(regexpSianntiauTaibe, regexStringSouSianntiau);
+                    lomajiColumnKeyQueryRegexProcess(options, key);
+                } else if (key === "PojUnicode" || key === "PojUnicodeOthers" || key === "KipUnicode" || key === "KipUnicodeOthers") {
+                    lomajiColumnKeyQueryRegexProcess(options, key);
+                } else if (key === "english") {
+                    if (options.columns[key].startsWith("{") && options.columns[key].endsWith("}")) {
+                        options.columns[key] = options.columns[key].replace('{', regexStringKootengImchatPrefix).replace('}', regexStringKootengImchatPosfix);
                     }
                 }
-            } else if (key === "PojUnicode" || key === "PojUnicodeOthers" || key === "KipUnicode" || key === "KipUnicodeOthers") {
-                options.columns[key] = options.columns[key].replace(regexRedundantSianntiau, '');
-                options.columns[key] = options.columns[key].replace(regexHyphenOrSpace, hyphenOrSpace);
-                options.columns[key] = options.columns[key].replace(regexImchatTaibe, imchat);
             }
         }
     }
 
     return options;
+}
+
+function lomajiColumnKeyQueryRegexProcess(options, key) {
+    // console.log("lomajiColumnKeyQueryRegexProcess(), options.columns[key]: " + options.columns[key]);
+
+    if (key === "PojInput" || key === "PojInputOthers" || key === "KipInput" || key === "KipInputOthers" ||
+        key === "PojUnicode" || key === "PojUnicodeOthers" || key === "KipUnicode" || key === "KipUnicodeOthers") {
+        // check pass
+    } else {
+        return;
+    }
+
+    options.columns[key] = options.columns[key].replace(regexpRedundantSianntiau, '');
+
+    if (options.columns[key].includes("@")) {
+        // console.log("@@@@@@@@@ key: " + options.columns[key]);
+
+        if (options.columns[key].endsWith("@")) {
+            un7bo2 = options.columns[key].replace('@', '');
+            options.columns[key] = regexStringAhUnPrefix + un7bo2 + regexStringAhUnPostfix;
+        }
+    } else if (options.columns[key].startsWith("{") && options.columns[key].endsWith("}")) {
+        options.columns[key] = options.columns[key].replace('{', regexStringKootengImchatPrefix).replace('}', regexStringKootengImchatPosfix);
+    }
+
+    // Sūn-sū bē-tàng ōaⁿ
+    options.columns[key] = options.columns[key].replace(regexpHyphenOrSpace, regexStringHyphenOrSpace);
+    options.columns[key] = options.columns[key].replace(regexpImchatTaibe, regexStringKooImchat);
 }
 
 // lowercase query
