@@ -132,18 +132,46 @@ function cleanEmptyColumns(options) {
 
 // regex
 const regexStringSouSianntiau = '(?:2|3|p8|p|t8|t|k8|k|h8|h|5|7|8)?';
-const regexStringKooImchat = '(?:(?![ -\/]).)+';
 const regexStringHyphenOrSpace = '(?: |--|-)';
 
 const regexStringAhUnPrefix = '.*(?:(?<![aiueo]))';
-const regexStringAhUnPostfix =  '(?:nn)?(?:2|3|h8|h|5|7|8)?$';
+const regexStringAhUnSuffix =  '(?:nn)?(?:2|3|h8|h|5|7|8)?$';
 const regexStringKootengImchatPrefix = '(.* |^)';
-const regexStringKootengImchatPosfix = '( .*|$)';
+const regexStringKootengImchatSuffix = '( .*|$)';
 
 const regexpRedundantSianntiau = new RegExp('(?<!\\\\)(?:1|4)', 'g');
 const regexpHyphenOrSpace = new RegExp('[ -]', 'g');
 const regexpSianntiauTaibe = new RegExp('%', 'g');
-const regexpImchatTaibe = new RegExp('~', 'g');
+
+const regexpKooImchatSiannthauTaibe = new RegExp('~<', 'g');
+const regexpKooImchatHeksimKapBoeliuTaibe = new RegExp('~>', 'g');
+const regexpKooImchatTaibeBoKhakteng = new RegExp('~x', 'g');
+const regexpKooImchatTaibe = new RegExp('~', 'g');
+const regexpStringKooImchatSiannthauTaibePrefix = '(?:ph|p|m|b|th|t|n|l|kh|k|ng|g|chh|ch|s|j|h)';
+const regexpStringKooImchatHeksimKapBoeliuTaibeSuffix = '(?:[aiueo]+(?:nn|m|ng|n)*|(?:m|ng|g))(?:2|3|p8|p|t8|t|k8|k|h8|h|5|7|8)?';
+const regexStringKooImchatBoKhakteng = '(?:(?![ -\/]).)*';
+const regexStringKooImchat = '(?:(?![ -\/]).)+';
+
+const regexpStringSpecialChar1 = ' ';
+const regexpStringSpecialChar2 = '-';
+const regexpStringSpecialChar3 = '{';
+const regexpStringSpecialChar4 = '}';
+const regexpStringSpecialCharString1 = '\\\\ ';
+const regexpStringSpecialCharString2 = '\\\\-';
+const regexpStringSpecialCharString3 = '\\\\{';
+const regexpStringSpecialCharString4 = '\\\\}';
+const regexpStringSpecialChar1Temp = '####';
+const regexpStringSpecialChar2Temp = '###';
+const regexpStringSpecialChar3Temp = '##';
+const regexpStringSpecialChar4Temp = '#';
+const regexpSpecialChar1 = new RegExp(regexpStringSpecialCharString1, 'g');
+const regexpSpecialChar2 = new RegExp(regexpStringSpecialCharString2, 'g');
+const regexpSpecialChar3 = new RegExp(regexpStringSpecialCharString3, 'g');
+const regexpSpecialChar4 = new RegExp(regexpStringSpecialCharString4, 'g');
+const regexpSpecialChar1R = new RegExp(regexpStringSpecialChar1Temp, 'g');
+const regexpSpecialChar2R = new RegExp(regexpStringSpecialChar2Temp, 'g');
+const regexpSpecialChar3R = new RegExp(regexpStringSpecialChar3Temp, 'g');
+const regexpSpecialChar4R = new RegExp(regexpStringSpecialChar4Temp, 'g');
 
 function preprocessRegex(options) {
     console.log("preprocessRegex()");
@@ -155,12 +183,23 @@ function preprocessRegex(options) {
         options.value = options.value.replace(regexpSianntiauTaibe, regexStringSouSianntiau);
 
         if (options.value.startsWith("{") && value.endsWith("}")) {
-            options.value = options.value.replace('{', regexStringKootengImchatPrefix).replace('}', regexStringKootengImchatPosfix);
+            options.value = options.value.replace('{', regexStringKootengImchatPrefix).replace('}', regexStringKootengImchatSuffix);
         }
 
         // Sūn-sū bē-tàng ōaⁿ
+        options.value = options.value.replace(regexpSpecialChar1, regexpStringSpecialChar1Temp);
+        options.value = options.value.replace(regexpSpecialChar2, regexpStringSpecialChar2Temp);
+        options.value = options.value.replace(regexpSpecialChar3, regexpStringSpecialChar3Temp);
+        options.value = options.value.replace(regexpSpecialChar4, regexpStringSpecialChar4Temp);
         options.value = options.value.replace(regexpHyphenOrSpace, regexStringHyphenOrSpace);
-        options.value = options.value.replace(regexpImchatTaibe, regexStringKooImchat);
+        options.value = options.value.replace(regexpKooImchatSiannthauTaibe, regexpStringKooImchatSiannthauTaibePrefix);
+        options.value = options.value.replace(regexpKooImchatHeksimKapBoeliuTaibe, regexpStringKooImchatHeksimKapBoeliuTaibeSuffix);
+        options.value = options.value.replace(regexpKooImchatTaibeBoKhakteng, regexStringKooImchatBoKhakteng);
+        options.value = options.value.replace(regexpKooImchatTaibe, regexStringKooImchat);
+        options.value = options.value.replace(regexpSpecialChar1R, regexpStringSpecialChar1);
+        options.value = options.value.replace(regexpSpecialChar2R, regexpStringSpecialChar2);
+        options.value = options.value.replace(regexpSpecialChar3R, regexpStringSpecialChar3);
+        options.value = options.value.replace(regexpSpecialChar4R, regexpStringSpecialChar4);
     } else if (options.columns !== undefined) {
         // console.log("preprocessRegex() - options.columns");
 
@@ -176,7 +215,7 @@ function preprocessRegex(options) {
                     lomajiColumnKeyQueryRegexProcess(options, key);
                 } else if (key === "english") {
                     if (options.columns[key].startsWith("{") && options.columns[key].endsWith("}")) {
-                        options.columns[key] = options.columns[key].replace('{', regexStringKootengImchatPrefix).replace('}', regexStringKootengImchatPosfix);
+                        options.columns[key] = options.columns[key].replace('{', regexStringKootengImchatPrefix).replace('}', regexStringKootengImchatSuffix);
                     }
                 }
             }
@@ -203,15 +242,26 @@ function lomajiColumnKeyQueryRegexProcess(options, key) {
 
         if (options.columns[key].endsWith("@")) {
             un7bo2 = options.columns[key].replace('@', '');
-            options.columns[key] = regexStringAhUnPrefix + un7bo2 + regexStringAhUnPostfix;
+            options.columns[key] = regexStringAhUnPrefix + un7bo2 + regexStringAhUnSuffix;
         }
     } else if (options.columns[key].startsWith("{") && options.columns[key].endsWith("}")) {
-        options.columns[key] = options.columns[key].replace('{', regexStringKootengImchatPrefix).replace('}', regexStringKootengImchatPosfix);
+        options.columns[key] = options.columns[key].replace('{', regexStringKootengImchatPrefix).replace('}', regexStringKootengImchatSuffix);
     }
 
     // Sūn-sū bē-tàng ōaⁿ
+    options.columns[key] = options.columns[key].replace(regexpSpecialChar1, regexpStringSpecialChar1Temp);
+    options.columns[key] = options.columns[key].replace(regexpSpecialChar2, regexpStringSpecialChar2Temp);
+    options.columns[key] = options.columns[key].replace(regexpSpecialChar3, regexpStringSpecialChar3Temp);
+    options.columns[key] = options.columns[key].replace(regexpSpecialChar4, regexpStringSpecialChar4Temp);
     options.columns[key] = options.columns[key].replace(regexpHyphenOrSpace, regexStringHyphenOrSpace);
-    options.columns[key] = options.columns[key].replace(regexpImchatTaibe, regexStringKooImchat);
+    options.columns[key] = options.columns[key].replace(regexpKooImchatSiannthauTaibe, regexpStringKooImchatSiannthauTaibePrefix);
+    options.columns[key] = options.columns[key].replace(regexpKooImchatHeksimKapBoeliuTaibe, regexpStringKooImchatHeksimKapBoeliuTaibeSuffix);
+    options.columns[key] = options.columns[key].replace(regexpKooImchatTaibeBoKhakteng, regexStringKooImchatBoKhakteng);
+    options.columns[key] = options.columns[key].replace(regexpKooImchatTaibe, regexStringKooImchat);
+    options.columns[key] = options.columns[key].replace(regexpSpecialChar1R, regexpStringSpecialChar1);
+    options.columns[key] = options.columns[key].replace(regexpSpecialChar2R, regexpStringSpecialChar2);
+    options.columns[key] = options.columns[key].replace(regexpSpecialChar3R, regexpStringSpecialChar3);
+    options.columns[key] = options.columns[key].replace(regexpSpecialChar4R, regexpStringSpecialChar4);
 }
 
 // lowercase query

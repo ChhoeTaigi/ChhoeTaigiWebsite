@@ -144,21 +144,45 @@
         "For example: When searching POJ(Number Input) with keyword \"tha%\", you will find \"tha\", \"thà\", \"thah\", \"tha̍k\", etc."
     ],
     "1e-imchat": [
-        "【~】：Ē-tàng代表1 ê任何ê音節，a̍h是1 ê音節任何ê元素。",
+        "【~】：Ē-tàng代表1 ê任何音節，a̍h是1 ê音節內底任何ê元素。",
         "",
         "【~】：可以代表有1個的任意音節，或是一個音節任意的元素。",
         ""
     ],
-    "1e-imchat-le": [
+    "1e-imchat-le1": [
         "譬喻【~ ~ ~】ē-tàng chhōe tio̍h所有3 ê音節ê詞。譬喻【~ ~ ~ ~】ē-tàng chhōe tio̍h所有4 ê音節ê詞。",
         "",
         "例如【~ ~ ~】可以找到所有3個音節的詞。例如【~ ~ ~ ~】可以找到所有4個音節的詞。",
         ""
     ],
     "1e-imchat-le2": [
-        "Nā是kap其他ê字母、聲調數字黏做伙（無hō͘空白拆分開），代表黏做伙ê部份是1 ê音節，「~」代表kāng 1 ê音節ê任何字母、聲調數字。譬喻beh chhōe 3 ê音節ê詞「sat-ba̍k-hî」soah bē曉拼字，kan-na知影開頭ê字母，chhōe【s~ b~ h~】就chhōe ē tio̍h所有3 ê音節ê詞，而且3 ê音節ê頭1 ê字母是「s、b、h」--ê。譬喻【san3 ~ia~】ē-tàng chhōe tio̍h「sàn-chia̍h」、「sàn-chhiah」等等。",
+        "Nā是kap其他ê字母、聲調數字黏做伙（無hō͘空白拆分開），代表黏做伙ê部份是1 ê音節，「~」代表kāng 1 ê音節ê任何字母、聲調數字。譬喻beh chhōe 3 ê音節ê詞「sat-ba̍k-hî」soah bē曉拼字，kan-na知影開頭ê字母，chhōe【s~ b~ h~】就chhōe ē tio̍h所有3 ê音節ê詞，而且3 ê音節ê頭1 ê字母是「s、b、h」--ê。譬喻【san3 ~ia~】ē-tàng chhōe tio̍h「sàn-chia̍h」、「sàn chhiah」等等。",
         "",
-        "如果是和其他的字母、聲調數字黏在一起（沒被空白拆開），代表黏在一起的部份是1個音節，「~」代表同1個音節的任何字母、聲調數字。例如要找3個音節ê詞「sat-ba̍k-hî」卻不會拼字，只知道開頭的字母，搜尋【s~ b~ h~】就找得到所有3個音節的詞，而且3個音節的頭1個字母是「s、b、h」。例如【san3 ~ia~】可以找到「sàn-chia̍h」、「sàn-chhiah」等等。",
+        "如果是和其他的字母、聲調數字黏在一起（沒被空白拆開），代表黏在一起的部份是1個音節，「~」代表同1個音節的任何字母、聲調數字。例如要找3個音節ê詞「sat-ba̍k-hî」卻不會拼字，只知道開頭的字母，搜尋【s~ b~ h~】就找得到所有3個音節的詞，而且3個音節的頭1個字母是「s、b、h」。例如【san3 ~ia~】可以找到「sàn-chia̍h」、「sàn chhiah」等等。",
+        ""
+    ],
+    "1e-imchat-chinkai": [
+        "【~】進階版：延伸【~】ê功能，ke 3款變化：【~x】、【~<】、【~>】，kan-na「輸入式」chiah thang用。",
+        "",
+        "【~】進階版：延伸【~】的功能，多3種變化：【~x】、【~<】、【~>】，只有「輸入式」才可以用。",
+        ""
+    ],
+    "1e-imchat-chinkai-le1": [
+        "【~x】khioh起【~】ê功能，mā ē-tàng代表無任何物件。譬喻phah「白話字(輸入式)」ê關鍵詞chhōe【~ang%】，ē-tàng chhōe tio̍h「tâng」、「chàng」等等，nā chhōe【~xang%】koh thang chhōe tio̍h「ang」、「âng」等等。",
+        "",
+        "【~x】除了【~】的功能，也能代表沒有任何東西。譬喻輸入「白話字(輸入式)」關鍵詞找【~ang%】，能找到「tâng」、「chàng」等等，如果找【~xang%】可以再找到「ang」、「âng」等等。",
+        ""
+    ],
+    "1e-imchat-chinkai-le2": [
+        "【~<】代表1 ê音節--ni̍h所有聲頭ê字母，也就是所有ê子音：「p」、「ph」、「m」等等。譬喻phah「白話字(輸入式)」ê關鍵詞chhōe【~<ng%】，ē-tàng chhōe tio̍h「chhng」、「chǹg」、「nn̄g」等等，thang避免chhōe tio̍h「chàng」、「phóng」等等。",
+        "",
+        "【~<】代表1個音節內所有聲頭的字母，也就是所有ê子音，「p」、「ph」、「m」等等。譬喻輸入「白話字(輸入式)」關鍵詞找【~<ng%】，能找到「chhng」、「chǹg」、「nn̄g」等等，可以避免找到「chàng」、「phóng」等等。",
+        ""
+    ],
+    "1e-imchat-chinkai-le3": [
+        "【~>】代表1 ê音節--ni̍h所有核心、尾liu ê字母kap聲調數字，也就是kā聲頭子音the̍h掉，chhun ê字母kap聲調數字。譬喻phah「白話字(輸入式)」ê關鍵詞chhōe【ch~> ch~>】ē-tàng chhōe tio̍h「châi-chêng」、「cháu-cheng」、「chiáⁿ-chúi」等等，thang避免chhōe tio̍h「chhài-chhī」、「chheng-chúi」等等。",
+        "",
+        "【~>】代表1個音節內所有核心、尾巴的字母和聲調數字，也就是扣掉聲頭子音，剩下來的字母和聲調數字。譬喻輸入「白話字(輸入式)」關鍵詞找【ch~> ch~>】能找到「châi-chêng」、「cháu-cheng」、「chiáⁿ-chúi」等等，可以避免找到「chhài-chhī」、「chheng-chúi」等等。",
         ""
     ],
     "jimho-jigoan": [
@@ -192,15 +216,15 @@
         ""
     ],
     "kooteng-imchat-le": [
-        "請先kéng「相關--ê」來chhōe。譬喻台語羅馬字【{chio}】ē-tàng chhōe tio̍h「chio」、「chio-ho͘」、「keng-chio-iû」等等。To̍h bē出現「chioh」、「chiok」、「sio-chioh-mn̄g」等等chit款音節--ni̍h koh有別ê字母a̍h是聲調ê詞。Kan-na kéng「相關--ê」chhōe台語羅馬字kap英文chiah有路用。",
+        "請先kéng「相關--ê」來chhōe。譬喻phah「白話字」ê關鍵詞chhōe【{chio}】ē-tàng chhōe tio̍h「chio」、「chio-ho͘」、「keng-chio-iû」等等。Thang避免chhōe tio̍h「chioh」、「chiok」、「sio-chioh-mn̄g」等等chit款音節--ni̍h koh有別ê字母a̍h是聲調ê詞。Kan-na kéng「相關--ê」chhōe台語羅馬字kap英文chiah有路用。",
         "",
-        "請先選「模糊搜尋」來找。例如台語羅馬字【{chio}】可以找到「chio」、「chio-ho͘」、「keng-chio-iû」等等。就不會出現「chioh」、「chiok」、「sio-chioh-mn̄g」等等這種音節裡還有別的字母或是聲調的詞。只有選「模糊搜尋」找台語羅馬字和英文時才有作用。",
+        "請先選「模糊搜尋」來找。例如輸入「白話字」關鍵詞查【{chio}】可以找到「chio」、「chio-ho͘」、「keng-chio-iû」等等。可以避免找到「chioh」、「chiok」、「sio-chioh-mn̄g」等等這種音節裡還有別的字母或是聲調的詞。只有選「模糊搜尋」找台語羅馬字和英文時才有作用。",
         ""
     ],
     "kooteng-imchat-le2": [
-        "請先kéng「相關--ê」來chhōe。譬喻英文【{rice}】ē-tàng chhōe tio̍h「rice」、「rice seed」、「to cook rice」等等。To̍h bē出現「licorice」、「the price」、「rice-water」等等chit款koh有別ê字母ê word。Kan-na kéng「相關--ê」chhōe台語羅馬字kap英文chiah有路用。",
+        "請先kéng「相關--ê」來chhōe。譬喻英文【{rice}】ē-tàng chhōe tio̍h「rice」、「rice seed」、「to cook rice」等等。Thang避免chhōe tio̍h「licorice」、「the price」、「rice-water」等等chit款koh有別ê字母ê word。Kan-na kéng「相關--ê」chhōe台語羅馬字kap英文chiah有路用。",
         "",
-        "請先選「模糊搜尋」來找。例如英文【{rice}】可以找到「rice」、「rice seed」、「to cook rice」等等。就不會出現「licoriceh」、「the price」、「rice-water」等等這種音節裡還有別的字母或是聲調的 word。只有選「模糊搜尋」找台語羅馬字和英文時才有作用。",
+        "請先選「模糊搜尋」來找。例如英文【{rice}】可以找到「rice」、「rice seed」、「to cook rice」等等。可以避免找到「licoriceh」、「the price」、「rice-water」等等這種音節裡還有別的字母或是聲調的 word。只有選「模糊搜尋」找台語羅馬字和英文時才有作用。",
         ""
     ],
     "hanche-khuithau": [
@@ -228,7 +252,7 @@
         "Please use with \"Fuzzy Search\". For example: When searching POJ(Number Input) with keyword \"sin5$\", you will find \"sîn\", \"châi-sîn\", \"bô-thâu-sîn\", \"kūn-biō khi-sîn\", etc."
     ],
     "ahun-jisu": [
-        "【@】：Khǹg tī 1 ê音節ê字母後壁，ē-tàng chhōe所有押韻ê詞。特別設計來寫鬥句、唸歌、gia̍t-khiat-á話。",
+        "【@】：Khǹg tī 1 ê音節ê字母後壁，ē-tàng chhōe所有押韻ê詞。特別設計來寫唸歌、歌仔冊。",
         "【@】: Khǹg tī 1 ê im-chat ê jī-bó āu-piah, ē-tàng chhōe só͘-ū ê ah-ūn ê jī-sû.",
         "【@】：放在一個完整音節的字母後面，可以找到所有押韻的詞。特別設計來幫忙你寫鬥句、歌仔冊所使用。",
         "【@】: For searching all words with the same rhyme."
@@ -239,17 +263,23 @@
         "請先選「模糊搜尋」來找。例如輸入「白話字(輸入式)」關鍵詞查【ai@】，可以找到「chhài」、「an-pâi」、「bô-lō͘-sái」、「chhiò-hai-hai」等等。只有放在台語羅馬字最後面時才有作用。",
         "Please use with \"Fuzzy Search\". For example: When searching POJ(Number Input) with keyword \"ai@\", you will find \"chhài\", \"an-pâi\", \"bô-lō͘-sái\", \"chhiò-hai-hai\", etc."
     ],
-    "bokang-khiunnkhau": [
+    "bokang-phengsia": [
         "【(|)】：Siāng時chhōe無kâng ê詞，譬喻ē-tàng chhōe無kāng ê拼寫法。",
         "【(|)】: Siāng-sî chhōe bô-kâng ê cho͘-ha̍p, phì-jū ē-tàng chhōe bô-kāng khiuⁿ-kháu ê pheng-siá.",
         "【(|)】：同時找不同的詞，例如可以找不同的拼寫法。",
         "【(|)】: For searching with different choices at the same time."
     ],
-    "bokang-khiunnkhau-le": [
-        "譬喻phah「白話字(輸入式)」ê關鍵詞chhōe【h(oe|e)2-chhia】，ē-tàng chhōe tio̍h「hóe-chhia」kap「hé-chhia」。Mā ē-tàng phah【(hoe2-chhia|he2-chhia)】。Koh ē-tàng 1擺chhōe bô kâng ê詞，譬喻phah「白話字(輸入式)」ê關鍵詞chhōe【(san3 chiah8|san3 chhiah|san3 hiong)】。",
-        "Phí-jū phah \"Pe̍h-ōe-jī(Sò͘-jī Su-ji̍p)\" ê koan-kiān-jī chhōe \"h(oe|e)2-chhia\", ē-tàng chhōe tio̍h \"hóe-chhia\" kap \"hé-chhia\".",
-        "例如輸入「白話字(輸入式)」關鍵詞查【h(oe|e)2-chhia】，可以找到「hóe-chhia」和「hé-chhia」。也可以改成【(hoe2-chhia|he2-chhia)】。也可以一次找不同的詞，例如輸入「白話字(輸入式)」的關鍵詞找【(san3 chiah8|san3 chhiah|san3 hiong)】。",
-        "For example: When searching POJ(Number Input) with keyword \"h(oe|e)2-chhia\", you will find \"hóe-chhia\" and \"hé-chhia\"."
+    "bokang-phengsia-le1": [
+        "譬喻phah「白話字(輸入式)」ê關鍵詞chhōe【h(oe|e)2 chhia】，ē-tàng chhōe tio̍h「hóe chhia」kap「hé chhia」。Mā ē-tàng phah【(hoe2 chhia|he2 chhia)】。",
+        "Phí-jū phah \"Pe̍h-ōe-jī(Sò͘-jī Su-ji̍p)\" ê koan-kiān-jī chhōe \"h(oe|e)2 chhia\", ē-tàng chhōe tio̍h \"hóe chhia\" kap \"hé chhia\".",
+        "例如輸入「白話字(輸入式)」關鍵詞查【h(oe|e)2 chhia】，可以找到「hóe chhia」和「hé chhia」。也可以改成【(hoe2 chhia|he2 chhia)】。",
+        "For example: When searching POJ(Number Input) with keyword \"h(oe|e)2 chhia\", you will find \"hóe chhia\" and \"hé chhia\"."
+    ],
+    "bokang-phengsia-le2": [
+        "Mā ē-tàng 1擺chhōe bô kâng ê詞，譬喻phah「白話字(輸入式)」ê關鍵詞chhōe【(san3 chiah8|san3 chhiah|san3 hiong)】。",
+        "Phí-jū phah \"Pe̍h-ōe-jī(Sò͘-jī Su-ji̍p)\" ê koan-kiān-jī chhōe \"h(oe|e)2 chhia\", ē-tàng chhōe tio̍h \"hóe chhia\" kap \"hé chhia\".",
+        "也可以一次找不同的詞，例如輸入「白話字(輸入式)」的關鍵詞找【(san3 chiah8|san3 chhiah|san3 hiong)】。",
+        "For example: When searching POJ(Number Input) with keyword \"h(oe|e)2 chhia\", you will find \"hóe chhia\" and \"hé chhia\"."
     ],
     "tionghok-e": [
         "【() \\1】：Ē-tàng用月眉號「()」去kho͘ 1 ê範圍，去chhōe文字有重複--ê。",
@@ -258,15 +288,57 @@
         "【() \\1】: "
     ],
     "tionghok-e-le1": [
-        "譬喻ē-tàng chhōe「AAA」組合ê詞，chhōe【(jin5) \\1 \\1】ē chhōe tio̍h「jîn-jîn-jîn」。譬喻chhōe【(~) \\1 \\1】ē chhōe tio̍h所有「AAA」ê詞。譬喻ē-tàng chhōe「ABB」組合ê詞，chhōe【peh8 (~) \\1】ē chhōe tio̍h「pe̍h-chhang-chhang」、「pe̍h-soat-soat」、「pe̍h-siak-siak」等等。",
+        "譬喻ē-tàng chhōe「AAA」組合ê詞，chhōe【(jin5) \\1 \\1】ē chhōe tio̍h「jîn-jîn-jîn」。譬喻chhōe【(~) \\1 \\1】ē chhōe tio̍h所有「AAA」ê詞。",
         "",
-        "例如可以找「AAA」組合詞，搜尋【(jin5) \\1 \\1】可以找到「jîn-jîn-jîn」。例如搜尋【(~) \\1 \\1】可以找到所有「AAA」的詞。例如可以找「ABB」組合詞，搜尋【peh8 (~) \\1】可以找到「pe̍h-chhang-chhang」、「pe̍h-soat-soat」、「pe̍h-siak-siak」等等。",
+        "例如可以找「AAA」組合詞，搜尋【(jin5) \\1 \\1】可以找到「jîn-jîn-jîn」。例如搜尋【(~) \\1 \\1】可以找到所有「AAA」的詞。",
         ""
     ],
     "tionghok-e-le2": [
-        "每1組「()」kho͘--ê對應1 ê「\\N」，N代表kho͘--tio̍h ê順序號碼。譬喻ē-tàng chhōe「AABB」組合ê詞，chhōe【(~) \\1 (~) \\2】ē chhōe tio̍h「hoaⁿ-hoaⁿ-hí-hí」、「kú-kú tn̂g-tn̂g」等等。譬喻ē-tàng chhōe「ABAB」組合ê詞，chhōe【(~) (~) \\1 \\2】ē chhōe tio̍h「bô-ì-bô-ì」、「chi̍t-ê chi̍t-ê」等等。",
+        "譬喻ē-tàng chhōe「ABB」組合ê詞，chhōe【peh8 (~) \\1】ē chhōe tio̍h「pe̍h-chhang-chhang」、「pe̍h-soat-soat」、「pe̍h-siak-siak」等等。",
         "",
-        "圈選每1組「()」會對應1個「\\N」，N代表圈選的順序號碼。例如可以找「AABB」組合詞，搜尋【(~) \\1 (~) \\2】可以找到「hoaⁿ-hoaⁿ-hí-hí」、「kú-kú tn̂g-tn̂g」等等。例如可以找「ABAB」組合詞，搜尋【(~) (~) \\1 \\2】可以找到「bô-ì-bô-ì」、「chi̍t-ê chi̍t-ê」等等。",
+        "例如可以找「ABB」組合詞，搜尋【peh8 (~) \\1】可以找到「pe̍h-chhang-chhang」、「pe̍h-soat-soat」、「pe̍h-siak-siak」等等。",
+        ""
+    ],
+    "tionghok-e-le3": [
+        "每1組「()」kho͘--ê對應1 ê「\\N」，N代表kho͘--tio̍h ê順序號碼。譬喻ē-tàng chhōe「AABB」組合ê詞，chhōe【(~) \\1 (~) \\2】ē chhōe tio̍h「hoaⁿ-hoaⁿ-hí-hí」、「kú-kú tn̂g-tn̂g」等等。",
+        "",
+        "圈選每1組「()」會對應1個「\\N」，N代表圈選的順序號碼。例如可以找「AABB」組合詞，搜尋【(~) \\1 (~) \\2】可以找到「hoaⁿ-hoaⁿ-hí-hí」、「kú-kú tn̂g-tn̂g」等等。",
+        ""
+    ],
+    "tionghok-e-le4": [
+        "每1組「()」kho͘--ê對應1 ê「\\N」，N代表kho͘--tio̍h ê順序號碼。譬喻ē-tàng chhōe「ABAB」組合ê詞，chhōe【(~) (~) \\1 \\2】ē chhōe tio̍h「bô-ì-bô-ì」、「chi̍t-ê chi̍t-ê」等等。",
+        "",
+        "圈選每1組「()」會對應1個「\\N」，N代表圈選的順序號碼。例如可以找「ABAB」組合詞，搜尋【(~) (~) \\1 \\2】可以找到「bô-ì-bô-ì」、「chi̍t-ê chi̍t-ê」等等。",
+        ""
+    ],
+    "teksu-regex-backslash": [
+        "【\\ 】：ChhoeTaigi有取代幾ê符號是REGEX原底有teh用--ê，nā有beh用舊底--ê，請tī頭前ke【\\】，下底ē說明。",
+        "",
+        "【\\ 】：ChhoeTaigi有取代幾個符號是REGEX原本有在用的，如果要使用原來的符號，請在前面加【\\】，下面詳述。",
+        ""
+    ],
+    "teksu-regex-backslash-le1": [
+        "Nā beh ka-tī寫REGEX【 】（1格空白），請改做【\\ 】（正chhu線chiap 1格空白）。",
+        "",
+        "如果要自己寫REGEX【 】（1格空白），請改做【\\ 】（右斜線和1格空白）。",
+        ""
+    ],
+    "teksu-regex-backslash-le2": [
+        "Nā beh ka-tī寫REGEX【-】，請改做【\\-】。",
+        "",
+        "如果要自己寫REGEX【-】，請改做【\\-】。",
+        ""
+    ],
+    "teksu-regex-backslash-le3": [
+        "Nā beh ka-tī寫REGEX【{】，請改做【\\{】。",
+        "",
+        "如果要自己寫REGEX【{】，請改做【\\{】。",
+        ""
+    ],
+    "teksu-regex-backslash-le4": [
+        "Nā beh ka-tī寫REGEX【}】，請改做【\\}】。",
+        "",
+        "如果要自己寫REGEX【}】，請改做【\\}】。",
         ""
     ],
     "contact": [

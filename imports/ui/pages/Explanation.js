@@ -74,8 +74,18 @@ class Explanation extends Component {
               <h3><Translate id='1e-imchat' /></h3>
               <div className='regex-note__content'>
                 <ol>
-                  <li><Translate id="1e-imchat-le" /></li>
+                  <li><Translate id="1e-imchat-le1" /></li>
                   <li><Translate id="1e-imchat-le2" /></li>
+                </ol>
+              </div>
+            </li>
+            <li>
+              <h3><Translate id='1e-imchat-chinkai' /></h3>
+              <div className='regex-note__content'>
+                <ol>
+                  <li><Translate id="1e-imchat-chinkai-le1" /></li>
+                  <li><Translate id="1e-imchat-chinkai-le2" /></li>
+                  <li><Translate id="1e-imchat-chinkai-le3" /></li>
                 </ol>
               </div>
             </li>
@@ -119,9 +129,12 @@ class Explanation extends Component {
               </div>
             </li>
             <li>
-              <h3><Translate id='bokang-khiunnkhau' /></h3>
+              <h3><Translate id='bokang-phengsia' /></h3>
               <div className='regex-note__content'>
-                <Translate id='bokang-khiunnkhau-le' />
+                <ol>
+                  <li><Translate id='bokang-phengsia-le1' /></li>
+                  <li><Translate id='bokang-phengsia-le2' /></li>
+                </ol>
               </div>
             </li>
             <li>
@@ -130,6 +143,19 @@ class Explanation extends Component {
                 <ol>
                   <li><Translate id="tionghok-e-le1" /></li>
                   <li><Translate id="tionghok-e-le2" /></li>
+                  <li><Translate id="tionghok-e-le3" /></li>
+                  <li><Translate id="tionghok-e-le4" /></li>
+                </ol>
+              </div>
+            </li>
+            <li>
+              <h3><Translate id='teksu-regex-backslash' /></h3>
+              <div className='regex-note__content'>
+                <ol>
+                  <li><Translate id="teksu-regex-backslash-le1" /></li>
+                  <li><Translate id="teksu-regex-backslash-le2" /></li>
+                  <li><Translate id="teksu-regex-backslash-le3" /></li>
+                  <li><Translate id="teksu-regex-backslash-le4" /></li>
                 </ol>
               </div>
             </li>
