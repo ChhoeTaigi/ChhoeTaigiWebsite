@@ -90,7 +90,7 @@ export default class Word extends Component {
         for (let key in columns) {
             console.log("render column: " + key);
             let content;
-            if (key === '原冊頁數') {
+            if (key === '掀原冊頁數') {
                 content = this.generateGoanChhehLink(this.props.dic, columns[key]);
             } else if (key === '來去買冊') {
                 if (this.props.dic === 'BunhakTuchokSekin') {

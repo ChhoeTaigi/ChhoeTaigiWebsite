@@ -47,7 +47,7 @@
 			font-size: 15px;
 			padding: 0 10px;
 			position: relative;
-			color: $color--dark-main;
+			color: $color--site-nav;
 			min-height: 48px;
 		}
 		a::after {
@@ -58,11 +58,11 @@
 			margin-left: -15px;
 			width: 30px;
 			height: 4px;
-			background-color: rgba($color--dark-main, 0.13);
+			background-color: rgba($color--site-nav, 0.13);
 			transition: background-color .3s ease-in;
 		}
 		a.active::after, a:hover::after {
-			background-color: $color--dark-main;
+			background-color: $color--site-nav;
 		}
 		a.koankhoan-link {
 			color: $color--orange;
@@ -140,7 +140,7 @@ main {
 			transition: none;
 		}
 		ul.active {
-			max-height: 275px;
+			max-height: 300px;
 			transition: max-height .2s ease-in;
 		}
 		li {

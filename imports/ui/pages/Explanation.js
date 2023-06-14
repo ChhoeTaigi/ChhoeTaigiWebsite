@@ -134,6 +134,7 @@ class Explanation extends Component {
                 <ol>
                   <li><Translate id='bokang-phengsia-le1' /></li>
                   <li><Translate id='bokang-phengsia-le2' /></li>
+                  <li><Translate id='bokang-phengsia-le3' /></li>
                 </ol>
               </div>
             </li>
@@ -145,6 +146,7 @@ class Explanation extends Component {
                   <li><Translate id="tionghok-e-le2" /></li>
                   <li><Translate id="tionghok-e-le3" /></li>
                   <li><Translate id="tionghok-e-le4" /></li>
+                  <li><Translate id="tionghok-e-le5" /></li>
                 </ol>
               </div>
             </li>

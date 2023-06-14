@@ -131,7 +131,7 @@ class About extends Component {
 					<div className='container'>
 						<h2 ref={this.state.contactRef}><Translate id='contact' /></h2>
 						<div className="about__contact-btns">
-							<a className='btn btn--contact btn--contact-msg' href='http://chat.taigi.info/' target='_blank'>
+							<a className='btn btn--contact btn--contact-msg' href='https://m.me/ChhoeTaigi' target='_blank'>
 								<Translate id='contact-1' />
 							</a>
 							<a className='btn btn--contact btn--contact-mail' href='mailto:taibunkesimi@gmail.com' target='_blank'>
@@ -146,65 +146,53 @@ class About extends Component {
 						<ul className='members'>
 							<li>
 								<img className='members__img' src='images/teammember_hebi.png' />
-								<div className='members__name'>Hê-bí</div>
-								<div className='members__title'>Sàu thô͘-kha kiam kòng cheng.</div>
+								<div className='members__name'>Ngô͘ Hê-bí</div>
+								<div className='members__title'>Sàu thô͘-kha kiam kòng cheng</div>
 								<div className='members__desc'>Khiàn-phang ēng--ê. Lâi chú 1 tiáⁿ phang-kòng-kòng ê Tâi-gí moâi.</div>
+							</li>
+							<li>
+								<img className='members__img' src='images/teammember_biooh.png' />
+								<div className='members__name'>Bí-o͘h</div>
+								<div className='members__title'>Tàu siat-kè bāng-chām</div>
+								<div className='members__desc'>Hi-bāng koh kah a-má kìⁿ-bīn ê hit-kang góa ê Tâi-gí kah i pêⁿ hó.</div>
 							</li>
 							<li>
 								<img className='members__img' src='images/teammember_itbin.png' />
 								<div className='members__name'>I̍tBîn·BuLùSuh</div>
-								<div className='members__title'>Kò͘ tōa-iā ê cha̍p-chhe-á</div>
+								<div className='members__title'>Sò͘-ūi hòa, kàu-tèng</div>
 								<div className='members__desc'>Ǹg-bāng chhiâⁿ-chòe Tâi-gí ê hó kang-lâng kap sim-lêng-siōng ê a-sià.</div>
 							</li>
 							<li>
-								<img className='members__img' src='images/teammember_buncheng.png' />
-								<div className='members__name'>BûnCheng</div>
-								<div className='members__title'>Iau-pá-chhá</div>
-								<div className='members__desc'>Tâi-oân-lâng. Tâi-gí. To̍k-li̍p Kiàn-kok.</div>
+								<img className='members__img' src='images/teammember_sioka.png' />
+								<div className='members__name'>Sió-ka</div>
+								<div className='members__title'>Sò͘-ūi hòa, kàu-tèng</div>
+								<div className='members__desc'>Kóng Tâi-gí, siá Tâi-bûn, chò-hóe kā lán ê bó-gí seⁿ-thòaⁿ--lo̍h-khì.</div>
 							</li>
 							<li>
-								<img className='members__img' src='images/teammember_khengiong.png' />
-								<div className='members__name'>Tân Khèng-iông</div>
-								<div className='members__title'>Pòaⁿ-tháng sai-á ê hoan-e̍k</div>
-								<div className='members__desc'>Tòa tī Pat-kòa-soaⁿ kha ê Ko-hiông lâng. Ū-êng tō ke-kiám-á tha̍k kóa tē-tô͘ kap gí-giân-ha̍k.</div>
+								<img className='members__img' src='images/teammember_siotai.png' />
+								<div className='members__name'>Sió-tâi</div>
+								<div className='members__title'>Sò͘-ūi hòa, kàu-tèng</div>
+								<div className='members__desc'>Goân-lâi jû Niau.</div>
 							</li>
 							<li>
-								<img className='members__img' src='images/teammember_hoanteng.png' />
-								<div className='members__name'>Hoàn-têng</div>
-								<div className='members__title'>Chò sóaⁿ-kang--ê</div>
-								<div className='members__desc'>Tâi-oân-lâng ài chai-iáⁿ ka-tī ê le̍k-sú kap bûn-hòa. Ǹg-bāng ta̍k-ke chò-hóe lâi phah-piàⁿ.</div>
+								<img className='members__img' src='images/teammember_ekchai.png' />
+								<div className='members__name'>Tân E̍k-châi</div>
+								<div className='members__title'>Sò͘-ūi hòa, kàu-tèng</div>
+								<div className='members__desc'>3 hāng kî-bōng: Tùi pîn-tōaⁿ-kut chut-gia̍p. Tâi-oân-ōe ho̍k-heng. Formosa kiàn-kok.</div>
 							</li>
 							<li>
-								<img className='members__img' src='images/teammember_gansu.png' />
-								<div className='members__name'>Koa Gān-sū</div>
-								<div className='members__title'>Tàu-kha-chhiú--ê</div>
-								<div className='members__desc'>Kàu 30 gōa hòe chiah thiat-té  kak-chhíⁿ ê Tâi-oân-lâng.</div>
+								<img className='members__img' src='images/teammember_tanloo.png' />
+								<div className='members__name'>Tân Lō͘</div>
+								<div className='members__title'>Sò͘-ūi hòa, kàu-tèng</div>
+								<div className='members__desc'>Chò-hóe lâi siá Tâi-bûn, kóng Tâi-gí, piàⁿ khí-chō Tâi-oân kok-ka ê sū-kang.</div>
 							</li>
 						</ul>
 					</div>
 				</section>
-				<section className='about__ex-members'>
+				{/* <section className='about__ex-members'>
 					<div className='container'>
 						<h2><Translate id='former-members' /></h2>
 						<ul className='members'>
-							<li>
-								<img className='members__img' src='images/teammember_leo.png' />
-								<div className='members__name'>Leo Wu</div>
-								<div className='members__title'>網頁前後端</div>
-								<div className='members__desc'>台語用羅馬字拼音更有趣</div>
-							</li>
-							<li>
-								<img className='members__img' src='images/teammember_eyes.png' />
-								<div className='members__name'>Eyes</div>
-								<div className='members__title'>網頁設計</div>
-								<div className='members__desc'>小時候講台語大人還聽得懂，長大後卻被唸聽無(Thiaⁿ bô)...</div>
-							</li>
-							<li>
-								<img className='members__img' src='images/teammember_titeng.png' />
-								<div className='members__name'>Tìtêng</div>
-								<div className='members__title'>Hū-chek kiò ta̍k-ke hun-thâu mài loān-tàn</div>
-								<div className='members__desc'>Jîn-seng chhiūⁿ tàu-tô͘, tàu chı̍t-pak chhit-chhái ê Tâi-gí tô͘.</div>
-							</li>
 							<li>
 								<img className='members__img' src='images/teammember_aiong.png' />
 								<div className='members__name'>A'ióng</div>
@@ -213,7 +201,7 @@ class About extends Component {
 							</li>
 						</ul>
 					</div>
-				</section>
+				</section> */}
 				<section className='about__auth'>
 					<div className='container'>
 						<h2><Translate id='authorization' /></h2>
@@ -221,7 +209,7 @@ class About extends Component {
 							<h3><Translate id='authorization-1' /></h3>
 							<ul>
 								<li>
-									<a className='authorization-link' href='https://github.com/ChhoeTaigi/ChhoeTaigiDatabase' target='_blank'>ChhoeTaigi 找台語：台語字詞資料庫</a>
+									<a className='authorization-link' href='https://github.com/ChhoeTaigi/ChhoeTaigiDatabase' target='_blank'>ChhoeTaigi 台語辭典⁺：台語字詞資料庫</a>
 								</li>
 								<li>
 									<a className='authorization-link' href='https://www.pcstore.com.tw/haiang/M19279123.htm' target='_blank'>TJ台語白話小詞典</a>（索引）：<a className='authorization-link' href='http://www.atsiu.com/' target='_blank'>亞細亞國際傳播社</a>

@@ -35,17 +35,23 @@
         "輸入關鍵字",
         "Enter keywords"
     ],
-    "reset": [
-        "Têng Phah",
-        "Têng Phah",
-        "重新輸入",
-        "Clear"
-    ],
     "find": [
         "Chhōe",
         "Chhōe",
         "找",
         "Search"
+    ],
+    "reset": [
+        "Têng來",
+        "Têng Lâi",
+        "重新輸入",
+        "Clear"
+    ],
+    "donate": [
+        "支持",
+        "",
+        "支持",
+        ""
     ],
     "by-dic": [
         "Chhōe孤1 ê資料",

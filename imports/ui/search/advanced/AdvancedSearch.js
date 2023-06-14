@@ -177,6 +177,10 @@ class SingleDicOptionsClass extends Component {
         });
     };
 
+    donateButtonClick = () => {
+		window.open("https://r.zecz.ec/oiML", '_blank').focus();
+	}
+
     render() {
         let dic = this.props.dic;
         let columns = dicStruct.find((e) => e.name === dic).columns;
@@ -221,6 +225,7 @@ class SingleDicOptionsClass extends Component {
                         <div className="search-actions single-dic-search__actions">
                             <input className='btn btn--search' type="submit" value={translate('find')} />
                             <input className='btn btn--clear' type="button" value={translate('reset')} onClick={this.resetAllInput} />
+                            <input className='btn btn--donate' type="button" value={translate('donate')} onClick={this.donateButtonClick} />
                         </div>
                     }</Translate>
                 </form>
@@ -305,6 +310,7 @@ class AllFieldOptionsClass extends Component {
                     <div className="all-field-search__actions search-actions">
                         <input className='btn btn--search' type="submit" value={translate('find')} />
                         <input className='btn btn--clear' type="button" value={translate('reset')} onClick={this.resetAllInput} />
+                        <input className='btn btn--donate' type="button" value={translate('donate')} onClick={this.donateButtonClick} />
                     </div>
                 </form>
             }</Translate>

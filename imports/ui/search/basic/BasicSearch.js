@@ -76,6 +76,10 @@ class BasicSearch extends Component {
 		});
 	}
 
+	donateButtonClick = () => {
+		window.open("https://r.zecz.ec/oiML", '_blank').focus();
+	}
+
 	render() {
 		return (
 			<div>
@@ -83,7 +87,7 @@ class BasicSearch extends Component {
 					<div className='container'>
 						<div className='site-banner__wrapper'>
 							<div className='site-banner__text'>
-								<img src='images/home_image_text@2x.png' alt="ChhoeTaigi 找台語 台語辭典 / 字詞資料庫" />
+								<img src='images/home_image_text@2x.png' alt="ChhoeTaigi 台語辭典⁺" />
 							</div>
 							<div className='site-banner__bg'>
 								<img src='images/home_image_bg@2x.png' />
@@ -161,10 +165,11 @@ class BasicSearch extends Component {
 							<div className='basic-search__actions search-actions'>
 								<input className='btn btn--search' type="submit" value={this.props.translate('find')} />
 								<input className='btn btn--clear' type="button" value={this.props.translate('reset')} onClick={this.resetAllInput} />
+								<input className='btn btn--donate' type="button" value={this.props.translate('donate')} onClick={this.donateButtonClick} />
 							</div>
 							<footer className="basic-search__kesimi">
 								<Translate id="support_taibun_kesimi_part1" />
-								<a target="_blank" href="https://www.zeczec.com/projects/taibun-kesimi"><Translate id="support_taibun_kesimi_part2" /></a>
+								<a target="_blank" href="https://r.zecz.ec/ZAaP"><Translate id="support_taibun_kesimi_part2" /></a>
 								<Translate id="support_taibun_kesimi_part3" />
 							</footer>
 						</div>

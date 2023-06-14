@@ -13,6 +13,10 @@ export default originalPage = (dic, page) => {
         link = parseTaioanSitbutMialui(page);
     else if (dic === 'EmbreeTaiengSutian')
         link = parseEmbreeTaiengSutian(page);
+    else if (dic === 'MaryknollTaiengSutian')
+        link = parseMaryknollTaiengSutian(page);
+    else if (dic === 'MaryknollEngtaiSutian')
+        link = parseMaryknollEngtaiSutian(page);
     return link;
 }
 
@@ -21,51 +25,56 @@ function parseTaijitToaSutian(page) {
     page = page.slice(1, 5);
     let url;
     if (char === 'A') {
-        const baseUrl1 = 'http://ip194097.ntcu.edu.tw/memory/TGB/data/TJTST1/TJTST1_%E9%A0%81%E9%9D%A2_';
-        const baseUrl2 = '.png';
-        if (page < 99)
-            page = parseInt(page) + 12;
-        else
-            page = parseInt(page) + 14;
-        url = baseUrl1 + pad(page, 3) + baseUrl2;
+        const baseUrl1 = 'https://thak.taigi.info/1931TaijitToaSutian1/chheh/?page=';
+        page = parseInt(page) + 12;
+        url = baseUrl1 + page;
     } else if (char === 'B') {
         page = parseInt(page) + 4;
-        const baseUrl1 = 'http://ip194097.ntcu.edu.tw/memory/TGB/data/TJTST2/TJTST2_%E9%A0%81%E9%9D%A2_';
-        const baseUrl2 = '.png';
-        url = baseUrl1 + pad(page, 4) + baseUrl2;
+        const baseUrl1 = 'https://thak.taigi.info/1932TaijitToaSutian2/chheh/?page=';
+        url = baseUrl1 + page;
     }
     return url;
 }
 
 function parseKamJitian(page) {
     page = parseInt(page) + 34;
-    const baseUrl1 = 'http://ip194097.ntcu.edu.tw/memory/tgb/data/EMISJT/EMISJT_%E9%A0%81%E9%9D%A2_0';
-    const baseUrl2 = '.png';
-    const url = baseUrl1 + pad(page, 3) + baseUrl2;
+    const baseUrl1 = 'https://thak.taigi.info/1913KamJitian/chheh/?page=';
+    const url = baseUrl1 + page;
     return url;
 }
 
 function parseTaioanPehoeKichhooGiku(page) {
     page = parseInt(page) + 10;
-    const baseUrl1 = 'http://ip194097.ntcu.edu.tw/memory/tgb/data/TOPOKCGK/TOPOKCGK_%E9%A0%81%E9%9D%A2_';
-    const baseUrl2 = '.png';
-    const url = baseUrl1 + pad(page, 3) + baseUrl2;
+    const baseUrl1 = 'https://thak.taigi.info/1956TaioanPehoeKichhooGiku/chheh/?page=';
+    const url = baseUrl1 + page;
     return url;
 }
 
 function parseTaioanSitbutMialui(page) {
-    page = parseInt(page) + 44;
-    const baseUrl1 = 'http://ip194097.ntcu.edu.tw/memory/tgb/data/TOSBBL/TOSBBL_%E9%A0%81%E9%9D%A2_';
-    const baseUrl2 = '.png';
-    const url = baseUrl1 + pad(page, 3) + baseUrl2;
+    page = parseInt(page) + 41;
+    const baseUrl1 = 'https://thak.taigi.info/1928TaioanSitbutMialui/chheh/?page=';
+    const url = baseUrl1 + page
     return url;
 }
 
 function parseEmbreeTaiengSutian(page) {
-    page = parseInt(page) + 46;
-    const baseUrl1 = 'http://ip194097.ntcu.edu.tw/memory/tgb/data/embree/embree_%E9%A0%81%E9%9D%A2_';
-    const baseUrl2 = '.jpg';
-    const url = baseUrl1 + pad(page, 3) + baseUrl2;
+    page = parseInt(page) + 44;
+    const baseUrl1 = 'https://thak.taigi.info/1973EmbreeTaiengSutian/chheh/?page=';
+    const url = baseUrl1 + page;
+    return url;
+}
+
+function parseMaryknollTaiengSutian(page) {
+    page = parseInt(page) + 17;
+    const baseUrl1 = 'https://thak.taigi.info/1976MaryknollTaiengSutian/chheh/?page=';
+    const url = baseUrl1 + page;
+    return url;
+}
+
+function parseMaryknollEngtaiSutian(page) {
+    page = parseInt(page) + 1;
+    const baseUrl1 = 'https://thak.taigi.info/1979MaryknollEngtaiSutian/chheh/?page=';
+    const url = baseUrl1 + page;
     return url;
 }
 

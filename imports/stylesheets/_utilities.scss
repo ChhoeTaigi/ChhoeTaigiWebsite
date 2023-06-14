@@ -9,11 +9,12 @@
   color: $color--main;
   text-decoration: none;
   white-space: nowrap;
-  &--search, &--clear {
+  &--search, &--clear, &--donate {
     background-repeat: no-repeat;
     background-size: 22px 18px;
-    background-position: right 14px center;
-    padding-right: 44px;
+    background-position: right 18px center;
+    padding-right: 42px;
+    padding-inline-end: 50px;
   }
   &--search {
     background-image: url(/images/magnifier@2x.png);
@@ -21,6 +22,11 @@
   &--clear {
     background-image: url(/images/clear@2x.png);
     color: #808380;
+  }
+  &--donate {
+    background-image: url(/images/donate@2x.png);
+    color: $color--orange;
+    border-color: $color--orange;
   }
   &--contact {
     box-shadow: none;
@@ -129,7 +135,7 @@
   display: flex;
   justify-content: center;
   .btn {
-    margin: 0 20px;
+    margin: 0 12px;
   }
 }
 
@@ -165,7 +171,7 @@
 }
 
 @media screen and (max-width: 420px) {
-  .btn--search, .btn--clear {
+  .btn--search, .btn--clear, .btn--donate {
     background-image: none;
     padding: 8px 15px;
   }

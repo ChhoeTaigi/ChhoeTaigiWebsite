@@ -29,7 +29,7 @@ module.exports = [
             KaisoehHanLoPoj: '漢羅台文解說',
             KaisoehKip: '台文解說(教育部拼音)',
             ChhoetaigiPhianChu: 'ChhoeTaigi編註',
-            PageNumber: '原冊頁數',
+            PageNumber: '掀原冊頁數',
         }
     },
     {
@@ -53,7 +53,7 @@ module.exports = [
             KipInput: '教育部拼音輸入式',
             HanLoTaibunPoj: '漢字台文',
             ChhoetaigiPhianChu: 'ChhoeTaigi編註',
-            PageNumber: '原冊頁數',
+            PageNumber: '掀原冊頁數',
         }
     },
     {
@@ -87,7 +87,7 @@ module.exports = [
             LekuHanLoPoj: '漢羅台文例句',
             LekuJitbunPoj: '日文例句',
             KahToo: 'Kah圖',
-            PageNumber: '原冊頁數',
+            PageNumber: '掀原冊頁數',
             SuBe: '詞碼',
             ChhoetaigiPhianChu: 'ChhoeTaigi編註',
             GoanchhehPoochhiongChuliau: '原冊補充資料',
@@ -129,7 +129,7 @@ module.exports = [
             LekuHoabun: '例句(華文)',
             Confer: '參照',
             ChhoetaigiPhianChu: 'ChhoeTaigi編註',
-            PageNumber: '原冊頁數',
+            PageNumber: '掀原冊頁數',
         }
     },
     {
@@ -161,7 +161,7 @@ module.exports = [
             Synonym: 'Kāng義詞',
             Confer: '參照',
             ChhoetaigiPhianChu: 'ChhoeTaigi編註',
-            PageNumber: '原冊頁數',
+            PageNumber: '掀原冊頁數',
         }
     },
     {
@@ -188,7 +188,7 @@ module.exports = [
             EngBun: '對應英文',
             HoaBun: '對應華文',
             ChhoetaigiPhianChu: 'ChhoeTaigi編註',
-            PageNumber: '原冊頁數(暫時iáu bô原冊掃頁)',
+            PageNumber: '掀原冊頁數',
         }
     },
     {
@@ -216,7 +216,7 @@ module.exports = [
             Confer: '參照',
             HoaBun: '對應華文',
             ChhoetaigiPhianChu: 'ChhoeTaigi編註',
-            PageNumber: '原冊頁數(暫時iáu bô原冊掃頁)',
+            PageNumber: '掀原冊頁數',
         }
     },
     {
@@ -255,7 +255,7 @@ module.exports = [
             PojUnicode: '白話字',
             PojUnicodeOthers: '白話字(其他講法)',
             LmjUnicode: '原冊白話字',
-            PageNumber: '原冊頁數',
+            PageNumber: '掀原冊頁數',
         },
         briefWidth: {
             PojUnicode: '220px',
@@ -275,7 +275,7 @@ module.exports = [
             KipUnicodeOthers: '教育部拼音(其他講法)',
             KipInput: '教育部拼音輸入式',
             KipInputOthers: '教育部拼音輸入(其他講法)',
-            PageNumber: '原冊頁數',
+            PageNumber: '掀原冊頁數',
             ChhoetaigiPhianChu: 'ChhoeTaigi編註',
             StoreLink: '來去買冊',
         }

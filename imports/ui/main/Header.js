@@ -47,7 +47,7 @@ class Header extends Component {
                 <div className='container'>
                     <h1>
                         <Link to='/' >
-                            <img className='logo' src='/images/logo@2x.png' alt='ChhoeTaigi 找台語' />    
+                            <img className='logo' src='/images/logo@2x.png' alt='ChhoeTaigi 台語辭典⁺' />    
                         </Link>
                     </h1>
                     <nav className='site-nav'>
@@ -60,6 +60,9 @@ class Header extends Component {
                             </li>
                             <li>
                                 <Link className={currentLocation == '/chinkai' ? 'active' : ''} to='/chinkai' onClick={this.closeMenu}><Translate id="advanced" /></Link>
+                            </li>
+                            <li>
+                                <Link className={currentLocation == '/annachhoe' ? 'active' : ''} to='/annachhoe' onClick={this.closeMenu}><Translate id="anchoannchhoe" /></Link>
                             </li>
                             <li>
                                 <Link className={currentLocation == '/app' ? 'active' : ''} to='/app' onClick={this.closeMenu}><Translate id="app" /></Link>

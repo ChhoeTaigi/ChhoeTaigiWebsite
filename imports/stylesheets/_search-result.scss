@@ -218,9 +218,9 @@
   &__page {
     display: block;
     text-align: center;
-    width: 26px;
+    width: max-content;
     text-decoration: none;
-    margin: 0 1px;
+    margin: 0 5px;
     position: relative;
     &.active::after {
       content: "";
@@ -236,7 +236,7 @@
     margin-left: 20px;
   }
   input[type='number'] {
-    width: 32px;
+    width: 55px;
     height: 24px;
     line-height: 24px;
     border-radius: 2px;

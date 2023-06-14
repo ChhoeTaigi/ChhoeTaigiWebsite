@@ -90,9 +90,9 @@
         "\"Hyphen (-)\""
     ],
     "lmj-lianoeh-kaisoeh": [
-        "Ē-sái用連oe̍h（-）a̍h是1 ê半形ê空白來chhōe tio̍h辭典內底有連oe̍h、無連oe̍h、kap雙連oe̍h ê詞。譬喻m̄管是【au7 jit8】、【au7-jit8】攏thang chhōe tio̍h「āu-ji̍t」、「āu--ji̍t」。譬喻m̄管是【te7 tang7】、【te7-tang7】lóng thang chhōe tio̍h「tē tāng」、「tē-tāng」。用輸入式【au7-jit8】a̍h是文字式【āu-ji̍t】來chhōe攏ē做--得。（看無mā無要緊，橫直就是hō͘你khah好chhōe niâ。）",
+        "Ē-sái用連oe̍h（-）a̍h是1 ê半形ê空白來chhōe tio̍h辭典內底有連oe̍h、無連oe̍h、kap雙連oe̍h ê詞。譬喻m̄管是【au7 jit8】、【au7-jit8】攏thang chhōe tio̍h「āu-ji̍t」、「āu--ji̍t」。譬喻m̄管是【te7 tang7】、【te7-tang7】lóng thang chhōe tio̍h「tē tāng」、「tē-tāng」。用輸入式【au7-jit8】a̍h是文字式【āu-ji̍t】來chhōe攏ē做--得。（看無mā無要緊，lóng phah空白to̍h好，橫直就是hō͘你khah好chhōe niâ。）",
         "",
-        "可以用連詞符號（-）或是一個半形空白來搜尋詞典內有連詞符號、無連詞符號、和有輕聲符號的詞。譬喻無論是【au7-jit8】、【au7 jit8】都找得到「āu-ji̍t」、「āu--ji̍t」。譬喻無論是【te7 tang7】、【te7-tang7】都找得到「tē tāng」、「tē-tāng」。用輸入格式【au7-jit8】a̍h是文字格式【āu-ji̍t】來找都可以。（看不懂沒關係，反正就是讓你比較好找而已。）",
+        "可以用連詞符號（-）或是一個半形空白來搜尋詞典內有連詞符號、無連詞符號、和有輕聲符號的詞。譬喻無論是【au7-jit8】、【au7 jit8】都找得到「āu-ji̍t」、「āu--ji̍t」。譬喻無論是【te7 tang7】、【te7-tang7】都找得到「tē tāng」、「tē-tāng」。用輸入格式【au7-jit8】a̍h是文字格式【āu-ji̍t】來找都可以。（看不懂沒關係，打空白就好，反正就是讓你比較好找而已。）",
         ""
     ],
     "lmj-sianglianoeh": [
@@ -102,7 +102,7 @@
         "\"Double Hyphen (--)\""
     ],
     "lmj-sianglianoeh-kaisoeh": [
-        "Sòa接頂1條ê說明，nā用雙連oe̍h（--）ê時，就kan-na chhōe ē tio̍h有雙連oe̍h ê詞。譬喻【au7--jit8】ē chhōe tio̍h「āu--ji̍t」。用輸入式【au7--jit8】a̍h是文字式【āu--ji̍t】來chhōe攏ē做--得。",
+        "Sòa接頂1條說明--ê，nā用雙連oe̍h（--）ê時，就kan-na chhōe ē tio̍h有雙連oe̍h ê詞。譬喻【au7--jit8】ē chhōe tio̍h「āu--ji̍t」。用輸入式【au7--jit8】a̍h是文字式【āu--ji̍t】來chhōe攏ē做--得。",
         "",
         "接續上一條說明，如果用輕聲符號（--）搜尋時，就只能找到有輕聲符號的詞。譬喻【au7--jit8】會找到「āu--ji̍t」。用輸入格式【au7--jit8】或是文字格式【āu--ji̍t】來找都可以。",
         ""
@@ -186,7 +186,7 @@
         ""
     ],
     "jimho-jigoan": [
-        "【.*】：代表有1 ê以上任何ê字元，a̍h是無半ê字元。",
+        "【.*】：代表有任何字元，a̍h是無物件，字元數量不管幾ê lóng算。",
         "【.*】: Tāi-piáu ū 1 ê í-siōng jīm-hô ê jī-goân, a̍h-sī bô pòaⁿ ê jī-goân.",
         "【.*】：代表有0或1個以上的任意字元。",
         "【.*】: Matches zero or more non-space characters."
@@ -198,9 +198,9 @@
         "For example: When searching POJ(Number Input) with keyword \".*png7\", you will find \"âng-tāu-pn̄g\", \"be̍h-á-pn̄g\", \"chhài-pn̄g\", \"pn̄g\", etc."
     ],
     "1e-jigoan": [
-        "【.】：代表有1 ê任何ê字元。",
+        "【.】：代表有1 ê字元，ē-tàng是任何字元。",
         "【.】: Tāi-piáu ū tú-hó 1 ê jīm-hô ê jī.",
-        "【.】：代表有1個的任意字元。",
+        "【.】：代表有1個任意的字元。",
         "【.】: Ｍatches exactly one non-space character."
     ],
     "1e-jigoan-le": [
@@ -281,6 +281,12 @@
         "也可以一次找不同的詞，例如輸入「白話字(輸入式)」的關鍵詞找【(san3 chiah8|san3 chhiah|san3 hiong)】。",
         "For example: When searching POJ(Number Input) with keyword \"h(oe|e)2 chhia\", you will find \"hóe chhia\" and \"hé chhia\"."
     ],
+    "bokang-phengsia-le3": [
+        "Mā ē-tàng chhōe咱人ê名姓可能按怎唸，請先kéng「Kāng款--ê」來chhōe，譬喻phah「漢字/漢羅台文」ê關鍵詞chhōe【(陳|水|扁)】，就會知影有可能ē-sái唸「Tân Súi-pián」、「Tân Chúi-píⁿ」等等。",
+        "",
+        "也可以查詢名字可能會怎麼唸，請先選「模糊搜尋」來找，譬喻輸入「漢字/漢羅台文」關鍵詞搜尋【(陳|水|扁)】，就會知道有可能可以唸「Tân Súi-pián」、「Tân Chúi-píⁿ」等等。",
+        ""
+    ],
     "tionghok-e": [
         "【() \\1】：Ē-tàng用月眉號「()」去kho͘ 1 ê範圍，去chhōe文字有重複--ê。",
         "【() \\1】: ",
@@ -294,21 +300,27 @@
         ""
     ],
     "tionghok-e-le2": [
-        "譬喻ē-tàng chhōe「ABB」組合ê詞，chhōe【peh8 (~) \\1】ē chhōe tio̍h「pe̍h-chhang-chhang」、「pe̍h-soat-soat」、「pe̍h-siak-siak」等等。",
+        "譬喻ē-tàng chhōe「ABB」組合ê詞，chhōe【peh8 (~) \\1】ē chhōe tio̍h「pe̍h-chhang-chhang」、「pe̍h-soat-soat」、「pe̍h-siak-siak」等等。譬喻chhōe【~ (~) \\1】ē chhōe tio̍h所有「ABB」ê詞。",
         "",
-        "例如可以找「ABB」組合詞，搜尋【peh8 (~) \\1】可以找到「pe̍h-chhang-chhang」、「pe̍h-soat-soat」、「pe̍h-siak-siak」等等。",
+        "例如可以找「ABB」組合詞，搜尋【peh8 (~) \\1】可以找到「pe̍h-chhang-chhang」、「pe̍h-soat-soat」、「pe̍h-siak-siak」等等。例如搜尋【~ (~) \\1】可以找到所有「ABB」的詞。",
         ""
     ],
     "tionghok-e-le3": [
-        "每1組「()」kho͘--ê對應1 ê「\\N」，N代表kho͘--tio̍h ê順序號碼。譬喻ē-tàng chhōe「AABB」組合ê詞，chhōe【(~) \\1 (~) \\2】ē chhōe tio̍h「hoaⁿ-hoaⁿ-hí-hí」、「kú-kú tn̂g-tn̂g」等等。",
+        "譬喻ē-tàng chhōe「AAB」組合ê詞，chhōe【(chap8) \\1 ~】ē chhōe tio̍h「cha̍p-cha̍p-háu」、「cha̍p-cha̍p-kiò」、「cha̍p-cha̍p-liām」等等。譬喻chhōe【(~) \\1 ~】ē chhōe tio̍h所有「AAB」ê詞。",
         "",
-        "圈選每1組「()」會對應1個「\\N」，N代表圈選的順序號碼。例如可以找「AABB」組合詞，搜尋【(~) \\1 (~) \\2】可以找到「hoaⁿ-hoaⁿ-hí-hí」、「kú-kú tn̂g-tn̂g」等等。",
+        "例如可以找「AAB」組合詞，搜尋【(chap8) \\1 ~】可以找到「cha̍p-cha̍p-háu」、「cha̍p-cha̍p-kiò」、「cha̍p-cha̍p-liām」等等。例如搜尋【(~) \\1 ~】可以找到所有「AAB」的詞。",
         ""
     ],
     "tionghok-e-le4": [
-        "每1組「()」kho͘--ê對應1 ê「\\N」，N代表kho͘--tio̍h ê順序號碼。譬喻ē-tàng chhōe「ABAB」組合ê詞，chhōe【(~) (~) \\1 \\2】ē chhōe tio̍h「bô-ì-bô-ì」、「chi̍t-ê chi̍t-ê」等等。",
+        "每1組「()」kho͘--ê對應1 ê「\\N」，N代表kho͘--tio̍h ê順序號碼。譬喻ē-tàng chhōe所有「AABB」組合ê詞，chhōe【(~) \\1 (~) \\2】ē chhōe tio̍h「hoaⁿ-hoaⁿ-hí-hí」、「kú-kú tn̂g-tn̂g」等等。",
         "",
-        "圈選每1組「()」會對應1個「\\N」，N代表圈選的順序號碼。例如可以找「ABAB」組合詞，搜尋【(~) (~) \\1 \\2】可以找到「bô-ì-bô-ì」、「chi̍t-ê chi̍t-ê」等等。",
+        "圈選每1組「()」會對應1個「\\N」，N代表圈選的順序號碼。例如可以找所有「AABB」組合詞，搜尋【(~) \\1 (~) \\2】可以找到「hoaⁿ-hoaⁿ-hí-hí」、「kú-kú tn̂g-tn̂g」等等。",
+        ""
+    ],
+    "tionghok-e-le5": [
+        "每1組「()」kho͘--ê對應1 ê「\\N」，N代表kho͘--tio̍h ê順序號碼。譬喻ē-tàng chhōe所有「ABAB」組合ê詞，chhōe【(~) (~) \\1 \\2】ē chhōe tio̍h「bô-ì-bô-ì」、「chi̍t-ê chi̍t-ê」等等。",
+        "",
+        "圈選每1組「()」會對應1個「\\N」，N代表圈選的順序號碼。例如可以找所有「ABAB」組合詞，搜尋【(~) (~) \\1 \\2】可以找到「bô-ì-bô-ì」、「chi̍t-ê chi̍t-ê」等等。",
         ""
     ],
     "teksu-regex-backslash": [

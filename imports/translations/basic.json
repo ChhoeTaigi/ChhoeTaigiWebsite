@@ -95,17 +95,23 @@
         "對應英文",
         "English"
     ],
+    "find": [
+        "Chhōe",
+        "Chhōe",
+        "找",
+        "Search"
+    ],
     "reset": [
         "Têng來",
         "Têng Lâi",
         "清除",
         "Clear"
     ],
-    "find": [
-        "Chhōe",
-        "Chhōe",
-        "找",
-        "Search"
+    "donate": [
+        "支持",
+        "",
+        "支持",
+        ""
     ],
     "support_taibun_kesimi_part1": [
         "ChhoeTaigi 是kō͘ ",
@@ -120,9 +126,9 @@
         ""
     ],
     "support_taibun_kesimi_part3": [
-        " 募資計畫thang繼續pháng，資源真欠，向望你鬥陣來支持，感謝！",
+        " 募資計畫teh pháng，阮資源真欠，邀請你做陣來支持，感謝！🙏🏼",
         "",
-        " 募資計畫維持運作，資源匱乏，希望你一起來支持，感謝！",
+        " 募資計畫在運作，資源非常有限，邀請你一起來支持，感謝！🙏🏼",
         ""
     ]
 }
