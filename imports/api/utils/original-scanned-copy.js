@@ -1,22 +1,29 @@
 import { func } from "prop-types";
 
-export default originalPage = (dic, page) => {
+export default originalPage = (dic, chhehMia, page) => {
+    console.log("originalPage: dic="+dic+", chhehMia="+chhehMia+", page="+page);
 
     let link = '';
-    if (dic === 'TaijitToaSutian')
+    if (dic === 'ChhoeTaigiSukhoo_TaijitToaSutian')
         link = parseTaijitToaSutian(page);
-    else if (dic === 'KamJitian')
+    else if (dic === 'ChhoeTaigiSukhoo_TaijitSinSusu')
+        link = parseTaijitSinSusu(page);
+    else if (dic === 'ChhoeTaigiSukhoo_KamJitian')
         link = parseKamJitian(page);
-    else if (dic === 'TaioanPehoeKichhooGiku')
+    else if (dic === 'ChhoeTaigiSukhoo_TaioanPehoeKichhooGiku')
         link = parseTaioanPehoeKichhooGiku(page);
-    else if (dic === 'TaioanSitbutMialui')
-        link = parseTaioanSitbutMialui(page);
-    else if (dic === 'EmbreeTaiengSutian')
+    else if (dic === 'ChhoeTaigiSukhoo_JitpunSitaiTangiMialuiChip')
+        link = parseJitpunSitaiTangiMialuiChip(chhehMia, page);
+    else if (dic === 'ChhoeTaigiSukhoo_Sekin_BunhakTuchok')
+        link = parseBunhakTuchok(chhehMia, page);
+    else if (dic === 'ChhoeTaigiSukhoo_EmbreeTaiEngSutian')
         link = parseEmbreeTaiengSutian(page);
-    else if (dic === 'MaryknollTaiengSutian')
+    else if (dic === 'ChhoeTaigiSukhoo_MaryknollTaiengSutian')
         link = parseMaryknollTaiengSutian(page);
-    else if (dic === 'MaryknollEngtaiSutian')
+    else if (dic === 'ChhoeTaigiSukhoo_MaryknollEngtaiSutian')
         link = parseMaryknollEngtaiSutian(page);
+    else if (dic === 'ChhoeTaigiSukhoo_TaioangiSiongiongGilui')
+        link = parseTaioangiSiongiongGilui(page);
     return link;
 }
 
@@ -36,6 +43,20 @@ function parseTaijitToaSutian(page) {
     return url;
 }
 
+function parseTaijitSinSusu(page) {
+    page = parseInt(page) + 51;
+    const baseUrl1 = 'https://thak.taigi.info/1931TaijitSinSusu/chheh/?page=';
+    const url = baseUrl1 + page;
+    return url;
+}
+
+function parseTaioangiSiongiongGilui(page) {
+    page = parseInt(page) + 4;
+    const baseUrl1 = 'https://thak.taigi.info/1957TaioangiSiongiongGilui/chheh/?page=';
+    const url = baseUrl1 + page;
+    return url;
+}
+
 function parseKamJitian(page) {
     page = parseInt(page) + 34;
     const baseUrl1 = 'https://thak.taigi.info/1913KamJitian/chheh/?page=';
@@ -50,11 +71,91 @@ function parseTaioanPehoeKichhooGiku(page) {
     return url;
 }
 
-function parseTaioanSitbutMialui(page) {
-    page = parseInt(page) + 41;
-    const baseUrl1 = 'https://thak.taigi.info/1928TaioanSitbutMialui/chheh/?page=';
-    const url = baseUrl1 + page
-    return url;
+function parseJitpunSitaiTangiMialuiChip(chhehMia, page) {
+    console.log("parseJitpunSitaiTangiMialuiChip: chhehMia="+chhehMia+", page="+page);
+
+    if (chhehMia === '1895《臺灣語》') {
+        page = parseInt(page/2) + 5;
+        const baseUrl1 = 'https://thak.taigi.info/1895Taioangi/chheh/?page=';
+        const url = baseUrl1 + page
+        return url;
+    } else if (chhehMia === '1896《日臺會話大全》') {
+        page = parseInt(page) + 10;
+        const baseUrl1 = 'https://thak.taigi.info/1896JittaiHoeoeTaichoan/chheh/?page=';
+        const url = baseUrl1 + page
+        return url;
+    } else if (chhehMia === '1896《臺灣土語全書》') {
+        page = parseInt(page) + 22;
+        const baseUrl1 = 'https://thak.taigi.info/1896TaioanThoogiChoansu/chheh/?page=';
+        const url = baseUrl1 + page
+        return url;
+    } else if (chhehMia === '1905《臺灣職業名字彙》') {
+        pageNumber = parseInt(page)
+        if (pageNumber <= 5) {
+            page = pageNumber + 12;
+        } else {
+            page = parseInt(page/2) + 15;
+        }
+        const baseUrl1 = 'https://thak.taigi.info/1905TaioanChitgiapMiaJilui/chheh/?page=';
+        const url = baseUrl1 + page
+        return url;
+    } else if (chhehMia === '1922《臺灣職業名字彙》') {
+        page = parseInt(page/2) + 16;
+        const baseUrl1 = 'https://thak.taigi.info/1922TaioanChitgiapMiaJilui/chheh/?page=';
+        const url = baseUrl1 + page
+        return url;
+    } else if (chhehMia === '1922《臺灣語典》') {
+        page = parseInt(page/2) + 143;
+        const baseUrl1 = 'https://thak.taigi.info/1922TaioangiTian/chheh/?page=';
+        const url = baseUrl1 + page
+        return url;
+    } else if (chhehMia === '1923《專賣局臺灣語典 第二篇 腦務》') {
+        page = parseInt(page) + 15;
+        const baseUrl1 = 'https://thak.taigi.info/1923ChoanbekiokTaioangiTianLobu/chheh/?page=';
+        const url = baseUrl1 + page
+        return url;
+    } else if (chhehMia === '1926《銀行台語會話》') {
+        page = parseInt(page) + 12;
+        const baseUrl1 = 'https://thak.taigi.info/1926GinhangTaigiHoeoe/chheh/?page=';
+        const url = baseUrl1 + page
+        return url;
+    } else if (chhehMia === '1928《臺灣植物名彙》') {
+        page = parseInt(page) + 41;
+        const baseUrl1 = 'https://thak.taigi.info/1928TaioanSitbutMialui/chheh/?page=';
+        const url = baseUrl1 + page
+        return url;
+    } else if (chhehMia === '1933《臺灣稻在來品種名彙》') {
+        page = parseInt(page) + 1;
+        const baseUrl1 = 'https://thak.taigi.info/1933TaioanTiuChailaiPhinchengMialui/chheh/?page=';
+        const url = baseUrl1 + page
+        return url;
+    } else {
+        return page
+    }
+}
+
+function parseBunhakTuchok(chhehMia, page) {
+    console.log("parseBunhakTuchok: chhehMia="+chhehMia+", page="+page);
+
+    if (chhehMia.startsWith('《Chhut Sí-sòaⁿ (出死線)》')) {
+        page = parseInt(page) + 1;
+        const baseUrl1 = 'https://thak.taigi.info/1926ChhutSisoann/chheh/?page=';
+        const url = baseUrl1 + page
+        return url;
+    } else if (chhehMia.startsWith('《Khó-ài ê Siû-jîn (可愛ê仇人)》')) {
+        const char = page.slice(0, 1);
+        newPage = 0;
+        if (char === 'T') {
+            newPage = parseInt(page.slice(1, 3));
+        } else {
+            newPage = parseInt(page) + 5;
+        }
+        const baseUrl1 = 'https://thak.taigi.info/1960KhoaiESiujin/chheh/?page=';
+        const url = baseUrl1 + newPage
+        return url;
+    } else {
+        return page
+    }
 }
 
 function parseEmbreeTaiengSutian(page) {

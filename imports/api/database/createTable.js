@@ -13,42 +13,10 @@ module.exports = {
 
       cmd.push(
         knex.schema.createTable(dicName, table => {
-          table.integer('DictWordID').notNullable();
+          table.string('DictWordID', 1024).notNullable();
 
           for (let key in columns) {
-            // if (// TaijitToaSutian
-            //     key === "KaisoehHanLoPoj" ||
-            //     key === "KaisoehHanLoKip" ||
-            //     key === "LekuHanLoPoj" ||
-            //     key === "LekuHanLoKip" ||
-            //     key === "GoanchhehPoochhiongChuliau" ||
-            //     // TaioanPehoeKichhooGiku
-            //     key === "EngBun" ||
-            //     key === "KaisoehEngbun" ||
-            //     key === "LesuPoj" ||
-            //     key === "LekuPoj" ||
-            //     key === "LekuEngbun" ||
-            //     key === "LekuHoabun" ||
-            //     // EmbreeTaiengSutian, MaryknollTaiengSutian
-            //     key === "EngBun" ||
-            //     // KauiokpooTaigiSutian
-            //     key === "KaisoehPoj" ||
-            //     key === "KaisoehKip" ||
-            //     key === "KipDictDialects" ||
-            //     // BanglooMuitheSekinSutian
-            //     key === "PojUnicode" ||
-            //     key === "PojInput" ||
-            //     key === "KipUnicode" ||
-            //     key === "KipInput" ||
-            //     key === "HanLoTaibunPoj" ||
-            //     key === "HanLoTaibunKip" ||
-            //     key === "HoaBun" ||
-            //     key === "EngBun" ||
-            //     key === "SoanntengMuitheSekinPoochhiongChuliau")
-              table.string(key, 2048).nullable();
-            // else {
-            //   table.string(key).nullable();
-            // }
+              table.string(key, 4096).nullable();
           }
         })
       );

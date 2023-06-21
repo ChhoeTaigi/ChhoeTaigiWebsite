@@ -16,7 +16,7 @@ if (Meteor.isServer) {
   } else {
     postgres = knex({
       client: 'pg',
-      debug: true,
+      // debug: true,
       connection: {
         host: constants.HOST_LOCAL,
         database: constants.PG_DEFAULT_DATABASE,

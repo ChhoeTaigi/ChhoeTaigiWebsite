@@ -32,6 +32,9 @@ export const stringify = (options) => {
 
         if (columns.english)
             query.english = columns.english;
+
+        if (columns.jitbun)
+            query.jitbun = columns.jitbun;
     } else if (options.method === 'all-field') {
         if (options.dic)
             query.dic = options.dic;
@@ -102,6 +105,7 @@ export const parse = (search) => {
                 taibun: query.taibun,
                 hoabun: query.hoabun,
                 english: query.english,
+                jitbun: query.jitbun,
             },
         };
     } else if (query.method === 'all-field') {

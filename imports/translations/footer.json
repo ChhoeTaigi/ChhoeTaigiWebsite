@@ -12,10 +12,16 @@
       "Searches"
     ],
     "word_count_desc": [
-      "ChhoeTaigi 台語字詞總數：434510",
-      "ChhoeTaigi jī-sû chóng-sò͘: 434510",
-      "ChhoeTaigi 台語字詞總數：434510",
-      "ChhoeTaigi total amount: 434510"
+      "ChhoeTaigi 台語辭典⁺ 收錄台語字詞總數：504880",
+      "ChhoeTaigi jī-sû chóng-sò͘: 504880",
+      "ChhoeTaigi 台語辭典⁺ 收錄台語字詞總數：504880",
+      "ChhoeTaigi total amount: 504880"
+    ],
+    "word_jitpunsitai_desc": [
+      "Hâm日本時代有收單語名彙ê冊：10本。字詞總數：25596",
+      "",
+      "包含日本時代有收單語名彙的書：10本。字詞總數：25596",
+      ""
     ],
     "book_index_desc": [
       "Hâm紙本辭典索引：1本。字詞總數：21251",
@@ -24,16 +30,16 @@
       "Include book: 1. Index amount: 21251"
     ],
     "web_index_desc": [
-      "Hâm線頂媒體索引：3款。字詞總數：7735",
-      "Pau-koat Sòaⁿ-téng: 2-ê. Sek-ín: 4948",
-      "包含線上媒體索引：3款。字詞總數：7735",
-      "Include web: 2. Index amount: 4948"
+      "Hâm線頂媒體索引：6款。字詞總數：11500",
+      "Pau-koat Sòaⁿ-téng: 6-ê. Sek-ín: 11500",
+      "包含線上媒體索引：6款。字詞總數：11500",
+      "Include web: 6. Index amount: 11500"
     ],
     "bunhaktuchok_index_desc": [
-      "Hâm文學著作索引：1本。字詞總數：6298",
-      "Pau-koat Sòaⁿ-téng: 2-ê. Sek-ín: 4948",
-      "包含文學著作索引：1本。字詞總數：6298",
-      "Include web: 2. Index amount: 4948"
+      "Hâm文學著作索引：4本。字詞總數：12694",
+      "Pau-koat Sòaⁿ-téng: 4-ê. Sek-ín: 12694",
+      "包含文學著作索引：4本。字詞總數：12694",
+      "Include web: 4. Index amount: 12694"
     ],
     "since": [
       "網站ùi 2018年9--月起kā咱大家服務",

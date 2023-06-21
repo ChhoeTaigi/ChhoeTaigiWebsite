@@ -70,15 +70,16 @@ class Footer extends Component {
                 </div>
                 <div className='container site-footer__status'>
                     <ul className='site-footer__status-visit'>
+                        <li><Translate id='since' /></li>
                         <li><Translate id='visitors' />：{sessions}</li>
                         <li><Translate id='searches' />：{clicks}</li>
-                        <li><Translate id='since' /></li>
+                        <li><Translate id='word_count_desc' /></li>
                     </ul>
                     <ul className='site-footer__status-site'>
-                        <li><Translate id='word_count_desc' /></li>
                         <li><Translate id='book_index_desc' /></li>
                         <li><Translate id='web_index_desc' /></li>
                         <li><Translate id='bunhaktuchok_index_desc' /></li>
+                        <li><Translate id='word_jitpunsitai_desc' /></li>
                     </ul>
                 </div>
                 <div className='g0v'>
@@ -106,7 +107,7 @@ export default withTracker(() => {
 })(withCookies(withLocalize(withRouter(Footer))));
 
 function commafy(num) {
-    if (num == null) {
+    if (num === null) {
         return ""
     }
 

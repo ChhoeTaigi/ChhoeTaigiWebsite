@@ -6,6 +6,6 @@ Meteor.startup(() => {
     for (let idx in names) {
         let name = names[idx];
         if (!Accounts.findUserByUsername(name))
-            Accounts.createUser({username: name, password: '0000'});
+            Accounts.createUser({username: name, password: 'ChhoeTaigi'});
     }
 });

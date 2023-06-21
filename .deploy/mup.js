@@ -1,7 +1,7 @@
 module.exports = {
   servers: {
     one: {
-      host: '146.190.195.32',
+      host: '139.59.220.113',
       username: 'root',
       pem: "~/.ssh/digitalocean",
     }
@@ -23,7 +23,7 @@ module.exports = {
     env: {
       // TODO: Change to your app's url
       // If you are using ssl, it needs to start with https://
-      ROOT_URL: 'https://chhoe.taigi.info',
+      ROOT_URL: 'https://chhi.taigi.info',
       // MONGO_URL: 'mongodb://localhost/meteor',
       // MONGO_OPLOG_URL: 'mongodb://mongodb/local'
       PORT: 80,
@@ -62,7 +62,7 @@ module.exports = {
       one: {}
     },
 
-    domains: 'chhoe.taigi.info',
+    domains: 'chhi.taigi.info',
 
     ssl: {
       // Enable Let's Encrypt

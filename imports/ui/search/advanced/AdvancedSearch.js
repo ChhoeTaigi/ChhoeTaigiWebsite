@@ -187,8 +187,7 @@ class SingleDicOptionsClass extends Component {
 
         let searchBlocks = [];
 		for (let key in columns) {
-            if (key !== "StoreLink" &&
-            key !== "GoanchhehPoochhiongChuliau") {
+            if (key !== "StoreLink") {
                 searchBlocks.push(
                     <div className='search-block'>
                         <label className='search-block__left' key={key + '-label'} htmlFor={key}>{columns[key]}</label>

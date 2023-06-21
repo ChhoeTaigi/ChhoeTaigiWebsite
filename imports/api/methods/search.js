@@ -290,6 +290,7 @@ function basicSearch(options) {
         if ((key in dicColumns)
             || (key === 'hoabun' && 'HoaBun' in dicColumns)
             || (key === 'english' && 'EngBun' in dicColumns)
+            || ((key === 'jitbun') && (('JitBun' in dicColumns) || ('KaisoehJitbunPoj' in dicColumns) || ('LekuJitbunPoj' in dicColumns)))
             || ((key === 'taibun') && (('HanLoTaibunPoj' in dicColumns) || ('HanLoTaibunKip' in dicColumns)))) {
             valid = true;
             break;
@@ -505,12 +506,14 @@ function queryCondictionBasic(options) {
         console.log("key = " + key + ", columns[key] = " + columns[key]);
 
         if (key === 'taibun') {
-            if ('HanLoTaibunPoj' in dicColumns) {
-                query.andWhere(lowerQeury('HanLoTaibunPoj'), '~*', lowerStr(columns[key]));
-            }
-            if ('HanLoTaibunKip' in dicColumns) {
-                query.andWhere(lowerQeury('HanLoTaibunKip'), '~*', lowerStr(columns[key]));
-            }
+            query.andWhere(function () {
+                if ('HanLoTaibunPoj' in dicColumns) {
+                    this.orWhere(lowerQeury('HanLoTaibunPoj'), '~*', lowerStr(columns[key]))
+                }
+                if ('HanLoTaibunKip' in dicColumns) {
+                    this.orWhere(lowerQeury('HanLoTaibunKip'), '~*', lowerStr(columns[key]))
+                }
+            });
         } else if (key === "PojInput" && 'PojInputOthers' in dicColumns) {
             query.andWhere(function () {
                 this.where(lowerQeury('PojInput'), '~*', lowerStr(columns[key])).orWhere(lowerQeury('PojInputOthers'), '~*', lowerStr(columns[key]));
@@ -532,6 +535,18 @@ function queryCondictionBasic(options) {
                 query.andWhere(lowerQeury('EngBun'), '~*', lowerStr(columns[key]));
                 console.log("queryCondictionBasic: Engbun");
             }
+        } else if (key === 'jitbun') {
+            query.andWhere(function () {
+                if ('JitBun' in dicColumns) {
+                    this.orWhere(lowerQeury('JitBun'), '~*', lowerStr(columns[key]))
+                }
+                if ('KaisoehJitbunPoj' in dicColumns) {
+                    this.orWhere(lowerQeury('KaisoehJitbunPoj'), '~*', lowerStr(columns[key]))
+                }
+                if ('LekuJitbunPoj' in dicColumns) {
+                    this.orWhere(lowerQeury('LekuJitbunPoj'), '~*', lowerStr(columns[key]))
+                }
+            });
         } else if (key === 'hoabun') {
             if ('HoaBun' in dicColumns) {
                 query.andWhere(lowerQeury('HoaBun'), '~*', lowerStr(columns[key]));
@@ -555,8 +570,7 @@ function queryCondictionAllField(options) {
     const query = postgres.from(dic);
     for (key in columns) {
         if (key !== 'DictWordID'
-            && key !== 'StoreLink'
-            && key !== 'GoanchhehPoochhiongChuliau') {
+            && key !== 'StoreLink') {
             query.orWhere(lowerQeury(key), '~*', lowerStr(options.value));
         }
     }
@@ -577,8 +591,7 @@ function queryCondictionSingleDic(options) {
             var keyNumber = columns[key].replace(/[^\d.-]/g, '');;
             query.andWhere(key, keyNumber);
         } else if (key in dicColumns) {
-            if (key !== 'StoreLink' &&
-                key !== 'GoanchhehPoochhiongChuliau') {
+            if (key !== 'StoreLink') {
                 query.andWhere(lowerQeury(key), '~*', lowerStr(columns[key]));
             }
         }

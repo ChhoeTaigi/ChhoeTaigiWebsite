@@ -1,14 +1,14 @@
 const Constants = {
-    HOST: '10.104.0.3',
+    HOST: '10.104.0.2',
     HOST_LOCAL: '127.0.0.1',
 
     /*
-        GRANT CONNECT ON DATABASE dicts20220726 TO chhoetaigi;
+        GRANT CONNECT ON DATABASE sutian20230620 TO chhoetaigi;
         GRANT USAGE ON SCHEMA public TO chhoetaigi;
         GRANT SELECT ON ALL TABLES IN SCHEMA public TO chhoetaigi;
         GRANT SELECT ON ALL SEQUENCES IN SCHEMA public TO chhoetaigi;
     */
-    PG_DEFAULT_DATABASE: 'dicts20220726',
+    PG_DEFAULT_DATABASE: 'sutian20230620',
     PG_USER: 'chhoetaigi',
     PG_PSWD: 'chhoe7tai5gi2'
 }

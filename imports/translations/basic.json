@@ -78,22 +78,28 @@
         "Enter keywords"
     ],
     "corresponding-tb": [
-        "漢字/漢羅台文",
+        "漢羅台文",
         "Hàn-jī/Hàn-lô Tâi-bûn",
-        "漢字/漢羅台文",
+        "漢羅台文",
         "Hanzi/Han-Roman Taigi"
-    ],
-    "corresponding-hb": [
-        "對應華文",
-        "Tùi-èng Hôa-bûn",
-        "對應華文",
-        "Chinese"
     ],
     "corresponding-en": [
         "對應英文",
         "Tùi-èng Eng-bûn",
         "對應英文",
         "English"
+    ],
+    "corresponding-jp": [
+        "對應日文",
+        "",
+        "對應日文",
+        ""
+    ],
+    "corresponding-hb": [
+        "對應華文",
+        "Tùi-èng Hôa-bûn",
+        "對應華文",
+        "Chinese"
     ],
     "find": [
         "Chhōe",

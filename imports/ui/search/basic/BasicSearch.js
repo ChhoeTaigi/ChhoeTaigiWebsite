@@ -13,6 +13,7 @@ let state = {
 	taibun: '',
 	hoabun: '',
 	english: '',
+	jitbun: '',
 };
 
 class BasicSearch extends Component {
@@ -48,6 +49,7 @@ class BasicSearch extends Component {
 				taibun: this.state.taibun.normalize("NFC"),
 				hoabun: this.state.hoabun.normalize("NFC"),
 				english: this.state.english.normalize("NFC"),
+				jitbun: this.state.jitbun.normalize("NFC"),
 			},
 		}
 
@@ -72,7 +74,8 @@ class BasicSearch extends Component {
 			spelling: "",
 			taibun: "",
 			hoabun: "",
-			english: ""
+			english: "",
+			jitbun: ""
 		});
 	}
 
@@ -150,15 +153,21 @@ class BasicSearch extends Component {
 									</div>
 								</div>
 								<div className='search-block'>
-									<label className='search-block__left' htmlFor="hoabun"><Translate id="corresponding-hb" /></label>
-									<div className='search-block__right'>
-										<input type="text" name="hoabun" placeholder={this.props.translate('keyword_suggest_fuzzy')} value={this.state.hoabun} onChange={this.handleInput.bind(this)} />
-									</div>
-								</div>
-								<div className='search-block'>
 									<label className='search-block__left' htmlFor="english"><Translate id="corresponding-en" /></label>
 									<div className='search-block__right'>
 										<input type="text" name="english" placeholder={this.props.translate('keyword_suggest_fuzzy')} value={this.state.english} onChange={this.handleInput.bind(this)} />
+									</div>
+								</div>
+								<div className='search-block'>
+									<label className='search-block__left' htmlFor="jitbun"><Translate id="corresponding-jp" /></label>
+									<div className='search-block__right'>
+										<input type="text" name="jitbun" placeholder={this.props.translate('keyword_suggest_fuzzy')} value={this.state.jitbun} onChange={this.handleInput.bind(this)} />
+									</div>
+								</div>
+								<div className='search-block'>
+									<label className='search-block__left' htmlFor="hoabun"><Translate id="corresponding-hb" /></label>
+									<div className='search-block__right'>
+										<input type="text" name="hoabun" placeholder={this.props.translate('keyword_suggest_fuzzy')} value={this.state.hoabun} onChange={this.handleInput.bind(this)} />
 									</div>
 								</div>
 							</div>
