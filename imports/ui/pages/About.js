@@ -151,16 +151,34 @@ class About extends Component {
 								<div className='members__desc'>Khiàn-phang ēng--ê. Lâi chú 1 tiáⁿ phang-kòng-kòng ê Tâi-gí moâi.</div>
 							</li>
 							<li>
+								<img className='members__img' src='images/teammember_aiunn.png' />
+								<div className='members__name'>A-iûⁿ</div>
+								<div className='members__title'>Sò͘-ūi hòa, kàu-tèng</div>
+								<div className='members__desc'>Tâi-oân-lâng kap Tâi-gí-bûn chhut-thâu-thiⁿ. Sin-thé kiān-khong, kiàn-kok sêng-kong.</div>
+							</li>
+							<li>
 								<img className='members__img' src='images/teammember_biooh.png' />
 								<div className='members__name'>Bí-o͘h</div>
 								<div className='members__title'>Tàu siat-kè bāng-chām</div>
 								<div className='members__desc'>Hi-bāng koh kah a-má kìⁿ-bīn ê hit-kang góa ê Tâi-gí kah i pêⁿ hó.</div>
 							</li>
 							<li>
+								<img className='members__img' src='images/teammember_ekkhai.png' />
+								<div className='members__name'>E̍k-khái</div>
+								<div className='members__title'>Sò͘-ūi hòa, hoan-e̍k, kàu-tèng</div>
+								<div className='members__desc'>Ùi seng-oa̍h khai-sí kóng bú-gí, siá bú-gí-bûn! Bú-gí m̄ kan-na sī kau-thong ê kang-kū, koh sī lêng-hûn chin tiōng-iàu ê 1 pō͘-hūn.</div>
+							</li>
+							<li>
 								<img className='members__img' src='images/teammember_itbin.png' />
 								<div className='members__name'>I̍tBîn·BuLùSuh</div>
 								<div className='members__title'>Sò͘-ūi hòa, kàu-tèng</div>
 								<div className='members__desc'>Ǹg-bāng chhiâⁿ-chòe Tâi-gí ê hó kang-lâng kap sim-lêng-siōng ê a-sià.</div>
+							</li>
+							<li>
+								<img className='members__img' src='images/teammember_abun.png' />
+								<div className='members__name'>Ngô͘ Abûn</div>
+								<div className='members__title'>Sò͘-ūi hòa, kàu-tèng</div>
+								<div className='members__desc'>Gígiân sī bîncho̍k ê lênghûn.</div>
 							</li>
 							<li>
 								<img className='members__img' src='images/teammember_sioka.png' />
@@ -186,6 +204,18 @@ class About extends Component {
 								<div className='members__title'>Sò͘-ūi hòa, kàu-tèng</div>
 								<div className='members__desc'>Chò-hóe lâi siá Tâi-bûn, kóng Tâi-gí, piàⁿ khí-chō Tâi-oân kok-ka ê sū-kang.</div>
 							</li>
+							<li>
+								<img className='members__img' src='images/teammember_tekiong.png' />
+								<div className='members__name'>Tân Tek-iông</div>
+								<div className='members__title'>Sò͘-ūi hòa, kàu-tèng</div>
+								<div className='members__desc'>Tâi-oân kiàn kok, khí chò lán ka-kī ê kok-ka.</div>
+							</li>
+							<li>
+								<img className='members__img' src='images/teammember_tekju.png' />
+								<div className='members__name'>Tân Tekjū</div>
+								<div className='members__title'>Sò͘-ūi hòa, hoan-e̍k, kàu-tèng</div>
+								<div className='members__desc'>Sió jî kho i-su. Bāng lán ê gín-ná lóng ē tàng kō͘ Tâi-oân-ōe chhiâⁿ tōa hàn.</div>
+							</li>
 						</ul>
 					</div>
 				</section>
@@ -209,18 +239,24 @@ class About extends Component {
 							<h3><Translate id='authorization-1' /></h3>
 							<ul>
 								<li>
-									<a className='authorization-link' href='https://github.com/ChhoeTaigi/ChhoeTaigiDatabase' target='_blank'>ChhoeTaigi 台語辭典⁺：台語字詞資料庫</a>
+									<a className='authorization-link' href='https://github.com/ChhoeTaigi/ChhoeTaigiDatabase' target='_blank'>ChhoeTaigi 台語辭典⁺：ChhoeTaigi冊tha̍k-á</a>
 								</li>
 								<li>
-									<a className='authorization-link' href='https://www.pcstore.com.tw/haiang/M19279123.htm' target='_blank'>TJ台語白話小詞典</a>（索引）：<a className='authorization-link' href='http://www.atsiu.com/' target='_blank'>亞細亞國際傳播社</a>
+									<a className='authorization-link' href='https://thak.taigi.info/' target='_blank'>ChhoeTaigi 台語辭典⁺：台語字詞資料庫</a>
 								</li>
 							</ul>
 						</section>
-						<section className='about__scan'>
+						<section className='about__book'>
 							<h3><Translate id='authorization-2' /></h3>
 							<ul>
 								<li>
 									<a className='authorization-link' href='http://ip194097.ntcu.edu.tw/memory/tgb/MoWT.asp' target='_blank'>台語文記憶</a>
+								</li>
+								<li>
+									<a className='authorization-link' href='https://www.pcstore.com.tw/haiang/M19279123.htm' target='_blank'>TJ台語白話小詞典</a>（索引）：<a className='authorization-link' href='http://www.atsiu.com/' target='_blank'>亞細亞國際傳播社</a>
+								</li>
+								<li>
+									<a className='authorization-link' href='https://www.pcstore.com.tw/haiang/M19279123.htm' target='_blank'>台灣語常用語彙</a>（全文）：<a className='authorization-link' href='http://www.atsiu.com/' target='_blank'>近藤綾（Kondō Aya）</a>
 								</li>
 							</ul>
 						</section>

@@ -199,7 +199,7 @@
 			align-items: stretch;
 		}
 	}
-	&__data, &__scan {
+	&__data, &__book {
 		flex-grow: 1;
 		padding: 60px;
 		h3 {
@@ -236,7 +236,7 @@
 		background-color: #E8EEDB;
 		padding-left: 0;
 	}
-	&__scan {
+	&__book {
 		background-color: #D8E3C3;
 		padding-right: 0;
 	}
@@ -337,7 +337,7 @@
 				padding: 40px 0 20px;
 			}
 		}
-		&__data, &__scan {
+		&__data, &__book {
 			background: #E8EEDB;
 			padding: 0;
 			margin-bottom: 20px;
