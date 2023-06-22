@@ -78,17 +78,16 @@ Meteor.methods({
     },
 });
 
-// equals / contains
 function processSearchMethod(options) {
     console.log("processSearchMethod()");
 
     if (options.searchMethod === 'equals') { // equals
         if (options.value !== undefined) {
-            // all fields
+            // search all
             if (/\S/.test(options.value)) {
                 options.value = '(?:^|.*\/)' + options.value + '(?:\\(.*\\))?(?:\/.*|$)';
             }
-        } else if (options.columns !== undefined) { // contains
+        } else if (options.columns !== undefined) { // search common
             for (let key in options.columns) {
                 if (/\S/.test(options.columns[key])) {
                     console.log("processSearchMethod() - options.columns - key: " + key);

@@ -40,16 +40,31 @@ class BasicSearch extends Component {
 			label: 'basic'
 		});
 
+		if (this.state.searchMethod === 'equals') {
+			this.state.spelling = this.state.spelling.trim();
+			this.state.taibun = this.state.taibun.trim();
+			this.state.english = this.state.english.trim();
+			this.state.jitbun = this.state.jitbun.trim();
+			this.state.hoabun = this.state.hoabun.trim();
+		}
+
+		// normalize input to Unicode standard
+		this.state.spelling = this.state.spelling.normalize("NFC");
+		this.state.taibun = this.state.taibun.normalize("NFC");
+		this.state.english = this.state.english.normalize("NFC");
+		this.state.jitbun = this.state.jitbun.normalize("NFC");
+		this.state.hoabun = this.state.hoabun.normalize("NFC");
+
 		const options = {
 			method: 'basic',
 			searchMethod: this.state.searchMethod,
 			spellingMethod: this.state.spellingMethod,
 			columns: {
-				spelling: this.state.spelling.normalize("NFC"),
-				taibun: this.state.taibun.normalize("NFC"),
-				hoabun: this.state.hoabun.normalize("NFC"),
-				english: this.state.english.normalize("NFC"),
-				jitbun: this.state.jitbun.normalize("NFC"),
+				spelling: this.state.spelling,
+				taibun: this.state.taibun,
+				english: this.state.english,
+				jitbun: this.state.jitbun,
+				hoabun: this.state.hoabun,
 			},
 		}
 

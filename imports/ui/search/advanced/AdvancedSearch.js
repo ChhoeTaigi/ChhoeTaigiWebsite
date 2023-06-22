@@ -140,6 +140,17 @@ class SingleDicOptionsClass extends Component {
             label: "single-dic",
         });
 
+        if (this.state.searchMethod === 'equals') {
+            for (let key in this.state.columns) {
+                this.state.columns[key] = this.state.columns[key].trim();
+            }
+        }
+
+		// normalize input to Unicode standard
+        for (let key in this.state.columns) {
+            this.state.columns[key] = this.state.columns[key].normalize("NFC");
+        }
+
         let options = {
             method: "single-dic",
             dic: this.props.dic,
@@ -157,6 +168,7 @@ class SingleDicOptionsClass extends Component {
 
     handleInput(event) {
         let key = event.target.name;
+        
         let value = event.target.value;
         if (key === "searchMethod") {
             this.setState({
@@ -164,7 +176,7 @@ class SingleDicOptionsClass extends Component {
             });
         } else {
             let columns = this.state.columns;
-            columns[key] = value.normalize("NFC");
+            columns[key] = value;
             this.setState({
                 columns: columns,
             });
@@ -257,10 +269,17 @@ class AllFieldOptionsClass extends Component {
             label: "all-field",
         });
 
+        if (this.state.searchMethod === 'equals') {
+            this.state.value = this.state.value.trim();
+        }
+
+		// normalize input to Unicode standard
+		this.state.value = this.state.value.normalize("NFC");
+
         let options = {
             method: "all-field",
             searchMethod: this.state.searchMethod,
-            value: this.state.value.normalize("NFC"),
+            value: this.state.value,
         };
 
         this.props.history.push({

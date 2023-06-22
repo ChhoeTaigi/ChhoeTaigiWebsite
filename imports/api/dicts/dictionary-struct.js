@@ -1,6 +1,6 @@
 module.exports = [
     {
-        name: 'ChhoeTaigiSukhoo_JitpunSitaiTangiMialuiChip',
+        name: 'JitpunSitaiTangiMialuiChip',
         chineseName: '1895-1945 日本時代單語名彙集',
         brief: {
             PojUnicode: '白話字',
@@ -31,7 +31,7 @@ module.exports = [
         }
     },
     {
-        name: 'ChhoeTaigiSukhoo_KamJitian',
+        name: 'KamUilimTaigiJitian',
         chineseName: '1913 甘為霖台語字典',
         brief: {
             PojUnicode: '白話字',
@@ -65,7 +65,7 @@ module.exports = [
         }
     },
     {
-        name: 'ChhoeTaigiSukhoo_TaijitSinSusu',
+        name: 'TaijitSinSusu',
         chineseName: '1931 臺日新辭書',
         brief: {
             PojUnicode: '白話字',
@@ -96,7 +96,7 @@ module.exports = [
         }
     },
     {
-        name: 'ChhoeTaigiSukhoo_TaijitToaSutian',
+        name: 'TaijitToaSutian',
         chineseName: '1932 臺日大辭典',
         brief: {
             PojUnicode: '白話字',
@@ -132,7 +132,7 @@ module.exports = [
         }
     },
     {
-        name: 'ChhoeTaigiSukhoo_TaioanPehoeKichhooGiku',
+        name: 'TaioanPehoeKichhooGiku',
         chineseName: '1956 台灣白話基礎語句',
         brief: {
             PojUnicode: '白話字',
@@ -172,7 +172,7 @@ module.exports = [
         }
     },
     {
-        name: 'ChhoeTaigiSukhoo_TaioangiSiongiongGilui',
+        name: 'TaioangiSiongiongGilui',
         chineseName: '1957 台灣語常用語彙',
         brief: {
             PojUnicode: '白話字',
@@ -205,7 +205,7 @@ module.exports = [
         }
     },
     {
-        name: 'ChhoeTaigiSukhoo_EmbreeTaiEngSutian',
+        name: 'EmbreeTaiengSutian',
         chineseName: '1973 Embree台英辭典',
         brief: {
             PojUnicode: '白話字',
@@ -238,7 +238,7 @@ module.exports = [
         }
     },
     {
-        name: 'ChhoeTaigiSukhoo_MaryknollTaiengSutian',
+        name: 'MaryknollTaiengSutian',
         chineseName: '1976 Maryknoll台英辭典',
         brief: {
             PojUnicode: '白話字',
@@ -266,7 +266,7 @@ module.exports = [
         }
     },
     {
-        name: 'ChhoeTaigiSukhoo_MaryknollEngtaiSutian',
+        name: 'MaryknollEngtaiSutian',
         chineseName: '1979 Maryknoll英台辭典',
         brief: {
             PojUnicode: '白話字',
@@ -295,7 +295,7 @@ module.exports = [
         }
     },
     {
-        name: 'ChhoeTaigiSukhoo_TaihoaSoanntengSutian',
+        name: 'TaihoaSoanntengSutian',
         chineseName: '2002⁺ 台華線頂辭典',
         brief: {
             PojUnicode: '白話字',
@@ -326,7 +326,7 @@ module.exports = [
         }
     },
     {
-        name: 'ChhoeTaigiSukhoo_Sekin_Choapun_TJTaigiPehoe',
+        name: 'TJTaigiPehoeSioSutianSekin',
         chineseName: '2009 TJ台語白話小詞典(索引)',
         brief: {
             PojUnicode: '白話字',
@@ -359,7 +359,7 @@ module.exports = [
         }
     },
     {
-        name: 'ChhoeTaigiSukhoo_KipPlus',
+        name: 'KauiokPooSutian',
         chineseName: '2011⁺ 教育部辭典⁺',
         brief: {
             PojUnicode: '白話字',
@@ -399,7 +399,7 @@ module.exports = [
         }
     },
     {
-        name: 'ChhoeTaigiSukhoo_iTaigi',
+        name: 'ITaigi',
         chineseName: '2016⁺ iTaigi',
         brief: {
             PojUnicode: '白話字',
@@ -428,7 +428,7 @@ module.exports = [
         }
     },
     {
-        name: 'ChhoeTaigiSukhoo_ChhoetaigiChengpooSutian',
+        name: 'ChhoetaigiChengpooSutian',
         chineseName: 'ChhoeTaigi增補辭典',
         brief: {
             PojUnicode: '白話字',
@@ -459,8 +459,8 @@ module.exports = [
         }
     },
     {
-        name: 'ChhoeTaigiSukhoo_Sekin_BunhakTuchok',
-        chineseName: '文學著作索引',
+        name: 'TaioanBunhakTuchokSekin',
+        chineseName: '台灣文學著作索引',
         brief: {
             PojUnicode: '白話字',
             KipUnicode: '教育部拼音',
@@ -489,7 +489,7 @@ module.exports = [
         }
     },
     {
-        name: 'ChhoeTaigiSukhoo_Sekin_SoanntengMuithe',
+        name: 'SoanntengMuitheSekin',
         chineseName: '線頂媒體索引',
         brief: {
             PojUnicode: '白話字',

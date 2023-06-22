@@ -256,7 +256,7 @@ class About extends Component {
 									<a className='authorization-link' href='https://www.pcstore.com.tw/haiang/M19279123.htm' target='_blank'>TJ台語白話小詞典</a>（索引）：<a className='authorization-link' href='http://www.atsiu.com/' target='_blank'>亞細亞國際傳播社</a>
 								</li>
 								<li>
-									<a className='authorization-link' href='https://www.pcstore.com.tw/haiang/M19279123.htm' target='_blank'>台灣語常用語彙</a>（全文）：<a className='authorization-link' href='http://www.atsiu.com/' target='_blank'>近藤綾（Kondō Aya）</a>
+									<a className='authorization-link' href='https://thak.taigi.info/1957TaioangiSiongiongGilui/' target='_blank'>台灣語常用語彙</a>（全文）：近藤綾（Kondō Aya）
 								</li>
 							</ul>
 						</section>

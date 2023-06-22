@@ -13,10 +13,10 @@ module.exports = {
 
       cmd.push(
         knex.schema.createTable(dicName, table => {
-          table.string('DictWordID', 1024).notNullable();
+          table.text('DictWordID').notNullable();
 
           for (let key in columns) {
-              table.string(key, 4096).nullable();
+              table.text(key).nullable();
           }
         })
       );
