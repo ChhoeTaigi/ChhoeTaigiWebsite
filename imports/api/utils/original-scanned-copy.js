@@ -1,28 +1,29 @@
 import { func } from "prop-types";
+import DictNames from '../dicts/dictConstants';
 
 export default originalPage = (dic, chhehMia, page) => {
     console.log("originalPage: dic="+dic+", chhehMia="+chhehMia+", page="+page);
 
     let link = '';
-    if (dic === 'ChhoeTaigiSukhoo_TaijitToaSutian')
+    if (dic === DictNames.DICT_1932_TAIJIT_TOA_SUTIAN)
         link = parseTaijitToaSutian(page);
-    else if (dic === 'ChhoeTaigiSukhoo_TaijitSinSusu')
+    else if (dic === DictNames.DICT_1931_TAIJIT_SIN_SUSU)
         link = parseTaijitSinSusu(page);
-    else if (dic === 'ChhoeTaigiSukhoo_KamJitian')
+    else if (dic === DictNames.DICT_1913_KAM_UILIM_TAIGI_JITIAN)
         link = parseKamJitian(page);
-    else if (dic === 'ChhoeTaigiSukhoo_TaioanPehoeKichhooGiku')
+    else if (dic === DictNames.DICT_1956_TAIOAN_PEHOE_KICHHOO_GIKU)
         link = parseTaioanPehoeKichhooGiku(page);
-    else if (dic === 'ChhoeTaigiSukhoo_JitpunSitaiTangiMialuiChip')
+    else if (dic === DictNames.DICT_1895_JITPUN_SITAI_TANGI_MIALUI_CHIP)
         link = parseJitpunSitaiTangiMialuiChip(chhehMia, page);
-    else if (dic === 'ChhoeTaigiSukhoo_Sekin_BunhakTuchok')
+    else if (dic === DictNames.DICT_TAIOAN_BUNHAK_TUCHOK_SEKIN)
         link = parseBunhakTuchok(chhehMia, page);
-    else if (dic === 'ChhoeTaigiSukhoo_EmbreeTaiEngSutian')
+    else if (dic === DictNames.DICT_1973_EMBREE_TAIENG_SUTIAN)
         link = parseEmbreeTaiengSutian(page);
-    else if (dic === 'ChhoeTaigiSukhoo_MaryknollTaiengSutian')
+    else if (dic === DictNames.DICT_1976_MARYKNOLL_TAIENG_SUTIAN)
         link = parseMaryknollTaiengSutian(page);
-    else if (dic === 'ChhoeTaigiSukhoo_MaryknollEngtaiSutian')
+    else if (dic === DictNames.DICT_1979_MARYKNOLL_ENGTAI_SUTIAN)
         link = parseMaryknollEngtaiSutian(page);
-    else if (dic === 'ChhoeTaigiSukhoo_TaioangiSiongiongGilui')
+    else if (dic === DictNames.DICT_1957_TAIOANGI_SIONGIONG_GILUI)
         link = parseTaioangiSiongiongGilui(page);
     return link;
 }

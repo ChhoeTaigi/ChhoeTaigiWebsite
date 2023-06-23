@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-
+import DictNames from '../../../api/dicts/dictConstants';
 import originalScannedCopy from '../../../api/utils/original-scanned-copy';
 
 export default class Word extends Component {
@@ -10,7 +10,7 @@ export default class Word extends Component {
     generateGoanChhehLink = (dicString, chhehMia, pageString) => {
         let linkHtml = []
 
-        if (dicString === 'ChhoeTaigiSukhoo_TaijitToaSutian') {
+        if (dicString === DictNames.DICT_1932_TAIJIT_TOA_SUTIAN) {
             let pages = pageString.split("/");
             if (pages.length <= 1) {
                 linkHtml.push(<a href={originalScannedCopy(dicString, chhehMia, pageString)} target='_blank' key={pageString}>{pageString}</a>);
@@ -23,7 +23,7 @@ export default class Word extends Component {
                     }
                 }
             }
-        } else if (dicString === 'ChhoeTaigiSukhoo_TaijitSinSusu') {
+        } else if (dicString === DictNames.DICT_1931_TAIJIT_SIN_SUSU) {
             let pages = pageString.split("/");
             if (pages.length <= 1) {
                 linkHtml.push(<a href={originalScannedCopy(dicString, chhehMia, pageString)} target='_blank' key={pageString}>{pageString}</a>);
@@ -36,8 +36,8 @@ export default class Word extends Component {
                     }
                 }
             }
-        } else if (dicString === 'ChhoeTaigiSukhoo_Sekin_Choapun_TJTaigiPehoe' || 
-            (dicString === 'ChhoeTaigiSukhoo_Sekin_BunhakTuchok' && (chhehMia.startsWith('《鄉史補記》') || chhehMia.startsWith('《陳明仁台語文學選》')))) {
+        } else if (dicString === DictNames.DICT_2009_TJ_TAIGI_PEHOE_SIOSUTIAN_SEKIN || 
+            (dicString === DictNames.DICT_TAIOAN_BUNHAK_TUCHOK_SEKIN && (chhehMia.startsWith('《鄉史補記》') || chhehMia.startsWith('《陳明仁台語文學選》')))) {
             linkHtml = pageString + "（本冊kan-na提供索引資料，nā有需要請ka-tī買冊。請支持台文出版品，感謝！）";
         } else {
             linkHtml.push(<a href={originalScannedCopy(dicString, chhehMia, pageString)} target='_blank'>{pageString}</a>);
@@ -49,7 +49,7 @@ export default class Word extends Component {
     generateStoreLink = (dicString) => {
         let linkHtml = []
 
-        if (dicString === 'ChhoeTaigiSukhoo_Sekin_Choapun_TJTaigiPehoe') {
+        if (dicString === DictNames.DICT_2009_TJ_TAIGI_PEHOE_SIOSUTIAN_SEKIN) {
             linkHtml.push(<a href='https://www.pcstore.com.tw/haiang/M19279123.htm' target='_blank'>亞細亞國際傳播社：TJ台語白話小詞典</a>);
         } else {
             linkHtml.push("");
@@ -75,13 +75,13 @@ export default class Word extends Component {
     generateWebsiteLink = (dicString, pageString) => {
         let linkHtml = []
 
-        if (dicString === 'ChhoeTaigiSukhoo_TaihoaSoanntengSutian') {
+        if (dicString === DictNames.DICT_2002_TAIHOA_SOANNTENG_SUTIAN) {
             const fullPageString = "http://ip194097.ntcu.edu.tw/q/THq.asp?w=" + pageString
             linkHtml.push(<a href={fullPageString} target='_blank'>{fullPageString}</a>);
-        } else if (dicString === 'ChhoeTaigiSukhoo_KipPlus') {
+        } else if (dicString === DictNames.DICT_2011_KAUIOKPOO_SUTIAN) {
             const fullPageString = "https://sutian.moe.edu.tw/und-hani/tshiau/?lui=tai_su&tsha=" + pageString
             linkHtml.push(<a href={fullPageString} target='_blank'>{fullPageString}</a>);
-        } else if (dicString === 'ChhoeTaigiSukhoo_iTaigi') {
+        } else if (dicString === DictNames.DICT_2016_ITAIGI) {
             const fullPageString = "https://itaigi.tw/k/" + pageString
             linkHtml.push(<a href={fullPageString} target='_blank'>{fullPageString}</a>);
         } else {
@@ -102,7 +102,7 @@ export default class Word extends Component {
             if (key === '掀原冊(頁)') {
                 content = this.generateGoanChhehLink(this.props.dic, columns['冊名'], columns[key]);
             } else if (key === '來去買冊') {
-                if (this.props.dic === 'ChhoeTaigiSukhoo_Sekin_BunhakTuchok') {
+                if (this.props.dic === DictNames.DICT_TAIOAN_BUNHAK_TUCHOK_SEKIN) {
                     const chhehMia = columns['冊名'];
                     console.log("來去買冊: " + chhehMia);
                     if (chhehMia.startsWith('《鄉史補記》') ||
@@ -113,11 +113,11 @@ export default class Word extends Component {
                     content = this.generateStoreLink(this.props.dic);
                 }
             } else if (key === '網址') {
-                if (this.props.dic === 'ChhoeTaigiSukhoo_TaihoaSoanntengSutian') {
+                if (this.props.dic === DictNames.DICT_2002_TAIHOA_SOANNTENG_SUTIAN) {
                     content = this.generateWebsiteLink(this.props.dic, columns['對應華文']);
-                } else if (this.props.dic === 'ChhoeTaigiSukhoo_KipPlus') {
+                } else if (this.props.dic === DictNames.DICT_2011_KAUIOKPOO_SUTIAN) {
                     content = this.generateWebsiteLink(this.props.dic, columns['白話字']);
-                } else if (this.props.dic === 'ChhoeTaigiSukhoo_iTaigi') {
+                } else if (this.props.dic === DictNames.DICT_2016_ITAIGI) {
                     content = this.generateWebsiteLink(this.props.dic, columns['對應華文']);
                 } else {
                     content = this.generateWebsiteLink(this.props.dic, columns[key]);

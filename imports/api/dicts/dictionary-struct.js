@@ -1,6 +1,8 @@
+import DictNames from './dictConstants';
+
 module.exports = [
     {
-        name: 'JitpunSitaiTangiMialuiChip',
+        name: DictNames.DICT_1895_JITPUN_SITAI_TANGI_MIALUI_CHIP,
         chineseName: '1895-1945 日本時代單語名彙集',
         brief: {
             PojUnicode: '白話字',
@@ -31,7 +33,7 @@ module.exports = [
         }
     },
     {
-        name: 'KamUilimTaigiJitian',
+        name: DictNames.DICT_1913_KAM_UILIM_TAIGI_JITIAN,
         chineseName: '1913 甘為霖台語字典',
         brief: {
             PojUnicode: '白話字',
@@ -65,7 +67,7 @@ module.exports = [
         }
     },
     {
-        name: 'TaijitSinSusu',
+        name: DictNames.DICT_1931_TAIJIT_SIN_SUSU,
         chineseName: '1931 臺日新辭書',
         brief: {
             PojUnicode: '白話字',
@@ -96,7 +98,7 @@ module.exports = [
         }
     },
     {
-        name: 'TaijitToaSutian',
+        name: DictNames.DICT_1932_TAIJIT_TOA_SUTIAN,
         chineseName: '1932 臺日大辭典',
         brief: {
             PojUnicode: '白話字',
@@ -132,7 +134,7 @@ module.exports = [
         }
     },
     {
-        name: 'TaioanPehoeKichhooGiku',
+        name: DictNames.DICT_1956_TAIOAN_PEHOE_KICHHOO_GIKU,
         chineseName: '1956 台灣白話基礎語句',
         brief: {
             PojUnicode: '白話字',
@@ -172,7 +174,7 @@ module.exports = [
         }
     },
     {
-        name: 'TaioangiSiongiongGilui',
+        name: DictNames.DICT_1957_TAIOANGI_SIONGIONG_GILUI,
         chineseName: '1957 台灣語常用語彙',
         brief: {
             PojUnicode: '白話字',
@@ -205,7 +207,7 @@ module.exports = [
         }
     },
     {
-        name: 'EmbreeTaiengSutian',
+        name: DictNames.DICT_1973_EMBREE_TAIENG_SUTIAN,
         chineseName: '1973 Embree台英辭典',
         brief: {
             PojUnicode: '白話字',
@@ -238,7 +240,7 @@ module.exports = [
         }
     },
     {
-        name: 'MaryknollTaiengSutian',
+        name: DictNames.DICT_1976_MARYKNOLL_TAIENG_SUTIAN,
         chineseName: '1976 Maryknoll台英辭典',
         brief: {
             PojUnicode: '白話字',
@@ -266,7 +268,7 @@ module.exports = [
         }
     },
     {
-        name: 'MaryknollEngtaiSutian',
+        name: DictNames.DICT_1979_MARYKNOLL_ENGTAI_SUTIAN,
         chineseName: '1979 Maryknoll英台辭典',
         brief: {
             PojUnicode: '白話字',
@@ -295,7 +297,7 @@ module.exports = [
         }
     },
     {
-        name: 'TaihoaSoanntengSutian',
+        name: DictNames.DICT_2002_TAIHOA_SOANNTENG_SUTIAN,
         chineseName: '2002⁺ 台華線頂辭典',
         brief: {
             PojUnicode: '白話字',
@@ -326,7 +328,7 @@ module.exports = [
         }
     },
     {
-        name: 'TJTaigiPehoeSioSutianSekin',
+        name: DictNames.DICT_2009_TJ_TAIGI_PEHOE_SIOSUTIAN_SEKIN,
         chineseName: '2009 TJ台語白話小詞典(索引)',
         brief: {
             PojUnicode: '白話字',
@@ -359,7 +361,7 @@ module.exports = [
         }
     },
     {
-        name: 'KauiokPooSutian',
+        name: DictNames.DICT_2011_KAUIOKPOO_SUTIAN,
         chineseName: '2011⁺ 教育部辭典⁺',
         brief: {
             PojUnicode: '白話字',
@@ -399,7 +401,7 @@ module.exports = [
         }
     },
     {
-        name: 'ITaigi',
+        name: DictNames.DICT_2016_ITAIGI,
         chineseName: '2016⁺ iTaigi',
         brief: {
             PojUnicode: '白話字',
@@ -428,7 +430,7 @@ module.exports = [
         }
     },
     {
-        name: 'ChhoetaigiChengpooSutian',
+        name: DictNames.DICT_CHHOETAIGI_CHENGPOO_SUTIAN,
         chineseName: 'ChhoeTaigi增補辭典',
         brief: {
             PojUnicode: '白話字',
@@ -459,7 +461,7 @@ module.exports = [
         }
     },
     {
-        name: 'TaioanBunhakTuchokSekin',
+        name: DictNames.DICT_TAIOAN_BUNHAK_TUCHOK_SEKIN,
         chineseName: '台灣文學著作索引',
         brief: {
             PojUnicode: '白話字',
@@ -489,7 +491,7 @@ module.exports = [
         }
     },
     {
-        name: 'SoanntengMuitheSekin',
+        name: DictNames.DICT_SOANNTENG_MUITHE_SEKIN,
         chineseName: '線頂媒體索引',
         brief: {
             PojUnicode: '白話字',
