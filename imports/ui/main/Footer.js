@@ -82,8 +82,17 @@ class Footer extends Component {
                         <li><Translate id='word_jitpunsitai_desc' /></li>
                     </ul>
                 </div>
-                <div className='g0v'>
-                    <Link className='g0v-logo' to={{pathname:'https://grants.g0v.tw/power/'}} target='_blank'><span className='sr-only'>Powered by G0V</span></Link>
+                <div className='container site-footer__sponsors-text'>
+                    <Translate id='sponsors' />
+                </div>
+                <div className='container site-footer__sponsors-logo'>
+                    <ul className='site-footer__sponsors-logo-list'>
+                        <li>
+                            <Link to={{pathname:'https://hoatki.de-han.org/'}} target='_blank'>
+                                <img className='sponsor-logo' src='/images/sponsor_logo_hoatki.jpg' alt='Hoat-Ki Tâi-gí Ki-kim-hōe 蔣發太孫玉枝台語文教育基金會' />
+                            </Link>
+                        </li>
+                    </ul>
                 </div>
             </footer>
         );

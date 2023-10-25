@@ -73,13 +73,11 @@ module.exports = [
             PojUnicode: '白話字',
             KipUnicode: '教育部拼音',
             HanLoTaibunPoj: '漢羅',
-            ChhoetaigiPhianChu: 'ChhoeTaigi編註',
         },
         briefWidth: {
-            PojUnicode: '225px',
-            KipUnicode: '225px',
+            PojUnicode: '300px',
+            KipUnicode: '300px',
             HanLoTaibunPoj: '200px',
-            ChhoetaigiPhianChu: '150px',
         },
         columns: {
             DictWordID: '番號',
@@ -466,7 +464,7 @@ module.exports = [
         brief: {
             PojUnicode: '白話字',
             KipUnicode: '教育部拼音',
-            ChhehMia: '冊名稱',
+            ChhehMia: '冊名',
             SuBeSoatbeng: '所在',
         },
         briefWidth: {

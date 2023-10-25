@@ -53,14 +53,31 @@
 	}
 }
 
-.g0v-logo {
-	background-image: url(/images/poweredby-long-i@2x.png);
-	background-size: 208px 26px;
-	display: block;
-	width: 208px;
-	height: 26px;
-	margin-left: auto;
-	margin-right: auto;
+.site-footer__sponsors-text {
+	display: flex;
+	justify-content: center;
+	font-size: 14px;
+}
+
+.site-footer__sponsors-logo {
+	padding-right: 50px;
+	> ul {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+	}
+	> ul li {
+		list-style: none;
+		margin-right: 10px;
+	}
+	> ul li:last-child {
+		margin-right: 0px;
+	}
+}
+
+.sponsor-logo {
+	width: 205px;
+	height: 50px;
 }
 
 @media screen and (min-width: 680px) {
