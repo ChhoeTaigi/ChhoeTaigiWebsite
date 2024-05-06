@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import { logPageView } from '../api/utils/google-analytics';
 import { withRouter } from 'react-router-dom';
 import { withLocalize } from "react-localize-redux";
 import { renderToStaticMarkup } from "react-dom/server";
@@ -22,9 +21,9 @@ class App extends Component {
                 { name: 'Taibun', code: 'tb' },
                 { name: 'Pe̍h-ōe-jī', code: 'po' },
                 { name: 'Hoabun', code: 'hb' },
-                { name: 'English', code: 'en'}
+                { name: 'English', code: 'en' }
             ],
-            options: { 
+            options: {
                 renderToStaticMarkup,
                 defaultLanguage: getLocale(cookies),
             }
@@ -32,13 +31,9 @@ class App extends Component {
     }
 
     componentDidMount() {
-        logPageView();
     }
 
     componentDidUpdate(prevProps) {
-        if (this.props.location !== prevProps.location) {
-            logPageView();
-        }
     }
 
     render() {

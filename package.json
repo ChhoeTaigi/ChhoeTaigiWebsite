@@ -8,8 +8,8 @@
     "visualize": "meteor --production --extra-packages bundle-visualizer"
   },
   "dependencies": {
+    "@google-analytics/data": "^4.5.0",
     "bcryptjs": "^2.4.3",
-    "googleapis": "^105.0.0",
     "jquery": "^3.6.0",
     "knex": "^0.21.19",
     "meteor-node-stubs": "^1.1.0",
@@ -18,7 +18,7 @@
     "react": "^16.14.0",
     "react-cookie": "^3.0.4",
     "react-dom": "^16.14.0",
-    "react-ga": "^3.3.0",
+    "react-ga4": "^2.1.0",
     "react-loader-spinner": "^3.1.14",
     "react-localize-redux": "^3.5.3",
     "react-router-dom": "^4.3.1",

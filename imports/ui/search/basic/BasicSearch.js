@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { withRouter, Link } from 'react-router-dom';
 import { withLocalize } from "react-localize-redux";
 import { Translate } from "react-localize-redux";
-import ReactGA from 'react-ga';
+import ReactGA from 'react-ga4';
 import { stringify } from '../../../api/utils/url-helper';
 import basicTranslations from '../../../translations/basic.json';
 
@@ -34,11 +34,11 @@ class BasicSearch extends Component {
 	}
 
 	handleSubmit(event) {
-		ReactGA.event({
-			category: 'user',
-			action: 'search',
-			label: 'basic'
-		});
+		// ReactGA.event({
+		// 	category: 'user',
+		// 	action: 'search',
+		// 	label: 'basic'
+		// });
 
 		if (this.state.searchMethod === 'equals') {
 			this.state.spelling = this.state.spelling.trim();

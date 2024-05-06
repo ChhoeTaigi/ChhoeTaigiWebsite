@@ -47,7 +47,7 @@ class Header extends Component {
                 <div className='container'>
                     <h1>
                         <Link to='/' >
-                            <img className='logo' src='/images/logo@2x.png' alt='ChhoeTaigi 台語辭典⁺' />    
+                            <img className='logo' src='/images/logo@2x.png' alt='ChhoeTaigi 台語辭典⁺' />
                         </Link>
                     </h1>
                     <nav className='site-nav'>

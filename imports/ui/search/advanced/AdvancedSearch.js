@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import { withRouter, Link } from "react-router-dom";
 import { withLocalize } from "react-localize-redux";
 import { Translate } from "react-localize-redux";
-import ReactGA from "react-ga";
+import ReactGA from "react-ga4";
 
 import { stringify } from "../../../api/utils/url-helper";
 import dicStruct from "../../../api/dicts/dictionary-struct";
@@ -80,13 +80,13 @@ class AdvancedSearch extends Component {
         // view
         return (
             <div className='adv-search'>
-				<div className="container">
-					<div className='adv-search__tabs'>{methodButtons}</div>
-					<div className='adv-search__content'>
-						{dicButtons}
-						{searchOptions}
-					</div>
-				</div>
+                <div className="container">
+                    <div className='adv-search__tabs'>{methodButtons}</div>
+                    <div className='adv-search__content'>
+                        {dicButtons}
+                        {searchOptions}
+                    </div>
+                </div>
             </div>
         );
     }
@@ -134,11 +134,11 @@ class SingleDicOptionsClass extends Component {
     }
 
     handleSubmit(event) {
-        ReactGA.event({
-            category: "user",
-            action: "search",
-            label: "single-dic",
-        });
+        // ReactGA.event({
+        //     category: "user",
+        //     action: "search",
+        //     label: "single-dic",
+        // });
 
         if (this.state.searchMethod === 'equals') {
             for (let key in this.state.columns) {
@@ -146,7 +146,7 @@ class SingleDicOptionsClass extends Component {
             }
         }
 
-		// normalize input to Unicode standard
+        // normalize input to Unicode standard
         for (let key in this.state.columns) {
             this.state.columns[key] = this.state.columns[key].normalize("NFC");
         }
@@ -168,7 +168,7 @@ class SingleDicOptionsClass extends Component {
 
     handleInput(event) {
         let key = event.target.name;
-        
+
         let value = event.target.value;
         if (key === "searchMethod") {
             this.setState({
@@ -190,48 +190,48 @@ class SingleDicOptionsClass extends Component {
     };
 
     donateButtonClick = () => {
-		window.open("https://r.zecz.ec/oiML", '_blank').focus();
-	}
+        window.open("https://r.zecz.ec/oiML", '_blank').focus();
+    }
 
     render() {
         let dic = this.props.dic;
         let columns = dicStruct.find((e) => e.name === dic).columns;
 
         let searchBlocks = [];
-		for (let key in columns) {
+        for (let key in columns) {
             if (key !== "StoreLink") {
                 searchBlocks.push(
                     <div className='search-block'>
                         <label className='search-block__left' key={key + '-label'} htmlFor={key}>{columns[key]}</label>
                         <div className='search-block__right'>
-                        <Translate key={key + '-input'}>{({ translate }) =>
-                            <input type='text' placeholder={translate('keyword')} name={key} onChange={this.handleInput.bind(this)} value={this.state.columns[key]}></input>
-                        }</Translate>
+                            <Translate key={key + '-input'}>{({ translate }) =>
+                                <input type='text' placeholder={translate('keyword')} name={key} onChange={this.handleInput.bind(this)} value={this.state.columns[key]}></input>
+                            }</Translate>
                         </div>
                     </div>
                 );
             }
-		}
+        }
         return (
             <div className='single-dic-search'>
                 <form onSubmit={this.handleSubmit.bind(this)} autoComplete='off'>
-					<div className='single-dic-search__top'>
-						<div className='single-dic-search__mode'>
-							<label className='single-dic-search__mode-title' key='search-method-label'><Translate id='search-method' /></label>
-							<label className='radio-simulated'>
-                    		    <input type="radio" className='radio-simulated__hidden' name="searchMethod" value="equals" defaultChecked={this.state.searchMethod === 'equals'} onChange={this.handleInput.bind(this)} />
-                    			<span className='radio-simulated__text'><Translate id="equals" /></span>
-                			</label>
-                			<label className='radio-simulated'>
-                    			<input type="radio" className='radio-simulated__hidden' name="searchMethod" value="contains" defaultChecked={this.state.searchMethod === 'contains'} onChange={this.handleInput.bind(this)} />
-                    			<span className='radio-simulated__text'><Translate id="contains" /></span>
-                			</label>
-                    	</div>
-						<div className='single-dic-search__note'>
-							<Link id='regex-note' to='/annachhoe'><Translate id="explanation" /></Link>
-						</div>
-					</div>
-					{searchBlocks}
+                    <div className='single-dic-search__top'>
+                        <div className='single-dic-search__mode'>
+                            <label className='single-dic-search__mode-title' key='search-method-label'><Translate id='search-method' /></label>
+                            <label className='radio-simulated'>
+                                <input type="radio" className='radio-simulated__hidden' name="searchMethod" value="equals" defaultChecked={this.state.searchMethod === 'equals'} onChange={this.handleInput.bind(this)} />
+                                <span className='radio-simulated__text'><Translate id="equals" /></span>
+                            </label>
+                            <label className='radio-simulated'>
+                                <input type="radio" className='radio-simulated__hidden' name="searchMethod" value="contains" defaultChecked={this.state.searchMethod === 'contains'} onChange={this.handleInput.bind(this)} />
+                                <span className='radio-simulated__text'><Translate id="contains" /></span>
+                            </label>
+                        </div>
+                        <div className='single-dic-search__note'>
+                            <Link id='regex-note' to='/annachhoe'><Translate id="explanation" /></Link>
+                        </div>
+                    </div>
+                    {searchBlocks}
                     <Translate>{({ translate }) =>
                         <div className="search-actions single-dic-search__actions">
                             <input className='btn btn--search' type="submit" value={translate('find')} />
@@ -263,18 +263,18 @@ class AllFieldOptionsClass extends Component {
     }
 
     handleSubmit(event) {
-        ReactGA.event({
-            category: "user",
-            action: "search",
-            label: "all-field",
-        });
+        // ReactGA.event({
+        //     category: "user",
+        //     action: "search",
+        //     label: "all-field",
+        // });
 
         if (this.state.searchMethod === 'equals') {
             this.state.value = this.state.value.trim();
         }
 
-		// normalize input to Unicode standard
-		this.state.value = this.state.value.normalize("NFC");
+        // normalize input to Unicode standard
+        this.state.value = this.state.value.normalize("NFC");
 
         let options = {
             method: "all-field",
@@ -309,17 +309,17 @@ class AllFieldOptionsClass extends Component {
             <Translate>{({ translate }) =>
                 <form className='all-field-search' onSubmit={this.handleSubmit.bind(this)} autoComplete='off'>
                     <div className='all-field-search__top'>
-						<div className='all-field-search__mode'>
-							<h3><Translate id="search-method" /></h3>
-							<label className='radio-simulated'>
-								<input type="radio" className='radio-simulated__hidden' name="searchMethod" value="equals" defaultChecked={this.state.searchMethod === 'equals'} onChange={this.handleInput.bind(this)} />
-								<span className='radio-simulated__text'><Translate id="equals" /></span>
-							</label>
-							<label className='radio-simulated'>
-								<input type="radio" className='radio-simulated__hidden' name="searchMethod" value="contains" defaultChecked={this.state.searchMethod === 'contains'} onChange={this.handleInput.bind(this)} />
-								<span className='radio-simulated__text'><Translate id="contains" /></span>
-							</label>
-						</div>
+                        <div className='all-field-search__mode'>
+                            <h3><Translate id="search-method" /></h3>
+                            <label className='radio-simulated'>
+                                <input type="radio" className='radio-simulated__hidden' name="searchMethod" value="equals" defaultChecked={this.state.searchMethod === 'equals'} onChange={this.handleInput.bind(this)} />
+                                <span className='radio-simulated__text'><Translate id="equals" /></span>
+                            </label>
+                            <label className='radio-simulated'>
+                                <input type="radio" className='radio-simulated__hidden' name="searchMethod" value="contains" defaultChecked={this.state.searchMethod === 'contains'} onChange={this.handleInput.bind(this)} />
+                                <span className='radio-simulated__text'><Translate id="contains" /></span>
+                            </label>
+                        </div>
                         <div className='all-field-search__note'>
                             <Link to='/annachhoe'><Translate id="explanation" /></Link>
                         </div>

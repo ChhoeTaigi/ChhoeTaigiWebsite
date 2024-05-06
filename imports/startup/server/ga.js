@@ -1,10 +1,29 @@
 import { Minimongo } from '../../api/database/minimongo';
 
-import { Logger }     from 'meteor/ostrio:logger';
+import { Logger } from 'meteor/ostrio:logger';
 import { LoggerConsole } from 'meteor/ostrio:loggerconsole';
 import { LoggerFile } from 'meteor/ostrio:loggerfile';
 
-const { google } = require('googleapis');
+// Imports the Data library
+const { BetaAnalyticsDataClient } = require('@google-analytics/data').v1beta;
+
+var jsonFile = '';
+if (Meteor.isProduction) {
+    jsonFile = '/data/keys/chhoetaigiwebsite-25c9db3da239.json';
+} else {
+    jsonFile = '../../../../../chhoetaigiwebsite-25c9db3da239.json';
+}
+
+// Explicitly use service account credentials by specifying
+// the private key file.
+const analyticsDataClient = new BetaAnalyticsDataClient({
+    keyFilename: jsonFile,
+});
+
+const propertyId = "378760521";
+const sessionCountBefore20230526 = 1026840;
+const pageViewCountBefore20230526 = 8665444;
+const updatePeriod = 5 * 60 * 1000; // ms
 
 const enableLogger = false;
 const enableFileLogger = false;
@@ -36,119 +55,152 @@ if (enableLogger && enableFileLogger) {
     }
 }
 
-const scopes = 'https://www.googleapis.com/auth/analytics.readonly';
-const email = 'ga-324@chhoetaigiwebsite.iam.gserviceaccount.com';
-var jsonFile = '';
-if (Meteor.isProduction) {
-    jsonFile = '/data/keys/chhoetaigiwebsite-25c9db3da239.json';
-} else {
-    jsonFile = '../../../../../chhoetaigiwebsite-25c9db3da239.json';
-}
-const viewID = '180234162';
-const updatePeriod = 60000; // ms
-
-const queries = [
-    {
-        'metrics': 'ga:sessions',
-    },
-    {
-        'metrics': 'ga:totalEvents',
-        'dimensions': 'ga:eventAction',
-    },
-];
-
 class GA {
     constructor() {
-        this.run = false;
-        this.queryNum = queries.length;
-        this.queryIdx = 0;
+        this.firstTimeRunOnce = false;
     }
 
     start() {
-        if (this.run) {
+        if (this.firstTimeRunOnce) {
             this.stop();
         }
-        this.run = true;
-        this.intervalID = setInterval(this.get.bind(this), updatePeriod);
+
+        // run once
+        this.runBatchReport();
+        this.firstTimeRunOnce = true;
+
+        // repeat task
+        this.intervalID = setInterval(this.runBatchReport.bind(this), updatePeriod);
     }
 
-    get() {
-        let today = new Date();
-        // year
-        const yyyy = today.getFullYear();
-        // month
-        let mm = (today.getMonth() + 1) + ''; //January is 0!
-        mm = new Array(2 - mm.length + 1).join('0') + mm
-        // day
-        let dd = today.getDate() + '';
-        dd = new Array(2 - dd.length + 1).join('0') + dd
-        
-        today = yyyy + '-' + mm + '-' + dd;
+    async runBatchReport() {
+        try {
+            const [response] = await analyticsDataClient.batchRunReports({
+                property: `properties/${propertyId}`,
+                requests: [
+                    {
+                        "dateRanges": [
+                            {
+                                "startDate": "2018-01-01",
+                                "endDate": "today"
 
-        const jwtClient = new google.auth.JWT(
-            email,
-            jsonFile,
-            null,
-            scopes
-        );
-        
-        // query
-        const query = Object.assign({
-            auth: jwtClient,
-            'ids': 'ga:' + viewID,
-            'start-date': '2018-01-01',
-            'end-date': today
-        }, queries[this.queryIdx]);
+                            }
 
-        // authorize
-        jwtClient.authorize()
-        .catch(error => {
-            console.log(error);
-            log.error("jwtClient error: " + JSON.stringify(error));
-        })
-        .then(() => {
-            google.analytics('v3').data.ga.get(query)
-            .catch(error => {
-                console.log(error);
-                if (enableLogger) {
-                    log.error("ga error: " + JSON.stringify(error));
-                }
-            })
-            .then(result => {
-                if (enableLogger) {
-                    console.log(result.data);
-                    log.info("ga: " + JSON.stringify(result.data));
-                }
-                this.process(result.data.rows);
+                        ],
+                        "metrics": [
+                            {
+                                "name": "sessions"
+
+                            }
+
+                        ]
+
+                    },
+                    {
+                        "dateRanges": [
+                            {
+                                "startDate": "2018-01-01",
+                                "endDate": "today"
+
+                            }
+
+                        ],
+                        "metrics": [
+                            {
+                                "name": "eventCount"
+
+                            }
+
+                        ],
+                        "dimensions": [
+                            {
+                                "name": "eventName"
+
+                            }
+
+                        ]
+
+                    }
+
+                ]
             });
-        });
+
+            if (enableLogger) {
+                console.log('Batch report results:');
+                response.reports.forEach(report => {
+                    this.printRunReportResponse(report);
+                });
+            }
+            this.process(response.reports);
+        } catch (error) {
+            console.log(error);
+            if (enableLogger) {
+                log.error("ga error: " + JSON.stringify(error));
+            }
+        }
     }
-    
+
+    // Prints results of a runReport call.
+    printRunReportResponse(report) {
+        //[START analyticsdata_print_run_report_response_header]
+        console.log(`${report.rowCount} rows received`);
+        report.dimensionHeaders.forEach(dimensionHeader => {
+            console.log(`Dimension header name: ${dimensionHeader.name}`);
+        });
+        report.metricHeaders.forEach(metricHeader => {
+            console.log(
+                `Metric header name: ${metricHeader.name} (${metricHeader.type})`
+            );
+        });
+        //[END analyticsdata_print_run_report_response_header]
+
+        // [START analyticsdata_print_run_report_response_rows]
+        console.log('Report result:');
+        report.rows.forEach(row => {
+            if (!this.isNullOrUndefined(row.dimensionValues[0])) {
+                console.log(
+                    `Dimension value: ${row.dimensionValues[0].value}`
+                );
+            }
+            if (!this.isNullOrUndefined(row.metricValues[0])) {
+                console.log(
+                    `Metric value: ${row.metricValues[0].value}`
+                );
+            }
+        });
+        // [END analyticsdata_print_run_report_response_rows]
+    }
+    // [END analyticsdata_run_batch_report]
+
+    isNullOrUndefined(value) {
+        return value === undefined || value === null;
+    }
+
     stop() {
         clearInterval(this.intervalID);
-        this.run = false;
+        this.firstTimeRunOnce = false;
     }
 
-    process(results) {
-        const minimongo = Minimongo.findOne();
-        if (this.queryIdx === 0) {
-            const count = results[0][0];
-            if (enableLogger) {
-                console.log("visit count: "+ count);
-                log.info("visit count: "+ count);
-            }
-            Minimongo.update(minimongo, {$set: {sessions: count}}, {upsert: true});
-        } else if (this.queryIdx === 1) {
-            const count = results[1][1];
-            if (enableLogger) {
-                console.log("search count: "+ count);
-                log.info("search count: "+ count);
-            }
-            Minimongo.update(minimongo, {$set: {clicks: count}}, {upsert: true});
+    process(reports) {
+        if (enableLogger) {
+            console.log("process ga response.")
         }
 
-        // update query index
-        this.queryIdx = (this.queryIdx + 1) % this.queryNum;
+        const minimongo = Minimongo.findOne();
+
+        const sessionCount = parseInt(reports[0].rows[0].metricValues[0].value) + sessionCountBefore20230526;
+        if (enableLogger) {
+            console.log("sessionCount: " + sessionCount);
+            log.info("sessionCount: " + sessionCount);
+        }
+        Minimongo.update(minimongo, { $set: { sessions: sessionCount } }, { upsert: true });
+
+        const pageViewCount = parseInt(reports[1].rows[0].metricValues[0].value) + pageViewCountBefore20230526;
+        if (enableLogger) {
+            console.log("pageViewCount: " + pageViewCount);
+            log.info("pageViewCount: " + pageViewCount);
+        }
+        Minimongo.update(minimongo, { $set: { clicks: pageViewCount } }, { upsert: true });
     }
 }
 
@@ -167,18 +219,20 @@ if (minimongo === undefined) {
     });
 } else {
     if (minimongo.sessions === undefined) {
-        Minimongo.update(minimongo, {$set: {
-            sessions: 0,
-        }}, {upsert: true});
+        Minimongo.update(minimongo, {
+            $set: {
+                sessions: 0,
+            }
+        }, { upsert: true });
     }
     if (minimongo.clicks === undefined) {
-        Minimongo.update(minimongo, {$set: {
-            clicks: 0,
-        }}, {upsert: true});
+        Minimongo.update(minimongo, {
+            $set: {
+                clicks: 0,
+            }
+        }, { upsert: true });
     }
 }
 
-
 const ga = new GA();
-if (env === 'prod')
-    ga.start();
+ga.start();
