@@ -30,9 +30,7 @@ module.exports = {
     },
 
     docker: {
-      // Change the image to 'kadirahq/meteord' if you
-      // are using Meteor 1.3 or older
-      image: 'zodern/meteor:latest',
+      image: 'zodern/meteor:root',
     },
 
     volumes: {

@@ -81,7 +81,7 @@ class GA {
                     {
                         "dateRanges": [
                             {
-                                "startDate": "2018-01-01",
+                                "startDate": "2023-05-27",
                                 "endDate": "today"
 
                             }
@@ -99,7 +99,7 @@ class GA {
                     {
                         "dateRanges": [
                             {
-                                "startDate": "2018-01-01",
+                                "startDate": "2023-05-27",
                                 "endDate": "today"
 
                             }
