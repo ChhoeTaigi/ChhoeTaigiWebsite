@@ -157,32 +157,32 @@ class BasicSearch extends Component {
 											</label>
 										</div>
 										<div className='search-block__lmj-bottom'>
-											<input type="text" name="spelling" placeholder={this.props.translate('keyword')} value={this.state.spelling} onChange={this.handleInput.bind(this)} />
+											<input type="text" name="spelling" placeholder={this.props.translate('lmj_keyword')} value={this.state.spelling} onChange={this.handleInput.bind(this)} />
 										</div>
 									</div>
 								</div>
 								<div className='search-block'>
 									<label className='search-block__left' htmlFor="taibun"><Translate id="corresponding-tb" /></label>
 									<div className='search-block__right'>
-										<input type="text" name="taibun" placeholder={this.props.translate('keyword')} value={this.state.taibun} onChange={this.handleInput.bind(this)} />
+										<input type="text" name="taibun" placeholder={this.props.translate('hanlo_keyword')} value={this.state.taibun} onChange={this.handleInput.bind(this)} />
 									</div>
 								</div>
 								<div className='search-block'>
 									<label className='search-block__left' htmlFor="english"><Translate id="corresponding-en" /></label>
 									<div className='search-block__right'>
-										<input type="text" name="english" placeholder={this.props.translate('keyword_suggest_fuzzy')} value={this.state.english} onChange={this.handleInput.bind(this)} />
+										<input type="text" name="english" placeholder={this.props.translate('engbun_keyword')} value={this.state.english} onChange={this.handleInput.bind(this)} />
 									</div>
 								</div>
 								<div className='search-block'>
 									<label className='search-block__left' htmlFor="jitbun"><Translate id="corresponding-jp" /></label>
 									<div className='search-block__right'>
-										<input type="text" name="jitbun" placeholder={this.props.translate('keyword_suggest_fuzzy')} value={this.state.jitbun} onChange={this.handleInput.bind(this)} />
+										<input type="text" name="jitbun" placeholder={this.props.translate('jitbun_keyword')} value={this.state.jitbun} onChange={this.handleInput.bind(this)} />
 									</div>
 								</div>
 								<div className='search-block'>
 									<label className='search-block__left' htmlFor="hoabun"><Translate id="corresponding-hb" /></label>
 									<div className='search-block__right'>
-										<input type="text" name="hoabun" placeholder={this.props.translate('keyword_suggest_fuzzy')} value={this.state.hoabun} onChange={this.handleInput.bind(this)} />
+										<input type="text" name="hoabun" placeholder={this.props.translate('tiongbun_keyword')} value={this.state.hoabun} onChange={this.handleInput.bind(this)} />
 									</div>
 								</div>
 							</div>
@@ -192,9 +192,11 @@ class BasicSearch extends Component {
 								<input className='btn btn--donate' type="button" value={this.props.translate('donate')} onClick={this.donateButtonClick} />
 							</div>
 							<footer className="basic-search__kesimi">
-								<Translate id="support_taibun_kesimi_part1" />
-								<a target="_blank" href="https://r.zecz.ec/ZAaP"><Translate id="support_taibun_kesimi_part2" /></a>
-								<Translate id="support_taibun_kesimi_part3" />
+								<p>
+									<Translate id="support_taibun_kesimi_part1" /><a target="_blank" href="https://r.zecz.ec/ZAaP"><Translate id="support_taibun_kesimi_part2" /></a><br />
+									<Translate id="support_taibun_kesimi_part3" /><br />
+									<Translate id="support_taibun_kesimi_part4" />
+								</p>
 							</footer>
 						</div>
 					</form>

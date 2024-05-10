@@ -1,62 +1,72 @@
 {
     "search-method": [
-        "Kéng ê方式",
-        "Kéng ê Hong-sek",
-        "篩選條件",
-        "Search Filters"
+        "按怎Kéng",
+        "Kéng",
+        "篩選模式",
+        "Filters",
+        "フィルター条件"
     ],
     "equals": [
         "Kāng款--ê",
-        "Kāng-khoán--ê",
-        "精確搜尋",
-        "Exact Search"
+        "Kāng khoán--ê",
+        "精確",
+        "Exact",
+        "完全一致検索"
     ],
     "contains": [
         "相關--ê",
         "Siong-koan--ê",
-        "模糊搜尋",
-        "Fuzzy Search"
+        "包含",
+        "Contains",
+        "あいまい検索"
     ],
     "explanation": [
-        "按怎chhōe？",
-        "Án-ná chhōe?",
-        "如何搜尋？",
-        "How to search?"
+        "按怎Chhōe",
+        "Hoat-tō͘",
+        "如何搜尋",
+        "Usage",
+        "使い方"
     ],
     "all-field": [
-        "Chhōe全部ê資料",
-        "Chhōe Choân-pō͘ ê Chu-liāu",
+        "Chhōe全文",
+        "Chhōe Choân Bûn",
         "全文搜尋",
-        "Full-text Search"
+        "Full-text Search",
+        "全文検索"
     ],
     "keyword": [
-        "請phah beh chhōe ê字詞",
-        "Chhiáⁿ phah beh chhōe ê jī-sû",
-        "輸入關鍵字",
-        "Enter keywords"
+        "請phah關鍵詞",
+        "Chhiáⁿ phah koan-kiān sû",
+        "輸入關鍵詞",
+        "Enter keyword",
+        "キーワードを入力します"
     ],
     "find": [
         "Chhōe",
         "Chhōe",
-        "找",
-        "Search"
+        "找台語",
+        "Search",
+        "検索"
     ],
     "reset": [
         "Têng來",
         "Têng Lâi",
-        "重新輸入",
-        "Clear"
+        "清除",
+        "Clear",
+        "削除"
     ],
     "donate": [
-        "支持",
-        "",
-        "支持",
-        ""
+        "寄付支持",
+        "Kià-hù",
+        "捐款支持",
+        "Support",
+        "寄付"
     ],
     "by-dic": [
-        "Chhōe孤1 ê資料",
-        "Chhōe Ko͘ 1 ê Chu-liāu",
-        "依不同資料搜尋",
-        "Dataset Search"
+        "Chhōe資料集",
+        "Chhōe Chu-liāu Chi̍p",
+        "搜尋資料集",
+        "Dataset Search",
+        "データセットの検索"
     ]
 }

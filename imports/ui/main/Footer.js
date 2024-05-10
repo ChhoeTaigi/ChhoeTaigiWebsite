@@ -62,10 +62,11 @@ class Footer extends Component {
             <footer className={'site-footer ' + this.state.background}>
                 <div className='container'>
                     <ul className='langs'>
-                        <li><button className={'langs__btn ' + (this.state.locale === 'tb' ? 'active' : '')} value='tb' onClick={this.localeChange.bind(this)}>羅漢台文</button></li>
-                        {/*<li><button className={'langs__btn ' + (this.state.locale === 'po' ? 'active' : '')} value='po' onClick={this.localeChange.bind(this)}>Pe̍h-ōe-jī</button></li>*/}
-                        <li><button className={'langs__btn ' + (this.state.locale === 'hb' ? 'active' : '')} value='hb' onClick={this.localeChange.bind(this)}>華文</button></li>
-                        {/*<li><button className={'langs__btn ' + (this.state.locale === 'en' ? 'active' : '')} value='en' onClick={this.localeChange.bind(this)}>English</button></li>*/}
+                        <li><button className={'langs__btn ' + (this.state.locale === 'lang_hanlo' ? 'active' : '')} value='lang_hanlo' onClick={this.localeChange.bind(this)}>漢Lô</button></li>
+                        <li><button className={'langs__btn ' + (this.state.locale === 'lang_poj' ? 'active' : '')} value='lang_poj' onClick={this.localeChange.bind(this)}>POJ</button></li>
+                        <li><button className={'langs__btn ' + (this.state.locale === 'lang_engbun' ? 'active' : '')} value='lang_engbun' onClick={this.localeChange.bind(this)}>English</button></li>
+                        <li><button className={'langs__btn ' + (this.state.locale === 'lang_jitbun' ? 'active' : '')} value='lang_jitbun' onClick={this.localeChange.bind(this)}>日本語</button></li>
+                        <li><button className={'langs__btn ' + (this.state.locale === 'lang_tiongbun' ? 'active' : '')} value='lang_tiongbun' onClick={this.localeChange.bind(this)}>中文</button></li>
                     </ul>
                 </div>
                 <div className='container site-footer__status'>
@@ -88,7 +89,7 @@ class Footer extends Component {
                 <div className='container site-footer__sponsors-logo'>
                     <ul className='site-footer__sponsors-logo-list'>
                         <li>
-                            <Link to={{pathname:'https://hoatki.de-han.org/'}} target='_blank'>
+                            <Link to={{ pathname: 'https://hoatki.de-han.org/' }} target='_blank'>
                                 <img className='sponsor-logo' src='/images/sponsor_logo_hoatki.jpg' alt='Hoat-Ki Tâi-gí Ki-kim-hōe 蔣發太孫玉枝台語文教育基金會' />
                             </Link>
                         </li>

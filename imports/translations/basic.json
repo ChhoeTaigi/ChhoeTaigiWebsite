@@ -3,138 +3,189 @@
         "簡單Chhōe",
         "Kán-tan Chhōe",
         "簡易搜尋",
-        "Basic Search"
+        "Basic Search",
+        "簡易検索"
     ],
     "search-method": [
-        "1. Kéng ê方式",
-        "1. Kéng ê Hong-sek",
-        "1. 篩選條件",
-        "1. Search Filters"
+        "1. 按怎Kéng",
+        "1. Kéng",
+        "1. 篩選模式",
+        "1. Filters",
+        "1. フィルター条件"
     ],
     "equals": [
         "Kāng款--ê",
-        "Kāng-khoán--ê",
-        "精確搜尋",
-        "Exact Search"
+        "Kāng khoán--ê",
+        "精確",
+        "Exact",
+        "完全一致検索"
     ],
     "contains": [
         "相關--ê",
         "Siong-koan--ê",
-        "模糊搜尋",
-        "Fuzzy Search"
+        "包含",
+        "Contains",
+        "あいまい検索"
     ],
     "explanation": [
-        "按怎chhōe？",
-        "Án-ná chhōe?",
-        "如何搜尋？",
-        "How to search?"
+        "按怎Chhōe",
+        "Hoat-tō͘",
+        "如何搜尋",
+        "Usage",
+        "使い方"
     ],
     "input-method": [
-        "2. Chhōe ê內容",
-        "2. Chhōe ê Lōe-iông",
+        "2. Chhōe siáⁿ",
+        "2. Chhōe siáⁿ",
         "2. 搜尋內容",
-        "2. Search Keywords"
+        "2. Keywords",
+        "2. 検索したい内容"
     ],
     "lmj-tb": [
         "羅馬字台文",
         "Lô-má-jī Tâi-bûn",
         "羅馬字台文",
-        "Roman Taigi"
+        "Roman Taigi",
+        "ローマ字台湾語"
     ],
     "poj": [
         "白話字",
         "POJ",
         "白話字",
+        "POJ",
         "POJ"
     ],
     "poj-input": [
         "白話字(輸入式)",
-        "POJ (Su-ji̍p-sek)",
-        "白話字(輸入格式)",
-        "POJ (Input format)"
+        "POJ (Su-ji̍p)",
+        "白話字(輸入式)",
+        "POJ (Input)",
+        "POJ(入力)"
     ],
     "lmj": [
-        "教育部拼音",
-        "Kàu-io̍k-pō͘  LMJ",
-        "教育部拼音",
-        "MoE Roman"
+        "教部羅",
+        "Bân Lô",
+        "教部羅",
+        "MoE Roman",
+        "教部羅"
     ],
     "lmj-input": [
-        "教育部拼音(輸入式)",
-        "Kàu-io̍k-pō͘  LMJ (Su-ji̍p-sek)",
-        "教育部拼音(輸入格式)",
-        "MoE Roman (Input format)"
+        "教部羅(輸入式)",
+        "Bân Lô (Su-ji̍p)",
+        "教部羅(輸入式)",
+        "MoE Roman (Input)",
+        "教部羅(入力)"
     ],
-    "keyword": [
-        "請phah beh chhōe ê字詞",
-        "Chhiáⁿ phah beh chhōe ê jī-sû",
-        "請輸入關鍵字",
-        "Enter keywords"
+    "lmj_keyword": [
+        "見本：tai5 gi2",
+        "Kiàn-pún: tai5 gi2",
+        "例：tai5 gi2",
+        "Example: tai5 gi2",
+        "見本：tai5 gi2"
     ],
-    "keyword_suggest_fuzzy": [
-        "建議用「相關--ê」來chhōe",
-        "Chhiáⁿ phah beh chhōe ê jī-sû",
-        "建議用「模糊搜尋」",
-        "Enter keywords"
+    "hanlo_keyword": [
+        "見本：台語",
+        "Kiàn-pún: 台語",
+        "例：台語",
+        "Example: 台語",
+        "見本：台語"
+    ],
+    "engbun_keyword": [
+        "建議kéng「相關--ê」。見本：eagle",
+        "Kéng \"Siong-koan--ê\". Kiàn-pún: eagle",
+        "建議用「包含」模式。例：eagle",
+        "Select \"Contains\" filter. Example: eagle",
+        "「あいまい検索」の方法で検索してください。見本：eagle"
+    ],
+    "jitbun_keyword": [
+        "建議kéng「相關--ê」。見本：わし",
+        "Kéng \"Siong-koan--ê\". Kiàn-pún: わし",
+        "建議用「包含」模式。例：わし",
+        "Select \"Contains\" filter. Example: わし",
+        "「あいまい検索」の方法で検索してください。見本：わし"
+    ],
+    "tiongbun_keyword": [
+        "建議kéng「相關--ê」。見本：老鷹",
+        "Kéng \"Siong-koan--ê\". Kiàn-pún: 老鷹",
+        "建議用「包含」模式。例：老鷹",
+        "Select \"Contains\" filter. Example: 老鷹",
+        "「あいまい検索」の方法で検索してください。見本：老鷹"
     ],
     "corresponding-tb": [
-        "漢羅台文",
-        "Hàn-jī/Hàn-lô Tâi-bûn",
-        "漢羅台文",
-        "Hanzi/Han-Roman Taigi"
+        "漢字(漢羅)台文",
+        "Hàn-jī Tâi-bûn",
+        "漢字(漢羅)台文",
+        "Hanzi Taigi",
+        "漢字台湾語"
     ],
     "corresponding-en": [
         "對應英文",
-        "Tùi-èng Eng-bûn",
+        "Eng-bûn",
         "對應英文",
-        "English"
+        "English",
+        "英語"
     ],
     "corresponding-jp": [
         "對應日文",
-        "",
+        "Ji̍t-bûn",
         "對應日文",
-        ""
+        "Japanese",
+        "日本語"
     ],
     "corresponding-hb": [
-        "對應華文",
-        "Tùi-èng Hôa-bûn",
-        "對應華文",
-        "Chinese"
+        "對應中文",
+        "Tiong-bûn",
+        "對應中文",
+        "Chinese",
+        "中国語"
     ],
     "find": [
         "Chhōe",
         "Chhōe",
-        "找",
-        "Search"
+        "找台語",
+        "Search",
+        "検索"
     ],
     "reset": [
         "Têng來",
         "Têng Lâi",
         "清除",
-        "Clear"
+        "Clear",
+        "削除"
     ],
     "donate": [
-        "支持",
-        "",
-        "支持",
-        ""
+        "寄付支持",
+        "Kià-hù",
+        "捐款支持",
+        "Support",
+        "寄付"
     ],
     "support_taibun_kesimi_part1": [
         "ChhoeTaigi 是kō͘ ",
-        "",
+        "ChhoeTaigi sī kō͘ ",
         "ChhoeTaigi 是靠 ",
-        ""
+        "ChhoeTaigi relies on the public fundraising ",
+        "ChhoeTaigi は "
     ],
     "support_taibun_kesimi_part2": [
-        "台文雞絲麵 Tâi-bûn Ke-si-mī",
-        "",
-        "台文雞絲麵 Tâi-bûn Ke-si-mī",
-        ""
+        "台文雞絲麵 Tâi-bûn Ke-si Mī",
+        "台文雞絲麵 Tâi-bûn Ke-si Mī",
+        "台文雞絲麵 Tâi-bûn Ke-si Mī",
+        "台文雞絲麵 Tâi-bûn Ke-si Mī",
+        "台文雞絲麵 Tâi-bûn Ke-si Mī"
     ],
     "support_taibun_kesimi_part3": [
-        " 募資計畫teh pháng，阮資源真欠，邀請你做陣來支持，感謝！🙏🏼",
-        "",
-        " 募資計畫在運作，資源非常有限，邀請你一起來支持，感謝！🙏🏼",
-        ""
+        " 募資計畫teh pháng，100%民間群眾資金，獨立運作。",
+        " bō͘-chu kè-e̍k teh pháng, 100 pha bîn-kan chu-kim, to̍k-li̍p ūn-chok.",
+        " 募資計畫在運作，100%民間群眾資金，獨立運作。",
+        " 100% public funding, independent operation.",
+        " クラファン計画によって運営されています。100％公的資金による独立運営。"
+    ],
+    "support_taibun_kesimi_part4": [
+        "阮資源真欠，邀請你做陣來支持，感謝！🙏🏼",
+        "Gún chu-goân chin khiàm, iau-chhiáⁿ lí tàu-tīn lâi chi-chhî. Kám-siā!🙏🏼",
+        "我們資源非常有限，邀請你一起來支持，感謝！🙏🏼",
+        "Our resources are very limited. We invite you to support us. Thank you!🙏🏼",
+        "皆様のご支援をお願いします。感謝！🙏🏼"
     ]
 }

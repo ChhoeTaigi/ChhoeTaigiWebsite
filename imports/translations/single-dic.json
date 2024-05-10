@@ -1,45 +1,51 @@
 {
-    "keyowrd": [
-        "Chhōe ê字詞",
-        "Chhōe ê jī-sû",
-        "搜尋關鍵字",
-        "Search Keywords"
+    "search_keyword": [
+        "Chhōe siáⁿ-mih詞",
+        "Chhōe siáⁿ-mih sû",
+        "搜尋關鍵詞",
+        "Search keywords",
+        "検索キーワード"
     ],
     "oann-iah-part1": [
-        "Sóa去第",
-        "Sóa khì tē",
-        "跳到第",
-        "Go to page"
+        "去第",
+        "Khì tē",
+        "去第",
+        "To page",
+        ""
     ],
     "oann-iah-part2": [
         "頁",
         "ia̍h",
         "頁",
-        ""
+        "",
+        "ページ目に行く"
     ],
     "sutian-sooliong-part1": [
-        "有 ",
-        "Ū ",
+        "計共 ",
+        "Kè-kiōng ",
         "共 ",
-        "Total "
+        "Total ",
+        "合計 "
     ],
     "sutian-sooliong-part2": [
         " 條、",
         " tiâu, ",
         " 筆、",
-        " result(s), "
+        " result(s), ",
+        " つ、"
     ],
     "sutian-sooliong-part3": [
         " 頁",
         " ia̍h",
         " 頁",
-        " page(s)"
+        " page(s)",
+        " ページ"
     ],
     "more": [
         "詳細",
         "Siông-sè",
         "詳細",
-        "More"
+        "Details",
+        "詳細"
     ]
-  }
-  
+}

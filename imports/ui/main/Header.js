@@ -56,25 +56,25 @@ class Header extends Component {
                         </button>
                         <ul id='site-nav-list' ref={this.wrapperRef}>
                             <li>
-                                <Link className={currentLocation === '/' ? 'active' : ''} to='/' onClick={this.closeMenu}><Translate id="basic" /></Link>
+                                <Link className={currentLocation === '/' ? 'active' : ''} to='/' onClick={this.closeMenu}><Translate id="menu_basic" /></Link>
                             </li>
                             <li>
-                                <Link className={currentLocation === '/chinkai' ? 'active' : ''} to='/chinkai' onClick={this.closeMenu}><Translate id="advanced" /></Link>
+                                <Link className={currentLocation === '/chinkai' ? 'active' : ''} to='/chinkai' onClick={this.closeMenu}><Translate id="menu_advanced" /></Link>
                             </li>
                             <li>
                                 <Link className={currentLocation === '/annachhoe' ? 'active' : ''} to='/annachhoe' onClick={this.closeMenu}><Translate id="anchoannchhoe" /></Link>
                             </li>
-                            <li>
+                            {/* <li>
                                 <Link className={currentLocation === '/app' ? 'active' : ''} to='/app' onClick={this.closeMenu}><Translate id="app" /></Link>
-                            </li>
+                            </li> */}
                             <li>
                                 <Link className={currentLocation === '/liaukai' ? 'active' : ''} to='/liaukai' onClick={this.closeMenu}><Translate id="about" /></Link>
                             </li>
                             <li>
-                                <Link className='koankhoan-link' to={{pathname:'https://r.zecz.ec/vpKd'}} target='_blank'><Translate id="koankhoan" /></Link>
+                                <Link className='koankhoan-link' to={{ pathname: 'https://r.zecz.ec/vpKd' }} target='_blank'><Translate id="koankhoan" /></Link>
                             </li>
                         </ul>
-                        <Link id='FB-link' className='menu-item' to={{pathname:'https://www.facebook.com/ChhoeTaigi/'}} target='_blank'><span className='sr-only'>ChhoeTaigi Facebook</span></Link>
+                        <Link id='FB-link' className='menu-item' to={{ pathname: 'https://www.facebook.com/ChhoeTaigi/' }} target='_blank'><span className='sr-only'>ChhoeTaigi Facebook</span></Link>
                     </nav>
                 </div>
             </header>

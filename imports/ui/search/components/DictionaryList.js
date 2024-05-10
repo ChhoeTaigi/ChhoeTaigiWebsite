@@ -16,7 +16,7 @@ class DictionaryList extends Component {
         super(props);
 
         props.addTranslation(resultsTranslations);
-        
+
         this.state = {
             gotResult: false
         };
@@ -71,7 +71,7 @@ class DictionaryList extends Component {
 
     render() {
         let DICT_COUNT = 10;
-        
+
         let keywords = [];
         let resultCount = [];
         let dicButtonsRow = [];
@@ -96,13 +96,13 @@ class DictionaryList extends Component {
                 keywords = keywords.join('，');
             } else if (options.value) {
                 // all fields
-                keywords = "【" +options.value+ "】";
+                keywords = "【" + options.value + "】";
             }
 
             dicLen = this.props.allResults.filter(e => (e.words.length > 0)).length;
-    
+
             const allResults = this.props.allResults;
-            
+
             let refs = {};
             for (let idx in allResults) {
                 const dicResults = allResults[idx];
@@ -110,19 +110,19 @@ class DictionaryList extends Component {
                     const dic = dicResults.dic;
                     const chineseName = dicStruct.find((e) => e.name === dic).chineseName;
                     const rowNum = parseInt(allResults[idx].num);
-        
+
                     dicButtonsRow.push(
                         <button className={'btn ' + (this.state.selectedDic === dic ? 'active' : '')} key={dic} onClick={this.handleButtonClicked.bind(this, dic)}>
                             {chineseName}
                         </button>
                     )
-        
+
                     let thisRef = React.createRef();
                     refs[dic] = thisRef;
                     dicBriefs.push(
                         <DictionaryBrief ref={thisRef} key={dic} dicResults={dicResults} options={this.props.options} showMoreButton={rowNum > 20} />
                     );
-        
+
                     totalNum += rowNum;
                 }
             }
@@ -133,13 +133,13 @@ class DictionaryList extends Component {
                     <div key='resultCount' className='search-result__counts'><Translate id='all-result-1' />{dicLen}<Translate id='all-result-2' />{totalNum}<Translate id='all-result-3' /></div>
                 )
             }
-        } 
+        }
 
         return (
             <div className='search-result search-result--list'>
                 <div className='container'>
                     <div className='search-result__query'>
-                        <Translate id='keyowrd' />：{keywords}
+                        <Translate id='search_keyword' />：{keywords}
                     </div>
                     {resultCount}
                     {!this.props.allResults && LoadingIndicator}
@@ -190,7 +190,7 @@ class DictionaryBrief extends Component {
                 currentHeader.classList.remove('active');
             }
             else {
-                document.querySelectorAll('.dic-block__header').forEach(function(el) {
+                document.querySelectorAll('.dic-block__header').forEach(function (el) {
                     el.classList.remove('active');
                 });
                 currentHeader.classList.add('active');

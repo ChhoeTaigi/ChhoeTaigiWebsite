@@ -36,7 +36,7 @@ export default class Word extends Component {
                     }
                 }
             }
-        } else if (dicString === DictNames.DICT_2009_TJ_TAIGI_PEHOE_SIOSUTIAN_SEKIN || 
+        } else if (dicString === DictNames.DICT_2009_TJ_TAIGI_PEHOE_SIOSUTIAN_SEKIN ||
             (dicString === DictNames.DICT_TAIOAN_BUNHAK_TUCHOK_SEKIN && (chhehMia.startsWith('《鄉史補記》') || chhehMia.startsWith('《陳明仁台語文學選》')))) {
             linkHtml = pageString + "（本冊kan-na提供索引資料，nā有需要請ka-tī買冊。請支持台文出版品，感謝！）";
         } else {
@@ -98,7 +98,7 @@ export default class Word extends Component {
         for (let key in columns) {
             console.log("render column: " + key);
             let content;
-            
+
             if (key === '掀原冊(頁)') {
                 content = this.generateGoanChhehLink(this.props.dic, columns['冊名'], columns[key]);
             } else if (key === '來去買冊') {
@@ -114,11 +114,11 @@ export default class Word extends Component {
                 }
             } else if (key === '網址') {
                 if (this.props.dic === DictNames.DICT_2002_TAIHOA_SOANNTENG_SUTIAN) {
-                    content = this.generateWebsiteLink(this.props.dic, columns['對應華文']);
+                    content = this.generateWebsiteLink(this.props.dic, columns['對應中文']);
                 } else if (this.props.dic === DictNames.DICT_2011_KAUIOKPOO_SUTIAN) {
                     content = this.generateWebsiteLink(this.props.dic, columns['白話字']);
                 } else if (this.props.dic === DictNames.DICT_2016_ITAIGI) {
-                    content = this.generateWebsiteLink(this.props.dic, columns['對應華文']);
+                    content = this.generateWebsiteLink(this.props.dic, columns['對應中文']);
                 } else {
                     content = this.generateWebsiteLink(this.props.dic, columns[key]);
                 }

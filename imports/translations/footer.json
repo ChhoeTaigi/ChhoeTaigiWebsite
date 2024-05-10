@@ -1,56 +1,65 @@
 {
-    "visitors": [
-      "Hō͘你看有gōa-chē人來--過",
-      "Gōa-chē Lâng Lâi--kòe",
-      "造訪人次",
-      "Visitors"
-    ],
-    "searches": [
-      "認真chhiau-chhōe過幾pái",
-      "Chhōe Kòe Kúi-pái",
-      "查詢次數",
-      "Searches"
-    ],
-    "word_count_desc": [
-      "ChhoeTaigi 台語辭典⁺ 收錄台語字詞總數：504880",
-      "ChhoeTaigi jī-sû chóng-sò͘: 504880",
-      "ChhoeTaigi 台語辭典⁺ 收錄台語字詞總數：504880",
-      "ChhoeTaigi total amount: 504880"
-    ],
-    "word_jitpunsitai_desc": [
-      "Hâm日本時代有收單語名彙ê冊：10本。字詞總數：25596",
-      "",
-      "包含日本時代有收單語名彙的書：10本。字詞總數：25596",
-      ""
-    ],
-    "book_index_desc": [
-      "Hâm紙本辭典索引：1本。字詞總數：21251",
-      "Pau-koat chóa-pún: 1. Sek-ín: 21251",
-      "包含紙本辭典索引：1本。字詞總數：21251",
-      "Include book: 1. Index amount: 21251"
-    ],
-    "web_index_desc": [
-      "Hâm線頂媒體索引：6款。字詞總數：11500",
-      "Pau-koat Sòaⁿ-téng: 6-ê. Sek-ín: 11500",
-      "包含線上媒體索引：6款。字詞總數：11500",
-      "Include web: 6. Index amount: 11500"
-    ],
-    "bunhaktuchok_index_desc": [
-      "Hâm文學著作索引：4本。字詞總數：12694",
-      "Pau-koat Sòaⁿ-téng: 4-ê. Sek-ín: 12694",
-      "包含文學著作索引：4本。字詞總數：12694",
-      "Include web: 4. Index amount: 12694"
-    ],
-    "since": [
-      "網站ùi 2018年9--月起kā咱大家服務",
-      "Bāng-chām ùi 2018.09.29 khai-sí ho̍k-bū",
-      "網站自 2018年9月開始服務大家",
-      "ChhoeTaigi. Since 2018.09.29"
-    ],
-    "sponsors": [
-      "長期贊助單位",
-      "",
-      "長期贊助單位",
-      ""
-    ]
+  "visitors": [
+    "有gōa chē人來",
+    "Gōa chē lâng lâi",
+    "造訪人次",
+    "Visitors",
+    "訪問者"
+  ],
+  "searches": [
+    "Chhōe過幾pái",
+    "Chhōe kòe kúi pái",
+    "查詢次數",
+    "Searches",
+    "クエリ数"
+  ],
+  "word_count_desc": [
+    "ChhoeTaigi台語辭典⁺ 語詞總數：504880",
+    "ChhoeTaigi gí-sû chóng-sǹg: 504880",
+    "ChhoeTaigi 台語辭典⁺ 語詞總數：504880",
+    "ChhoeTaigi total words: 504880",
+    "ChhoeTaigi 台語辭典⁺ 総単語数: 504880"
+  ],
+  "word_jitpunsitai_desc": [
+    "Hâm日本時代語詞集：10。語詞總數：25596",
+    "Hâm Ji̍t-pún sî-tāi gí-sû chi̍p: 10. Total words: 25596",
+    "含日本時代詞語集：10。語詞總數：25596",
+    "Japanese era dataset: 10. Total words: 25596",
+    "日本統治時代データセット：10。総単語数：25596"
+  ],
+  "book_index_desc": [
+    "Hâm紙冊索引：1。語詞總數：21251",
+    "Hâm chóa chheh sek-ín: 1. Total words: 21251",
+    "含紙本書索引：1。語詞總數：21251",
+    "Paper book index: 1. Total words: 21251",
+    "紙の本のインデックス：1。総単語数：21251"
+  ],
+  "web_index_desc": [
+    "Hâm線頂媒體索引：6。語詞總數：11500",
+    "Hâm bāng-chām sek-ín: 6. Total words: 11500",
+    "含線上媒體索引：6。語詞總數：11500",
+    "Online media index: 6. Total words: 11500",
+    "オンラインメディアインデックス：6。総単語数：11500"
+  ],
+  "bunhaktuchok_index_desc": [
+    "Hâm文學著作索引：4。語詞總數：12694",
+    "Hâm bûn-ha̍k tù-chok sek-ín: 4. Sek-ín: 12694",
+    "含文學著作索引：4。語詞總數：12694",
+    "Literary index: 4. Index amount: 12694",
+    "文学作品の索引：4。総単語数：12694"
+  ],
+  "since": [
+    "網站ùi 2018年9月29起kā咱大家服務",
+    "Bāng-chām ùi 2018.09.29 khí-chō ho̍k-bū",
+    "網站自 2018年9月28日 開始服務社會大眾",
+    "Has been in service since 2018.09.29",
+    "ウェブサイトは2018年9月28日より運営されています"
+  ],
+  "sponsors": [
+    "長期贊助單位",
+    "Tn̂g-kî Chàn-chō͘ Tan-ūi",
+    "長期贊助單位",
+    "Long Term Sponsors",
+    "長期スポンサー"
+  ]
 }

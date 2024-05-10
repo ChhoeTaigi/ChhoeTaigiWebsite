@@ -1,200 +1,219 @@
 {
     "introduction": [
-        "簡介",
-        "Kán-kài",
-        "簡介",
-        "Introduction"
+        "紹介",
+        "Siāu-kài",
+        "介紹",
+        "About",
+        "紹介"
     ],
     "bullet-1": [
-        "「ChhoeTaigi 台語辭典⁺」計畫是beh來整理kap數位化lán台語ê字詞資料，提供公開授權ê台語字詞資料庫，koh有線頂辭典網站kap手機á ê辭典app。Ǹg-bāng吸引lú來lú chē人來投入相關ê研究a̍h是開發無kâng ê應用，mā thang幫chān一般ê使用者、學習者，有koh khah利便chhiau-chhōe台語字詞ê好ke-si。",
-        "\"ChhoeTaigi 台語辭典⁺\" kè-ōe sī beh lâi chéng-lí kap sò͘-ūi-hòa lán Tâi-gí ê jī-sû chu-liāu, m̄-nā thê-kiong kong-khai siū-khoân ê Tâi-gí jī-sû chu-liāu-khò͘, mā ū sòaⁿ-téng sû-tián bāng-chām kap chhiú-ki-á ê sû-tián app. Ǹg-bāng khip-ín lú-lâi-lú-chē lâng lâi tâu-ji̍p siong-koan ê gián-kiú a̍h-sī khai-hoat bô-kâng ê èng-iōng, mā thang pang-chān it-poaⁿ ê sú-iōng-chiá, ha̍k-si̍p-chiá, ū koh khah lī-piān chhiau-chhōe Tâi-gí jī-sû ê hó ke-si.",
-        "「ChhoeTaigi 台語辭典⁺」計畫的目標是為了整理和數位化台語的字詞資料，不只提供公開授權的台語字詞資料庫，也有辭典網站和手機辭典app，希望吸引更多人投入相關研究或開發應用，更幫助一般使用者更便利的查詢台語的字詞資料。",
-        "The ChhoeTaigi project aims to build a Tâi-gí word database with open license. The data is compiled and digitalised for easier retrival of Tâi-gí words. Open licensing makes further study, development and application possible. ChhoeTaigi also provides a dictionary website and a mobile application, with access to data of Tâi-gí words in almost all existing Tâi-gí dictionaries. The tool helps enhance the learning of Tâi-gí."
+        "「ChhoeTaigi 台語辭典⁺」計畫是為tio̍h將咱台語ê字詞資料整理kap數位化，koh將資料服務化，幫chān社會大眾學台語thang koh khah利便！",
+        "\"ChhoeTaigi 台語辭典⁺\" kè-e̍k sī ūi tio̍h chiong lán Tâi-gí ê jī-sû chu-liāu chéng-lí kap sò͘-ūi hòa, koh chiong chu-liāu sò͘-ūi hòa, pang-chān siā-hōe tāi-chiòng o̍h Tâi-gí thang koh khah lī-piān!",
+        "「ChhoeTaigi 台語辭典⁺」計畫是為了整理和數位化台語的字詞資料，也將資料服務化，幫助一般使用者更便利學習台語！",
+        "The \"ChhoeTaigi\" project is to organize and digitize Taiwanese word data, and also turn the data into services to help ordinary users learn Taiwanese more conveniently!",
+        "「ChhoeTaigi 台語辭典⁺」プロジェクトは、台湾語の単語データを整理・デジタル化し、一般ユーザーがより便利に台湾語を学習できるようサービス化するプロジェクトです！"
     ],
     "bullet-2": [
         "Che計畫初初是得tio̍h g0v tī 2018年頂半冬所提供ê獎助金，chiah thang起鼓進行，完成基礎ê khang-khòe。",
-        "Che kè-ōe chho͘-chho͘ sī tit-tio̍h g0v tī 2018 nî téng pòaⁿ-tang só͘ thê-kiong ê chióng-chō͘-kim, chiah thang khai-sí chìn-hêng, oân-sêng ki-chhó͘ ê khang-khòe.",
-        "此計畫起初是獲得g0v在2018年上半年所提供的獎助金，才得以開始進行，完成階段性目標。",
-        "The ChhoeTaigi project started in 2018 with great support by g0v grants. We are glad that our short-term goal was achieved."
+        "Che kè-e̍k chho͘-chho͘ sī tit tio̍h \"g0v Kong-bîn Kho-ki Chhòng-sin Chióng-chō͘-kim\", chiah thang khí-kó͘ chìn-hêng, oân-sêng ki-chhó͘ ê khang-khòe.",
+        "此計畫起初是獲得「g0v 公民科技創新獎助金」，才得以開始進行，完成階段性目標。",
+        "This project was initially awarded the \"g0v Citizen Science and Technology Innovation Grant\", and was then able to start and achieve the phased goals. ",
+        "このプロジェクトは当初「g0v市民科学技術イノベーション助成金」を受賞しており、段階的な目標を達成することができました。"
     ],
     "support_taibun_kesimi_part1": [
-        "ChhoeTaigi 現此時所有ê字詞資料數位化整理校對、網站和app ê開發維護成本lóng是ùi ",
-        "",
-        "ChhoeTaigi 現在所有的字詞資料數位化整理校對、網站和app的開發維護成本都是靠 ",
-        ""
+        "ChhoeTaigi 是kō͘ ",
+        "ChhoeTaigi sī kō͘ ",
+        "ChhoeTaigi 是靠 ",
+        "ChhoeTaigi relies on the public fundraising ",
+        "ChhoeTaigi は "
     ],
     "support_taibun_kesimi_part2": [
-        "台文雞絲麵 Tâi-bûn Ke-si-mī",
-        "",
-        "台文雞絲麵 Tâi-bûn Ke-si-mī",
-        ""
+        "台文雞絲麵 Tâi-bûn Ke-si Mī",
+        "台文雞絲麵 Tâi-bûn Ke-si Mī",
+        "台文雞絲麵 Tâi-bûn Ke-si Mī",
+        "台文雞絲麵 Tâi-bûn Ke-si Mī",
+        "台文雞絲麵 Tâi-bûn Ke-si Mī"
     ],
     "support_taibun_kesimi_part3": [
-        " 募資計畫來維持團隊所有ê運作，邀請你做伙來捐款支持，幫chān台語台文發展！",
-        "",
-        " 募資計畫來維持團隊所有的運作，邀請你一起來捐款支持，幫助台語台文發展！",
-        ""
+        " 募資計畫teh pháng，100%民間群眾資金，獨立運作。",
+        " bō͘-chu kè-e̍k teh pháng, 100 pha bîn-kan chu-kim, to̍k-li̍p ūn-chok.",
+        " 募資計畫在運作，100%民間群眾資金，獨立運作。",
+        " 100% public funding, independent operation.",
+        " クラファン計画によって運営されています。100％公的資金による独立運営。"
+    ],
+    "support_taibun_kesimi_part4": [
+        "阮資源真欠，邀請你做陣來支持，感謝！🙏🏼",
+        "Gún chu-goân chin khiàm, iau-chhiáⁿ lí tàu-tīn lâi chi-chhî. Kám-siā!🙏🏼",
+        "我們資源非常有限，邀請你一起來支持，感謝！🙏🏼",
+        "Our resources are very limited. We invite you to support us. Thank you!🙏🏼",
+        "皆様のご支援をお願いします。感謝！🙏🏼"
     ],
     "feature": [
         "特色",
         "Te̍k-sek",
         "特色",
-        "Features"
+        "Features",
+        "機能"
     ],
     "feature-title-1": [
         "字詞資料Chē",
         "Jī-sû Chu-liāu Chē",
         "字詞資料豐富",
-        "Rich Data of Tâi-gí Words"
+        "Rich Data of Tâi-gí Words",
+        "豊富な語彙情報"
     ],
     "feature-content-1": [
-        "整合將近20份台語辭典、文獻、索引資料，台語詞數量計共beh kah 45萬條",
-        "Chéng-ha̍p 10 hūn ê bûn-hiàn chu-liāu, ū 30-bān thóng pit ê Tâi-gí jī-sû.",
-        "整合約快20份台語辭典、文獻、索引資料，台語詞數量總計快突破45萬筆",
-        "Intergrates data of 10 Tâi-gí literatures. With more than 300,000 Tâi-gí words in total."
+        "整合chiok chē台語辭典、文獻、紙冊、網站等等資料。數量是目前siōng齊全--ê。",
+        "Chéng-ha̍p chiok chē Tâi-gí sû-tián, bûn-hiàn, chóa-chheh, bāng-chām téng-téng chu-liāu. Sò͘-liōng sī bo̍k-chiân siōng chiâu-chn̂g--ê.",
+        "整合許多台語辭典、文獻、紙本書、網站等等資料，數量是目前最豐富最完整的。",
+        "Integrating many Taiwanese dictionaries, literature, paper books, websites and other materials, the number is currently the richest and most complete.",
+        "多くの台湾語の辞書、文献、紙の本、ウェブサイト、その他の資料を統合し、その数は現在最も豊富で完全です。"
     ],
     "feature-title-2": [
         "標準化",
-        "Phiau-chún-hòa",
+        "Phiau-chún Hòa",
         "標準化",
-        "Normalization"
+        "Normalization",
+        "標準化"
     ],
     "feature-content-2": [
-        "格式有提供歷史siōng久長、文獻siōng chē ê白話字，mā提供教育部拼音，koh siāng時有Unicode kap數字輸入ê格式",
-        "Keh-sek ū thê-kiong le̍k-sú siōng kú-tn̂g, bûn-hiàn siōng chē ê Pe̍h-ōe-jī, mā ū thê-kiong Kàu-io̍k-pō͘ chhui-hêng ê Lô-má-jī, koh siāng-sî ū Unicode kap sò͘-jī su-ji̍p ê keh-sek.",
-        "資料的顯示格式為歷史最悠久及文獻最多的白話字，也提供教育部拼音。輸入格式可選Unicode(台語輸入法)或以數字輸入的格式",
-        "Normalizes and displays data in POJ and MoE LMJ. Input format includes (i) Unicode, and (ii) simple numbers + Latin alphabets."
+        "整理各種複雜ê語料，將資料標準化、現代化。利益chhiau-chhōe、學習。",
+        "Cheng-lī kok chióng ho̍k-cha̍p ê gí-liāu, chiong chu-liāu phiau-chún hòa, hiān-tāi hòa. Lī-ek chhiau-chhōe, ha̍k-si̍p.",
+        "整理各種複雜ê語料，將資料標準化、現代化，有利搜尋和學習。",
+        "Organize various complex ê corpora, standardize and modernize the data, and facilitate search and learning.",
+        "さまざまな複雑なコーパスを整理し、データを標準化および最新化し、検索と学習を容易にします。"
     ],
     "feature-title-3": [
         "數位化",
-        "Só͘-ûi-hòa",
+        "Sò͘-ūi Hòa",
         "數位化",
-        "Digitalization"
+        "Digitalization",
+        "デジタル化"
     ],
     "feature-content-3": [
-        "字詞資料lóng提供CSV ê格式，公開tī GitHub網站",
+        "語詞資料kap軟體資料lóng tī GitHub網站公開。",
         "Jī-sû chu-liāu lóng thê-kiong CSV ê keh-sek, kong-khai tī GitHub bāng-chām.",
-        "字詞資料皆提供CSV格式，公開在GitHub網站",
-        "The datasets are all released at GitHub in CSV format."
+        "語詞資料和軟體資料都公開在GitHub。",
+        "Both vocabulary data and software data are public on GitHub.",
+        "語彙データとソフトウェアデータは両方とも GitHub で公開されています。"
     ],
     "feature-title-4": [
-        "開放授權",
-        "Khai-hòng Siū-khoân",
-        "開放授權",
-        "Open Licensing"
+        "使用開放式授權",
+        "Khai-hòng Sek Siū-khoân",
+        "使用開放授權",
+        "Using Open Licenses",
+        "オープンライセンスの使用"
     ],
     "feature-content-4": [
-        "資料全部用Creative Commons來開放授權",
-        "Chu-liāu choân-pō͘ iōng Creative Commons lâi khai-hòng siū-khoân.",
-        "資料全部採用Creative Commons開放授權",
-        "All datasets are released with open license - Creative Commons."
+        "資料用開放式授權來公開資料。（Nā有法度）",
+        "Chu-liāu iōng khai-hòng sek siū-khoân lâi kong-khai chu-liāu. (Nā ū hoat-tō͘)",
+        "資料用開放式授權來公開資料。（如果可以）",
+        "The data is made public using open licenses. (if possible)",
+        "データはオープンライセンスを使用して公開されます。（可能な場合）"
     ],
     "feature-title-5": [
-        "服務化",
-        "Ho̍k-bū-hòa",
-        "服務化",
-        "Services for Everyone"
+        "資料服務化",
+        "Chu-liāu Ho̍k-bū Hòa",
+        "資料服務化",
+        "Data Servitization",
+        "データのサービス化"
     ],
     "feature-content-5": [
-        "提供線頂辭典網站kap免上網ê辭典app，利便ta̍k-ê 1-pái tio̍h ē-sái chhōe全部ê台語字詞",
-        "Thê-kiong sòaⁿ-téng sû-tián bāng-chām kap bián chiūⁿ-bāng ê sû-tián app, lī-piān ta̍k-ê 1-pái tio̍h ē-sái chhōe choân-pō͘ ê Tâi-gí jī-sû.",
-        "提供線上辭典網站及可離線辭典app，方便一次查詢全部台語字詞",
-        "Provides a dictionary website and a mobile application, with access to data of Tâi-gí words in almost all existing Tâi-gí dictionaries."
+        "將資料服務化，幫chān社會大眾學台語thang koh khah利便！",
+        "Chiong chu-liāu sò͘-ūi hòa, pang-chān siā-hōe tāi-chiòng o̍h Tâi-gí thang koh khah lī-piān!",
+        "將資料服務化，幫助一般使用者更便利學習台語！",
+        "Turn the data into services to help ordinary users learn Taiwanese more conveniently!",
+        "一般ユーザーがより便利に台湾語を学習できるようサービス化するプロジェクトです！"
     ],
     "join": [
         "鬥陣貢獻",
         "Chò-hóe Kòng-hiàn",
         "加入協作",
-        "We need your contribution!"
+        "We need your contribution",
+        "あなたの貢献が必要です"
     ],
     "join-1": [
-        "字詞ê資料請提供修改ê建議，a̍h是做伙來討論",
-        "Jī-sû ê chu-liāu chhiáⁿ thê-kiong siu-kái ê kiàn-gī, a̍h-sī chò-hóe lâi thó-lūn.",
-        "歡迎提供修改建議，或一起參加討論",
-        "Give suggestions or join our discussions."
+        "字詞ê資料請提供修改ê建議，a̍h是做伙來討論。",
+        "Jī-sû ê chu-liāu chhiáⁿ thê-kiong siu-kái ê kiàn-gī, a̍h sī chò-hóe lâi thó-lūn.",
+        "歡迎提供修改建議，或一起參加討論。",
+        "Give suggestions or join our discussions.",
+        "提案をするか、ディスカッションに参加してください。"
     ],
     "join-2": [
-        "請看ē-kha ê聯絡方式",
-        "Chhiáⁿ khòaⁿ ē-kha ê liân-lo̍k hong-sek.",
-        "請看下方聯絡方式",
-        "Please see our contact information below."
+        "請看下底有聯絡方式。",
+        "Chhiáⁿ khòaⁿ ē-té ū liân-lo̍k hong-sek.",
+        "請看下方聯絡方式。",
+        "Please see our contact information below.",
+        "下記の連絡先情報をご覧ください。"
     ],
     "join-3": [
-        "參與開源專案，tàu-saⁿ-kāng改進產品",
-        "Chham-ú khai-goân choan-àn, tàu-saⁿ-kāng lâi kái-chìn sán-phín.",
-        "參與開源專案，協助改進產品",
-        "Participate in our open source projects."
+        "參與開源專案，來tàu-saⁿ-kāng改進產品。",
+        "Chham-ú khai-goân choan-àn, lâi tàu-saⁿ-kāng kái-chìn sán-phín.",
+        "參與開源專案，協助改進產品。",
+        "Participate in our open source projects.",
+        "オープンソース プロジェクトに参加し、製品の改善に協力してください。"
     ],
     "sponsor": [
-        "Ǹg望ta̍k-ke實際支持贊助",
-        "Ǹg-bāng Ta̍k-ê Si̍t-chè Chàn-chō͘",
-        "拜託大家實際支持贊助",
-        "Sponsor or support our project"
-    ],
-    "sponsor-1": [
-        "Lán產品運作ê資金（Server ê成本、維護ê成本等等）",
-        "Lán sán-phín ūn-chok ê chu-kim (Server ê sêng-pún, î-hō͘ ê sêng-pún téng-téng).",
-        "資金：產品營運資金(伺服器成本、維護成本等)",
-        "Funds: Sponsor us with working capital for servers and product maintenance, etc."
-    ],
-    "sponsor-2": [
-        "授權lán台語辭典a̍h是台語字詞ê資料（Creative Commons開放授權）",
-        "Siū-khoân lán Tâi-gí sû-tián a̍h-sī Tâi-gí jī-sû ê chu-liāu (Creative Commons khai-hòng siū-khoân).",
-        "資料：台語辭典或字詞資料授權(Creative Commons開放授權)",
-        "Data: Authorize us to use your Tâi-gí dictionaries and enable the public to access the data. (Creative Commons open license)"
+        "Ǹg望大家贊助支持",
+        "Ǹg-bāng Tāi-ke Chàn-chō͘ Chi-chhî",
+        "拜託大家贊助支持",
+        "Sponsor or support our project",
+        "スポンサーになってサポートしてください"
     ],
     "contact": [
         "聯絡方式",
         "Liân-lo̍k Hong-sek",
         "聯絡方式",
-        "Contact Information"
+        "Contact Information",
+        "連絡方法"
     ],
     "contact-1": [
         "私訊",
         "Su-sìn",
         "私訊",
-        "Message"
+        "Message",
+        "メッセージを送る"
     ],
     "contact-2": [
         "寄phoe來",
         "Kià phoe lâi",
         "來信",
-        "Email"
+        "Email",
+        "メールを送る"
     ],
     "members": [
-        "現此時團隊ê成員",
+        "團隊成員",
         "Thoân-tūi Sêng-oân",
-        "現在的團隊成員",
-        "Team Members"
-    ],
-    "former-members": [
-        "Bat參與--過ê有志",
-        "Kòe-khì ê Chham-ú-chiá",
-        "曾經參與過的夥伴",
-        "Former Members"
+        "團隊成員",
+        "Team Members",
+        "チームメンバー"
     ],
     "authorization": [
-        "網站資料來源、授權",
-        "Bāng-chām Chu-liāu Siū-khoân",
-        "網站資料來源、授權",
-        "Licenses"
+        "網站資料來源、授權單位",
+        "Bāng-chām Chu-liāu Lâi-goân, Siū-khoân Tan-ūi",
+        "網站資料來源和授權單位",
+        "Website data sources and units authorizing the data",
+        "Web サイトのデータ ソースとデータを認証する単位"
     ],
     "authorization-1": [
         "語詞資料",
         "Gí-sû Chu-liāu",
         "語詞資料",
-        "Tâi-gí word datasets"
+        "Taigi Word Datasets",
+        "語彙データ"
     ],
     "authorization-2": [
         "原冊資料",
-        "Goân-chheh Sàu-biô ê Tô͘",
+        "Goân Chheh Chu-liāu",
         "原書籍資料",
-        "Scanned images of original books"
+        "Original Books",
+        "オリジナルの本"
     ],
     "opinion": [
-        "若有siáⁿ-mih建議a̍h是想beh贊助，請你寄phoe來kap gún連絡",
-        "Nā ū siáⁿ-mih kiàn-gī a̍h-sī siūⁿ-beh chàn-chō͘, chhiáⁿ lí kià phoe lâi kap gún liân-lo̍k.",
-        "意見回饋與贊助請來信",
-        "If you wish to give suggestions or to be our sponsor, please feel free to contact us."
+        "Nā有siáⁿ-mih意見，歡迎寄phoe",
+        "Nā ū siáⁿ-mih ì-kiàn, hoan-gêng kià phoe",
+        "意見回饋歡迎來信",
+        "If you have any ideas, please feel free to write in",
+        "何かアイデアがありましたら、お気軽に書き込んでください"
     ]
 }

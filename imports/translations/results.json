@@ -1,50 +1,58 @@
 {
-    "keyowrd": [
-      "Chhōe ê字詞",
-      "Chhōe ê jī-sû",
-      "搜尋關鍵字",
-      "Search Keywords"
+    "search_keyword": [
+        "Chhōe siáⁿ-mih詞",
+        "Chhōe siáⁿ-mih sû",
+        "搜尋關鍵詞",
+        "Search keywords",
+        "検索キーワード"
     ],
     "all-result-1": [
-        "Chhōe ê結果：計共",
-        "Chhōe ê kiat-kó: Kè-kiōng ",
-        "搜尋結果：共",
-        "Result: "
+        "結果：計共 ",
+        "Kiat-kó: Kè-kiōng ",
+        "結果：共 ",
+        "Result: ",
+        "結果: 合計 "
     ],
     "all-result-2": [
-        "份/",
-        " hūn/",
-        "份/",
-        " set(s)/"
+        " 組／",
+        " cho͘ / ",
+        " 組／",
+        " set(s) / ",
+        " つのデータセット／"
     ],
     "all-result-3": [
-        "條",
+        " 條",
         " tiâu",
-        "筆",
-        " result(s)"
+        " 筆",
+        " result(s)",
+        " つ"
     ],
     "result-1": [
-        "計共",
+        "計共 ",
         "Kè-kiōng ",
-        "共",
-        "Total "
+        "共 ",
+        "Total ",
+        "合計 "
     ],
     "result-2": [
         "條",
         " tiâu",
         "筆",
-        " result(s)"
+        " result(s)",
+        "つ"
     ],
     "more-results": [
-        "看全部ê結果",
-        "Khòaⁿ choân-pō͘ ê kiat-kó",
+        "看全部資料",
+        "Khòaⁿ choân-pō͘--ê",
         "顯示更多",
-        "More Results"
+        "More Results",
+        "より多くの結果"
     ],
     "more": [
         "詳細",
         "Siông-sè",
         "詳細",
-        "More"
+        "Details",
+        "詳細"
     ]
-  }
+}

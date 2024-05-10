@@ -34,7 +34,7 @@ class Main extends Component {
             <Route key='search' exact path='/search' component={Search} />,
             <Route key='detail' exact path={detailPath} component={Detail} />,
             <Route key='about' exact path='/liaukai' component={About} />,
-            <Route key='app' exact path='/app' component={DicApp} />,
+            // <Route key='app' exact path='/app' component={DicApp} />,
         ];
         if (Meteor.userId()) {
             additionalRoute.push(

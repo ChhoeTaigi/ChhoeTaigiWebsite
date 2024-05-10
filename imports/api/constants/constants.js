@@ -3,7 +3,7 @@ const Constants = {
     HOST_LOCAL: '127.0.0.1',
 
     /*
-        GRANT CONNECT ON DATABASE sutian20230620 TO chhoetaigi;
+        GRANT CONNECT ON DATABASE sutian20230622 TO chhoetaigi;
         GRANT USAGE ON SCHEMA public TO chhoetaigi;
         GRANT SELECT ON ALL TABLES IN SCHEMA public TO chhoetaigi;
         GRANT SELECT ON ALL SEQUENCES IN SCHEMA public TO chhoetaigi;

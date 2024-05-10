@@ -7,9 +7,12 @@
 .site-footer--darkgreen {
 	background-color: $color--fade-main;
 	color: $color--light-main;
+
 	.langs__btn {
 		color: #fff;
-		&.active, &:hover {
+
+		&.active,
+		&:hover {
 			border-radius: 2px;
 			border: solid 1px #fff;
 		}
@@ -25,18 +28,22 @@
 	@extend %plain-list;
 	display: flex;
 	justify-content: center;
+
 	li {
 		margin: 0 5px;
 	}
+
 	&__btn {
 		height: 30px;
-    font-size: 14px;
+		font-size: 14px;
 		padding: 0 10px;
 		text-align: center;
 		color: $color--fade-dark-main;
 		border: transparent 1px solid;
 		transition: border-color .3s ease-in;
-		&.active, &:hover {
+
+		&.active,
+		&:hover {
 			border-radius: 2px;
 			border: solid 1px $color--fade-dark-main;
 		}
@@ -48,7 +55,8 @@
 	justify-content: space-between;
 	font-size: 13px;
 	padding: 15px 0 10px;
-	> ul {
+
+	>ul {
 		@extend %plain-list;
 	}
 }
@@ -60,17 +68,21 @@
 }
 
 .site-footer__sponsors-logo {
+	padding-top: 3px;
 	padding-right: 50px;
-	> ul {
+
+	>ul {
 		display: flex;
 		justify-content: center;
 		align-items: center;
 	}
-	> ul li {
+
+	>ul li {
 		list-style: none;
 		margin-right: 10px;
 	}
-	> ul li:last-child {
+
+	>ul li:last-child {
 		margin-right: 0px;
 	}
 }
@@ -90,7 +102,8 @@
 	.site-footer__status {
 		flex-direction: column;
 		text-align: center;
-		> ul:first-of-type {
+
+		>ul:first-of-type {
 			margin-bottom: 5px;
 		}
 	}

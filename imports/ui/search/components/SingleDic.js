@@ -15,7 +15,7 @@ class SingleDic extends Component {
         super(props);
 
         props.addTranslation(resultsTranslations);
-        
+
     }
 
 
@@ -33,7 +33,7 @@ class SingleDic extends Component {
             const options = this.props.options;
             options.page = page;
             this.props.history.push({
-                pathname: 'search', 
+                pathname: 'search',
                 search: stringify(options),
             });
         }
@@ -100,12 +100,12 @@ class SingleDic extends Component {
                 const pageUrl = '/search?' + stringify(options);
                 pages.push(<Link key={i} className={'pagination__page ' + (thisPage === i ? 'active' : '')} to={pageUrl}>{i}</Link>);
             }
-            
+
             let lastPage = thisPage - 1;
             lastPage = lastPage < 1 ? 1 : lastPage;
             options.page = lastPage;
             const lastPageUrl = '/search?' + stringify(options);
-            
+
             let nextPage = thisPage + 1;
             nextPage = nextPage > pageNum ? pageNum : nextPage;
             options.page = nextPage;
@@ -126,28 +126,28 @@ class SingleDic extends Component {
 
             bottomPageView = (
                 <div className='search-result__bottom'>
-                    { pageView }
+                    {pageView}
                 </div>
             );
         }
-        
+
         return (
             <div className='search-result'>
                 <div className='container'>
                     <div className='search-result__query'>
-                        <Translate id='keyowrd' />：{keywords}
+                        <Translate id='search_keyword' />：{keywords}
                     </div>
                     <div className='dic-block'>
                         <header className='dic-block__header'>
                             <h2 className='dic-block__title'>{chineseName}</h2>
                             <h3 className='dic-block__counts'>(<Translate id='sutian-sooliong-part1' />{totalNum}<Translate id='sutian-sooliong-part2' />{pageNum}<Translate id='sutian-sooliong-part3' />)</h3>
                             {!this.props.allResults && LoadingIndicator}
-                            { pageView }
+                            {pageView}
                         </header>
                         <div className='dic-block__content'>
-                            <BriefWord key={dic} dic={dic} words={words}/>
+                            <BriefWord key={dic} dic={dic} words={words} />
                         </div>
-                        { bottomPageView }
+                        {bottomPageView}
                     </div>
                 </div>
             </div>

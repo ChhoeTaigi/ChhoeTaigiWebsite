@@ -1,38 +1,44 @@
 {
-  "basic": [
+  "menu_basic": [
     "簡單Chhōe",
-    "Kán-tan Chhōe",
+    "Kán-tan",
     "簡易搜尋",
-    "Basic Search"
+    "Basic",
+    "簡易検索"
   ],
-  "advanced": [
+  "menu_advanced": [
     "詳細Chhōe",
-    "Siông-sè Chhōe",
+    "Siông-sè",
     "進階搜尋",
-    "Advanced Search"
+    "Advanced",
+    "詳細検索"
   ],
   "anchoannchhoe": [
     "按怎Chhōe",
-    "Án-chóaⁿ Chhōe",
+    "Hoat-tō͘",
     "如何搜尋",
-    "How to Search"
+    "Usage",
+    "使い方"
   ],
   "app": [
-    "手機仔App",
-    "Chhiú-ki-á App",
-    "手機App",
-    "App"
+    "È-phoh",
+    "È-phoh",
+    "App",
+    "App",
+    "アプリ"
   ],
   "about": [
-    "說明",
-    "Liáu-kái ChhoeTaigi",
-    "說明",
-    "About ChhoeTaigi"
+    "紹介",
+    "Siāu-kài",
+    "介紹",
+    "About",
+    "紹介"
   ],
   "koankhoan": [
+    "寄付支持",
+    "Kià-hù",
     "贊助支持",
-    "",
-    "贊助支持",
-    ""
+    "Support",
+    "寄付"
   ]
 }

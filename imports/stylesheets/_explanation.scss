@@ -1,29 +1,33 @@
 .explanation {
-  h1 {
-    margin-top: 48px;
-    margin-bottom: 36px;
+	h1 {
+		margin-top: 48px;
+		margin-bottom: 36px;
 		font-size: 28px;
 		font-weight: 300;
 		text-align: center;
 		color: $color--dark-main;
-  }
+	}
+
 	h2 {
-    margin-bottom: 12px;
-    font-size: 24px;
-    font-weight: 500;
+		margin-bottom: 12px;
+		font-size: 24px;
+		font-weight: 500;
 		color: $color--dark-main;
 	}
+
 	section {
 		margin-bottom: 40px;
 	}
+
 	&__ul {
-		> li {
+		>li {
 			font-size: 18px;
 			font-weight: 500;
 			color: $color--gray-main;
 			margin-bottom: 6px;
 		}
 	}
+
 	&__note {
 		display: table;
 		border-radius: 21px;
@@ -37,23 +41,28 @@
 	}
 }
 
-.lmj-note {
+.note-block {
 	@extend %plain-list;
 	background-color: $color--light-gray;
 	margin: 0 0 15px;
-	padding: 10px 20px;
+	padding: 10px 10px;
 	border-radius: 5px;
 	font-size: 16px;
-	> li {
+
+	>li {
 		display: flex;
-		margin-bottom: 15px;
+		margin-bottom: 10px;
+		margin-left: 10px;
+		margin-right: 10px;
+
 		h3 {
 			font-size: 1em;
-			flex: 0 0 168px;
+			flex: 0 0 180px;
 			text-align: right;
 			padding-right: 33px;
 			position: relative;
 		}
+
 		h3::after {
 			content: '—';
 			position: absolute;
@@ -66,25 +75,31 @@
 
 .regex-note {
 	@extend %plain-list;
-	> li {
+
+	>li {
 		margin-bottom: 10px;
 	}
+
 	h3 {
 		color: $color--fade-main;
 		font-size: 18px;
-    	font-weight: 500;
-		padding: 4px 0 4px 20px;
+		font-weight: 500;
+		padding: 4px 0 4px 0px;
 	}
+
 	ol {
 		padding-left: 28px;
-		> li {
+
+		>li {
 			counter-increment: list;
 			margin-bottom: 5px;
 		}
-		> li::marker {
+
+		>li::marker {
 			content: "(" counter(list) ")\a0";
 		}
 	}
+
 	&__content {
 		padding-left: 70px;
 		color: $color--gray-main;
@@ -93,15 +108,17 @@
 }
 
 @media screen and (max-width: 767px) {
-	.lmj-note {
+	.note-block {
 		li {
 			flex-direction: column;
+
 			h3 {
 				flex: 0 0 auto;
 				text-align: left;
 				font-weight: 800;
 				color: $color--fade-dark-main;
 			}
+
 			h3::after {
 				position: relative;
 			}
@@ -115,14 +132,19 @@
 			padding-left: 22px;
 		}
 	}
-	.lmj-note {
+
+	.note-block {
 		padding: 10px;
 	}
+
 	.regex-note {
-		li h3, &__content {
-			padding-left: 0;	
+
+		li h3,
+		&__content {
+			padding-left: 0;
 		}
-		> li {
+
+		>li {
 			margin-bottom: 20px;
 		}
 	}
