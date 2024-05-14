@@ -4,12 +4,11 @@ import { withRouter } from 'react-router-dom';
 import { parse } from '../../../api/utils/url-helper';
 import DictionaryList from './DictionaryList';
 import SingleDic from './SingleDic';
-import ReactGA from "react-ga4";
 
 class Search extends Component {
     constructor(props) {
         super(props);
-        
+
         const options = parse(props.location.search);
         this.state = {
             dic: options.dic,
@@ -30,7 +29,7 @@ class Search extends Component {
     }
 
     process(search) {
-        const options = parse(search); 
+        const options = parse(search);
         Meteor.call('search', options, (error, allResults) => {
             if (error) throw new Meteor.Error(error);
             let state = {
@@ -43,8 +42,6 @@ class Search extends Component {
     }
 
     render() {
-        // ReactGA.send({ hitType: "pageview", page: "/chhoe", title: "Chhōe" });
-
         let content;
         if (this.state.dic)
             content = <SingleDic allResults={this.state.allResults} options={this.state.options} />;

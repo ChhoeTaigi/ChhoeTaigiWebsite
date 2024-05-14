@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
 import { withLocalize } from "react-localize-redux";
 import { Translate } from "react-localize-redux";
-
 import aboutTranslations from '../../translations/about.json';
 
 class About extends Component {

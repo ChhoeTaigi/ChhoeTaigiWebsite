@@ -69,6 +69,41 @@ class BasicSearch extends Component {
 		});
 
 		event.preventDefault();
+
+		sendGaCustomEvents();
+	}
+
+	sendGaCustomEvents() {
+		if (this.state.spelling !== '') {
+			ReactGA.event({
+				category: "Kán-tan Chhōe",
+				action: "Chhōe Lô-má-jī Tâi-bûn: " + this.state.spellingMethod,
+			});
+		}
+		if (this.state.taibun !== '') {
+			ReactGA.event({
+				category: "Kán-tan Chhōe",
+				action: "Chhōe 漢Lô台文",
+			});
+		}
+		if (this.state.english !== '') {
+			ReactGA.event({
+				category: "Kán-tan Chhōe",
+				action: "Chhōe English",
+			});
+		}
+		if (this.state.jitbun !== '') {
+			ReactGA.event({
+				category: "Kán-tan Chhōe",
+				action: "Chhōe 日本語",
+			});
+		}
+		if (this.state.hoabun !== '') {
+			ReactGA.event({
+				category: "Kán-tan Chhōe",
+				action: "Chhōe 中文",
+			});
+		}
 	}
 
 	handleInput(event) {
@@ -111,8 +146,6 @@ class BasicSearch extends Component {
 	}
 
 	render() {
-		// ReactGA.send({ hitType: "pageview", page: "/anchoannchhoe", title: "Án-chóaⁿ Chhōe" });
-
 		this.resetLmjPlaceHolderText();
 
 		return (

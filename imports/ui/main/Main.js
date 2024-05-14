@@ -9,7 +9,7 @@ import Search from '../../ui/search/components/Search';
 import Update from '../pages/Update';
 import Detail from '../search/components/Detail';
 import About from '../pages/About';
-import DicApp from '../pages/DicApp';
+// import DicApp from '../pages/DicApp';
 import Account from '../pages/Account';
 
 // formal
@@ -30,8 +30,8 @@ class Main extends Component {
         let additionalRoute = [
             <Route key='basic' exact path='/' component={BasicSearch} />,
             <Route key='advanced' exact path='/siongse' component={AdvancedSearch} />,
-            <Route key='search' exact path='/search' component={Search} />,
             <Route key='explanation' exact path='/anchoannchhoe' component={Explanation} />,
+            <Route key='search' exact path='/search' component={Search} />,
             <Route key='detail' exact path={detailPath} component={Detail} />,
             <Route key='about' exact path='/siaukai' component={About} />,
             // <Route key='app' exact path='/app' component={DicApp} />,

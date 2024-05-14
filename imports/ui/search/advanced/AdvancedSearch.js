@@ -2,7 +2,6 @@ import React, { Component } from "react";
 import { withRouter, Link } from "react-router-dom";
 import { withLocalize } from "react-localize-redux";
 import { Translate } from "react-localize-redux";
-import ReactGA from "react-ga4";
 
 import { stringify } from "../../../api/utils/url-helper";
 import dicStruct from "../../../api/dicts/dictionary-struct";
@@ -45,8 +44,6 @@ class AdvancedSearch extends Component {
     }
 
     render() {
-        // ReactGA.send({ hitType: "pageview", page: "/siongse", title: "Siông-sè Chhōe / Chhōe Choân Bûn" });
-
         // method buttons
         let methodButtons = [
             <button className={this.state.method === 'allField' ? 'active' : ''} key='allField' onClick={this.handleMethodButton.bind(this, 'allField')}><Translate id='all-field' /></button>,
@@ -136,12 +133,6 @@ class SingleDicOptionsClass extends Component {
     }
 
     handleSubmit(event) {
-        // ReactGA.event({
-        //     category: "user",
-        //     action: "search",
-        //     label: "single-dic",
-        // });
-
         if (this.state.searchMethod === 'equals') {
             for (let key in this.state.columns) {
                 this.state.columns[key] = this.state.columns[key].trim();
@@ -196,8 +187,6 @@ class SingleDicOptionsClass extends Component {
     }
 
     render() {
-        // ReactGA.send({ hitType: "pageview", page: "/siongse", title: "Siông-sè Chhōe / Chhōe Chu-liāu Chi̍p" });
-
         let dic = this.props.dic;
         let columns = dicStruct.find((e) => e.name === dic).columns;
 
@@ -303,8 +292,6 @@ class AllFieldOptionsClass extends Component {
     };
 
     render() {
-        // ReactGA.send({ hitType: "pageview", page: "/siongse", title: "Siông-sè Chhōe / Chhōe Choân Bûn" });
-
         return (
             <Translate>{({ translate }) =>
                 <form className='all-field-search' onSubmit={this.handleSubmit.bind(this)} autoComplete='off'>

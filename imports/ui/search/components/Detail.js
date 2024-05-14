@@ -1,11 +1,10 @@
 import React, { Component } from 'react';
 import { withRouter } from 'react-router-dom';
-
 import dicStruct from '../../../api/dicts/dictionary-struct';
 import Word from "./Word";
 
 class Detail extends Component {
-    constructor (props) {
+    constructor(props) {
         super(props);
         let dic = this.props.match.params.dictionary;
         let id = this.props.match.params.id;
