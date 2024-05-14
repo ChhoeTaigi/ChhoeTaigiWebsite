@@ -23,7 +23,7 @@ const analyticsDataClient = new BetaAnalyticsDataClient({
 const propertyId = "378760521";
 const sessionCountBefore20230526 = 1026840;
 const pageViewCountBefore20230526 = 8665444;
-const updatePeriod = 1 * 60 * 1000; // ms
+const updatePeriod = 5 * 60 * 1000; // ms
 
 const enableLogger = false;
 const enableFileLogger = false;
@@ -67,10 +67,12 @@ class GA {
 
         // run once
         this.runBatchReport();
+        // this.runRealtimeReport();
         this.firstTimeRunOnce = true;
 
         // repeat task
-        this.intervalID = setInterval(this.runBatchReport.bind(this), updatePeriod);
+        this.intervalIdRunBatchReport = setInterval(this.runBatchReport.bind(this), updatePeriod);
+        // this.intervalIdRunRealtimeReport = setInterval(this.runRealtimeReport.bind(this), updatePeriod);
     }
 
     async runBatchReport() {
@@ -83,45 +85,32 @@ class GA {
                             {
                                 "startDate": "2023-05-27",
                                 "endDate": "today"
-
                             }
-
                         ],
                         "metrics": [
                             {
                                 "name": "sessions"
-
                             }
-
                         ]
-
                     },
                     {
                         "dateRanges": [
                             {
                                 "startDate": "2023-05-27",
                                 "endDate": "today"
-
                             }
-
                         ],
                         "metrics": [
                             {
                                 "name": "eventCount"
-
                             }
-
                         ],
                         "dimensions": [
                             {
                                 "name": "eventName"
-
                             }
-
                         ]
-
                     }
-
                 ]
             });
 
@@ -131,7 +120,40 @@ class GA {
                     this.printRunReportResponse(report);
                 });
             }
-            this.process(response.reports);
+            this.processUserCountReport(response.reports);
+        } catch (error) {
+            console.log(error);
+            if (enableLogger) {
+                log.error("ga error: " + JSON.stringify(error));
+            }
+        }
+    }
+
+    async runRealtimeReport() {
+        try {
+            const [response] = await analyticsDataClient.runRealtimeReport({
+                property: `properties/${propertyId}`,
+                requests: [
+                    {
+                        "dimensions": [
+                            {
+                                "name": "country"
+
+                            }
+
+                        ]
+
+                    }
+                ]
+            });
+
+            if (enableLogger) {
+                console.log('Realtime report results:');
+                response.reports.forEach(report => {
+                    this.printRunReportResponse(report);
+                });
+            }
+            this.processRealtimeActiveUserCountReport(response.reports);
         } catch (error) {
             console.log(error);
             if (enableLogger) {
@@ -177,11 +199,12 @@ class GA {
     }
 
     stop() {
-        clearInterval(this.intervalID);
+        clearInterval(this.intervalIdRunBatchReport);
+        // clearInterval(this.intervalIdRunRealtimeReport);
         this.firstTimeRunOnce = false;
     }
 
-    process(reports) {
+    processUserCountReport(reports) {
         if (enableLogger) {
             console.log("process ga response.")
         }
@@ -201,6 +224,21 @@ class GA {
             log.info("pageViewCount: " + pageViewCount);
         }
         Minimongo.update(minimongo, { $set: { clicks: pageViewCount } }, { upsert: true });
+    }
+
+    processRealtimeActiveUserCountReport(reports) {
+        if (enableLogger) {
+            console.log("process ga response.")
+        }
+
+        const minimongo = Minimongo.findOne();
+
+        const realtimeActiveUserCount = parseInt(reports[0].rows[0].metricValues[0].value);
+        if (enableLogger) {
+            console.log("realtimeActiveUserCount: " + realtimeActiveUserCount);
+            log.info("realtimeActiveUserCount: " + realtimeActiveUserCount);
+        }
+        Minimongo.update(minimongo, { $set: { activeUsers: realtimeActiveUserCount } }, { upsert: true });
     }
 }
 
