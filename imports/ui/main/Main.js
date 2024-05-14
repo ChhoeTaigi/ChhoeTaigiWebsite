@@ -20,7 +20,7 @@ class Main extends Component {
         if (currentLocation === '/') {
             bgType = 'bg--darkgreen';
         }
-        else if (currentLocation === '/chinkai') {
+        else if (currentLocation === '/siongse') {
             bgType = 'bg--lightgreen';
         }
         else {
@@ -29,11 +29,11 @@ class Main extends Component {
         const detailPath = getDetailPath();
         let additionalRoute = [
             <Route key='basic' exact path='/' component={BasicSearch} />,
-            <Route key='advanced' exact path='/chinkai' component={AdvancedSearch} />,
-            <Route key='explanation' exact path='/annachhoe' component={Explanation} />,
+            <Route key='advanced' exact path='/siongse' component={AdvancedSearch} />,
             <Route key='search' exact path='/search' component={Search} />,
+            <Route key='explanation' exact path='/anchoannchhoe' component={Explanation} />,
             <Route key='detail' exact path={detailPath} component={Detail} />,
-            <Route key='about' exact path='/liaukai' component={About} />,
+            <Route key='about' exact path='/siaukai' component={About} />,
             // <Route key='app' exact path='/app' component={DicApp} />,
         ];
         if (Meteor.userId()) {

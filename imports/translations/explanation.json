@@ -18,14 +18,14 @@
         "POJ",
         "白話字",
         "POJ",
-        "POJ"
+        "白話字"
     ],
     "definition-lmj-poj-kaisoeh": [
         "白話字（Pe̍h-ōe-jī），台灣傳統台語正寫法（orthography, writing system），tī台灣釘根超過150冬，台語文獻數量siōng chē。",
         "POJ (Pe̍h-ōe-jī), Tâi-oân thoân-thóng Tâi-gí chèng-siá-hoat. Tī Tâi-oân tèng-kin chhiau-kòe 150 tang. Tâi-gí bûn-hiàn sò͘-liōng siōng chē.",
         "白話字（Pe̍h-ōe-jī​），台灣傳統台語正寫法（orthography, writing system），在台灣釘根超過150年，台語文獻數量最多。",
         "POJ (Pe̍h-ōe-jī). Taiwan’s traditional Taiwanese orthography (writing system), has been rooted in Taiwan for more than 150 years and has the largest number of Taiwanese documents.",
-        "POJ（Pe̍h-ōe-jī），台湾の伝統的な台湾ローマ字、は 150 年以上にわたって台湾に根付いており、台湾の文献の数は最も多いです。"
+        "白話字（Pe̍h-ōe-jī），台湾の伝統的な台湾ローマ字、は 150 年以上にわたって台湾に根付いており、台湾の文献の数は最も多いです。"
     ],
     "definition-lmj-kip": [
         "教部羅",
@@ -137,7 +137,7 @@
         "POJ (Su-ji̍p)",
         "白話字(輸入式)",
         "POJ (Input)",
-        "POJ(入力)"
+        "白話字(記号なし)"
     ],
     "poj-num": [
         "「輸入式」免台語輸入法mā ē-tàng chhōe。聲調phah數字，khǹg tī音節siōng尾。第1、4調數字ē-tàng免phah。白話字「o͘」phah『oo』，鼻音「ⁿ」phah『nn』。譬喻beh chhōe「chho͘」ài phah『chhoo』、beh chhōe「siâⁿ」ài phah『siann5』。",
@@ -151,7 +151,7 @@
         "Bân Lô (Su-ji̍p)",
         "教部羅(輸入式)",
         "MoE Roman (Input)",
-        "教部羅(入力)"
+        "教部羅(記号なし)"
     ],
     "lmj-num": [
         "「輸入式」免台語輸入法mā ē-tàng chhōe。聲調phah數字，khǹg tī音節siōng尾。第1、4調數字ē-tàng免phah。譬喻beh chhōe「pe̍h」ài phah『peh8』。",
@@ -283,7 +283,7 @@
         "基本tek大部份語法kan-na ē-tàng kō͘「輸入式」來chhōe。",
         "Ki-pún tek tāi-pō͘-hūn gí-hoat kan-na ē-tàng kō͘ \"Su-ji̍p\" sek lâi chhōe.",
         "基本上大部分語法只適合使用「輸入式」。",
-        "Basically, most syntaxes are only suitable for using \"Input\" mode.",
+        "Most syntaxes can only be used with the \"Input\" mode.",
         "基本的に、それらのほとんどは「入力」モードでのみ使用できます。"
     ],
     "regex-desc-3": [
@@ -297,7 +297,7 @@
         "初學者建議先學會曉按怎用『%』kap『~』。",
         "Chho͘-ha̍k-chiá kiàn-gī seng o̍h ē-hiáu án-chóaⁿ iōng 『%] kap 『~].",
         "初學者建議先學會如何用『%』kap『~』。",
-        "Beginners are advised to learn how to use 『%] kap 『~] first.",
+        "Beginners are advised to learn how to use 『%] and 『~] first.",
         "初心者の方は、まず『%』kap『~』の使い方を学ぶことをお勧めします。"
     ],
     "regex_features": [
@@ -319,7 +319,7 @@
         "Phí-jū \"Pe̍h-ōe-jī (Su-ji̍p)\" phah 『tha%』, ē-tàng chhōe tio̍h \"tha\", \"thà\", \"thah\", \"tha̍k\" téng-téng.",
         "例如「白話字(輸入式)」輸入『tha%』，可以找到「tha」、「thà」、「thah」、「tha̍k」等等。",
         "For example: Enter 『tha%』 at \"POJ (Input)\", you can find \"tha\", \"thà\", \"thah\", \"tha̍k\", etc.",
-        "たとえば、POJ(入力)で『tha%』と検索すると、「tha」、「thà」、「thah」、「tha̍k」などが結果として表示されます。"
+        "たとえば、白話字(記号なし)で『tha%』と検索すると、「tha」、「thà」、「thah」、「tha̍k」などが結果として表示されます。"
     ],
     "1e-imchat": [
         "『~』：Ē-tàng代表1 ê音節，a̍h是1 ê音節內底ê元素。",

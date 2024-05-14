@@ -59,16 +59,16 @@ class Header extends Component {
                                 <Link className={currentLocation === '/' ? 'active' : ''} to='/' onClick={this.closeMenu}><Translate id="menu_basic" /></Link>
                             </li>
                             <li>
-                                <Link className={currentLocation === '/chinkai' ? 'active' : ''} to='/chinkai' onClick={this.closeMenu}><Translate id="menu_advanced" /></Link>
+                                <Link className={currentLocation === '/siongse' ? 'active' : ''} to='/siongse' onClick={this.closeMenu}><Translate id="menu_advanced" /></Link>
                             </li>
                             <li>
-                                <Link className={currentLocation === '/annachhoe' ? 'active' : ''} to='/annachhoe' onClick={this.closeMenu}><Translate id="anchoannchhoe" /></Link>
+                                <Link className={currentLocation === '/anchoannchhoe' ? 'active' : ''} to='/anchoannchhoe' onClick={this.closeMenu}><Translate id="anchoannchhoe" /></Link>
                             </li>
                             {/* <li>
                                 <Link className={currentLocation === '/app' ? 'active' : ''} to='/app' onClick={this.closeMenu}><Translate id="app" /></Link>
                             </li> */}
                             <li>
-                                <Link className={currentLocation === '/liaukai' ? 'active' : ''} to='/liaukai' onClick={this.closeMenu}><Translate id="about" /></Link>
+                                <Link className={currentLocation === '/siaukai' ? 'active' : ''} to='/siaukai' onClick={this.closeMenu}><Translate id="about" /></Link>
                             </li>
                             <li>
                                 <Link className='koankhoan-link' to={{ pathname: 'https://r.zecz.ec/vpKd' }} target='_blank'><Translate id="koankhoan" /></Link>

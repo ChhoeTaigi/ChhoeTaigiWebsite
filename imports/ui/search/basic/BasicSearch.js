@@ -2,14 +2,15 @@ import React, { Component } from 'react';
 import { withRouter, Link } from 'react-router-dom';
 import { withLocalize } from "react-localize-redux";
 import { Translate } from "react-localize-redux";
-import ReactGA from 'react-ga4';
 import { stringify } from '../../../api/utils/url-helper';
 import basicTranslations from '../../../translations/basic.json';
+import ReactGA from "react-ga4";
 
 let state = {
 	searchMethod: 'equals',
 	spellingMethod: 'PojInput',
 	spelling: '',
+	lmjPlaceHolderText: '',
 	taibun: '',
 	hoabun: '',
 	english: '',
@@ -26,7 +27,7 @@ class BasicSearch extends Component {
 	}
 
 	componentDidMount() {
-		window.scrollTo(0, 0)
+		window.scrollTo(0, 0);
 	}
 
 	componentWillUnmount() {
@@ -34,12 +35,6 @@ class BasicSearch extends Component {
 	}
 
 	handleSubmit(event) {
-		// ReactGA.event({
-		// 	category: 'user',
-		// 	action: 'search',
-		// 	label: 'basic'
-		// });
-
 		if (this.state.searchMethod === 'equals') {
 			this.state.spelling = this.state.spelling.trim();
 			this.state.taibun = this.state.taibun.trim();
@@ -81,6 +76,11 @@ class BasicSearch extends Component {
 		let value = event.target.value;
 		let state = [];
 		state[key] = value;
+
+		if (key === 'spellingMethod') {
+			this.forceUpdate();
+		}
+
 		this.setState(state);
 	}
 
@@ -98,7 +98,23 @@ class BasicSearch extends Component {
 		window.open("https://r.zecz.ec/oiML", '_blank').focus();
 	}
 
+	resetLmjPlaceHolderText = () => {
+		if (this.state.spellingMethod === 'PojInput') {
+			this.state.lmjPlaceHolderText = this.props.translate('lmj_keyword_poj_input');
+		} else if (this.state.spellingMethod === 'PojUnicode') {
+			this.state.lmjPlaceHolderText = this.props.translate('lmj_keyword_poj_unicode');
+		} else if (this.state.spellingMethod === 'KipInput') {
+			this.state.lmjPlaceHolderText = this.props.translate('lmj_keyword_kip_input');
+		} else if (this.state.spellingMethod === 'KipUnicode') {
+			this.state.lmjPlaceHolderText = this.props.translate('lmj_keyword_kip_unicode');
+		}
+	}
+
 	render() {
+		// ReactGA.send({ hitType: "pageview", page: "/anchoannchhoe", title: "Án-chóaⁿ Chhōe" });
+
+		this.resetLmjPlaceHolderText();
+
 		return (
 			<div>
 				<div className='site-banner'>
@@ -130,7 +146,7 @@ class BasicSearch extends Component {
 									</label>
 								</div>
 								<div className='basic-search__note'>
-									<Link to='/annachhoe'><Translate id="explanation" /></Link>
+									<Link to='/anchoannchhoe'><Translate id="explanation" /></Link>
 								</div>
 							</div>
 							<div className='basic-search__bottom'>
@@ -157,7 +173,7 @@ class BasicSearch extends Component {
 											</label>
 										</div>
 										<div className='search-block__lmj-bottom'>
-											<input type="text" name="spelling" placeholder={this.props.translate('lmj_keyword')} value={this.state.spelling} onChange={this.handleInput.bind(this)} />
+											<input type="text" name="spelling" placeholder={this.state.lmjPlaceHolderText} value={this.state.spelling} onChange={this.handleInput.bind(this)} />
 										</div>
 									</div>
 								</div>

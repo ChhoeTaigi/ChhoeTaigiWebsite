@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { withRouter } from "react-router-dom";
 import { withLocalize } from "react-localize-redux";
 import { Translate } from "react-localize-redux";
+import ReactGA from "react-ga4";
 
 import explanationTranslations from "../../translations/explanation.json";
 
@@ -13,6 +14,8 @@ class Explanation extends Component {
 
 
   render() {
+    // ReactGA.send({ hitType: "pageview", page: "/", title: "Kán-tan Chhōe" });
+
     return (
       <div className='container explanation'>
         <h1><Translate id='explanation' /></h1>

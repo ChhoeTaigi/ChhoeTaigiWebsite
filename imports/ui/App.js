@@ -3,7 +3,6 @@ import { withRouter } from 'react-router-dom';
 import { withLocalize } from "react-localize-redux";
 import { renderToStaticMarkup } from "react-dom/server";
 import { withCookies } from 'react-cookie';
-
 import { getLocale } from '../api/utils/locale';
 
 import Header from './main/Header';

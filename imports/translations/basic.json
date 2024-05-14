@@ -53,14 +53,14 @@
         "POJ",
         "白話字",
         "POJ",
-        "POJ"
+        "白話字"
     ],
     "poj-input": [
         "白話字(輸入式)",
         "POJ (Su-ji̍p)",
         "白話字(輸入式)",
         "POJ (Input)",
-        "POJ(入力)"
+        "白話字(記号なし)"
     ],
     "lmj": [
         "教部羅",
@@ -74,21 +74,42 @@
         "Bân Lô (Su-ji̍p)",
         "教部羅(輸入式)",
         "MoE Roman (Input)",
-        "教部羅(入力)"
+        "教部羅(記号なし)"
     ],
-    "lmj_keyword": [
-        "見本：tai5 gi2",
-        "Kiàn-pún: tai5 gi2",
-        "例：tai5 gi2",
-        "Example: tai5 gi2",
-        "見本：tai5 gi2"
+    "lmj_keyword_poj_input": [
+        "見本：choo tiunn2",
+        "Kiàn-pún: choo tiunn2",
+        "例：choo tiunn2",
+        "Example: choo tiunn2",
+        "見本：choo tiunn2"
+    ],
+    "lmj_keyword_poj_unicode": [
+        "見本：cho͘-tiúⁿ",
+        "Kiàn-pún: cho͘-tiúⁿ",
+        "例：cho͘-tiúⁿ",
+        "Example: cho͘-tiúⁿ",
+        "見本：cho͘-tiúⁿ"
+    ],
+    "lmj_keyword_kip_input": [
+        "見本：tsoo tiunn2",
+        "Kiàn-pún: tsoo tiunn2",
+        "例：tsoo tiunn2",
+        "Example: tsoo tiunn2",
+        "見本：tsoo tiunn2"
+    ],
+    "lmj_keyword_kip_unicode": [
+        "見本：tsoo-tiúnn",
+        "Kiàn-pún: tsoo-tiúnn",
+        "例：tsoo-tiúnn",
+        "Example: tsoo-tiúnn",
+        "見本：tsoo-tiúnn"
     ],
     "hanlo_keyword": [
-        "見本：台語",
-        "Kiàn-pún: 台語",
-        "例：台語",
-        "Example: 台語",
-        "見本：台語"
+        "見本：組長",
+        "Kiàn-pún: 組長",
+        "例：組長",
+        "Example: 組長",
+        "見本：組長"
     ],
     "engbun_keyword": [
         "建議kéng「相關--ê」。見本：eagle",
@@ -179,7 +200,7 @@
         " bō͘-chu kè-e̍k teh pháng, 100 pha bîn-kan chu-kim, to̍k-li̍p ūn-chok.",
         " 募資計畫在運作，100%民間群眾資金，獨立運作。",
         " 100% public funding, independent operation.",
-        " クラファン計画によって運営されています。100％公的資金による独立運営。"
+        " クラウド・ファンディングで独立運営がされています。資金は100％が利用される皆様からのご支援で成り立っています。"
     ],
     "support_taibun_kesimi_part4": [
         "阮資源真欠，邀請你做陣來支持，感謝！🙏🏼",

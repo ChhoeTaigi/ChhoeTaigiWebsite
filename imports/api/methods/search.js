@@ -134,7 +134,7 @@ const regexStringSouSianntiau = '(?:2|3|p8|p|t8|t|k8|k|h8|h|5|7|8)?';
 const regexStringHyphenOrSpace = '(?: |--|-)';
 
 const regexStringAhUnPrefix = '.*(?:(?<![aiueo]))';
-const regexStringAhUnSuffix =  '(?:nn)?(?:2|3|h8|h|5|7|8)?$';
+const regexStringAhUnSuffix = '(?:nn)?(?:2|3|h8|h|5|7|8)?$';
 const regexStringKootengImchatPrefix = '(.* |^)';
 const regexStringKootengImchatSuffix = '( .*|$)';
 

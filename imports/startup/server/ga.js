@@ -23,7 +23,7 @@ const analyticsDataClient = new BetaAnalyticsDataClient({
 const propertyId = "378760521";
 const sessionCountBefore20230526 = 1026840;
 const pageViewCountBefore20230526 = 8665444;
-const updatePeriod = 5 * 60 * 1000; // ms
+const updatePeriod = 1 * 60 * 1000; // ms
 
 const enableLogger = false;
 const enableFileLogger = false;

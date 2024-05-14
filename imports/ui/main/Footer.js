@@ -38,7 +38,7 @@ class Footer extends Component {
         let background = '';
         if (pathname === '/') {
             background = 'site-footer--darkgreen';
-        } else if (pathname === '/chinkai') {
+        } else if (pathname === '/siongse') {
             background = 'site-footer--lightgreen';
         }
 

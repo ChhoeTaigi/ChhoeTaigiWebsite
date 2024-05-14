@@ -45,6 +45,8 @@ class AdvancedSearch extends Component {
     }
 
     render() {
+        // ReactGA.send({ hitType: "pageview", page: "/siongse", title: "Siông-sè Chhōe / Chhōe Choân Bûn" });
+
         // method buttons
         let methodButtons = [
             <button className={this.state.method === 'allField' ? 'active' : ''} key='allField' onClick={this.handleMethodButton.bind(this, 'allField')}><Translate id='all-field' /></button>,
@@ -194,6 +196,8 @@ class SingleDicOptionsClass extends Component {
     }
 
     render() {
+        // ReactGA.send({ hitType: "pageview", page: "/siongse", title: "Siông-sè Chhōe / Chhōe Chu-liāu Chi̍p" });
+
         let dic = this.props.dic;
         let columns = dicStruct.find((e) => e.name === dic).columns;
 
@@ -228,7 +232,7 @@ class SingleDicOptionsClass extends Component {
                             </label>
                         </div>
                         <div className='single-dic-search__note'>
-                            <Link id='regex-note' to='/annachhoe'><Translate id="explanation" /></Link>
+                            <Link id='regex-note' to='/anchoannchhoe'><Translate id="explanation" /></Link>
                         </div>
                     </div>
                     {searchBlocks}
@@ -263,12 +267,6 @@ class AllFieldOptionsClass extends Component {
     }
 
     handleSubmit(event) {
-        // ReactGA.event({
-        //     category: "user",
-        //     action: "search",
-        //     label: "all-field",
-        // });
-
         if (this.state.searchMethod === 'equals') {
             this.state.value = this.state.value.trim();
         }
@@ -305,6 +303,8 @@ class AllFieldOptionsClass extends Component {
     };
 
     render() {
+        // ReactGA.send({ hitType: "pageview", page: "/siongse", title: "Siông-sè Chhōe / Chhōe Choân Bûn" });
+
         return (
             <Translate>{({ translate }) =>
                 <form className='all-field-search' onSubmit={this.handleSubmit.bind(this)} autoComplete='off'>
@@ -321,7 +321,7 @@ class AllFieldOptionsClass extends Component {
                             </label>
                         </div>
                         <div className='all-field-search__note'>
-                            <Link to='/annachhoe'><Translate id="explanation" /></Link>
+                            <Link to='/anchoannchhoe'><Translate id="explanation" /></Link>
                         </div>
                     </div>
                     <input className='all-field-search__input' type='text' placeholder={translate('keyword')} name='value' onChange={this.handleInput.bind(this)} value={this.state.value}></input>

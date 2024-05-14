@@ -4,6 +4,7 @@ import { withRouter } from 'react-router-dom';
 import { parse } from '../../../api/utils/url-helper';
 import DictionaryList from './DictionaryList';
 import SingleDic from './SingleDic';
+import ReactGA from "react-ga4";
 
 class Search extends Component {
     constructor(props) {
@@ -42,6 +43,8 @@ class Search extends Component {
     }
 
     render() {
+        // ReactGA.send({ hitType: "pageview", page: "/chhoe", title: "Chhōe" });
+
         let content;
         if (this.state.dic)
             content = <SingleDic allResults={this.state.allResults} options={this.state.options} />;

@@ -28,9 +28,9 @@ export default class Landing extends Component {
 
     render() {
         return (
-            <div style={{minHeight: this.state.background_height + 'px'}}>
+            <div style={{ minHeight: this.state.background_height + 'px' }}>
                 <img id='landing' src='images/landingKV@2x.png' width='879' height='346' />
-                <Link id='more' to='/liaukai'>了解更多</Link>
+                <Link id='more' to='/siaukai'>了解更多</Link>
             </div>
         );
     }
