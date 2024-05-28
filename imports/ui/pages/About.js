@@ -164,6 +164,12 @@ class About extends Component {
 								<div className='members__desc'>Kóng Tâi-gí, siá Tâi-bûn, chò-hóe kā lán ê bó-gí seⁿ-thòaⁿ--lo̍h-khì.</div>
 							</li>
 							<li>
+								<img className='members__img' src='images/teammember_mask.png' />
+								<div className='members__name'>MASK</div>
+								<div className='members__title'>Sò͘-ūi hòa</div>
+								<div className='members__desc'>May the Force be with you.</div>
+							</li>
+							<li>
 								<img className='members__img' src='images/teammember_tekju.png' />
 								<div className='members__name'>Tân Tekjū</div>
 								<div className='members__title'>Sò͘-ūi hòa, hoan-e̍k, kàu-tèng</div>

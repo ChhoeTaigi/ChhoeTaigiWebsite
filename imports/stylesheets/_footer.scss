@@ -68,27 +68,27 @@
 }
 
 .site-footer__sponsors-logo {
-	padding-top: 3px;
-	padding-right: 50px;
+	width: auto;
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
 
-	>ul {
-		display: flex;
-		justify-content: center;
-		align-items: center;
-	}
-
-	>ul li {
-		list-style: none;
-		margin-right: 10px;
-	}
-
-	>ul li:last-child {
-		margin-right: 0px;
+	&__logo-item {
+		padding: 3px 3px;
 	}
 }
 
-.sponsor-logo {
+.site-footer__sponsors-logo-item {
+	padding-left: 500px;
+}
+
+.sponsor-logo-hoatki {
 	width: 205px;
+	height: 50px;
+}
+
+.sponsor-logo-tktgbcchh {
+	width: 162px;
 	height: 50px;
 }
 
@@ -106,5 +106,12 @@
 		>ul:first-of-type {
 			margin-bottom: 5px;
 		}
+	}
+}
+
+@media screen and (max-width: 540px) {
+	.site-footer__sponsors-logo {
+		flex-direction: column;
+		align-items: center;
 	}
 }

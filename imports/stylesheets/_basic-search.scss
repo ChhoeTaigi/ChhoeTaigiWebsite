@@ -210,4 +210,16 @@
 			margin: 0 auto -20px;
 		}
 	}
+
+	.basic-search {
+		--content-padding: 6%;
+
+		&__kesimi {
+			font-size: 11px;
+
+			a {
+				font-size: 12px;
+			}
+		}
+	}
 }

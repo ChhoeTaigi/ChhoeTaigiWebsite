@@ -17,14 +17,14 @@
         "Kāng款--ê",
         "Kāng khoán--ê",
         "精確",
-        "Exact",
+        "Exact match",
         "完全一致検索"
     ],
     "contains": [
         "相關--ê",
         "Siong-koan--ê",
         "包含",
-        "Contains",
+        "Partial match",
         "あいまい検索"
     ],
     "explanation": [
@@ -115,21 +115,21 @@
         "建議kéng「相關--ê」。見本：eagle",
         "Kéng \"Siong-koan--ê\". Kiàn-pún: eagle",
         "建議用「包含」模式。例：eagle",
-        "Select \"Contains\" filter. Example: eagle",
+        "Select \"Partial match\" filter. Example: eagle",
         "「あいまい検索」の方法で検索してください。見本：eagle"
     ],
     "jitbun_keyword": [
         "建議kéng「相關--ê」。見本：わし",
         "Kéng \"Siong-koan--ê\". Kiàn-pún: わし",
         "建議用「包含」模式。例：わし",
-        "Select \"Contains\" filter. Example: わし",
+        "Select \"Partial match\" filter. Example: わし",
         "「あいまい検索」の方法で検索してください。見本：わし"
     ],
     "tiongbun_keyword": [
         "建議kéng「相關--ê」。見本：老鷹",
         "Kéng \"Siong-koan--ê\". Kiàn-pún: 老鷹",
         "建議用「包含」模式。例：老鷹",
-        "Select \"Contains\" filter. Example: 老鷹",
+        "Select \"Partial match\" filter. Example: 老鷹",
         "「あいまい検索」の方法で検索してください。見本：老鷹"
     ],
     "corresponding-tb": [

@@ -80,14 +80,14 @@
         "Kāng款--ê：Chhōe完全kāng款--ê。",
         "Kāng khoán--ê: Chhōe oân-choân kāng khoán--ê.",
         "精確：搜尋完全符合關鍵詞的資料。",
-        "Exact: Search for information that exactly matches the keywords.",
+        "Exact match: Search for information that exactly matches the keywords.",
         "完全一致検索：キーワードに完全に一致する情報を検索します。"
     ],
     "contains": [
         "相關--ê：Chhōe內底nā有kauh關鍵詞--ê。",
         "Siong-koan--ê: Chhōe lāi-té ū kauh koan-kiān sû--ê.",
         "包含：搜尋有包含關鍵詞的資料。",
-        "Contains: Searching for information containing keywords.",
+        "Partial match: Searching for information containing keywords.",
         "あいまい検索：キーワードを含む情報を検索します。"
     ],
     "condition": [

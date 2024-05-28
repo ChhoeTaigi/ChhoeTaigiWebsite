@@ -87,13 +87,16 @@ class Footer extends Component {
                     <Translate id='sponsors' />
                 </div>
                 <div className='container site-footer__sponsors-logo'>
-                    <ul className='site-footer__sponsors-logo-list'>
-                        <li>
-                            <Link to={{ pathname: 'https://hoatki.de-han.org/' }} target='_blank'>
-                                <img className='sponsor-logo' src='/images/sponsor_logo_hoatki.jpg' alt='Hoat-Ki Tâi-gí Ki-kim-hōe 蔣發太孫玉枝台語文教育基金會' />
-                            </Link>
-                        </li>
-                    </ul>
+                    <div className='site-footer__sponsors-logo__logo-item item-1'>
+                        <Link to={{ pathname: 'https://hoatki.de-han.org/' }} target='_blank'>
+                            <img className='sponsor-logo-hoatki' src='/images/sponsor_logo_hoatki.png' alt='Hoat-Ki Tâi-gí Ki-kim-hōe 蔣發太孫玉枝台語文教育基金會' />
+                        </Link>
+                    </div>
+                    <div className='site-footer__sponsors-logo__logo-item item-2'>
+                        <Link to={{ pathname: 'https://linktr.ee/taibunexpo' }} target='_blank'>
+                            <img className='sponsor-logo-tktgbcchh' src='/images/sponsor_logo_tktgbcchh.png' alt='Tá-káu Tâi-gí-bûn Chhiok-chìn Hia̍p-hōe 打狗台語文促進協會' />
+                        </Link>
+                    </div>
                 </div>
             </footer>
         );

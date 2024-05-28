@@ -10,14 +10,14 @@
         "Kāng款--ê",
         "Kāng khoán--ê",
         "精確",
-        "Exact",
+        "Exact match",
         "完全一致検索"
     ],
     "contains": [
         "相關--ê",
         "Siong-koan--ê",
         "包含",
-        "Contains",
+        "Partial match",
         "あいまい検索"
     ],
     "explanation": [

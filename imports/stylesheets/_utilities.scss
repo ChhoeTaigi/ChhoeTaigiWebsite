@@ -9,25 +9,32 @@
   color: $color--main;
   text-decoration: none;
   white-space: nowrap;
-  &--search, &--clear, &--donate {
+
+  &--search,
+  &--clear,
+  &--donate {
     background-repeat: no-repeat;
     background-size: 22px 18px;
     background-position: right 18px center;
     padding-right: 42px;
     padding-inline-end: 50px;
   }
+
   &--search {
     background-image: url(/images/magnifier@2x.png);
   }
+
   &--clear {
     background-image: url(/images/clear@2x.png);
     color: #808380;
   }
+
   &--donate {
     background-image: url(/images/donate@2x.png);
     color: $color--orange;
     border-color: $color--orange;
   }
+
   &--contact {
     box-shadow: none;
     border-color: #babfb7;
@@ -39,12 +46,13 @@
     height: 168px;
     padding: 0 calc(10% + 70px) 0 0;
     background-image: url(/images/arrow@2x.png);
-	  background-size: 61px 16px;
+    background-size: 61px 16px;
     background-position: center right 10%;
     text-align: center;
     position: relative;
     display: flex;
     align-items: center;
+
     &:hover {
       box-shadow: $shadow--basic;
       border-color: $color--main;
@@ -52,7 +60,9 @@
       background-image: url(/images/arrow_g@2x.png);
     }
   }
-  &--contact-msg, &--contact-mail {
+
+  &--contact-msg,
+  &--contact-mail {
     &::before {
       content: "";
       display: block;
@@ -61,21 +71,25 @@
       flex-shrink: 0;
     }
   }
+
   &--contact-msg::before {
     width: 70px;
     height: 60px;
     background-image: url(/images/chat_normal@2x.png);
     background-size: 70px 60px;
   }
+
   &--contact-msg:hover::before {
     background-image: url(/images/chat_click@2x.png);
   }
+
   &--contact-mail::before {
     width: 70px;
     height: 52px;
     background-image: url(/images/mail_normal@2x.png);
     background-size: 70px 52px;
   }
+
   &--contact-mail:hover::before {
     background-image: url(/images/mail_click@2x.png);
   }
@@ -84,6 +98,7 @@
 .radio-simulated {
   display: inline-flex;
   align-items: center;
+
   &__hidden {
     position: absolute;
     left: 0;
@@ -91,25 +106,30 @@
     width: 1rem;
     height: 1.25rem;
     opacity: 0;
-    &:checked ~ .radio-simulated__text::before {
+
+    &:checked~.radio-simulated__text::before {
       background-image: url(/images/radio_checked@2x.png);
     }
-    &:checked:focus ~ .radio-simulated__text::before {
+
+    &:checked:focus~.radio-simulated__text::before {
       background-image: url(/images/radio_checked_focus@2x.png);
     }
-    &:focus ~ .radio-simulated__text::before {
+
+    &:focus~.radio-simulated__text::before {
       background-image: url(/images/radio_focus@2x.png);
     }
   }
+
   &__text {
     display: flex;
     align-items: center;
+
     &::before {
       content: "";
-			display: block;
-			width: 18px;
-			height: 18px;
-			background-size: 18px 18px;
+      display: block;
+      width: 18px;
+      height: 18px;
+      background-size: 18px 18px;
       background-image: url(/images/radio@2x.png);
       margin-right: 5px;
     }
@@ -120,12 +140,14 @@
   display: flex;
   width: 100%;
   margin-bottom: 12px;
+
   &__left {
     flex: 0 0 150px;
     text-align: right;
     padding-right: 10px;
     line-height: 34px;
   }
+
   &__right {
     flex-grow: 1;
   }
@@ -134,6 +156,7 @@
 .search-actions {
   display: flex;
   justify-content: center;
+
   .btn {
     margin: 0 12px;
   }
@@ -145,6 +168,7 @@
   align-items: center;
   height: 30vh;
   width: 100%;
+
   svg {
     width: 100px;
     height: 100px;
@@ -155,6 +179,7 @@
 @media screen and (max-width: 767px) {
   .search-block {
     flex-direction: column;
+
     &__left {
       flex: 0 0 auto;
       text-align: left;
@@ -163,20 +188,25 @@
 }
 
 @media screen and (max-width: 540px) {
-	.search-actions {
+  .search-actions {
     .btn {
       margin: 0 5px;
     }
   }
 }
 
-@media screen and (max-width: 420px) {
-  .btn--search, .btn--clear, .btn--donate {
+@media screen and (max-width: 505px) {
+
+  .btn--search,
+  .btn--clear,
+  .btn--donate {
     background-image: none;
     padding: 8px 15px;
   }
+
   .search-actions {
     flex-direction: column;
+
     .btn {
       margin: 0 0 10px;
     }
