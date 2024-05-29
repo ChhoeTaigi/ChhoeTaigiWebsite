@@ -76,8 +76,8 @@ export default class Word extends Component {
         let linkHtml = []
 
         if (dicString === DictNames.DICT_2002_TAIHOA_SOANNTENG_SUTIAN) {
-            const fullPageString = "http://ip194097.ntcu.edu.tw/q/THq.asp?w=" + pageString
-            linkHtml.push(<a href={fullPageString} target='_blank'>{fullPageString}</a>);
+            // const fullPageString = "http://ip194097.ntcu.edu.tw/q/THq.asp?w=" + pageString
+            // linkHtml.push(<a href={fullPageString} target='_blank'>{fullPageString}</a>);
         } else if (dicString === DictNames.DICT_2011_KAUIOKPOO_SUTIAN) {
             const fullPageString = "https://sutian.moe.edu.tw/und-hani/tshiau/?lui=tai_su&tsha=" + pageString
             linkHtml.push(<a href={fullPageString} target='_blank'>{fullPageString}</a>);
