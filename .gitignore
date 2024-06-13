@@ -1,4 +1,6 @@
 node_modules/
 .vscode/
-chhoetaigiwebsite-*.json
 .DS_Store
+
+chhoetaigiwebsite-*.json
+postgres/secrets

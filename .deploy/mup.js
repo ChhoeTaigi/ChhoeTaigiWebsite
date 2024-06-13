@@ -1,14 +1,13 @@
 module.exports = {
   servers: {
     one: {
-      host: '144.126.241.121',
-      username: 'root',
-      pem: "~/.ssh/digitalocean",
+      host: '20.2.117.245',
+      username: 'ngoohebi',
+      pem: "~/.ssh/chhoetaigi-v1-20240606_key.pem",
     }
   },
 
   app: {
-    // TODO: change app name and path
     name: 'ChhoeTaigi',
     path: '../',
 
@@ -21,8 +20,6 @@ module.exports = {
     },
 
     env: {
-      // TODO: Change to your app's url
-      // If you are using ssl, it needs to start with https://
       ROOT_URL: 'https://chhoe.taigi.info',
       // MONGO_URL: 'mongodb://localhost/meteor',
       // MONGO_OPLOG_URL: 'mongodb://mongodb/local'
@@ -30,6 +27,7 @@ module.exports = {
     },
 
     docker: {
+      // https://meteor-up.com/docs#meteor-support
       image: 'zodern/meteor:root',
     },
 

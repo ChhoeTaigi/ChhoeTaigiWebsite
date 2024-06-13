@@ -1,5 +1,5 @@
 const Constants = {
-    HOST: '10.104.0.2',
+    HOST: '10.0.0.4',
     HOST_LOCAL: '127.0.0.1',
 
     /*

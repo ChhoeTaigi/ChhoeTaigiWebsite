@@ -1,0 +1,35 @@
+# run: docker compose up -d
+
+services:
+  postgres:
+    container_name: postgres
+    image: postgres
+    environment:
+      POSTGRES_USER_FILE: /run/secrets/pguser
+      POSTGRES_PASSWORD_FILE: /run/secrets/pguserpasswd
+      PGDATA: /data/postgres
+    volumes:
+       - postgres:/data/postgres
+    ports:
+      - "5432:5432"
+    networks:
+      chhoetaigi-network:
+        aliases:
+          - postgresdb
+    restart: unless-stopped
+    secrets:
+       - pguser
+       - pguserpasswd
+
+networks:
+  chhoetaigi-network:
+    name: chhoetaigi-network
+
+volumes:
+    postgres:
+
+secrets:
+  pguser:
+    file: ./secrets/pguser.txt
+  pguserpasswd:
+    file: ./secrets/pguserpasswd.txt

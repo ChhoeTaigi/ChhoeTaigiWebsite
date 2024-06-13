@@ -3,8 +3,9 @@ import constants from '../constants/constants';
 
 let postgres;
 if (Meteor.isServer) {
-    if (Meteor.isProduction) {
+  if (Meteor.isProduction) {
     postgres = knex({
+      debug: true,
       client: 'pg',
       connection: {
         host: constants.HOST,
@@ -16,7 +17,7 @@ if (Meteor.isServer) {
   } else {
     postgres = knex({
       client: 'pg',
-      // debug: true,
+      debug: true,
       connection: {
         host: constants.HOST_LOCAL,
         database: constants.PG_DEFAULT_DATABASE,
