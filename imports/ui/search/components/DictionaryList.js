@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
 import { Link, withRouter } from 'react-router-dom';
+import { withCookies } from 'react-cookie';
 import { withLocalize } from "react-localize-redux";
 import { Translate } from "react-localize-redux";
 
@@ -10,17 +11,22 @@ import dicStruct from '../../../api/dicts/dictionary-struct';
 import BriefWord from './BriefWord';
 
 import { LoadingIndicator } from './LoadingIndicator';
+import { setLayout, getLayout } from '../../../api/utils/layout';
 
 class DictionaryList extends Component {
     constructor(props) {
         super(props);
 
         props.addTranslation(resultsTranslations);
-        
+        const { cookies } = props;
+
         this.state = {
-            gotResult: false
+            gotResult: false,
+            layout: getLayout(cookies),
+            cookies: cookies
         };
 
+        this.layoutApply(this.state.layout);
         this.handleScroll = this.handleScroll.bind(this);
     }
 
@@ -39,7 +45,8 @@ class DictionaryList extends Component {
 
     handleScroll() {
         const sticky = document.getElementsByClassName('search-result__dic-list')[0];
-        const stickyYPosition = parseInt(getComputedStyle(sticky).top.replace('px', ''));
+        const stickyYPosition = document.getElementsByClassName('site-header')[0].offsetHeight;
+        sticky.style.top = stickyYPosition + 'px';
         if (sticky.getBoundingClientRect().top === stickyYPosition) {
             sticky.classList.add('pinned');
         }
@@ -67,6 +74,22 @@ class DictionaryList extends Component {
         });
 
         event.preventDefault();
+    }
+
+    layoutChange(event) {
+        const layout = event.target.value;
+        setLayout(this, layout);
+
+        this.layoutApply(layout);
+    }
+
+    layoutApply(layout) {
+        if (layout === 'old') {
+            document.body.classList.add('fixed-width');
+        }
+        else {
+            document.body.classList.remove('fixed-width');
+        }
     }
 
     render() {
@@ -137,6 +160,10 @@ class DictionaryList extends Component {
 
         return (
             <div className='search-result search-result--list'>
+                <div className='layout-select'>
+                    <button id='layout-new' className={this.state.layout === 'new' ? 'active' : ''} value='new' onClick={this.layoutChange.bind(this)}>NEW</button>
+                    <button id='layout-old' className={this.state.layout === 'old' ? 'active' : ''} value='old' onClick={this.layoutChange.bind(this)}>OLD</button>
+                </div>
                 <div className='container'>
                     <div className='search-result__query'>
                         <Translate id='keyowrd' />：{keywords}
@@ -159,7 +186,7 @@ class DictionaryList extends Component {
     }
 }
 
-export default withLocalize(withRouter(DictionaryList));
+export default withCookies(withLocalize(withRouter(DictionaryList)));
 
 class DictionaryBrief extends Component {
     constructor(props) {
@@ -186,15 +213,7 @@ class DictionaryBrief extends Component {
     toggleDicContent(event) {
         let currentHeader = event.currentTarget;
         if (window.getComputedStyle(currentHeader).display === 'flex') {
-            if (currentHeader.classList.contains('active')) {
-                currentHeader.classList.remove('active');
-            }
-            else {
-                document.querySelectorAll('.dic-block__header').forEach(function(el) {
-                    el.classList.remove('active');
-                });
-                currentHeader.classList.add('active');
-            }
+            currentHeader.classList.toggle('active');
         }
     }
 
