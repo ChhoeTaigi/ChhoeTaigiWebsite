@@ -9,9 +9,11 @@ const DictNames = {
     DICT_1976_MARYKNOLL_TAIENG_SUTIAN: "MaryknollTaiengSutian",
     DICT_1979_MARYKNOLL_ENGTAI_SUTIAN: "MaryknollEngtaiSutian",
     DICT_2002_TAIHOA_SOANNTENG_SUTIAN: "TaihoaSoanntengSutian",
-    DICT_2009_TJ_TAIGI_PEHOE_SIOSUTIAN_SEKIN: "TJTaigiPehoeSioSutianSekin",
+    DICT_2009_TJ_TAIGI_PEHOE_SIO_SUTIAN: "TJTaigiPehoeSioSutian",
     DICT_2011_KAUIOKPOO_SUTIAN: "KauiokPooSutian",
     DICT_2016_ITAIGI: "ITaigi",
+    DICT_2022_CHOANBIN_TAIGI_JINCHENG_GISU_HUNKIP_POTIAN: "ChoanbinTaigiJinchengGisuHunkipPotian",
+    DICT_2023_KOAACHHEH_SIO_SU_TIAN: "KoaachhehSioSuTian",
     DICT_CHHOETAIGI_CHENGPOO_SUTIAN: "ChhoetaigiChengpooSutian",
     DICT_TAIOAN_BUNHAK_TUCHOK_SEKIN: "TaioanBunhakTuchokSekin",
     DICT_SOANNTENG_MUITHE_SEKIN: "SoanntengMuitheSekin"

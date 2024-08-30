@@ -29,15 +29,15 @@
     ],
     "definition-lmj-kip": [
         "教部羅",
-        "Bân Lô",
+        "Tâi Tâi Lô",
         "教部羅",
         "MoE Roman",
         "教部羅"
     ],
     "definition-lmj-kip-kaisoeh": [
-        "教部羅（教育部羅馬字拼音，全名叫做中華民國教育部臺灣閩南語羅馬字拼音方案。在來民間台語文運動慣勢叫白話字做「台灣羅馬字」，簡稱「台羅」，教部羅主張簡稱「台羅」這ê名hâm民間傳統有衝突，咱無beh使用。",
-        "Bân Lô (Tiong-hoa Bîn-kok Kàu-io̍k-pō͘ Tâi-oân Bân-lâm-gí Lô-má-jī Pheng-im Hong-àn).",
-        "教部羅（教育部羅馬字拼音，全名是中華民國教育部臺灣閩南語羅馬字拼音方案。傳統民間台語文運動已經習慣將白話字叫做「台灣羅馬字」，簡稱「台羅」，教部羅主張簡稱「台羅」這個名稱和民間傳統有衝突，所以不使用。",
+        "教部羅（教育部羅馬字拼音，全名叫做中華民國教育部臺灣台語羅馬字拼音方案。在來民間台語文運動慣勢叫白話字做「台灣羅馬字」，簡稱「台羅」，教部羅主張簡稱「台羅」這ê名hâm民間傳統有衝突，咱無beh使用。",
+        "\"中華民國教育部臺灣台語羅馬字拼音方案\".",
+        "教部羅（教育部羅馬字拼音，全名是中華民國教育部臺灣台語羅馬字拼音方案。傳統民間台語文運動已經習慣將白話字叫做「台灣羅馬字」，簡稱「台羅」，教部羅主張簡稱「台羅」這個名稱和民間傳統有衝突，所以不使用。",
         "MoE (Ministry of Education) romanization pinyin system.",
         "教部羅（教育部ローマ字ピンイン）。"
     ],
@@ -104,34 +104,6 @@
         "Roman Taigi:",
         "ローマ字台湾語："
     ],
-    "lmj-poj": [
-        "白話字",
-        "POJ",
-        "白話字",
-        "POJ",
-        "POJ"
-    ],
-    "lmj-poj-kaisoeh": [
-        "白話字（Pe̍h-ōe-jī），台灣傳統台語正寫法（orthography, writing system），tī台灣釘根超過150冬，台語文獻數量siōng chē。",
-        "POJ (Pe̍h-ōe-jī), Tâi-oân thoân-thóng Tâi-gí chèng-siá-hoat. Tī Tâi-oân tèng-kin chhiau-kòe 150 tang. Tâi-gí bûn-hiàn sò͘-liōng siōng chē.",
-        "白話字（Pe̍h-ōe-jī​），台灣傳統台語正寫法（orthography, writing system），在台灣釘根超過150年，台語文獻數量最多。",
-        "POJ (Pe̍h-ōe-jī). Taiwan’s traditional Taiwanese orthography (writing system), has been rooted in Taiwan for more than 150 years and has the largest number of Taiwanese documents.",
-        "POJ（Pe̍h-ōe-jī），台湾の伝統的な台湾ローマ字、は 150 年以上にわたって台湾に根付いており、台湾の文献の数は最も多いです。"
-    ],
-    "lmj-kip": [
-        "教部羅",
-        "Bân Lô",
-        "教部羅",
-        "MoE Roman",
-        "教部羅"
-    ],
-    "lmj-kip-kaisoeh": [
-        "教部羅（教育部羅馬字拼音，全名叫做中華民國教育部臺灣閩南語羅馬字拼音方案。在來民間台語文運動慣勢叫白話字做「台灣羅馬字」，簡稱「台羅」，教部羅主張簡稱「台羅」這ê名hâm民間傳統有衝突，咱無beh使用。",
-        "Bân Lô (Tiong-hoa Bîn-kok Kàu-io̍k-pō͘ Tâi-oân Bân-lâm-gí Lô-má-jī Pheng-im Hong-àn).",
-        "教部羅（教育部羅馬字拼音，全名是中華民國教育部臺灣閩南語羅馬字拼音方案。傳統民間台語文運動已經習慣將白話字叫做「台灣羅馬字」，簡稱「台羅」，教部羅主張簡稱「台羅」這個名稱和民間傳統有衝突，所以不使用。",
-        "MoE (Ministry of Education) romanization pinyin system.",
-        "教部羅（教育部ローマ字ピンイン）。"
-    ],
     "poj-input": [
         "白話字(輸入式)",
         "POJ (Su-ji̍p)",
@@ -148,7 +120,7 @@
     ],
     "lmj-input": [
         "教部羅(輸入式)",
-        "Bân Lô (Su-ji̍p)",
+        "Tâi Tâi Lô (Su-ji̍p)",
         "教部羅(輸入式)",
         "MoE Roman (Input)",
         "教部羅(記号なし)"
@@ -176,7 +148,7 @@
     ],
     "lmj": [
         "教部羅",
-        "Bân Lô",
+        "Tâi Tâi Lô",
         "教部羅",
         "MoE Roman",
         "教部羅"

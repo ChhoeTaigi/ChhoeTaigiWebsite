@@ -92,6 +92,13 @@
 	height: 50px;
 }
 
+.site-footer__copyright-text {
+	display: flex;
+	justify-content: center;
+	margin-top: 10px;
+	font-size: 10px;
+}
+
 @media screen and (min-width: 680px) {
 	.site-footer__status-site {
 		text-align: right;
@@ -113,5 +120,9 @@
 	.site-footer__sponsors-logo {
 		flex-direction: column;
 		align-items: center;
+	}
+
+	.site-footer__copyright-text {
+		font-size: 6px;
 	}
 }

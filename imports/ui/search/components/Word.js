@@ -49,8 +49,12 @@ export default class Word extends Component {
     generateStoreLink = (dicString) => {
         let linkHtml = []
 
-        if (dicString === DictNames.DICT_2009_TJ_TAIGI_PEHOE_SIOSUTIAN_SEKIN) {
+        if (dicString === DictNames.DICT_2009_TJ_TAIGI_PEHOE_SIO_SUTIAN) {
             linkHtml.push(<a href='https://www.pcstore.com.tw/haiang/M19279123.htm' target='_blank'>亞細亞國際傳播社：TJ台語白話小詞典</a>);
+        } else if (dicString === DictNames.DICT_2022_CHOANBIN_TAIGI_JINCHENG_GISU_HUNKIP_POTIAN) {
+            linkHtml.push(<a href='https://www.pcstore.com.tw/haiang/M83716110.htm' target='_blank'>亞細亞國際傳播社：全民台語認證語詞分級寶典（加強版）</a>);
+        } else if (dicString === DictNames.DICT_2023_KOAACHHEH_SIO_SU_TIAN) {
+            linkHtml.push(<a href='https://www.govbooks.com.tw/books/139855' target='_blank'>國立臺灣文學館：歌仔冊小事典(上)(下)、歌仔冊常用臺語韻腳小詞典</a>);
         } else {
             linkHtml.push("");
         }

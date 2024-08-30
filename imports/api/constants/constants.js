@@ -8,7 +8,7 @@ const Constants = {
         GRANT SELECT ON ALL TABLES IN SCHEMA public TO chhoetaigi;
         GRANT SELECT ON ALL SEQUENCES IN SCHEMA public TO chhoetaigi;
     */
-    PG_DEFAULT_DATABASE: 'sutian20230622',
+    PG_DEFAULT_DATABASE: 'sutian20240830',
     PG_USER: 'chhoetaigi',
     PG_PSWD: 'chhoe7tai5gi2'
 }

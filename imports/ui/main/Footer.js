@@ -98,6 +98,9 @@ class Footer extends Component {
                         </Link>
                     </div>
                 </div>
+                <div className='container site-footer__copyright-text'>
+                    <Translate id='copyright' />
+                </div>
             </footer>
         );
     }

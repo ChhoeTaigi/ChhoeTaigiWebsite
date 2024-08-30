@@ -326,7 +326,7 @@ module.exports = [
         }
     },
     {
-        name: DictNames.DICT_2009_TJ_TAIGI_PEHOE_SIOSUTIAN_SEKIN,
+        name: DictNames.DICT_2009_TJ_TAIGI_PEHOE_SIO_SUTIAN,
         chineseName: '2009 TJ台語白話小詞典(索引)',
         brief: {
             PojUnicode: '白話字',
@@ -428,6 +428,63 @@ module.exports = [
         }
     },
     {
+        name: DictNames.DICT_2022_CHOANBIN_TAIGI_JINCHENG_GISU_HUNKIP_POTIAN,
+        chineseName: '2022 全民台語認證語詞分級寶典(索引)',
+        brief: {
+            PojUnicode: '白話字',
+            KipUnicode: '教部羅',
+            HanLoTaibunPoj: '漢羅',
+            SuBeSoatbeng: '看原冊',
+        },
+        briefWidth: {
+            PojUnicode: '220px',
+            PojUnicodeOthers: '220px',
+            LmjUnicode: '210px',
+            SuBeSoatbeng: '200px',
+        },
+        columns: {
+            DictWordID: '番號',
+            SuBe: '詞碼',
+            PojUnicode: '白話字',
+            PojInput: '白話字(輸入式)',
+            KipUnicode: '教部羅',
+            KipInput: '教部羅(輸入式)',
+            HanLoTaibunPoj: '漢羅',
+            SuBeSoatbeng: '看原冊',
+            ChhoetaigiPhianChu: 'ChhoeTaigi編註',
+            StoreLink: '來去買冊',
+        }
+    },
+    {
+        name: DictNames.DICT_2023_KOAACHHEH_SIO_SU_TIAN,
+        chineseName: '2023 歌仔冊小事典(索引)',
+        brief: {
+            PojUnicode: '白話字',
+            KipUnicode: '教部羅',
+            HanLoTaibunPoj: '漢羅',
+            SuBeSoatbeng: '看原冊',
+        },
+        briefWidth: {
+            PojUnicode: '200px',
+            PojUnicodeOthers: '200px',
+            LmjUnicode: '210px',
+            SuBeSoatbeng: '240px',
+        },
+        columns: {
+            DictWordID: '番號',
+            SuBe: '詞碼',
+            PojUnicode: '白話字',
+            PojInput: '白話字(輸入式)',
+            KipUnicode: '教部羅',
+            KipInput: '教部羅(輸入式)',
+            HanLoTaibunPoj: '漢羅',
+            SuBeSoatbeng: '看原冊',
+            ChhoetaigiPhianChu: 'ChhoeTaigi編註',
+            LaigoanMia: '資料來源',
+            StoreLink: '來去買冊',
+        }
+    },
+    {
         name: DictNames.DICT_CHHOETAIGI_CHENGPOO_SUTIAN,
         chineseName: 'ChhoeTaigi增補辭典',
         brief: {
@@ -465,7 +522,7 @@ module.exports = [
             PojUnicode: '白話字',
             KipUnicode: '教部羅',
             ChhehMia: '冊名',
-            SuBeSoatbeng: '所在',
+            SuBeSoatbeng: '看原冊',
         },
         briefWidth: {
             PojUnicode: '200px',
@@ -481,7 +538,7 @@ module.exports = [
             KipUnicode: '教部羅',
             KipInput: '教部羅(輸入式)',
             HanLoTaibunPoj: '漢羅',
-            SuBeSoatbeng: '所在',
+            SuBeSoatbeng: '看原冊',
             ChhoetaigiPhianChu: 'ChhoeTaigi編註',
             ChhehMia: '冊名',
             PageNumber: '掀原冊(頁)',
