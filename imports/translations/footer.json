@@ -14,25 +14,25 @@
     "クエリ数"
   ],
   "word_count_desc": [
-    "ChhoeTaigi台語辭典⁺ 語詞總數：508518",
-    "ChhoeTaigi gí-sû chóng-sǹg: 508518",
-    "ChhoeTaigi 台語辭典⁺ 語詞總數：508518",
-    "ChhoeTaigi total words: 508518",
-    "ChhoeTaigi 台語辭典⁺ 総単語数: 508518"
+    "ChhoeTaigi台語辭典⁺ 語詞總數：519435",
+    "ChhoeTaigi gí-sû chóng-sǹg: 519435",
+    "ChhoeTaigi 台語辭典⁺ 語詞總數：519435",
+    "ChhoeTaigi total words: 519435",
+    "ChhoeTaigi 台語辭典⁺ 総単語数: 519435"
   ],
   "word_jitpunsitai_desc": [
-    "Hâm日本時代語詞集：10。語詞總數：25596",
-    "Hâm Ji̍t-pún sî-tāi gí-sû chi̍p: 10. Total words: 25596",
-    "含日本時代詞語集：10。語詞總數：25596",
-    "Japanese era dataset: 10. Total words: 25596",
-    "日本統治時代データセット：10。総単語数：25596"
+    "Hâm日本時代語詞集：10。語詞總數：25686",
+    "Hâm Ji̍t-pún sî-tāi gí-sû chi̍p: 10. Total words: 25686",
+    "含日本時代詞語集：10。語詞總數：25686",
+    "Japanese era dataset: 10. Total words: 25686",
+    "日本統治時代データセット：10。総単語数：25686"
   ],
   "book_index_desc": [
-    "Hâm紙冊索引：1。語詞總數：21251",
-    "Hâm chóa chheh sek-ín: 1. Total words: 21251",
-    "含紙本書索引：1。語詞總數：21251",
-    "Paper book index: 1. Total words: 21251",
-    "紙の本のインデックス：1。総単語数：21251"
+    "Hâm紙冊索引：3。語詞總數：32168",
+    "Hâm chóa chheh sek-ín: 3. Total words: 32168",
+    "含紙本書索引：3。語詞總數：32168",
+    "Paper book index: 3. Total words: 32168",
+    "紙の本のインデックス：3。総単語数：32168"
   ],
   "web_index_desc": [
     "Hâm線頂媒體索引：6。語詞總數：11500",

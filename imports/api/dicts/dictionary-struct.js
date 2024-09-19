@@ -239,7 +239,7 @@ module.exports = [
     },
     {
         name: DictNames.DICT_1976_MARYKNOLL_TAIENG_SUTIAN,
-        chineseName: '1976 Maryknoll台英辭典',
+        chineseName: '1976⁺ Maryknoll台英辭典',
         brief: {
             PojUnicode: '白話字',
             KipUnicode: '教部羅',
@@ -267,7 +267,7 @@ module.exports = [
     },
     {
         name: DictNames.DICT_1979_MARYKNOLL_ENGTAI_SUTIAN,
-        chineseName: '1979 Maryknoll英台辭典',
+        chineseName: '1979⁺ Maryknoll英台辭典',
         brief: {
             PojUnicode: '白話字',
             KipUnicode: '教部羅',
@@ -511,7 +511,7 @@ module.exports = [
             JitBun: '對應日文',
             HoaBun: '對應中文',
             ChhoetaigiPhianChu: 'ChhoeTaigi編註',
-            LaigoanMia: '資料來源',
+            LaigoanMia: '原頭',
             LaigoanBangchi: '網址',
         }
     },
@@ -573,7 +573,7 @@ module.exports = [
             SoanntengMuitheSekinPoochhiongChuliau: '補充資料',
             ChhoetaigiPhianChu: 'ChhoeTaigi編註',
             SoanntengMuitheSekinHongsangJitki: '放送日期',
-            LaigoanMia: '媒體名',
+            LaigoanMia: '媒體',
             LaigoanBangchi: '網址',
         }
     },
