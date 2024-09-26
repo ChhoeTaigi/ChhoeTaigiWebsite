@@ -1,5 +1,6 @@
 import { Meteor } from "meteor/meteor";
 import { WebApp } from "meteor/webapp";
+import { encode } from "js-base64";
 import dicStruct from "../../api/dicts/dictionary-struct";
 
 /**
@@ -29,19 +30,34 @@ function sendOgTagsOnly(req, res, next) {
       return;
     }
     const [word] = result;
-    const title = `${[word.PojUnicode, word.HanLoTaibunPoj]
+    const heading = [word.PojUnicode, word.HanLoTaibunPoj]
       .filter(Boolean)
-      .join(" ")} @ ${struct.chineseName} | ChhoeTaigi 台語辭典⁺`;
-    const description = [
+      .join(" ");
+    const title = `${heading} @ ${struct.chineseName} | ChhoeTaigi 台語辭典⁺`;
+    const descriptionList = [
       word.KaisoehPoj,
       word.KaisoehHanLoPoj,
       word.KaisoehJitbunPoj,
       word.KaisoehEngbun,
     ]
-      .filter(Boolean)
-      .join(" $ ");
+      .filter(Boolean);
+    const description = descriptionList.join(" $ ");
     const url = `https://chhoe.taigi.info/${dic}/${id}`;
-    const image = "https://chhoe.taigi.info/preview.jpg";
+
+    const slug = encodeURIComponent(
+      encode(
+        JSON.stringify({
+          fontFamily: "Noto Sans",
+          fontVariant: 600,
+          // ------------------------
+          imageUri: "https://chhoe.taigi.info/images/logo@2x.png",
+          heading,
+          text: descriptionList.join("\n"),
+          footerText: `${struct.chineseName}\n${url}`,
+        })
+      )
+    );
+    const image = `https://oeanga.vercel.app/0e9893b7-bd9f-4ebc-beb8-f7dfc1d90463/${slug}/opengraph-image`;
 
     const html = `
 <!html>
